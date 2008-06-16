@@ -2,7 +2,7 @@ package org.tmjee.miniwiki.core;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.tmjee.miniwiki.service.SetupService;
+import org.tmjee.miniwiki.core.service.SetupService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

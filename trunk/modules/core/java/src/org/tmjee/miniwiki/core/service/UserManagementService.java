@@ -1,4 +1,4 @@
-package org.tmjee.miniwiki.service;
+package org.tmjee.miniwiki.core.service;
 
 import org.tmjee.miniwiki.client.domain.*;
 import org.tmjee.miniwiki.client.server.PagingInfo;
@@ -49,7 +49,7 @@ public class UserManagementService {
         });
 
         if (authenticated) {
-            org.tmjee.miniwiki.domain.User _user = (org.tmjee.miniwiki.domain.User) template.execute(new JpaCallback() {
+            org.tmjee.miniwiki.core.domain.User _user = (org.tmjee.miniwiki.core.domain.User) template.execute(new JpaCallback() {
                 public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                     Query query = entityManager.createNamedQuery("getUserByUsername_full");
                     return query.getSingleResult();

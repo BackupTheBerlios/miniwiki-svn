@@ -5,6 +5,7 @@ import com.sun.corba.se.internal.CosNaming.BootstrapServer;
 import org.tmjee.miniwiki.client.server.UserManagementService;
 import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.client.domain.*;
+import org.tmjee.miniwiki.core.Bootstrap;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ import java.util.List;
 public class UserManagementServiceImpl extends RemoteServiceServlet implements UserManagementService {
 
     public Credentials authenticate(String username, String password) {
+        //Bootstrap.getInstance().
         return null;    
     }
 

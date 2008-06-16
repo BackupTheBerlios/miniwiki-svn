@@ -18,7 +18,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
  */
-package org.tmjee.miniwiki.mapping;
+package org.tmjee.miniwiki.core.mapping;
 
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
@@ -99,7 +99,7 @@ public class BeanMapping {
      * @throws java.lang.InstantiationException
      * @throws java.lang.IllegalAccessException
      * @throws java.lang.reflect.InvocationTargetException
-     * @throws org.tmjee.miniwiki.mapping.MappingException
+     * @throws org.tmjee.miniwiki.core.mapping.MappingException
      * @return An object of the appropriate mapped type.
      */
     public static Object convert(Properties mappings, Object bean)

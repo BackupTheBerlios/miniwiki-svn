@@ -1,4 +1,4 @@
-package org.tmjee.miniwiki.spring.beans.factory;
+package org.tmjee.miniwiki.core.spring.factory;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.tmjee.miniwiki.core.MiniWikiConfig;

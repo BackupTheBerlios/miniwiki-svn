@@ -1,12 +1,10 @@
-package org.tmjee.miniwiki.domain;
+package org.tmjee.miniwiki.core.domain;
 
-import org.apache.openjpa.persistence.PersistentCollection;
 import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.

@@ -16,213 +16,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\SourcesCredentialEvents.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\TemplateDisplayWidget.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/TemplateDisplayWidget.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\GroupTableWidget.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/GroupTableWidget.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/test/src/org" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\EventObject.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/beans/EventObject.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\ObjectHoldableButton.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/test/src" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\test\src\org\tmjee\miniwiki\client\MyTest.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\styles.css" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/public" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/public" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/widgets" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/server" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/server" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/utils" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/utils" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/test/src/org/tmjee/miniwiki" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\UserProperty.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\GroupDetailsPopupPanel.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/test/src/org" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\SourcesMessageEvents.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\MessageDisplayWidget.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\server\LoadTemplateServiceImpl.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\images\tab.gif" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/public/images/tab.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/conf/webinfo" afterPath="$PROJECT_DIR$/modules/core/conf/webinfo" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\server\UserManagementServiceImpl.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat/conf/tomcat-users.xml" afterPath="$PROJECT_DIR$/tomcat/conf/tomcat-users.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/handlers" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/widgets" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/test/resources" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\Event.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\Users.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\service\Myself.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\utils\MutableInteger.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/utils/MutableInteger.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\UserManagementServiceAsync.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\utils\MutableInteger.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\PropertyDetailsPopupPanel.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\SpaceTemplateInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/build/java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\server\UserManagementServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/build/dist" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\handlers\PageHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\MiniWiki.html" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\MiniWiki.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/MiniWiki.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\images\bg_gradient.gif" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/service/Myself.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/service/Myself.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\handlers\AbstractHandler.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/handlers/AbstractHandler.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\CredentialsEvent.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/events/CredentialsEvent.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\CredentialListener.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\PageTemplateInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\ivy.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\PagingInfo.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/PagingInfo.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/domain" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\PropertyListener.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\components\Parameterizable.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/testing/JpaTest.java" afterPath="$PROJECT_DIR$/modules/core/java/src/testing/JpaTest.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\UserTableWidget.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/UserTableWidget.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\service\Service.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\images\bg_listgradient.gif" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/public/images/bg_listgradient.gif" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\CredentialsEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/conf/metainfo" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.properties" afterPath="$PROJECT_DIR$/build.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/User.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/User.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\MessageEventListener.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\UserManagementService.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\Property.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\handlers\SpaceHandler.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/handlers/SpaceHandler.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\SourcesEventsSupport.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\LoginPopupPanel.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\Group.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\ResponsePagingInfo.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/ResponsePagingInfo.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\UserDetailsPopupPanel.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/UserDetailsPopupPanel.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\PropertySupport.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/beans/PropertySupport.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\build.properties" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/service" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/service" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\web.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\GroupTableWidget.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/build/java/classes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\components\Parameterizable.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/components/Parameterizable.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\GroupManagementPopupPanel.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\handlers\PageHandler.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/handlers/PageHandler.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\TemplateInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/lib" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\PropertyDetailsPopupPanel.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/PropertyDetailsPopupPanel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/handlers" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/handlers" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\UserManagementServiceAsync.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/UserManagementServiceAsync.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\handlers\WikiHandler.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/handlers/WikiHandler.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\ResponsePagingInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/domain" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\IdHoldableCheckBox.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\Groups.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/Groups.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/build.properties" afterPath="$PROJECT_DIR$/modules/core/build.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/service/UserManagementService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/service/UserManagementService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ivy.xml" afterPath="$PROJECT_DIR$/ivy.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/public" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\handlers\SpaceHandler.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/radeox/ivy.xml" afterPath="$PROJECT_DIR$/modules/radeox/ivy.xml" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\SourcesCredentialEvents.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/events/SourcesCredentialEvents.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\handlers\WikiHandler.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/build.xml" afterPath="$PROJECT_DIR$/modules/core/build.xml" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\conf\metainfo\manifestfile.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\MessageEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/conf" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\SpaceTemplateInfo.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/SpaceTemplateInfo.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\LoadingMessageDisplayWidget.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\handlers\Handler.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/radeox/java/radeox.iml" afterPath="$PROJECT_DIR$/modules/radeox/java/radeox.iml" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\images\bg_suggestgradient.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\Constants.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/ivy.xml" afterPath="$PROJECT_DIR$/modules/core/ivy.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\handlers\AbstractHandler.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\MiniWiki.html" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/public/MiniWiki.html" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\MiniWiki.gwt.xml" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/MiniWiki.gwt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/server" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/LoadTemplateServiceImpl.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/LoadTemplateServiceImpl.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\build.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\User.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/User.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/MiniWikiConfig.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\images\bg_listgradient.gif" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/test/src/org/tmjee/miniwiki/client" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\AssignGroupPopupPanel.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\PropertyDeletionEvent.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/beans/PropertyDeletionEvent.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\Bootstrap.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\UserTableWidget.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\Property.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/Property.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/UserProperty.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Page.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/PagePriviledgeValue.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\spring\beans\factory\MiniWikiConfigFactoryBean.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/resources/persistence.xml" afterPath="$PROJECT_DIR$/modules/core/java/resources/persistence.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/spring/beans/factory" afterPath="" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Attachment.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Space.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/WikiProperty.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\UserProperty.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/User.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\WikiPriviledgeValue.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/resources/beansMappings.xml" afterPath="$PROJECT_DIR$/modules/core/java/resources/beansMappings.xml" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\theme\default" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/SpacePriviledge.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/spring/beans" afterPath="" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\security\Priviledges.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/security/Priviledges.java" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\service\SetupService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/service/SetupService.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\PagePriviledgeValue.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/spring/factory/MiniWikiConfigFactoryBean.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/WikiPriviledge.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/domain" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/PreviousVersion.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\GroupProperty.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Space.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/theme" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Queries.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/mapping" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/mapping" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Wiki.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/GroupProperty.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/spring" afterPath="" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\PreviousVersion.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Group.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\SpacePriviledgeValue.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/SpaceProperty.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\WikiPriviledge.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\SpacePriviledge.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/miniwiki.iws" afterPath="$PROJECT_DIR$/miniwiki.iws" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\EventObject.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\MessageEventListener.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/events/MessageEventListener.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\UserManagementPopupPanel.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\MiniWiki.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/core.iml" afterPath="$PROJECT_DIR$/modules/core/java/core.iml" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\LoadTemplateService.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/test/src/org/tmjee/miniwiki/client/MyTest.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\ObjectHoldableCheckBox.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\components\Components.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/events" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\images\tab.gif" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/components" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/components" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\SourcesPropertyChangeEvents.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/test/src/org/tmjee" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\Credentials.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\GroupManagementPopupPanel.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/GroupManagementPopupPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/Credentials.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/Credentials.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/conf/webinfo" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\MessageEvent.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/events/MessageEvent.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\Users.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/Users.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/resources" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/spring/beans/factory/MiniWikiConfigFactoryBean.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/spring/beans/factory/MiniWikiConfigFactoryBean.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\LoadingMessageDisplayWidget.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/LoadingMessageDisplayWidget.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\tomcat\temp\safeToDelete.tmp" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\LoadTemplateService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/LoadTemplateService.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\IndexedPropertyChangeEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\PropertyChangeEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\conf\webinfo\webfile.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/utils" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/components" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\Groups.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\MiniWiki.gwt.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/common.xml" afterPath="$PROJECT_DIR$/common/common.xml" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\WikiTemplateInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/test/src/org/tmjee/miniwiki/client" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/miniwiki.ipr" afterPath="$PROJECT_DIR$/miniwiki.ipr" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\MiniWikiConfig.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\UserProperty.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UserProperty.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\PropertySupport.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/events" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/events" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\TemplateDisplayWidget.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\PropertyDeletionEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/server" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\domain\User.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/radeox/build.properties" afterPath="$PROJECT_DIR$/modules/radeox/build.properties" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\server\LoadTemplateServiceImpl.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/LoadTemplateServiceImpl.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/test/src/org/tmjee" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\WikiTemplateInfo.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/WikiTemplateInfo.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/build" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/test/src/org/tmjee/miniwiki" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\PropertyAdditionEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/build/test" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\TemplateInfo.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/TemplateInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/public/images" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/public/images" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\public\images\bg_headergradient.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\PagingInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/beans" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\LoadTemplateServiceAsync.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/LoadTemplateServiceAsync.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/build/www" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\service\Myself.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/service/Myself.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\UserManagementService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/UserManagementService.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\PropertyAdditionEvent.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/beans/PropertyAdditionEvent.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\beans\PropertyListener.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/beans/PropertyListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/beans" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/beans" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\events\CredentialListener.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/events/CredentialListener.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/public/images" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\widgets\UserDetailsPopupPanel.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\components\Components.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/components/Components.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\web\java\src\org\tmjee\miniwiki\client\server\LoadTemplateServiceAsync.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/test" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/web/java/src/org/tmjee/miniwiki/client/service" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Attachment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Page.java" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\mapping\MappingException.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/mapping/MappingException.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\WikiProperty.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/resources/spring.xml" afterPath="$PROJECT_DIR$/modules/core/java/resources/spring.xml" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\PageProperty.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/WikiPriviledgeValue.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/PageProperty.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Queries.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/theme" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/spring/factory" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/PagePriviledge.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\PagePriviledge.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/service" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/service" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/spring" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/SpacePriviledgeValue.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Wiki.java" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\service\UserManagementService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/service/UserManagementService.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\User.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/theme/default" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/security" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/security" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Group.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\mapping\BeanMapping.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/mapping/BeanMapping.java" />
+      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\SpaceProperty.java" afterPath="" />
     </list>
     <ignored path="miniwiki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -313,15 +171,6 @@
         </entry>
       </file>
       <file leaf-file-name="ivy.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ivy.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="4" selection-start="540" selection-end="540" vertical-scroll-proportion="0.29423076">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ivy.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/core/ivy.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="18" column="31" selection-start="720" selection-end="720" vertical-scroll-proportion="0.5884615">
@@ -339,12 +188,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="80" column="42" selection-start="2699" selection-end="2699" vertical-scroll-proportion="0.5423077">
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserManagementServiceImpl.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="10" selection-start="729" selection-end="729" vertical-scroll-proportion="0.42698705">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bootstrap.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="13" selection-start="476" selection-end="476" vertical-scroll-proportion="-0.2569316">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spring.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/core/java/resources/spring.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="11" selection-start="2430" selection-end="2430" vertical-scroll-proportion="-0.33939394">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
@@ -383,15 +262,6 @@
                 <marker date="1213603796815" expanded="true" signature="7316:7386" placeholder="..." />
                 <marker date="1213603796815" expanded="true" signature="7531:7588" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ivy.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/radeox/ivy.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="46" selection-start="553" selection-end="553" vertical-scroll-proportion="0.38076922">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -516,118 +386,6 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\work" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\work\Catalina" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\webapps" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\webapps" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\webapps\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\webapps\miniwiki\WEB-INF" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\webapps" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\webapps\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\webapps\miniwiki\WEB-INF" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat\webapps\miniwiki\WEB-INF\classes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\repository" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
@@ -674,6 +432,68 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="miniwiki" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="miniwiki" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="miniwiki" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\resources" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
     </subPane>
   </component>
   <component name="ProjectReloadState">
@@ -707,7 +527,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.tmjee.miniwiki.core.theme" />
+      <recent name="org.tmjee.miniwiki.core.spring" />
       <recent name="org.tmjee.miniwiki.core" />
+      <recent name="org.tmjee.miniwiki.core.domain" />
     </key>
   </component>
   <component name="RunManager">
@@ -977,13 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="20" selection-start="697" selection-end="697" vertical-scroll-proportion="0.42698705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/core/build.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="0" selection-start="1285" selection-end="1318" vertical-scroll-proportion="0.53419596">
@@ -1052,6 +868,30 @@
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="80" column="42" selection-start="2699" selection-end="2699" vertical-scroll-proportion="0.5423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="13" selection-start="476" selection-end="476" vertical-scroll-proportion="-0.2569316">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/java/resources/spring.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="11" selection-start="2430" selection-end="2430" vertical-scroll-proportion="-0.33939394">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="10" selection-start="729" selection-end="729" vertical-scroll-proportion="0.42698705">
           <folding />
         </state>
       </provider>

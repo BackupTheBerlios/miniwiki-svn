@@ -1,4 +1,4 @@
-package org.tmjee.miniwiki.service;
+package org.tmjee.miniwiki.core.service;
 
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;

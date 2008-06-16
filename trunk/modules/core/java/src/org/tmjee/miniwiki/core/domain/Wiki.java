@@ -1,4 +1,4 @@
-package org.tmjee.miniwiki.domain;
+package org.tmjee.miniwiki.core.domain;
 
 import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;

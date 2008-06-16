@@ -7,23 +7,23 @@
     <persistence-unit name="miniWikiPersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <description>MiniWiki Persistence Unit</description>
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-        <class>org.tmjee.miniwiki.domain.Queries</class>
-        <class>org.tmjee.miniwiki.domain.Attachment</class>
-        <class>org.tmjee.miniwiki.domain.Group</class>
-        <class>org.tmjee.miniwiki.domain.GroupProperty</class>
-        <class>org.tmjee.miniwiki.domain.Page</class>
-        <class>org.tmjee.miniwiki.domain.PagePriviledge</class>
-        <class>org.tmjee.miniwiki.domain.PagePriviledgeValue</class>
-        <class>org.tmjee.miniwiki.domain.PageProperty</class>
-        <class>org.tmjee.miniwiki.domain.PreviousVersion</class>
-        <class>org.tmjee.miniwiki.domain.Space</class>
-        <class>org.tmjee.miniwiki.domain.SpacePriviledge</class>
-        <class>org.tmjee.miniwiki.domain.SpacePriviledgeValue</class>
-        <class>org.tmjee.miniwiki.domain.User</class>
-        <class>org.tmjee.miniwiki.domain.UserProperty</class>
-        <class>org.tmjee.miniwiki.domain.Wiki</class>
-        <class>org.tmjee.miniwiki.domain.WikiPriviledge</class>
-        <class>org.tmjee.miniwiki.domain.WikiPriviledgeValue</class>
+        <class>org.tmjee.miniwiki.core.domain.Queries</class>
+        <class>org.tmjee.miniwiki.core.domain.Attachment</class>
+        <class>org.tmjee.miniwiki.core.domain.Group</class>
+        <class>org.tmjee.miniwiki.core.domain.GroupProperty</class>
+        <class>org.tmjee.miniwiki.core.domain.Page</class>
+        <class>org.tmjee.miniwiki.core.domain.PagePriviledge</class>
+        <class>org.tmjee.miniwiki.core.domain.PagePriviledgeValue</class>
+        <class>org.tmjee.miniwiki.core.domain.PageProperty</class>
+        <class>org.tmjee.miniwiki.core.domain.PreviousVersion</class>
+        <class>org.tmjee.miniwiki.core.domain.Space</class>
+        <class>org.tmjee.miniwiki.core.domain.SpacePriviledge</class>
+        <class>org.tmjee.miniwiki.core.domain.SpacePriviledgeValue</class>
+        <class>org.tmjee.miniwiki.core.domain.User</class>
+        <class>org.tmjee.miniwiki.core.domain.UserProperty</class>
+        <class>org.tmjee.miniwiki.core.domain.Wiki</class>
+        <class>org.tmjee.miniwiki.core.domain.WikiPriviledge</class>
+        <class>org.tmjee.miniwiki.core.domain.WikiPriviledgeValue</class>
         <exclude-unlisted-classes/>
         <properties>
             <property name="openjpa.Log" value="commons" />

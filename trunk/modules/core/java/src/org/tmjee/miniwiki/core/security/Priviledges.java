@@ -1,4 +1,4 @@
-package org.tmjee.miniwiki.security;
+package org.tmjee.miniwiki.core.security;
 
 /**
  * Created by IntelliJ IDEA.
