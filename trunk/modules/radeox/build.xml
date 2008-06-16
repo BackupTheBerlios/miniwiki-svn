@@ -1,0 +1,56 @@
+<project name="Radeox" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <description>
+        Sub-build for Radeox module
+    </description>
+
+
+    <!-- imports/preparation -->
+    <property file="build.properties" />
+
+    <path id="compilation_classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar" />
+        </fileset>
+        <pathelement location="${java.src.dir}" />
+        <pathelement location="${java.resources.dir}" />
+    </path>
+
+    <path id="test_compilation_classpath">
+        <path refid="compilation_classpath" />
+        <pathelement location="${test.src.dir}" />
+        <pathelement location="${test.resources.dir}" />
+    </path>
+
+    <path id="build_classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar" />
+        </fileset>
+        <pathelement location="${java.classes.dir}" />
+        <pathelement location="${java.resources.dir}" />
+    </path>
+
+    <path id="test_build_classpath">
+        <path refid="build_classpath" />
+        <pathelement location="${test.classes.dir}" />
+        <pathelement location="${test.resources.dir}" />
+    </path>
+
+    <import file="${common.dir}/common.xml" />
+
+
+    <!-- module specific Target -->
+
+
+    <!-- override inherited Target hooks -->
+    <target name="_deploy">
+        <copy todir="${tomcat.webapps.miniwiki.classes.metainf.dir}" overwrite="true">
+            <fileset dir="${conf.metainf.dir}">
+                <include name="manifestfile.txt" />
+            </fileset>
+            <globmapper from="manifestfile.txt" to="MANIFEST.MF"/>
+        </copy>
+    </target>
+
+
+</project>

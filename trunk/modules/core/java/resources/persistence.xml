@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             version="1.0"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+
+    <persistence-unit name="miniWikiPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <description>MiniWiki Persistence Unit</description>
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>org.tmjee.miniwiki.domain.Queries</class>
+        <class>org.tmjee.miniwiki.domain.Attachment</class>
+        <class>org.tmjee.miniwiki.domain.Group</class>
+        <class>org.tmjee.miniwiki.domain.GroupProperty</class>
+        <class>org.tmjee.miniwiki.domain.Page</class>
+        <class>org.tmjee.miniwiki.domain.PagePriviledge</class>
+        <class>org.tmjee.miniwiki.domain.PagePriviledgeValue</class>
+        <class>org.tmjee.miniwiki.domain.PageProperty</class>
+        <class>org.tmjee.miniwiki.domain.PreviousVersion</class>
+        <class>org.tmjee.miniwiki.domain.Space</class>
+        <class>org.tmjee.miniwiki.domain.SpacePriviledge</class>
+        <class>org.tmjee.miniwiki.domain.SpacePriviledgeValue</class>
+        <class>org.tmjee.miniwiki.domain.User</class>
+        <class>org.tmjee.miniwiki.domain.UserProperty</class>
+        <class>org.tmjee.miniwiki.domain.Wiki</class>
+        <class>org.tmjee.miniwiki.domain.WikiPriviledge</class>
+        <class>org.tmjee.miniwiki.domain.WikiPriviledgeValue</class>
+        <exclude-unlisted-classes/>
+        <properties>
+            <property name="openjpa.Log" value="commons" />
+            <!--
+            <property name="openjpa.Log"
+                      value="DefaultLevel=WARN,
+                             Enhance=INFO,
+                             MetaData=INFO,
+                             Runtime=INFO,
+                             Query=TRACE,
+                             DataCache=INFO,
+                             JDBC=INFO,
+                             SQL=TRACE,
+                             Schema=INFO,
+                             Tool=INFO"/>
+            -->
+            <property name="openjpa.ConnectionFactoryProperties"
+                      value="PrettyPrint=true, PrettyPrintLineLength=72"/>
+            <!--
+            <property name="openjpa.jdbc.SynchronizeMappings"
+                      value="buildSchema(ForeignKeys=true)"/>
+            -->
+        </properties>
+        
+    </persistence-unit>
+
+</persistence>
+

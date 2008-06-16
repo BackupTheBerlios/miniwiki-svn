@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Core" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <description>
+        Sub-build for Core module
+    </description>
+
+    <!-- imports/preparation -->
+    <property file="build.properties" />
+    <property file="${java.resources.dir}/db.properties" />
+
+    <path id="compilation_classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar" />
+        </fileset>
+        <pathelement location="${java.src.dir}" />
+        <pathelement location="${java.resources.dir}" />
+    </path>
+
+    <path id="test_compilation_classpath">
+        <path refid="compilation_classpath" />
+        <pathelement location="${test.src.dir}" />
+        <pathelement location="${test.resources.dir}" />
+    </path>
+
+    <path id="build_classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar" />
+        </fileset>
+        <pathelement location="${java.classes.dir}" />
+        <pathelement location="${java.resources.dir}" />
+    </path>
+
+    <path id="test_build_classpath">
+        <path refid="build_classpath" />
+        <pathelement location="${test.classes.dir}" />
+        <pathelement location="${test.resources.dir}" />
+    </path>
+
+
+
+    <import file="${common.dir}/common.xml" />
+
+
+    <!-- module specific Target -->
+    <target name="generateDbSchemas" depends="compile" description="-> Generate Db Schemas">
+        <taskdef name="mappingtool"
+                 classname="org.apache.openjpa.jdbc.ant.MappingToolTask"
+                 classpathref="build_classpath" />
+        <mappingtool action="buildSchema" sqlFile="${scripts.dir}/schema.sql"
+                     foreignKeys="true" primaryKeys="false" indexes="true">
+            <classpath refid="build_classpath" />
+            <config connectionUserName="${db.username}"
+                    connectionPassword="${db.password}"
+                    connectionURL="${db.url}"
+                    connectionDriverName="${db.driverName}"
+                    propertiesFile="${java.resources.dir}/persistence.xml" />
+        </mappingtool>
+    </target>
+
+    <target name="jpaEnhance" description="-> Enhance JPA classes">
+        <taskdef name="openjpac"
+                 classname="org.apache.openjpa.ant.PCEnhancerTask"
+                 classpathref="build_classpath" />
+        <openjpac>
+            <classpath refid="build_classpath" />
+            <config propertiesFile="${java.resources.dir}/persistence.xml" />
+        </openjpac>
+    </target>
+
+
+    <!-- override inherited Target hooks -->
+    <target name="_init">
+        <mkdir dir="${basedir}/build/scripts" />
+    </target>
+
+    <target name="_clean">
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${scripts.dir}" includes="**/*" />
+        </delete>
+    </target>
+
+    <target name="_compile">
+        <antcall target="jpaEnhance" />
+    </target>
+
+    <target name="_generate">
+        <antcall target="generateDbSchemas" />
+    </target>
+    
+
+</project>
+

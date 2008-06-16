@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mappings PUBLIC "-//DOZER//DTD MAPPINGS//EN"
+    "http://dozer.sourceforge.net/dtd/dozerbeanmapping.dtd">
+<mappings>
+    <configuration>
+    </configuration>
+    <mapping>
+        <class-a>org.tmjee.miniwiki.client.domain.User</class-a>
+        <class-b>org.tmjee.miniwiki.domain.User</class-b>
+        <field>
+            <a>id</a>
+            <b is-accessible="true">id</b>
+        </field>
+        <field>
+            <a>username</a>
+            <b is-accessible="true">username</b>
+        </field>
+        <field>
+            <a>firstName</a>
+            <b is-accessible="true">firstName</b>
+        </field>
+        <field>
+            <a>lastName</a>
+            <b is-accessible="true">lastName</b>
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>org.tmjee.miniwiki.client.domain.Group</class-a>
+        <class-b>org.tmjee.miniwiki.domain.Group</class-b>
+        <field>
+            <a>id</a>
+            <b is-accessible="true">id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b is-accessible="true">name</b>
+        </field>
+        <field>
+            <a>description</a>
+            <b is-accessible="true">description</b>
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>org.tmjee.miniwiki.client.domain.UserProperty</class-a>
+        <class-b>org.tmjee.miniwiki.domain.UserProperty</class-b>
+        <field>
+            <a>id</a>
+            <b is-accessible="true">id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b is-accessible="true">name</b>
+        </field>
+        <field>
+            <a>value</a>
+            <b is-accessible="true">value</b>
+        </field>
+    </mapping>
+</mappings>
+
+

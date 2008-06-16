@@ -1,0 +1,29 @@
+<module>
+
+	<inherits name='com.google.gwt.user.User'/>
+    <!--
+        With this we have property "user.agent" with possible values
+        "ie6,gecko,gecko1_8,safari,opera"
+    -->
+    <inherits name="com.google.gwt.user.UserAgent" />
+    <inherits name="com.google.gwt.junit.JUnit" />
+    <inherits name="com.google.gwt.benchmarks.Benchmarks" />
+    <inherits name="com.google.gwt.json.JSON" />
+    <inherits name="com.google.gwt.xml.XML" />
+    <inherits name="com.google.gwt.i18n.I18N" />
+    <inherits name="com.google.gwt.http.HTTP" />
+
+
+    <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+    <!-- <inherits name="com.google.gwt.user.theme.chrome.Chrome"/> -->
+    <!-- <inherits name="com.google.gwt.user.theme.dark.Dark"/> -->
+
+    <stylesheet src="styles.css" />
+
+    <entry-point class='org.tmjee.miniwiki.client.MiniWiki'/>
+
+    <servlet path="/loadTemplate"
+             class="org.tmjee.miniwiki.server.LoadTemplateServiceImpl" />
+    <servlet path="/userManagement"
+             class="org.tmjee.miniwiki.server.UserManagementServiceImpl" />
+</module>

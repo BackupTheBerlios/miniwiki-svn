@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd
+            http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            ">
+
+    <!-- ######################### -->
+    <!-- # Properties setup        -->
+    <!-- ######################### -->
+    <bean name="dbProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:/db.properties" />
+    </bean>
+
+
+    <!-- ######################### -->
+    <!-- # DataSource              -->
+    <!-- ######################### -->
+    <bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="username" value="${db.username}" />
+        <property name="password" value="${db.password}" />
+        <property name="url" value="${db.url}" />
+        <property name="driverClassName" value="${db.driverName}" />
+    </bean>
+
+
+    <!-- ######################### -->
+    <!-- # JDO setup               -->
+    <!-- ######################### -->
+    <bean name="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="persistenceXmlLocation" value="classpath:persistence.xml" />
+        <property name="persistenceUnitName" value="miniWikiPersistenceUnit" />
+
+        <!--
+            The following will need JVM to be started with
+               -javaagent:/path/to/spring-agent.jar
+        -->
+        <property name="loadTimeWeaver">
+            <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
+        </property>
+    </bean>
+    <bean name="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+
+
+    <!-- ######################### -->
+    <!-- # Configurations          -->
+    <!-- ######################### -->
+    <bean name="miniWikiConfig" class="org.tmjee.miniwiki.spring.beans.factory.MiniWikiConfigFactoryBean">
+    </bean>
+    <bean name="dozerBeanMapper" class="net.sf.dozer.util.mapping.spring.DozerBeanMapperFactoryBean">
+        <property name="mappingFiles">
+            <list>
+                <value>beansMappings.xml</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- ######################### -->
+    <!-- # Services setup          -->
+    <!-- ######################### -->
+    <bean name="setupService" class="org.tmjee.miniwiki.service.SetupService">
+        <constructor-arg index="0" ref="entityManagerFactory" />
+    </bean>
+
+</beans>

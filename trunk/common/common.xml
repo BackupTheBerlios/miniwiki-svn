@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <target name="init" description="-> Initialize Ivy, resolve and retrieve dependency">
+        <echo message="${ant.project.name} init" />
+        <ivy:settings file="${ivy.settings}" />
+        <ivy:resolve file="${ivy.conf}"  />
+        <ivy:retrieve pattern="${lib.dir}/[artifact].[ext]" />
+        <mkdir dir="${build.dir}" />
+        <mkdir dir="${java.classes.dir}" />
+        <mkdir dir="${test.classes.dir}" />
+        <mkdir dir="${dist.dir}" />
+        <antcall target="_init" />
+    </target>
+
+    <target name="clean" depends="init" description="-> Clean up build directory">
+        <echo message="${ant.project.name} clean up" />
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${java.classes.dir}" includes="**/*" />
+        </delete>
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${test.classes.dir}" includes="**/*" />
+        </delete>
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${dist.dir}" includes="**/*" />
+        </delete>
+        <antcall target="_clean" />
+    </target>
+
+    <target name="generate" depends="init" description="-> Generate resources/scripts etc.">
+        <echo message="${ant.project.name} generate" />
+        <antcall target="_generate" />
+    </target>
+
+    <target name="compile" depends="init" description="-> Compile Java source">
+        <echo message="${ant.project.name} compile" />
+        <javac srcdir="${java.src.dir}"
+               destdir="${java.classes.dir}"
+               classpathref="compilation_classpath"
+               source="1.5" target="1.5" />
+        <antcall target="_compile" />
+    </target>
+
+    <target name="test_compile" depends="compile" description="-> Compile Test">
+        <echo message="${ant.project.name} test compile"/>
+        <javac srcdir="${test.src.dir}"
+               destdir="${test.classes.dir}"
+               classpathref="test_compilation_classpath"
+               source="1.5" target="1.5" />
+        <antcall target="_test_compile" />
+    </target>
+
+    <target name="package" depends="compile" description="-> Package artifact">
+        <echo message="${ant.project.name} package" />
+        <jar destfile="${dist.dir}/${dist.filename}"
+             basedir="${java.classes.dir}"
+             manifest="${conf.metainf.dir}/manifestfile.txt">
+            <metainf dir="${conf.metainf.dir}">
+                <exclude name="manifestfile.txt" />    
+            </metainf>
+        </jar>
+        <antcall target="_package" />
+    </target>
+
+
+    <target name="publish" depends="package" description="-> Publish artifacts locally">
+        <echo message="${ant.project.name} publish locally" />
+        <ivy:publish resolver="local_ext" pubrevision="${version}" overwrite="true" update="true">
+           <artifacts  pattern="${dist.dir}/[artifact].[ext]"  />
+        </ivy:publish>
+        <antcall target="_publish" />
+    </target>
+
+
+    <target name="deploy" depends="publish" description="-> Deploy artifacts">
+        <echo message="${ant.project.name} deploys" />
+
+        <!-- copy classes file to tomcat -->
+        <copy todir="${tomcat.webapps.miniwiki.classes.dir}" overwrite="true">
+            <fileset dir="${java.classes.dir}">
+                <include name="**/*.class" />
+            </fileset>
+        </copy>
+
+        <!-- copy resources to tomcat -->
+        <copy todir="${tomcat.webapps.miniwiki.classes.dir}" overwrite="true">
+            <fileset dir="${java.resources.dir}">
+                <exclude name="**/*.java" />
+            </fileset>
+        </copy>
+
+        <!-- copy libraries to romcat -->
+        <copy todir="${tomcat.webapps.miniwiki.lib.dir}" overwrite="true">
+            <fileset dir="${lib.dir}">
+                <include name="**/*.jar" />
+            </fileset>
+        </copy>
+
+        <!-- copy META-INF stuff except (MANIFEST.MF) -->
+        <copy todir="${tomcat.webapps.miniwiki.classes.metainf.dir}" overwrite="true">
+            <fileset dir="${conf.metainf.dir}">
+                <exclude name="manifestfile.txt" />
+            </fileset>
+        </copy>
+
+        <antcall target="_deploy" />
+    </target>
+
+
+    <!-- targets subclass could override -->
+    <target name="_compile" />
+    <target name="_clean" />
+    <target name="_init" />
+    <target name="_publish" />
+    <target name="_deploy" />
+    <target name="_generate" />
+    <target name="_package" />
+
+</project>
+        

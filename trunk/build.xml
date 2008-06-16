@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MiniWiki" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <description>
+        MiniWiki main build file.
+    </description>
+
+    <!-- imports/preparation -->
+    <property file="build.properties" />
+
+
+    <!-- common targets -->
+    <target name="loadIvy">
+        <path id="ivy.lib.path">
+    	    <fileset dir="${ivy.jar.dir}" includes="*.jar"/>
+    	</path>
+    	<taskdef resource="org/apache/ivy/ant/antlib.xml"
+    	         uri="antlib:org.apache.ivy.ant"
+                 classpathref="ivy.lib.path"/>
+        <ivy:settings file="${ivy.settings}" />
+    </target>
+
+    <target name="buildList" depends="loadIvy" >
+        <ivy:buildlist reference="buildlist">
+            <fileset dir="${modules.dir}" includes="**/build.xml" />
+        </ivy:buildlist>
+    </target>
+
+
+
+
+
+    <!-- main targets -->
+    <target name="init" depends="buildList" description="-> Perform Initializations">
+        <subant target="init" buildpathref="buildlist" inheritall="false" />
+    </target>
+
+    <target name="clean" depends="buildList" description="-> Clean">
+        <subant target="clean" buildpathref="buildlist" inheritall="false" />
+    </target>
+
+    <target name="generate" depends="buildList" description="-> Generate resources">
+        <subant target="generate" buildpathref="buildlist" inheritall="false" />
+    </target>
+
+    <target name="compile" depends="buildList" description="-> Compile Java sources">
+        <subant target="compile" buildpathref="buildlist" inheritall="false" />
+    </target>
+
+    <target name="test_compile" depends="buildList" description="-> Compile Java Test sources">
+        <subant target="test_compile" buildpathref="buildlist" inheritall="false" />
+    </target>
+
+    <target name="publish" depends="buildList" description="-> Publish artifacts to local repository">
+        <subant target="publish" buildpathref="buildlist" inheritall="false" />
+    </target>
+
+    <target name="package" depends="buildList" description="-> Package artifacts into build directory">
+        <subant target="package" buildpathref="buildlist" inheritall="false"/>
+    </target>
+
+    <target name="deploy" depends="buildList" description="-> Deploy artifacts into local tomcat">
+        <subant target="deploy" buildpathref="buildlist" inheritall="false" />
+    </target>
+
+    <target name="shell">
+        <subant target="shell">
+            <fileset dir="${web.module.dir}" includes="build.xml" />
+        </subant>
+    </target>
+
+</project>
+        
+        
+        
