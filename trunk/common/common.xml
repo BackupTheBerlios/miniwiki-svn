@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project xmlns:ivy="antlib:org.apache.ivy.ant">
 
-    <target name="init" description="-> Initialize Ivy, resolve and retrieve dependency">
-        <echo message="${ant.project.name} init" />
+    <target name="downloadDependencies" if="run.ivy">
         <ivy:settings file="${ivy.settings}" />
         <ivy:resolve file="${ivy.conf}"  />
         <ivy:retrieve pattern="${lib.dir}/[artifact].[ext]" />
+    </target>
+
+    <target name="init" description="-> Initialize Ivy, resolve and retrieve dependency">
+        <echo message="${ant.project.name} init" />
+        <condition property="run.ivy" value="true">
+            <equals arg1="${skip.ivy}"
+                    arg2="true" 
+                    casesensitive="false"
+                    trim="true" />
+        </condition>
+
+        <antcall target="donwloadDependencies" />
+
         <mkdir dir="${build.dir}" />
         <mkdir dir="${java.classes.dir}" />
         <mkdir dir="${test.classes.dir}" />
         <mkdir dir="${dist.dir}" />
+        <mkdir dir="${tomcat.webapps.miniwiki.dir}" />
+        <mkdir dir="${tomcat.webapps.miniwiki.webinf.dir}" />
+        <mkdir dir="${tomcat.webapps.miniwiki.classes.dir}" />
+        <mkdir dir="${tomcat.webapps.miniwiki.classes.metainf.dir}" />
+        <mkdir dir="${tomcat.webapps.miniwiki.lib.dir}" />
         <antcall target="_init" />
     </target>
 
@@ -71,9 +88,34 @@
         <antcall target="_publish" />
     </target>
 
+    <target name="clean_deploy">
+        <!-- clean tomcat's miniwiki classes dir -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.webapps.miniwiki.classes.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+
+        <!-- clean tomcat's miniwiki webapp lib dir -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.webapps.miniwiki.lib.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+
+        <!-- clean tomcat's miniwiki webapp META-INF dir -->
+         <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.webapps.miniwiki.classes.metainf.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+        <antcall target="_clean_deploy" />
+    </target>
 
     <target name="deploy" depends="publish" description="-> Deploy artifacts">
         <echo message="${ant.project.name} deploys" />
+
+        <antcall target="clean_deploy" />
 
         <!-- copy classes file to tomcat -->
         <copy todir="${tomcat.webapps.miniwiki.classes.dir}" overwrite="true">
@@ -113,6 +155,7 @@
     <target name="_init" />
     <target name="_publish" />
     <target name="_deploy" />
+    <target name="_clean_deploy" />
     <target name="_generate" />
     <target name="_package" />
 

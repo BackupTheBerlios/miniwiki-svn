@@ -47,7 +47,7 @@
 
     <!-- override inherited Target hooks -->
     <target name="_init">
-        <mkdir dir="www" />
+        <mkdir dir="${www.dir}" />
     </target>
 
     <target name="_clean">
@@ -68,27 +68,6 @@
                  <arg line="org.tmjee.miniwiki.MiniWiki"/>
        </java>
     </target>
-    <!--
-       <macrodef name="shell">
-    <attribute name="outDir" default="www"/>
-    <attribute name="dir" default="."/>
-    <attribute name="gwtHome"/>
-    <attribute name="startPage"/>
-    <sequential>
-      <java classname="com.google.gwt.dev.GWTShell" fork="true"
-        dir="@{dir}" failOnError="true">
-        <classpath>
-          <pathelement location="src"/>
-          <pathelement location="bin"/>
-          <fileset dir="@{gwtHome}" includes="*.jar"/>
-        </classpath>
-        <arg value="-out"/>
-        <arg value="@{outDir}"/>
-        <arg value="@{startPage}"/>
-      </java>
-    </sequential>
-  </macrodef>
-    -->
 
     <target name="shell">
         <java fork="true"
@@ -173,6 +152,15 @@
         -->
     </target>
 
+    <target name="_clean_deploy">
+        <!-- clean Tomcat miniwiki webapp's WEB-INF dir -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.webapps.miniwiki.webinf.dir}">
+                <include name="**/*" />   
+            </fileset>
+        </delete>
+    </target>
+
     <target name="_deploy">
         <!-- copy web.xml -->
         <copy todir="${tomcat.webapps.miniwiki.webinf.dir}" overwrite="true">
@@ -185,6 +173,5 @@
             <fileset dir="${www.dir}" />
         </copy>
     </target>
-
 </project>
         
