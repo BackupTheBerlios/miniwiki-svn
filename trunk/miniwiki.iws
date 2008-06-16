@@ -16,71 +16,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/UserProperty.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Page.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/PagePriviledgeValue.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\spring\beans\factory\MiniWikiConfigFactoryBean.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiGroup.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiGroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/radeox/java/resources/intermap.txt" afterPath="$PROJECT_DIR$/modules/radeox/java/resources/intermap.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/resources/persistence.xml" afterPath="$PROJECT_DIR$/modules/core/java/resources/persistence.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/spring/beans/factory" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Attachment.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Space.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/WikiProperty.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\UserProperty.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/User.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\WikiPriviledgeValue.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/resources/beansMappings.xml" afterPath="$PROJECT_DIR$/modules/core/java/resources/beansMappings.xml" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\theme\default" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/SpacePriviledge.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/spring/beans" afterPath="" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\security\Priviledges.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/security/Priviledges.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\service\SetupService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/service/SetupService.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\PagePriviledgeValue.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/spring/factory/MiniWikiConfigFactoryBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/WikiPriviledge.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/domain" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/PreviousVersion.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\GroupProperty.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Space.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/theme" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Queries.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/mapping" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/mapping" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Wiki.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/GroupProperty.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/spring" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\PreviousVersion.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Group.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\SpacePriviledgeValue.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/SpaceProperty.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\WikiPriviledge.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\SpacePriviledge.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\server\LoadTemplateServiceImpl.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UiUiLoadTemplateServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/AssignGroupPopupPanel.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/AssignGroupPopupPanel.java" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\client\domain\Property.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiProperty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/GroupDetailsPopupPanel.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/GroupDetailsPopupPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/UserDetailsPopupPanel.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/UserDetailsPopupPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/miniwiki.iws" afterPath="$PROJECT_DIR$/miniwiki.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Attachment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Page.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\mapping\MappingException.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/mapping/MappingException.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\WikiProperty.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\client\server\LoadTemplateService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/UiLoadTemplateService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/GroupManagementPopupPanel.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/GroupManagementPopupPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/service/Service.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/service/Service.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiGroups.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiGroups.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiUsers.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiUsers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/MiniWiki.gwt.xml" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/MiniWiki.gwt.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/resources/spring.xml" afterPath="$PROJECT_DIR$/modules/core/java/resources/spring.xml" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\PageProperty.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/WikiPriviledgeValue.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/PageProperty.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Queries.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/theme" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/spring/factory" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/PagePriviledge.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\PagePriviledge.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/service" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/service" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/spring" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/SpacePriviledgeValue.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/domain/Wiki.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\service\UserManagementService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/service/UserManagementService.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\User.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/theme/default" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/security" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/security" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\Group.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java" />
-      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\mapping\BeanMapping.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/mapping/BeanMapping.java" />
-      <change type="DELETED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\domain\SpaceProperty.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/miniwiki.ipr" afterPath="$PROJECT_DIR$/miniwiki.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/radeox/build.xml" afterPath="$PROJECT_DIR$/modules/radeox/build.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/build.xml" afterPath="$PROJECT_DIR$/modules/core/build.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/UserTableWidget.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/UserTableWidget.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/core.iml" afterPath="$PROJECT_DIR$/modules/core/java/core.iml" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\client\server\LoadTemplateServiceAsync.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/UiLoadTemplateServiceAsync.java" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\client\server\UserManagementServiceAsync.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/UiUserManagementServiceAsync.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/TemplateDisplayWidget.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/TemplateDisplayWidget.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/resources/beansMappings.xml" afterPath="$PROJECT_DIR$/modules/core/java/resources/beansMappings.xml" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\client\domain\Credentials.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiCredentials.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/PropertyDetailsPopupPanel.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/PropertyDetailsPopupPanel.java" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\server\UserManagementServiceImpl.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UiUserManagementServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/UserManagementPopupPanel.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/UserManagementPopupPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/GroupTableWidget.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/GroupTableWidget.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/radeox/java/radeox.iml" afterPath="$PROJECT_DIR$/modules/radeox/java/radeox.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/MiniWikiConfig.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/MiniWikiConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/ivy.xml" afterPath="$PROJECT_DIR$/modules/core/ivy.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/service/UserManagementService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/service/UserManagementService.java" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\client\server\UserManagementService.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/UiUserManagementService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/conf/webinfo/webfile.xml" afterPath="$PROJECT_DIR$/modules/core/conf/webinfo/webfile.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiUser.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/handlers/AbstractHandler.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/handlers/AbstractHandler.java" />
+      <change type="MOVED" beforePath="C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\client\domain\UserProperty.java" afterPath="$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiUserUiProperty.java" />
     </list>
     <ignored path="miniwiki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -143,125 +118,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/build.properties">
+      <file leaf-file-name="UiUserManagementServiceImpl.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UiUserManagementServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="1285" selection-end="1318" vertical-scroll-proportion="0.53419596">
+            <state line="16" column="76" selection-start="599" selection-end="599" vertical-scroll-proportion="0.32578397">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/radeox/build.properties">
+      <file leaf-file-name="UiUserManagementService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/UiUserManagementService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="41" selection-start="692" selection-end="692" vertical-scroll-proportion="0.49722737">
+            <state line="13" column="17" selection-start="320" selection-end="320" vertical-scroll-proportion="0.32578397">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="33" selection-start="862" selection-end="862" vertical-scroll-proportion="0.5970425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ivy.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/ivy.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="31" selection-start="720" selection-end="720" vertical-scroll-proportion="0.5884615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/common.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="11" selection-start="2127" selection-end="2127" vertical-scroll-proportion="0.19615385">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="42" selection-start="2699" selection-end="2699" vertical-scroll-proportion="0.5423077">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserManagementServiceImpl.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="10" selection-start="729" selection-end="729" vertical-scroll-proportion="0.42698705">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bootstrap.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="476" selection-end="476" vertical-scroll-proportion="-0.2569316">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spring.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/java/resources/spring.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="11" selection-start="2430" selection-end="2430" vertical-scroll-proportion="-0.33939394">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="7" selection-start="4802" selection-end="4802" vertical-scroll-proportion="0.25">
-              <folding>
-                <marker date="1213603796815" expanded="true" signature="2999:4318" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="3026:4304" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="3142:3643" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="3392:3476" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="3524:3613" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="3710:3766" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="4391:4489" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="4517:4807" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="4578:4657" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="4718:4793" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="4837:4929" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="4959:6560" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="5017:6546" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="5213:5283" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="5386:5457" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="5554:5625" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="5671:5960" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="6074:6150" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="6268:6343" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="6455:6531" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="6590:6815" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="6604:6799" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="6850:7132" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="6971:7118" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="7037:7100" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="7161:7602" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="7269:7460" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="7316:7386" placeholder="..." />
-                <marker date="1213603796815" expanded="true" signature="7531:7588" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -311,6 +181,12 @@
           <option name="myItemId" value="miniwiki" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
         </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="miniwiki" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="radeox" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
@@ -327,84 +203,6 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\radeox" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\tomcat" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\repository" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\common" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -490,6 +288,110 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\server" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="miniwiki" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\core\service" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="miniwiki" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\client\server" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="miniwiki" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\src\org\tmjee\miniwiki\client\domain" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="miniwiki" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:C:\mybrain\miniwiki\modules\core\java\resources" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
@@ -534,6 +436,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -563,18 +478,17 @@
         <option name="Make" value="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
       <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
       <module name="" />
@@ -604,18 +518,6 @@
       <method>
         <option name="Make" value="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
     <list size="0" />
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -669,29 +571,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1032" height="748" extended-state="6" />
-    <editor active="false" />
+    <frame x="-4" y="-4" width="1032" height="748" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="1" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" order="1" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="3" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
-      <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
-      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3632653" order="0" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
+      <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
+      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3623337" order="0" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="6" />
-      <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
+      <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="2" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="5" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="0" />
@@ -758,20 +660,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/core/test/src/org/tmjee/miniwiki/client/MyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="256" selection-end="256" vertical-scroll-proportion="0.34758365">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/LoadTemplateServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="16" selection-start="545" selection-end="545" vertical-scroll-proportion="0.45506692">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/widgets/GroupTableWidget.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="13" selection-start="1074" selection-end="1074" vertical-scroll-proportion="-1.4225621">
@@ -802,96 +690,124 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/core/build.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1285" selection-end="1318" vertical-scroll-proportion="0.53419596">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/common.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="11" selection-start="2127" selection-end="2127" vertical-scroll-proportion="0.19615385">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="33" selection-start="862" selection-end="862" vertical-scroll-proportion="0.5970425">
+        <state line="35" column="0" selection-start="1285" selection-end="1318" vertical-scroll-proportion="0.55258125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/radeox/build.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="41" selection-start="692" selection-end="692" vertical-scroll-proportion="0.49722737">
+        <state line="22" column="41" selection-start="692" selection-end="692" vertical-scroll-proportion="0.55258125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/core/build.xml">
+    <entry file="file://$PROJECT_DIR$/build.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="7" selection-start="4802" selection-end="4802" vertical-scroll-proportion="0.25">
-          <folding>
-            <marker date="1213603796815" expanded="true" signature="2999:4318" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="3026:4304" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="3142:3643" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="3392:3476" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="3524:3613" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="3710:3766" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="4391:4489" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="4517:4807" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="4578:4657" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="4718:4793" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="4837:4929" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="4959:6560" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="5017:6546" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="5213:5283" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="5386:5457" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="5554:5625" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="5671:5960" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="6074:6150" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="6268:6343" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="6455:6531" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="6590:6815" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="6604:6799" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="6850:7132" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="6971:7118" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="7037:7100" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="7161:7602" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="7269:7460" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="7316:7386" placeholder="..." />
-            <marker date="1213603796815" expanded="true" signature="7531:7588" placeholder="..." />
-          </folding>
+        <state line="19" column="33" selection-start="862" selection-end="862" vertical-scroll-proportion="0.61759084">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/common.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="11" selection-start="2127" selection-end="2127" vertical-scroll-proportion="0.033864543">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="42" selection-start="2699" selection-end="2699" vertical-scroll-proportion="0.5423077">
+        <state line="80" column="42" selection-start="2699" selection-end="2699" vertical-scroll-proportion="0.033864543">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/domain/UiCredentials.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="58" selection-start="711" selection-end="711" vertical-scroll-proportion="0.6003717">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/Bootstrap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="476" selection-end="476" vertical-scroll-proportion="-0.2569316">
+        <state line="49" column="23" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.7151052">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/core/java/resources/spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="11" selection-start="2430" selection-end="2430" vertical-scroll-proportion="-0.33939394">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UserManagementServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="10" selection-start="729" selection-end="729" vertical-scroll-proportion="0.42698705">
+        <state line="75" column="37" selection-start="3550" selection-end="3571" vertical-scroll-proportion="0.687631">
+          <folding>
+            <marker date="1213611325877" expanded="true" signature="1714:1973" placeholder="..." />
+            <marker date="1213611325877" expanded="true" signature="2206:2748" placeholder="..." />
+            <marker date="1213611325877" expanded="true" signature="2447:2567" placeholder="..." />
+            <marker date="1213611325877" expanded="true" signature="2612:2734" placeholder="..." />
+            <marker date="1213611325877" expanded="true" signature="2975:2987" placeholder="..." />
+            <marker date="1213611325877" expanded="true" signature="3149:3218" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/core/service/UserManagementService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="55" selection-start="983" selection-end="983" vertical-scroll-proportion="0.03250478">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="7" selection-start="4806" selection-end="4806" vertical-scroll-proportion="0.033864543">
+          <folding>
+            <marker date="1213611325846" expanded="true" signature="3003:4322" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="3030:4308" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="3146:3647" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="3396:3480" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="3528:3617" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="3714:3770" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="4395:4493" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="4521:4811" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="4582:4661" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="4722:4797" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="4841:4933" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="4963:6564" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="5021:6550" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="5217:5287" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="5390:5461" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="5558:5629" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="5675:5964" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="6078:6154" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="6272:6347" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="6459:6535" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="6594:6819" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="6608:6803" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="6854:7136" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="6975:7122" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="7041:7104" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="7165:7606" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="7273:7464" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="7320:7390" placeholder="..." />
+            <marker date="1213611325846" expanded="true" signature="7535:7592" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/client/server/UiUserManagementService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="17" selection-start="320" selection-end="320" vertical-scroll-proportion="0.32578397">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/java/src/org/tmjee/miniwiki/server/UiUserManagementServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="76" selection-start="599" selection-end="599" vertical-scroll-proportion="0.32578397">
           <folding />
         </state>
       </provider>

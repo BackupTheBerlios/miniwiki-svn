@@ -7,8 +7,8 @@ package org.tmjee.miniwiki.client.domain;
  * Time: 4:59:52 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UserProperty extends Property {
-    public UserProperty(String name, String value) {
+public class UiUserUiProperty extends UiProperty {
+    public UiUserUiProperty(String name, String value) {
         super(name, value);
     }
 }

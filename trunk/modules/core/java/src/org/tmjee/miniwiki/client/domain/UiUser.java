@@ -18,65 +18,65 @@ import org.tmjee.miniwiki.client.beans.PropertySupport;
  * Time: 5:41:54 PM
  * To change this template use File | Settings | File Templates.
  */
-public class User implements IsSerializable, SourcesPropertyChangeEvents {
+public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
 
     private long id;
     private String username;
     private String firstName;
     private String lastName;
 
-    private transient List<UserProperty> userProperties;
-    private transient List<Group> groups;
+    private transient List<UiUserUiProperty> uiUserProperties;
+    private transient List<UiGroup> uiGroups;
 
     private PropertySupport propertySupport;
 
-    public User() {
-        userProperties = new ArrayList<UserProperty>();
-        groups = new ArrayList<Group>();
+    public UiUser() {
+        uiUserProperties = new ArrayList<UiUserUiProperty>();
+        uiGroups = new ArrayList<UiGroup>();
         propertySupport = new PropertySupport();
     }
 
-    public User(String username, String firstName, String lastName) {
+    public UiUser(String username, String firstName, String lastName) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
 
-    public boolean isInGroup(Group group) {
-        for (Group grp : groups) {
-            if (grp.getId() == group.getId()) {
+    public boolean isInGroup(UiGroup uiGroup) {
+        for (UiGroup grp : uiGroups) {
+            if (grp.getId() == uiGroup.getId()) {
                 return true;
             }
         }
         return false;
     }
 
-    public List<Group> getGroups() {
-        return groups;
+    public List<UiGroup> getGroups() {
+        return uiGroups;
     }
 
-    public void removeGroup(Group group) {
-        groups.remove(group);
+    public void removeGroup(UiGroup uiGroup) {
+        uiGroups.remove(uiGroup);
     }
 
-    public void addGroup(Group group) {
-        groups.add(group);    
+    public void addGroup(UiGroup uiGroup) {
+        uiGroups.add(uiGroup);
     }
 
 
-    public void removeProperty(UserProperty property) {
-        userProperties.remove(property);
-        propertySupport.firePropertyDeletion("prop."+property.getName(), property.getValue());
+    public void removeProperty(UiUserUiProperty propertyUi) {
+        uiUserProperties.remove(propertyUi);
+        propertySupport.firePropertyDeletion("prop."+ propertyUi.getName(), propertyUi.getValue());
     }
 
-    public void addProperty(UserProperty property) {
-        userProperties.add(property);
-        propertySupport.firePropertyAddition("prop."+property.getName(), property.getValue());
+    public void addProperty(UiUserUiProperty propertyUi) {
+        uiUserProperties.add(propertyUi);
+        propertySupport.firePropertyAddition("prop."+ propertyUi.getName(), propertyUi.getValue());
     }
 
-    public List<UserProperty> getProperties() {
-        return userProperties;
+    public List<UiUserUiProperty> getProperties() {
+        return uiUserProperties;
     }
 
     

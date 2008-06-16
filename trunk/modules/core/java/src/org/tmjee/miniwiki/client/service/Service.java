@@ -1,7 +1,7 @@
 package org.tmjee.miniwiki.client.service;
 
-import org.tmjee.miniwiki.client.server.LoadTemplateServiceAsync;
-import org.tmjee.miniwiki.client.server.LoadTemplateService;
+import org.tmjee.miniwiki.client.server.UiLoadTemplateServiceAsync;
+import org.tmjee.miniwiki.client.server.UiLoadTemplateService;
 import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
 import org.tmjee.miniwiki.client.server.UserManagementService;
 import com.google.gwt.core.client.GWT;
@@ -16,11 +16,11 @@ import com.google.gwt.user.client.rpc.ServiceDefTarget;
  */
 public class Service {
 
-    private static LoadTemplateServiceAsync loadTemplateService;
+    private static UiLoadTemplateServiceAsync loadTemplateService;
     private static UserManagementServiceAsync userManagementService;
 
-    public static LoadTemplateServiceAsync getLoadTemplateService() {
-        loadTemplateService = (LoadTemplateServiceAsync) GWT.create(LoadTemplateService.class);
+    public static UiLoadTemplateServiceAsync getLoadTemplateService() {
+        loadTemplateService = (UiLoadTemplateServiceAsync) GWT.create(UiLoadTemplateService.class);
         ServiceDefTarget target = (ServiceDefTarget) loadTemplateService;
         target.setServiceEntryPoint(GWT.getModuleBaseURL()+"loadTemplate");
         return loadTemplateService;

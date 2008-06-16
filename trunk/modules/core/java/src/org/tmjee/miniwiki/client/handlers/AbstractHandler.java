@@ -1,10 +1,7 @@
 package org.tmjee.miniwiki.client.handlers;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.rpc.ServiceDefTarget;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import org.tmjee.miniwiki.client.server.LoadTemplateServiceAsync;
-import org.tmjee.miniwiki.client.server.LoadTemplateService;
+import org.tmjee.miniwiki.client.server.UiLoadTemplateServiceAsync;
 import org.tmjee.miniwiki.client.service.Service;
 
 /**
@@ -18,7 +15,7 @@ public abstract class AbstractHandler implements Handler {
 
 
     protected void loadTemplate(String template, AsyncCallback asyncCallback) {
-        LoadTemplateServiceAsync service = Service.getLoadTemplateService();
+        UiLoadTemplateServiceAsync service = Service.getLoadTemplateService();
         service.loadTemplate(template, asyncCallback);
     }
     

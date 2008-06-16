@@ -8,8 +8,8 @@ import org.tmjee.miniwiki.client.server.UserManagementService;
 import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
 import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
 import org.tmjee.miniwiki.client.service.Service;
-import org.tmjee.miniwiki.client.domain.Groups;
-import org.tmjee.miniwiki.client.domain.Group;
+import org.tmjee.miniwiki.client.domain.UiGroups;
+import org.tmjee.miniwiki.client.domain.UiGroup;
 import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
@@ -41,7 +41,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
     private Grid grid;
 
 
-    private List<Group> selectedGroups;
+    private List<UiGroup> selectedUiGroups;
 
     private State state;
 
@@ -49,7 +49,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
 
         state = new State();
 
-        selectedGroups = new ArrayList<Group>();
+        selectedUiGroups = new ArrayList<UiGroup>();
 
         searchPanel = new HorizontalPanel();
         search = new TextBox();
@@ -58,7 +58,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
                 if (search.getText() == null || (search.getText().trim().length() <= 0)) {
                     sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
                         public void handle(Object listener) {
-                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Group Name must not be empty"));
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "UiGroup Name must not be empty"));
                         }
                     });
                 }
@@ -75,9 +75,9 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
         delete = new Button("Delete", new ClickListener() {
             public void onClick(Widget sender) {
                 UserManagementServiceAsync userManagement = Service.getUserManagementService();
-                for (final Group group : selectedGroups) {
-                    LoadingMessageDisplayWidget.getInstance().display("Deleting group id "+group.getId());
-                    userManagement.deleteGroup(group, new AsyncCallback() {
+                for (final UiGroup uiGroup : selectedUiGroups) {
+                    LoadingMessageDisplayWidget.getInstance().display("Deleting uiGroup id "+ uiGroup.getId());
+                    userManagement.deleteGroup(uiGroup, new AsyncCallback() {
                         public void onFailure(Throwable caught) {
                             // TODO: logging
                             GWT.log(caught.toString(), caught);
@@ -92,7 +92,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
         });
         add = new Button("Add", new ClickListener() {
             public void onClick(Widget sender) {
-                new GroupDetailsPopupPanel(new Group());
+                new GroupDetailsPopupPanel(new UiGroup());
             }
         });
         searchPanel.add(search);
@@ -108,7 +108,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
         add(grid);
 
         table = new FlexTable();
-        table.setWidget(0, 0, new Label("Group Name"));
+        table.setWidget(0, 0, new Label("UiGroup Name"));
         table.setWidget(0, 1, new Label("Description"));
         table.setWidget(0, 2, new Label("")); // checkbox
         table.setWidget(0, 3, new Label("")); // edit button
@@ -117,7 +117,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
 
     public void listGroup(final String groupName, final PagingInfo pagingInfo) {
         state.capture(this, pagingInfo, false);
-        selectedGroups.clear();
+        selectedUiGroups.clear();
         UserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.searchForGroup(groupName, pagingInfo, false,
                 new AsyncCallback() {
@@ -126,8 +126,8 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
                         GWT.log(caught.toString(), caught);
                     }
                     public void onSuccess(Object result) {
-                        Groups groups = (Groups) result;
-                        final ResponsePagingInfo responsePagingInfo = groups.getResponsePagingInfo();
+                        UiGroups uiGroups = (UiGroups) result;
+                        final ResponsePagingInfo responsePagingInfo = uiGroups.getResponsePagingInfo();
 
                         // Prev/Next
                         if (responsePagingInfo.hasNextPage()) {
@@ -148,35 +148,35 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
 
                         // populate table
                         int currentRow = 1;
-                        for (Group group : groups.getGroups()) {
+                        for (UiGroup uiGroup : uiGroups.getGroups()) {
                             if (currentRow < table.getRowCount()) { // edit row if they already exists
-                                ((Label)table.getWidget(currentRow, 0)).setText(group.getName());
-                                ((Label)table.getWidget(currentRow, 1)).setText(group.getDescription());
-                                ((ObjectHoldableCheckBox)table.getWidget(currentRow, 2)).setObject(group);
+                                ((Label)table.getWidget(currentRow, 0)).setText(uiGroup.getName());
+                                ((Label)table.getWidget(currentRow, 1)).setText(uiGroup.getDescription());
+                                ((ObjectHoldableCheckBox)table.getWidget(currentRow, 2)).setObject(uiGroup);
                                 ((ObjectHoldableCheckBox)table.getWidget(currentRow, 2)).setChecked(false);
-                                ((EditGroupButton)table.getWidget(currentRow, 3)).setGroup(group);
+                                ((EditGroupButton)table.getWidget(currentRow, 3)).setGroup(uiGroup);
                             }
                             else { // add new row if they doesn't already exists
-                                ObjectHoldableCheckBox checkBox =  new ObjectHoldableCheckBox(group);
+                                ObjectHoldableCheckBox checkBox =  new ObjectHoldableCheckBox(uiGroup);
                                 checkBox.addClickListener(new ClickListener() {
                                     public void onClick(Widget sender) {
                                         ObjectHoldableCheckBox cb = (ObjectHoldableCheckBox) sender;
                                         if (cb.isChecked()) {
-                                            if (!selectedGroups.contains(cb.getObject())) {
-                                                selectedGroups.add((Group)cb.getObject());
+                                            if (!selectedUiGroups.contains(cb.getObject())) {
+                                                selectedUiGroups.add((UiGroup)cb.getObject());
                                             }
                                         }
                                         else {
-                                            if (selectedGroups.contains(cb.getObject())) {
-                                                selectedGroups.remove(cb.getObject());
+                                            if (selectedUiGroups.contains(cb.getObject())) {
+                                                selectedUiGroups.remove(cb.getObject());
                                             }
                                         }
                                     }
                                 });
-                                table.setWidget(currentRow, 0, new Label(group.getName()));
-                                table.setWidget(currentRow, 1, new Label(group.getDescription()));
+                                table.setWidget(currentRow, 0, new Label(uiGroup.getName()));
+                                table.setWidget(currentRow, 1, new Label(uiGroup.getDescription()));
                                 table.setWidget(currentRow, 2, checkBox);
-                                table.setWidget(currentRow, 3, new EditGroupButton(group));
+                                table.setWidget(currentRow, 3, new EditGroupButton(uiGroup));
                             }
                             currentRow++;
                         }
@@ -190,7 +190,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
 
     public void listAllGroups(PagingInfo pagingInfo) {
         state.capture(this, pagingInfo, false);
-        selectedGroups.clear();
+        selectedUiGroups.clear();
         UserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.getAllGroups(pagingInfo,
                 new AsyncCallback() {
@@ -199,8 +199,8 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
                         GWT.log(caught.toString(), caught);
                     }
                     public void onSuccess(Object result) {
-                        Groups groups = (Groups) result;
-                        final ResponsePagingInfo responsePagingInfo = groups.getResponsePagingInfo();
+                        UiGroups uiGroups = (UiGroups) result;
+                        final ResponsePagingInfo responsePagingInfo = uiGroups.getResponsePagingInfo();
 
                         // Prev/Next
                         if (responsePagingInfo.hasNextPage()) {
@@ -221,35 +221,35 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
 
                         // populate table
                         int currentRow = 1;
-                        for (Group group : groups.getGroups()) {
+                        for (UiGroup uiGroup : uiGroups.getGroups()) {
                             if (currentRow < table.getRowCount()) { // edit row if they already exists
-                                ((Label)table.getWidget(currentRow, 0)).setText(group.getName());
-                                ((Label)table.getWidget(currentRow, 1)).setText(group.getDescription());
-                                ((ObjectHoldableCheckBox)table.getWidget(currentRow, 2)).setObject(group);
+                                ((Label)table.getWidget(currentRow, 0)).setText(uiGroup.getName());
+                                ((Label)table.getWidget(currentRow, 1)).setText(uiGroup.getDescription());
+                                ((ObjectHoldableCheckBox)table.getWidget(currentRow, 2)).setObject(uiGroup);
                                 ((ObjectHoldableCheckBox)table.getWidget(currentRow, 2)).setChecked(false);
-                                ((EditGroupButton)table.getWidget(currentRow, 3)).setGroup(group);
+                                ((EditGroupButton)table.getWidget(currentRow, 3)).setGroup(uiGroup);
                             }
                             else { // add new row if they doesn't already exists
-                                ObjectHoldableCheckBox checkBox =  new ObjectHoldableCheckBox(group.getId());
+                                ObjectHoldableCheckBox checkBox =  new ObjectHoldableCheckBox(uiGroup.getId());
                                 checkBox.addClickListener(new ClickListener() {
                                     public void onClick(Widget sender) {
                                         ObjectHoldableCheckBox cb = (ObjectHoldableCheckBox) sender;
                                         if (cb.isChecked()) {
-                                            if (!selectedGroups.contains(cb.getObject())) {
-                                                selectedGroups.add((Group)cb.getObject());
+                                            if (!selectedUiGroups.contains(cb.getObject())) {
+                                                selectedUiGroups.add((UiGroup)cb.getObject());
                                             }
                                         }
                                         else {
-                                            if (selectedGroups.contains(cb.getObject())) {
-                                                selectedGroups.remove(cb.getObject());
+                                            if (selectedUiGroups.contains(cb.getObject())) {
+                                                selectedUiGroups.remove(cb.getObject());
                                             }
                                         }
                                     }
                                 });
-                                table.setWidget(currentRow, 0, new Label(group.getName()));
-                                table.setWidget(currentRow, 1, new Label(group.getDescription()));
+                                table.setWidget(currentRow, 0, new Label(uiGroup.getName()));
+                                table.setWidget(currentRow, 1, new Label(uiGroup.getDescription()));
                                 table.setWidget(currentRow, 2, checkBox);
-                                table.setWidget(currentRow, 3, new EditGroupButton(group));
+                                table.setWidget(currentRow, 3, new EditGroupButton(uiGroup));
                             }
                             currentRow++;
                         }
@@ -271,17 +271,17 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
 
 
     private class EditGroupButton extends Button {
-        private Group group;
-        public EditGroupButton(Group group) {
-            this.group = group;
+        private UiGroup uiGroup;
+        public EditGroupButton(UiGroup uiGroup) {
+            this.uiGroup = uiGroup;
             addClickListener(new ClickListener() {
                 public void onClick(Widget sender) {
-                    new GroupDetailsPopupPanel(EditGroupButton.this.group);
+                    new GroupDetailsPopupPanel(EditGroupButton.this.uiGroup);
                 }
             });
         }
-        public void setGroup(Group group) {
-            this.group = group;
+        public void setGroup(UiGroup uiGroup) {
+            this.uiGroup = uiGroup;
         }
     }
 

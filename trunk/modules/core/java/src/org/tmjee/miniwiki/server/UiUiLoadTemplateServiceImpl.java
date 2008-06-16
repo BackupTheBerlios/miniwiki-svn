@@ -1,6 +1,6 @@
 package org.tmjee.miniwiki.server;
 
-import org.tmjee.miniwiki.client.server.LoadTemplateService;
+import org.tmjee.miniwiki.client.server.UiLoadTemplateService;
 import org.tmjee.miniwiki.client.server.TemplateInfo;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -11,7 +11,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
  * Time: 3:36:09 PM
  * To change this template use File | Settings | File Templates.
  */
-public class LoadTemplateServiceImpl extends RemoteServiceServlet implements LoadTemplateService {
+public class UiUiLoadTemplateServiceImpl extends RemoteServiceServlet implements UiLoadTemplateService {
 
     public TemplateInfo loadTemplate(String template) {
         // TODO:

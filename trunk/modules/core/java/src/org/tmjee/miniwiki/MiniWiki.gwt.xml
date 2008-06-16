@@ -1,11 +1,11 @@
 <module>
 
-	<inherits name='com.google.gwt.user.User'/>
+	<inherits name='com.google.gwt.uiUser.User'/>
     <!--
-        With this we have property "user.agent" with possible values
+        With this we have propertyUi "uiUser.agent" with possible values
         "ie6,gecko,gecko1_8,safari,opera"
     -->
-    <inherits name="com.google.gwt.user.UserAgent" />
+    <inherits name="com.google.gwt.uiUser.UserAgent" />
     <inherits name="com.google.gwt.junit.JUnit" />
     <inherits name="com.google.gwt.benchmarks.Benchmarks" />
     <inherits name="com.google.gwt.json.JSON" />
@@ -14,16 +14,16 @@
     <inherits name="com.google.gwt.http.HTTP" />
 
 
-    <inherits name='com.google.gwt.user.theme.standard.Standard'/>
-    <!-- <inherits name="com.google.gwt.user.theme.chrome.Chrome"/> -->
-    <!-- <inherits name="com.google.gwt.user.theme.dark.Dark"/> -->
+    <inherits name='com.google.gwt.uiUser.theme.standard.Standard'/>
+    <!-- <inherits name="com.google.gwt.uiUser.theme.chrome.Chrome"/> -->
+    <!-- <inherits name="com.google.gwt.uiUser.theme.dark.Dark"/> -->
 
     <stylesheet src="styles.css" />
 
     <entry-point class='org.tmjee.miniwiki.client.MiniWiki'/>
 
     <servlet path="/loadTemplate"
-             class="org.tmjee.miniwiki.server.LoadTemplateServiceImpl" />
+             class="org.tmjee.miniwiki.server.UiUiLoadTemplateServiceImpl" />
     <servlet path="/userManagement"
              class="org.tmjee.miniwiki.server.UserManagementServiceImpl" />
 </module>

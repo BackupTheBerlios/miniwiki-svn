@@ -24,7 +24,7 @@ public class GroupManagementPopupPanel extends PopupPanel {
         messageDisplayWidget = new MessageDisplayWidget();
 
         tabPanel = new TabPanel();
-        tabPanel.add(new GroupManagementTab(), "Group Management");
+        tabPanel.add(new GroupManagementTab(), "UiGroup Management");
         tabPanel.selectTab(0);
 
         mainPanel = new VerticalPanel();

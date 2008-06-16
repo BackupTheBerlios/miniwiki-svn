@@ -1,12 +1,7 @@
 package org.tmjee.miniwiki.client.widgets;
 
 import com.google.gwt.user.client.ui.*;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.core.client.GWT;
-import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
-import org.tmjee.miniwiki.client.server.PagingInfo;
-import org.tmjee.miniwiki.client.domain.User;
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,7 +23,7 @@ public class UserManagementPopupPanel extends PopupPanel {
         messageDisplayWidget = new MessageDisplayWidget();
 
         tabPanel = new TabPanel();
-        tabPanel.add(new UserManagementTab(), "User Management");
+        tabPanel.add(new UserManagementTab(), "UiUser Management");
         tabPanel.selectTab(0);
 
         mainPanel.add(messageDisplayWidget);

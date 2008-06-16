@@ -12,15 +12,15 @@ import java.util.List;
  * Time: 4:35:16 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class Property implements IsSerializable {
+public abstract class UiProperty implements IsSerializable {
 
     private long id;
     private String name;
     private String value;
 
-    public Property() {}
+    public UiProperty() {}
 
-    public Property(String name, String value) {
+    public UiProperty(String name, String value) {
         this.name = name;
         this.value = value;
     }

@@ -9,13 +9,13 @@ import com.google.gwt.user.client.rpc.IsSerializable;
  * Time: 6:43:09 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Group implements IsSerializable {
+public class UiGroup implements IsSerializable {
 
     private long id;
     private String name;
     private String description;
 
-    public Group() {}
+    public UiGroup() {}
 
     public long getId() {
         return id;

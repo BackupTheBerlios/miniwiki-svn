@@ -245,7 +245,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/modules/core/java/core.iml" filepath="$PROJECT_DIR$/modules/core/java/core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/miniwiki.iml" filepath="$PROJECT_DIR$/miniwiki.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/radeox/java/radeox.iml" filepath="$PROJECT_DIR$/modules/radeox/java/radeox.iml" />
     </modules>
   </component>

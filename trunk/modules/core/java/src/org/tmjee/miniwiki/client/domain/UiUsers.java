@@ -14,18 +14,18 @@ import com.google.gwt.user.client.rpc.IsSerializable;
  * Time: 4:46:36 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Users implements IsSerializable {
+public class UiUsers implements IsSerializable {
 
     private ResponsePagingInfo responsePagingInfo;
-    private transient List<User> users;
+    private transient List<UiUser> uiUsers;
 
 
-    public Users() {
-        users = new ArrayList<User>();
+    public UiUsers() {
+        uiUsers = new ArrayList<UiUser>();
     }
     
 
-    public Users(ResponsePagingInfo responsePagingInfo) {
+    public UiUsers(ResponsePagingInfo responsePagingInfo) {
         super();
         this.responsePagingInfo = responsePagingInfo;
     }
@@ -34,7 +34,7 @@ public class Users implements IsSerializable {
         return responsePagingInfo;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<UiUser> getUsers() {
+        return uiUsers;
     }
 }

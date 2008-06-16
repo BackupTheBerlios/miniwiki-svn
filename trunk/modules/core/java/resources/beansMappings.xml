@@ -5,7 +5,7 @@
     <configuration>
     </configuration>
     <mapping>
-        <class-a>org.tmjee.miniwiki.client.domain.User</class-a>
+        <class-a>org.tmjee.miniwiki.client.domain.UiUser</class-a>
         <class-b>org.tmjee.miniwiki.core.domain.User</class-b>
         <field>
             <a>id</a>
@@ -25,7 +25,7 @@
         </field>
     </mapping>
     <mapping>
-        <class-a>org.tmjee.miniwiki.client.domain.Group</class-a>
+        <class-a>org.tmjee.miniwiki.client.domain.UiGroup</class-a>
         <class-b>org.tmjee.miniwiki.core.domain.Group</class-b>
         <field>
             <a>id</a>
@@ -41,7 +41,7 @@
         </field>
     </mapping>
     <mapping>
-        <class-a>org.tmjee.miniwiki.client.domain.UserProperty</class-a>
+        <class-a>org.tmjee.miniwiki.client.domain.UiUserUiProperty</class-a>
         <class-b>org.tmjee.miniwiki.core.domain.UserProperty</class-b>
         <field>
             <a>id</a>

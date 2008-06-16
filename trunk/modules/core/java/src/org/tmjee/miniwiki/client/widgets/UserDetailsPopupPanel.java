@@ -5,10 +5,9 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
-import org.tmjee.miniwiki.client.domain.User;
-import org.tmjee.miniwiki.client.domain.Property;
-import org.tmjee.miniwiki.client.domain.Group;
-import org.tmjee.miniwiki.client.domain.UserProperty;
+import org.tmjee.miniwiki.client.domain.UiUser;
+import org.tmjee.miniwiki.client.domain.UiGroup;
+import org.tmjee.miniwiki.client.domain.UiUserUiProperty;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,7 +18,7 @@ import org.tmjee.miniwiki.client.domain.UserProperty;
  */
 public class UserDetailsPopupPanel extends PopupPanel {
 
-    private User user;
+    private UiUser uiUser;
 
     private VerticalPanel mainPanel;
 
@@ -34,7 +33,7 @@ public class UserDetailsPopupPanel extends PopupPanel {
     private Button assignGroup;
 
 
-    private FlexTable propertiesTable;    // user's properties
+    private FlexTable propertiesTable;    // uiUser's properties
     private HorizontalPanel propertyManipulationButtonsPanel;
     private Button addProperty;
     private Button deleteProperty;
@@ -45,32 +44,32 @@ public class UserDetailsPopupPanel extends PopupPanel {
 
 
     public static interface Handler {
-        void save(User user);
+        void save(UiUser uiUser);
     }
 
 
-    public UserDetailsPopupPanel(User user, Handler handler) {
+    public UserDetailsPopupPanel(UiUser uiUser, Handler handler) {
 
-        this.user = user;
+        this.uiUser = uiUser;
 
         mainPanel = new VerticalPanel();
 
         username = new TextBox();
         username.addChangeListener(new ChangeListener() {
             public void onChange(Widget sender) {
-                UserDetailsPopupPanel.this.user.setUsername(username.getText());
+                UserDetailsPopupPanel.this.uiUser.setUsername(username.getText());
             }
         });
         lastName = new TextBox();
         lastName.addChangeListener(new ChangeListener() {
             public void onChange(Widget sender) {
-                UserDetailsPopupPanel.this.user.setLastName(lastName.getText());
+                UserDetailsPopupPanel.this.uiUser.setLastName(lastName.getText());
             }
         });
         firstName = new TextBox();
         firstName.addChangeListener(new ChangeListener() {
             public void onChange(Widget sender) {
-                UserDetailsPopupPanel.this.user.setFirstName(firstName.getText());
+                UserDetailsPopupPanel.this.uiUser.setFirstName(firstName.getText());
             }
         });
         grid = new Grid(3, 2);
@@ -83,14 +82,14 @@ public class UserDetailsPopupPanel extends PopupPanel {
 
 
         groupsButtonPanel = new HorizontalPanel();
-        assignGroup = new Button("Assign Group", new ClickListener() {
+        assignGroup = new Button("Assign UiGroup", new ClickListener() {
             public void onClick(Widget sender) {
-                new AssignGroupPopupPanel(UserDetailsPopupPanel.this.user,
+                new AssignGroupPopupPanel(UserDetailsPopupPanel.this.uiUser,
                         new AssignGroupPopupPanel.Handler() {
-                            public void join(User user, Group group) {
+                            public void join(UiUser uiUser, UiGroup uiGroup) {
                                 loadGroupInfo();
                             }
-                            public void leave(User user, Group group) {
+                            public void leave(UiUser uiUser, UiGroup uiGroup) {
                                 loadGroupInfo();
                             }
                 });
@@ -98,31 +97,31 @@ public class UserDetailsPopupPanel extends PopupPanel {
         });
         groupsButtonPanel.add(assignGroup);
         groupsTable = new FlexTable();
-        groupsTable.setWidget(0, 0, new Label("Group Name"));
+        groupsTable.setWidget(0, 0, new Label("UiGroup Name"));
         groupsTable.setWidget(0, 1, new Label(""));
 
 
         propertiesTable = new FlexTable();
-        propertiesTable.setWidget(0, 0, new Label("Property Name"));
-        propertiesTable.setWidget(0, 1, new Label("Property Value"));
+        propertiesTable.setWidget(0, 0, new Label("UiProperty Name"));
+        propertiesTable.setWidget(0, 1, new Label("UiProperty Value"));
         propertiesTable.setWidget(0, 2, new Label(""));
 
 
-        deleteProperty = new Button("Delete Property", new ClickListener() {
+        deleteProperty = new Button("Delete UiProperty", new ClickListener() {
             public void onClick(Widget sender) {
                 for (int row=0; row< propertiesTable.getRowCount(); row++) {
                     ObjectHoldableCheckBox checkBox = (ObjectHoldableCheckBox) propertiesTable.getWidget(row, 2);
-                    UserDetailsPopupPanel.this.user.removeProperty((UserProperty) checkBox.getObject());
+                    UserDetailsPopupPanel.this.uiUser.removeProperty((UiUserUiProperty) checkBox.getObject());
                     loadPropertiesInfo();
                 }
             }
         });
 
-        addProperty = new Button("Add Property", new ClickListener() {
+        addProperty = new Button("Add UiProperty", new ClickListener() {
             public void onClick(Widget sender) {
                 new PropertyDetailsPopupPanel(new PropertyDetailsPopupPanel.Handler() {
                     public void save(String propertyName, String propertyValue) {
-                        UserDetailsPopupPanel.this.user.addProperty(new UserProperty(propertyName, propertyValue));
+                        UserDetailsPopupPanel.this.uiUser.addProperty(new UiUserUiProperty(propertyName, propertyValue));
                         loadPropertiesInfo();
                     }
                 });
@@ -134,9 +133,9 @@ public class UserDetailsPopupPanel extends PopupPanel {
 
         saveUserDetails = new Button("Save", new ClickListener() {
             public void onClick(Widget sender) {
-                LoadingMessageDisplayWidget.getInstance().display("Saving User Info ...");
+                LoadingMessageDisplayWidget.getInstance().display("Saving UiUser Info ...");
                 UserManagementServiceAsync userManagement = Service.getUserManagementService();
-                userManagement.updateUser(UserDetailsPopupPanel.this.user, new AsyncCallback() {
+                userManagement.updateUser(UserDetailsPopupPanel.this.uiUser, new AsyncCallback() {
                     public void onFailure(Throwable caught) {
                         // TODO: logging
                         GWT.log(caught.toString(), caught);
@@ -171,20 +170,20 @@ public class UserDetailsPopupPanel extends PopupPanel {
         {
             int currentRow = 1;
             int totalRows = groupsTable.getRowCount();
-            for (final Group group : user.getGroups()) {
+            for (final UiGroup uiGroup : uiUser.getGroups()) {
                 if (currentRow < totalRows) {
-                    groupsTable.setWidget(currentRow, 0, new Label(group.getName()));
-                    groupsTable.setWidget(currentRow, 1, new ObjectHoldableButton(group, "Remove", new ClickListener() {
+                    groupsTable.setWidget(currentRow, 0, new Label(uiGroup.getName()));
+                    groupsTable.setWidget(currentRow, 1, new ObjectHoldableButton(uiGroup, "Remove", new ClickListener() {
                         public void onClick(Widget sender) {
                             ObjectHoldableButton button = (ObjectHoldableButton) sender;
-                            Group grp = (Group) button.getObject();
-                            UserDetailsPopupPanel.this.user.removeGroup(grp);
+                            UiGroup grp = (UiGroup) button.getObject();
+                            UserDetailsPopupPanel.this.uiUser.removeGroup(grp);
                         }
                     }));
                 }
                 else {
-                    ((Label)groupsTable.getWidget(currentRow, 0)).setText(group.getName());
-                    ((ObjectHoldableButton)groupsTable.getWidget(currentRow, 1)).setObject(group);
+                    ((Label)groupsTable.getWidget(currentRow, 0)).setText(uiGroup.getName());
+                    ((ObjectHoldableButton)groupsTable.getWidget(currentRow, 1)).setObject(uiGroup);
                 }
                 currentRow++;
             }
@@ -199,16 +198,16 @@ public class UserDetailsPopupPanel extends PopupPanel {
         {
             int currentRow = 1;
             int totalRows = propertiesTable.getRowCount();
-            for (final UserProperty userProperty : user.getProperties()) {
+            for (final UiUserUiProperty uiUserProperty : uiUser.getProperties()) {
                 if (currentRow < totalRows) {
-                    propertiesTable.setWidget(currentRow, 0, new Label(userProperty.getName()));
-                    propertiesTable.setWidget(currentRow, 1, new Label(userProperty.getValue()));
-                    propertiesTable.setWidget(currentRow, 2, new ObjectHoldableCheckBox(userProperty));
+                    propertiesTable.setWidget(currentRow, 0, new Label(uiUserProperty.getName()));
+                    propertiesTable.setWidget(currentRow, 1, new Label(uiUserProperty.getValue()));
+                    propertiesTable.setWidget(currentRow, 2, new ObjectHoldableCheckBox(uiUserProperty));
                 }
                 else {
-                    ((Label)propertiesTable.getWidget(currentRow, 0)).setText(userProperty.getName());
-                    ((Label)propertiesTable.getWidget(currentRow, 1)).setText(userProperty.getValue());
-                    ((ObjectHoldableCheckBox)propertiesTable.getWidget(currentRow, 2)).setObject(userProperty);
+                    ((Label)propertiesTable.getWidget(currentRow, 0)).setText(uiUserProperty.getName());
+                    ((Label)propertiesTable.getWidget(currentRow, 1)).setText(uiUserProperty.getValue());
+                    ((ObjectHoldableCheckBox)propertiesTable.getWidget(currentRow, 2)).setObject(uiUserProperty);
                 }
                 currentRow++;
             }

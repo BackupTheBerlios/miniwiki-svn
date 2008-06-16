@@ -3,9 +3,9 @@ package org.tmjee.miniwiki.client.widgets;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.core.client.GWT;
-import org.tmjee.miniwiki.client.domain.User;
-import org.tmjee.miniwiki.client.domain.Groups;
-import org.tmjee.miniwiki.client.domain.Group;
+import org.tmjee.miniwiki.client.domain.UiUser;
+import org.tmjee.miniwiki.client.domain.UiGroups;
+import org.tmjee.miniwiki.client.domain.UiGroup;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
 import org.tmjee.miniwiki.client.server.PagingInfo;
@@ -23,7 +23,7 @@ public class AssignGroupPopupPanel extends PopupPanel {
 
     private VerticalPanel mainPanel;
 
-    private User user;
+    private UiUser uiUser;
     private Grid grid; // store next / prev buttons
     private FlexTable groupsTable;
 
@@ -31,18 +31,18 @@ public class AssignGroupPopupPanel extends PopupPanel {
 
 
     public interface Handler {
-        void join(User user, Group group);
-        void leave(User user, Group group);
+        void join(UiUser uiUser, UiGroup uiGroup);
+        void leave(UiUser uiUser, UiGroup uiGroup);
     }
 
 
-    public AssignGroupPopupPanel(User user, Handler handler) {
+    public AssignGroupPopupPanel(UiUser uiUser, Handler handler) {
 
-        this.user =user;
+        this.uiUser = uiUser;
         this.handler = handler;
 
         groupsTable = new FlexTable();
-        groupsTable.setWidget(0, 0, new Label("Group Name"));
+        groupsTable.setWidget(0, 0, new Label("UiGroup Name"));
         groupsTable.setWidget(0, 1, new Label("")); // join / leave
 
         grid = new Grid(1, 2);
@@ -69,8 +69,8 @@ public class AssignGroupPopupPanel extends PopupPanel {
                     }
                     public void onSuccess(Object result) {
 
-                        Groups groups = (Groups) result;
-                        final ResponsePagingInfo responsePagingInfo = groups.getResponsePagingInfo();
+                        UiGroups uiGroups = (UiGroups) result;
+                        final ResponsePagingInfo responsePagingInfo = uiGroups.getResponsePagingInfo();
 
                         // prev/next
                         if (responsePagingInfo.hasNextPage()) {
@@ -100,24 +100,24 @@ public class AssignGroupPopupPanel extends PopupPanel {
 
 
                         // populate table
-                        groupsTable.setWidget(0, 0, new Label("Group Name"));
+                        groupsTable.setWidget(0, 0, new Label("UiGroup Name"));
                         int totalRows = groupsTable.getRowCount();
                         int currentRow = 1;
-                        for (final Group group : groups.getGroups()) {
-                            final boolean isUserInGroup = user.isInGroup(group);
+                        for (final UiGroup uiGroup : uiGroups.getGroups()) {
+                            final boolean isUserInGroup = uiUser.isInGroup(uiGroup);
                             if (currentRow < totalRows) {
-                                groupsTable.setWidget(currentRow, 0, new Label(group.getName()));
+                                groupsTable.setWidget(currentRow, 0, new Label(uiGroup.getName()));
                                 groupsTable.setWidget(currentRow, 1, new Button(
                                     isUserInGroup?"Join":"Leave",
                                     new ClickListener() {
                                         public void onClick(Widget sender) {
                                             if (isUserInGroup) {
-                                                user.removeGroup(group);
-                                                AssignGroupPopupPanel.this.handler.leave(user, group);
+                                                uiUser.removeGroup(uiGroup);
+                                                AssignGroupPopupPanel.this.handler.leave(uiUser, uiGroup);
                                             }
                                             else {
-                                                user.addGroup(group);
-                                                AssignGroupPopupPanel.this.handler.join(user, group);
+                                                uiUser.addGroup(uiGroup);
+                                                AssignGroupPopupPanel.this.handler.join(uiUser, uiGroup);
                                             }
                                         }
                                     }));

@@ -32,7 +32,7 @@ Foldoc http://www.foldoc.org/foldoc/foldoc.cgi?
 FoxWiki http://fox.wikis.com/wc.dll?Wiki~
 FreeBSDman http://www.FreeBSD.org/cgi/man.cgi?apropos=1&query=
 Google http://www.google.com/search?q=
-GoogleGroups http://groups.google.com/groups?q=
+GoogleGroups http://uiGroups.google.com/uiGroups?q=
 GreenCheese http://www.greencheese.org/
 HammondWiki http://www.dairiki.org/HammondWiki/index.php3?
 Haribeau http://wiki.haribeau.de/cgi-bin/wiki.pl?
@@ -57,7 +57,7 @@ MoinMoin http://purl.net/wiki/moin/
 MuWeb http://www.dunstable.com/scripts/MuWebWeb?
 NetVillage http://www.netbros.com/?
 OpenWiki http://openwiki.com/?
-OrgPatterns http://www.bell-labs.com/cgi-user/OrgPatterns/OrgPatterns?
+OrgPatterns http://www.bell-labs.com/cgi-uiUser/OrgPatterns/OrgPatterns?
 PangalacticOrg http://www.pangalactic.org/Wiki/
 PersonalTelco http://www.personaltelco.net/index.cgi/
 PhpWiki http://phpwiki.sourceforge.net/phpwiki/index.php?

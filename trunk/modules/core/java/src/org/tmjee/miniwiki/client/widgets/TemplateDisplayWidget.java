@@ -174,12 +174,12 @@ public class TemplateDisplayWidget extends VerticalPanel {
 
 
         /*
-         * User
-         *   + User Management
+         * UiUser
+         *   + UiUser Management
          */
         MenuBar userMenuBar = new MenuBar(true);
-        MenuItem userMenuItem = new MenuItem("User", userMenuBar);
-        userMenuBar.addItem(new MenuItem("User Management", new Command() {
+        MenuItem userMenuItem = new MenuItem("UiUser", userMenuBar);
+        userMenuBar.addItem(new MenuItem("UiUser Management", new Command() {
             public void execute() {
                 new UserManagementPopupPanel();
             }
@@ -188,12 +188,12 @@ public class TemplateDisplayWidget extends VerticalPanel {
 
 
         /*
-         * Group
-         *   + Group Management
+         * UiGroup
+         *   + UiGroup Management
          */
         MenuBar groupMenuBar = new MenuBar(true);
-        MenuItem groupMenuItem = new MenuItem("Group", groupMenuBar);
-        groupMenuBar.addItem(new MenuItem("Group Management", new Command() {
+        MenuItem groupMenuItem = new MenuItem("UiGroup", groupMenuBar);
+        groupMenuBar.addItem(new MenuItem("UiGroup Management", new Command() {
             public void execute() {
                 new GroupManagementPopupPanel();
             }

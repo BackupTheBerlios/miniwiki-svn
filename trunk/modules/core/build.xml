@@ -6,8 +6,8 @@
     </description>
 
     <!-- imports/preparation -->
-    <property file="build.properties" />
-    <property file="${java.resources.dir}/db.properties" />
+    <propertyUi file="build.properties" />
+    <propertyUi file="${java.resources.dir}/db.properties" />
 
     <path id="compilation_classpath">
         <fileset dir="${lib.dir}">

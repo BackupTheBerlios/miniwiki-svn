@@ -3,6 +3,7 @@ package org.tmjee.miniwiki.core;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.tmjee.miniwiki.core.service.SetupService;
+import org.tmjee.miniwiki.core.service.UserManagementService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -44,6 +45,11 @@ public class Bootstrap {
 
     public ApplicationContext getApplicationContext() {
         return applicationContext;
+    }
+
+    public UserManagementService getUserManagementService() {
+        return (UserManagementService) applicationContext.getBean(
+                "userManagementService", UserManagementService.class);    
     }
     
 }

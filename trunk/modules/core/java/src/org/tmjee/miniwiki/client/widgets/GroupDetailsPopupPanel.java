@@ -1,7 +1,7 @@
 package org.tmjee.miniwiki.client.widgets;
 
 import com.google.gwt.user.client.ui.PopupPanel;
-import org.tmjee.miniwiki.client.domain.Group;
+import org.tmjee.miniwiki.client.domain.UiGroup;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,7 +12,7 @@ import org.tmjee.miniwiki.client.domain.Group;
  */
 public class GroupDetailsPopupPanel extends PopupPanel {
 
-    public GroupDetailsPopupPanel(Group group) {
+    public GroupDetailsPopupPanel(UiGroup uiGroup) {
 
     }
 

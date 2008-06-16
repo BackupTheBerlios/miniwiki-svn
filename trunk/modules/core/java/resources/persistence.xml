@@ -26,9 +26,9 @@
         <class>org.tmjee.miniwiki.core.domain.WikiPriviledgeValue</class>
         <exclude-unlisted-classes/>
         <properties>
-            <property name="openjpa.Log" value="commons" />
+            <propertyUi name="openjpa.Log" value="commons" />
             <!--
-            <property name="openjpa.Log"
+            <propertyUi name="openjpa.Log"
                       value="DefaultLevel=WARN,
                              Enhance=INFO,
                              MetaData=INFO,
@@ -40,10 +40,10 @@
                              Schema=INFO,
                              Tool=INFO"/>
             -->
-            <property name="openjpa.ConnectionFactoryProperties"
+            <propertyUi name="openjpa.ConnectionFactoryProperties"
                       value="PrettyPrint=true, PrettyPrintLineLength=72"/>
             <!--
-            <property name="openjpa.jdbc.SynchronizeMappings"
+            <propertyUi name="openjpa.jdbc.SynchronizeMappings"
                       value="buildSchema(ForeignKeys=true)"/>
             -->
         </properties>

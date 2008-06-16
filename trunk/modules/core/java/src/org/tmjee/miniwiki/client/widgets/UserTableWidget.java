@@ -8,13 +8,12 @@ import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
 import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.Constants;
-import org.tmjee.miniwiki.client.utils.MutableInteger;
 import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.events.MessageEvent;
-import org.tmjee.miniwiki.client.domain.Users;
-import org.tmjee.miniwiki.client.domain.User;
+import org.tmjee.miniwiki.client.domain.UiUsers;
+import org.tmjee.miniwiki.client.domain.UiUser;
 
 import java.util.List;
 import java.util.Iterator;
@@ -40,19 +39,19 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
     private FlexTable table;
     private Grid grid;
 
-    private List<User> selectedUser;
+    private List<UiUser> selectedUiUser;
     private State state;
 
     public UserTableWidget() {
 
-        selectedUser = new ArrayList<User>();
+        selectedUiUser = new ArrayList<UiUser>();
         state = new State(this);
 
         sourcesEventSupport = new SourcesEventsSupport();
 
         searchPanel = new HorizontalPanel();
         search = new TextBox();
-        searchUser = new Button("Search User",
+        searchUser = new Button("Search UiUser",
                 new ClickListener() {
                     public void onClick(Widget sender) {
                         if (search.getText() == null || (search.getText().trim().length() <= 0)) {
@@ -77,9 +76,9 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
                 new ClickListener() {
                     public void onClick(Widget sender) {
                         UserManagementServiceAsync userManagementService = Service.getUserManagementService();
-                        for (final User user : selectedUser) {
-                            LoadingMessageDisplayWidget.getInstance().display("Deleting user ID "+user.getId());
-                            userManagementService.deleteUser(user, new AsyncCallback() {
+                        for (final UiUser uiUser : selectedUiUser) {
+                            LoadingMessageDisplayWidget.getInstance().display("Deleting uiUser ID "+ uiUser.getId());
+                            userManagementService.deleteUser(uiUser, new AsyncCallback() {
                                 public void onFailure(Throwable caught) {
                                     // TODO: logging
                                     GWT.log(caught.toString(), caught);
@@ -95,8 +94,8 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
         add = new Button("Add",
                 new ClickListener() {
                     public void onClick(Widget sender) {
-                        new UserDetailsPopupPanel(new User(), new UserDetailsPopupPanel.Handler() {
-                            public void save(User user) {
+                        new UserDetailsPopupPanel(new UiUser(), new UserDetailsPopupPanel.Handler() {
+                            public void save(UiUser uiUser) {
                                 state.restore();
                             }
                         });
@@ -127,7 +126,7 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
 
     public void listUser(final String username, final PagingInfo pagingInfo) {
         state.capture(pagingInfo, false);
-        selectedUser.clear();
+        selectedUiUser.clear();
         UserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.searchForUser(
                 username,
@@ -139,8 +138,8 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
                         GWT.log(caught.toString(), caught);
                     }
                     public void onSuccess(Object result) {
-                        Users users = (Users) result;
-                        final ResponsePagingInfo responsePagingInfo = users.getResponsePagingInfo();
+                        UiUsers uiUsers = (UiUsers) result;
+                        final ResponsePagingInfo responsePagingInfo = uiUsers.getResponsePagingInfo();
                         if (responsePagingInfo.hasNextPage()) {
                             grid.setWidget(0, 0, new Button("Next", new ClickListener() {
                                 public void onClick(Widget sender) {
@@ -168,58 +167,58 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
                             grid.setWidget(0, 1, b);
                         }
 
-                        List userlist = users.getUsers();
+                        List userlist = uiUsers.getUsers();
                         int currentRow = 1;
                         for (Iterator i = userlist.iterator(); i.hasNext(); ) {
-                            User user = (User) i.next();
+                            UiUser uiUser = (UiUser) i.next();
 
                             if (currentRow < table.getRowCount()) {
-                                // user existing row
+                                // uiUser existing row
                                 {
                                     Label l = (Label) table.getWidget(currentRow, 0);
-                                    l.setText(user.getUsername());
+                                    l.setText(uiUser.getUsername());
                                 }
                                 {
                                     Label l = (Label) table.getWidget(currentRow, 1);
-                                    l.setText(user.getFirstName());
+                                    l.setText(uiUser.getFirstName());
                                 }
                                 {
                                     Label l = (Label) table.getWidget(currentRow, 2);
-                                    l.setText(user.getLastName());
+                                    l.setText(uiUser.getLastName());
                                 }
                                 {
                                     ObjectHoldableCheckBox c = (ObjectHoldableCheckBox) table.getWidget(currentRow, 3);
                                     c.setChecked(false);
-                                    c.setObject(user);
+                                    c.setObject(uiUser);
                                 }
                                 {
                                     EditUserButton editUserButton =(EditUserButton) table.getWidget(currentRow, 4);
-                                    editUserButton.setUser(user);
+                                    editUserButton.setUser(uiUser);
                                 }
                             }
                             else {
                                 // add row
-                                ObjectHoldableCheckBox checkBox = new ObjectHoldableCheckBox(user);
+                                ObjectHoldableCheckBox checkBox = new ObjectHoldableCheckBox(uiUser);
                                 checkBox.addClickListener(new ClickListener() {
                                     public void onClick(Widget sender) {
                                         ObjectHoldableCheckBox cb = (ObjectHoldableCheckBox) sender;
                                         if (cb.isChecked()) {
-                                            if (!selectedUser.contains(cb.getObject())) {
-                                                selectedUser.add((User)cb.getObject());
+                                            if (!selectedUiUser.contains(cb.getObject())) {
+                                                selectedUiUser.add((UiUser)cb.getObject());
                                             }
                                         }
                                         else {
-                                            if (selectedUser.contains(cb.getObject())) {
-                                                selectedUser.remove(cb.getObject());
+                                            if (selectedUiUser.contains(cb.getObject())) {
+                                                selectedUiUser.remove(cb.getObject());
                                             }
                                         }
                                     }
                                 });
-                                table.setWidget(currentRow, 0, new Label(user.getUsername()));
-                                table.setWidget(currentRow, 1, new Label(user.getFirstName()));
-                                table.setWidget(currentRow, 2, new Label(user.getLastName()));
+                                table.setWidget(currentRow, 0, new Label(uiUser.getUsername()));
+                                table.setWidget(currentRow, 1, new Label(uiUser.getFirstName()));
+                                table.setWidget(currentRow, 2, new Label(uiUser.getLastName()));
                                 table.setWidget(currentRow, 3, checkBox);
-                                table.setWidget(currentRow, 4, new EditUserButton(user, state));
+                                table.setWidget(currentRow, 4, new EditUserButton(uiUser, state));
                             }
                             currentRow++;
                         }
@@ -235,7 +234,7 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
 
     public void listAllUsers(final PagingInfo pagingInfo) {
         state.capture(pagingInfo, true);
-        selectedUser.clear();
+        selectedUiUser.clear();
         UserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.getAllUsers(pagingInfo,
                 new AsyncCallback() {
@@ -244,10 +243,10 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
                         GWT.log(caught.toString(), caught);
                     }
                     public void onSuccess(Object result) {
-                        Users users = (Users) result;
+                        UiUsers uiUsers = (UiUsers) result;
 
                         // put in next, prev buttons
-                        final ResponsePagingInfo responsePagingInfo = users.getResponsePagingInfo();
+                        final ResponsePagingInfo responsePagingInfo = uiUsers.getResponsePagingInfo();
                         if (responsePagingInfo.hasNextPage()) {
                             grid.setWidget(0, 0, new Button("Next", new ClickListener() {
                                 public void onClick(Widget sender) {
@@ -278,37 +277,37 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
 
                         // populate the table
                         int currentRow = 1;
-                        for (User user : users.getUsers()) {
+                        for (UiUser uiUser : uiUsers.getUsers()) {
                             if (currentRow < table.getRowCount()) {
-                                // user existing row
+                                // uiUser existing row
                                 {
                                     Label l = (Label) table.getWidget(currentRow, 0);
-                                    l.setText(user.getUsername());
+                                    l.setText(uiUser.getUsername());
                                 }
                                 {
                                     Label l = (Label) table.getWidget(currentRow, 1);
-                                    l.setText(user.getFirstName());
+                                    l.setText(uiUser.getFirstName());
                                 }
                                 {
                                     Label l = (Label) table.getWidget(currentRow, 2);
-                                    l.setText(user.getLastName());
+                                    l.setText(uiUser.getLastName());
                                 }
                                 {
                                     ObjectHoldableCheckBox c = (ObjectHoldableCheckBox) table.getWidget(currentRow, 3);
-                                    c.setObject(user);
+                                    c.setObject(uiUser);
                                 }
                                 {
                                     EditUserButton editUserButton =(EditUserButton) table.getWidget(currentRow, 4);
-                                    editUserButton.setUser(user);
+                                    editUserButton.setUser(uiUser);
                                 }    
                             }
                             else {
                                 // add row
-                                table.setWidget(currentRow, 0, new Label(user.getUsername()));
-                                table.setWidget(currentRow, 1, new Label(user.getFirstName()));
-                                table.setWidget(currentRow, 2, new Label(user.getLastName()));
-                                table.setWidget(currentRow, 3, new ObjectHoldableCheckBox(user));
-                                table.setWidget(currentRow, 4, new EditUserButton(user, state));
+                                table.setWidget(currentRow, 0, new Label(uiUser.getUsername()));
+                                table.setWidget(currentRow, 1, new Label(uiUser.getFirstName()));
+                                table.setWidget(currentRow, 2, new Label(uiUser.getLastName()));
+                                table.setWidget(currentRow, 3, new ObjectHoldableCheckBox(uiUser));
+                                table.setWidget(currentRow, 4, new EditUserButton(uiUser, state));
                             }
                             currentRow++;
                         }
@@ -333,18 +332,18 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
 
     private class EditUserButton extends Button {
 
-        private User user;
+        private UiUser uiUser;
         private State state;
 
-        public EditUserButton(User user, State state) {
+        public EditUserButton(UiUser uiUser, State state) {
             super("Edit");
-            this.user = user;
+            this.uiUser = uiUser;
             this.state = state;
             addClickListener(new ClickListener() {
                 public void onClick(Widget sender) {
-                    new UserDetailsPopupPanel(EditUserButton.this.user,
+                    new UserDetailsPopupPanel(EditUserButton.this.uiUser,
                             new UserDetailsPopupPanel.Handler() {
-                                public void save(User user) {
+                                public void save(UiUser uiUser) {
                                     EditUserButton.this.state.restore();    
                                 }
                             });
@@ -352,8 +351,8 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
             });
         }
 
-        public void setUser(User user) {
-            this.user = user;
+        public void setUser(UiUser uiUser) {
+            this.uiUser = uiUser;
         }
 
     }

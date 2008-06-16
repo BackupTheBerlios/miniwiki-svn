@@ -14,16 +14,16 @@ import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
  * Time: 2:06:10 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Groups implements IsSerializable {
+public class UiGroups implements IsSerializable {
 
-    private transient List<Group> groups;
+    private transient List<UiGroup> uiGroups;
     private ResponsePagingInfo responsePagingInfo;
 
-    public Groups() {
-        groups = new ArrayList<Group>();
+    public UiGroups() {
+        uiGroups = new ArrayList<UiGroup>();
     }
 
-    public Groups(ResponsePagingInfo responsePagingInfo) {
+    public UiGroups(ResponsePagingInfo responsePagingInfo) {
         super();
         this.responsePagingInfo = responsePagingInfo;
     }
@@ -32,7 +32,7 @@ public class Groups implements IsSerializable {
         return responsePagingInfo;
     }
 
-    public List<Group> getGroups() {
-        return groups;
+    public List<UiGroup> getGroups() {
+        return uiGroups;
     }
 }

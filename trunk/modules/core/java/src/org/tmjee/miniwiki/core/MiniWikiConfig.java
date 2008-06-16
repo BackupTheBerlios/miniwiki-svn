@@ -1,6 +1,6 @@
 package org.tmjee.miniwiki.core;
 
-import org.tmjee.miniwiki.client.domain.Credentials;
+import org.tmjee.miniwiki.client.domain.UiCredentials;
 
 import java.util.Properties;
 
@@ -21,7 +21,7 @@ public class MiniWikiConfig {
 
     public boolean isPredefinedSuperAdmin(String username, String password) {
         if ("true".equalsIgnoreCase(prop.getProperty("superadmin.enabled").trim()) &&
-            username.equals(Credentials.SUPERADMIN.getUser().getUsername()) &&
+            username.equals(UiCredentials.SUPERADMIN.getUser().getUsername()) &&
             password.equals(prop.getProperty("superadmin.password").trim())) {
             return true;
         }                      

@@ -9,6 +9,7 @@ import org.springframework.orm.jpa.JpaCallback;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
+import javax.persistence.EntityManagerFactory;
 
 import net.sf.dozer.util.mapping.DozerBeanMapper;
 
@@ -25,15 +26,15 @@ public class UserManagementService {
     private MiniWikiConfig config;
     private DozerBeanMapper mapper;
 
-    public UserManagementService(EntityManager entityManager, MiniWikiConfig config, DozerBeanMapper mapper) {
-        template = new JpaTemplate(entityManager);
+    public UserManagementService(EntityManagerFactory entityManagerFactory, MiniWikiConfig config, DozerBeanMapper mapper) {
+        template = new JpaTemplate(entityManagerFactory);
         this.mapper = mapper;
         this.config = config;
     }
 
-    public Credentials authenticate(final String username, final String password) {
+    public UiCredentials authenticate(final String username, final String password) {
         if (config.isPredefinedSuperAdmin(username, password)) {
-            return Credentials.SUPERADMIN;
+            return UiCredentials.SUPERADMIN;
         }
 
         Boolean authenticated = (Boolean) template.execute(new JpaCallback() {
@@ -55,42 +56,42 @@ public class UserManagementService {
                     return query.getSingleResult();
                 }
             });
-            User user = new User();
-            mapper.map(_user, user);
-            return new Credentials(user);
+            UiUser uiUser = new UiUser();
+            mapper.map(_user, uiUser);
+            return new UiCredentials(uiUser);
         }
-        return Credentials.ANONYMOUS;
+        return UiCredentials.ANONYMOUS;
     }
 
-    public Users searchForUser(String username, PagingInfo pagingInfo, boolean exactMatch) {
+    public UiUsers searchForUser(String username, PagingInfo pagingInfo, boolean exactMatch) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public Users getAllUsers(PagingInfo pagingInfo) {
+    public UiUsers getAllUsers(PagingInfo pagingInfo) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public void updateUser(User user) {
+    public void updateUser(UiUser uiUser) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public void deleteUser(User user) {
+    public void deleteUser(UiUser uiUser) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public Groups searchForGroup(String groupName, PagingInfo pagingInfo, boolean exactMatch) {
+    public UiGroups searchForGroup(String groupName, PagingInfo pagingInfo, boolean exactMatch) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public Groups getAllGroups(PagingInfo pagingInfo) {
+    public UiGroups getAllGroups(PagingInfo pagingInfo) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public void updateGroup(Group group) {
+    public void updateGroup(UiGroup uiGroup) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public void deleteGroup(Group group) {
+    public void deleteGroup(UiGroup uiGroup) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
