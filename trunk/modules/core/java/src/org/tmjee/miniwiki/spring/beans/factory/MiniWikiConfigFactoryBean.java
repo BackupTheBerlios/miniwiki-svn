@@ -1,7 +1,7 @@
 package org.tmjee.miniwiki.spring.beans.factory;
 
 import org.springframework.beans.factory.FactoryBean;
-import org.tmjee.miniwiki.MiniWikiConfig;
+import org.tmjee.miniwiki.core.MiniWikiConfig;
 
 import java.util.Properties;
 

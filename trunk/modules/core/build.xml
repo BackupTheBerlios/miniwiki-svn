@@ -68,21 +68,143 @@
         </openjpac>
     </target>
 
+    <target name="gwtCompile" description="-> GWT compile">
+         <java classpathref="compilation_classpath"
+              fork="true"
+              failonerror="true"
+              classname="com.google.gwt.dev.GWTCompiler">
+                 <!--jvmarg line="-XstartOnFirstThread"/ -->
+                 <jvmarg line="-Xmx512M" />
+                 <arg line="-out ${www.dir}"/>
+                 <arg line="org.tmjee.miniwiki.MiniWiki"/>
+       </java>
+    </target>
+
+    <target name="shell">
+        <java fork="true"
+              failonerror="true"
+              classname="com.google.gwt.dev.GWTShell">
+                 <classpath>
+                     <pathelement location="${java.src.dir}" />
+                     <pathelement location="${java.resources.dir}" />
+                     <pathelement location="${java.classes.dir}" />
+                     <fileset dir="${gwt.dir}">
+                        <include name="**/*.jar" />
+                     </fileset>
+                     <fileset dir="${lib.dir}">
+                         <include name="**/junit.jar" />
+                     </fileset>
+                 </classpath>
+                 <jvmarg line="-Xmx512M" />
+                 <!--
+                 <arg line="-help" />
+                 -->
+                 <arg line="-port ${gwt.shell.port}" />
+                 <arg line="-noserver" />
+                 <!-- ERROR, WARN, INFO, TRACE, DEBUG, SPAM, or ALL -->
+                 <arg line="-logLevel DEBUG" />
+                 <!-- OBF[USCATED], PRETTY, or DETAILED (defaults to OBF) -->
+                 <arg line="-style PRETTY" />
+                 <arg line="-out ${www.dir}" />
+                 <arg line="-gen ${www.dir}" />
+                 <arg line="miniwiki/org.tmjee.miniwiki.MiniWiki/MiniWiki.html" />
+       </java>
+    </target>
+
 
     <!-- override inherited Target hooks -->
     <target name="_init">
         <mkdir dir="${basedir}/build/scripts" />
+        <mkdir dir="${www.dir}" />
     </target>
 
     <target name="_clean">
         <delete includeemptydirs="true" includesfile="true">
             <fileset dir="${scripts.dir}" includes="**/*" />
         </delete>
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${www.dir}" includes="**/*" />
+        </delete>
     </target>
 
     <target name="_compile">
-        <antcall target="jpaEnhance" />
+       <antcall target="gwtCompile" />
+       <antcall target="jpaEnhance" />
     </target>
+
+    <target name="_package">
+        <war destfile="${dist.dir}/${dist.war.filename}"
+             webxml="${conf.webinf.dir}/webfile.xml">
+                <fileset dir="${www.dir}"/>
+
+                <!-- libs from core module -->
+                <lib dir="${module.core.lib.dir}">
+                    <include name="**/*.jar"/>
+                </lib>
+
+                <!-- libs from radeox module -->
+                <lib dir="${module.radeox.lib.dir}">
+                    <include name="**/*.jar" />
+                </lib>
+
+                <!-- libs from web module -->
+                <lib dir="${module.web.lib.dir}">
+                    <include name="**/*.jar" />
+                </lib>
+
+                <lib dir="${local.lib.dir}">
+                    <include name="org.tmjee.miniwiki/core/${version}/jars/core.jar" />
+                    <include name="org.tmjee.miniwiki/radeox/${version}/jars/radeox.jar" />
+                    <include name="org.tmjee.miniwiki/web/${version}/jars/web.jar" />
+                </lib>
+
+                <!-- resources from core module -->
+                <classes dir="${module.core.resources.dir}">
+                    <exclude name="**/*.java" />
+                </classes>
+
+                <!-- resources from radeox module -->
+                <classes dir="${module.radeox.resources.dir}">
+                    <exclude name="**/*.java"/>
+                </classes>
+
+                <!-- resources from web module -->
+                <classes dir="${module.web.resources.dir}">
+                    <exclude name="**/*.java" />
+                </classes>
+        </war>
+    </target>
+
+    <target name="_publish">
+        <!--
+        <ivy:publish resolver="local_ext" pubrevision="${version}" overwrite="true" update="true">
+           <artifacts  pattern="${dist.dir}/[artifact].war"  />
+        </ivy:publish>
+        -->
+    </target>
+
+    <target name="_clean_deploy">
+        <!-- clean Tomcat miniwiki webapp's WEB-INF dir -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.webapps.miniwiki.webinf.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="_deploy">
+        <!-- copy web.xml -->
+        <copy todir="${tomcat.webapps.miniwiki.webinf.dir}" overwrite="true">
+            <fileset dir="${conf.webinf.dir}">
+                <include name="webfile.xml" />
+            </fileset>
+            <globmapper from="webfile.xml" to="web.xml"/>
+        </copy>
+        <copy todir="${tomcat.webapps.miniwiki.dir}" overwrite="true">
+            <fileset dir="${www.dir}" />
+        </copy>
+    </target>
+
 
     <target name="_generate">
         <antcall target="generateDbSchemas" />

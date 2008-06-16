@@ -1,4 +1,4 @@
-package org.tmjee.miniwiki;
+package org.tmjee.miniwiki.core;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

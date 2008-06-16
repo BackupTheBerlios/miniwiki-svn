@@ -36,6 +36,12 @@ public class User implements IsSerializable, SourcesPropertyChangeEvents {
         propertySupport = new PropertySupport();
     }
 
+    public User(String username, String firstName, String lastName) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
 
     public boolean isInGroup(Group group) {
         for (Group grp : groups) {

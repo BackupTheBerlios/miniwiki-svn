@@ -3,6 +3,7 @@ package org.tmjee.miniwiki.client.widgets;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.server.TemplateInfo;
 import org.tmjee.miniwiki.client.components.Components;
 import org.tmjee.miniwiki.client.components.Parameterizable;
@@ -51,6 +52,7 @@ public class TemplateDisplayWidget extends VerticalPanel {
      */
     public TemplateDisplayWidget(TemplateInfo templateInfo) {
 
+        GWT.log("*********** "+Myself.getInstance(), null);
 
         Myself.getInstance().addCredentialListener(new CredentialListener() {
             public void onCredentialsEvent(CredentialsEvent event) {

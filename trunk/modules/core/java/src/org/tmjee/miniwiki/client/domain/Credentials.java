@@ -11,29 +11,15 @@ import com.google.gwt.user.client.rpc.IsSerializable;
  */
 public class Credentials implements IsSerializable {
 
-    public static Credentials ANONYMOUS = null;
-    public static Credentials SUPERADMIN = null;
-
-    static {
-        ANONYMOUS = new Credentials();
-        User anonymousUser = new User();
-        anonymousUser.setUsername("Anonymous");
-        anonymousUser.setFirstName("Anonymous");
-        anonymousUser.setLastName("Anonymous");
-
-        SUPERADMIN = new Credentials();
-        User superAdmin = new User();
-        superAdmin.setUsername("Superadmin");
-        superAdmin.setFirstName("Superadmin");
-        superAdmin.setLastName("Superadmin");
-    }
+    public static Credentials ANONYMOUS = new Credentials(
+            new User("anonymous", "Aanonymous", "Anonymous"));
+    public static Credentials SUPERADMIN = new Credentials(
+            new User("superadmin", "Superadmin", "Superadmin"));
 
     private User user;
 
-
     public Credentials() {
     }
-
 
     public Credentials(User user) {
         this.user = user;    

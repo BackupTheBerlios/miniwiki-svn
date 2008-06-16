@@ -10,6 +10,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://C:/mybrain/miniwiki/modules/radeox/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://C:/mybrain/miniwiki/modules/radeox/lib" recursive="false" />
+      </library>
+    </orderEntry>
     <orderEntryProperties />
   </component>
 </module>

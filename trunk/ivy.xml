@@ -7,9 +7,6 @@
         <conf name="default" visibility="public"/>
         <conf name="test" visibility="private" extends="default"/>
     </configurations>
-    <publications>
-        <artifact conf="api" name="web" type="jar" ext="jar"/>
-    </publications>
     <dependencies>
         <dependency org="junit" name="junit" rev="3.8.1" conf="test->default"/>
     </dependencies>

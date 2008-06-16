@@ -4,6 +4,7 @@ import org.tmjee.miniwiki.client.domain.Credentials;
 import org.tmjee.miniwiki.client.events.SourcesCredentialEvents;
 import org.tmjee.miniwiki.client.events.CredentialListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
+import com.google.gwt.core.client.GWT;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,17 +18,22 @@ public class Myself implements SourcesCredentialEvents {
     private static Myself INSTANCE;
 
     public static Myself getInstance() {
+        GWT.log("1", null);
         if (INSTANCE == null) {
+            GWT.log("2="+INSTANCE, null);
             INSTANCE = new Myself();
+            GWT.log("3="+INSTANCE, null);
         }
+        GWT.log("4="+INSTANCE, null);
         return INSTANCE;
     }
 
 
-    private Credentials credentials = Credentials.ANONYMOUS;
+    private Credentials credentials;
     private SourcesEventsSupport sourcesEventSupport;
 
-    private Myself() {
+    Myself() {
+        credentials = Credentials.ANONYMOUS;
         sourcesEventSupport = new SourcesEventsSupport();
     }
 

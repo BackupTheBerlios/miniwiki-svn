@@ -36,6 +36,56 @@
     </target>
 
     <target name="clean" depends="buildList" description="-> Clean">
+        <!-- clean tomcat's miniwiki classes dir -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.webapps.miniwiki.classes.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+
+        <!-- clean tomcat's miniwiki webapp lib dir -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.webapps.miniwiki.lib.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+
+        <!-- clean tomcat's miniwiki webapp META-INF dir -->
+         <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.webapps.miniwiki.classes.metainf.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+
+        <!-- clean up tomcat's miniwiki webapp web.xml file -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.webapps.miniwiki.webinf.dir}">
+                <include name="web.xml" />
+            </fileset>
+        </delete>
+
+        <!-- clean up tomcat's log directory -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.log.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+
+        <!-- clean up tomcat's work dir -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.tmp.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+
+        <!-- clean up tomcat's tmp dir -->
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${tomcat.work.dir}">
+                <include name="**/*" />
+            </fileset>
+        </delete>
+
+
         <subant target="clean" buildpathref="buildlist" inheritall="false" />
     </target>
 
@@ -60,6 +110,7 @@
     </target>
 
     <target name="deploy" depends="buildList" description="-> Deploy artifacts into local tomcat">
+        <subant target="clean_deploy" buildpathref="buildlist" inheritall="false" />
         <subant target="deploy" buildpathref="buildlist" inheritall="false" />
     </target>
 

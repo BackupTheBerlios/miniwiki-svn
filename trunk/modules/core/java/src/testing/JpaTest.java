@@ -1,11 +1,9 @@
 package testing;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.ApplicationContext;
-import org.tmjee.miniwiki.Bootstrap;
+import org.tmjee.miniwiki.core.Bootstrap;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 /**
  * Created by IntelliJ IDEA.

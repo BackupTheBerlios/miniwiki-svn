@@ -110,8 +110,8 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
         add(searchPanel);
 
         grid = new Grid(1, 2);
-        grid.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_LEFT);
-        grid.getCellFormatter().setHorizontalAlignment(1, 1, HasHorizontalAlignment.ALIGN_RIGHT);
+        grid.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
+        grid.getCellFormatter().setHorizontalAlignment(0, 1, HasHorizontalAlignment.ALIGN_RIGHT);
         add(grid);
 
         table = new FlexTable();

@@ -14,6 +14,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 public class LoadTemplateServiceImpl extends RemoteServiceServlet implements LoadTemplateService {
 
     public TemplateInfo loadTemplate(String template) {
+        // TODO:
         return new TemplateInfo();    
     }
 }

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project xmlns:ivy="antlib:org.apache.ivy.ant">
 
-    <target name="downloadDependencies" if="run.ivy">
-        <ivy:settings file="${ivy.settings}" />
-        <ivy:resolve file="${ivy.conf}"  />
+    <target name="downloadDependencies" unless="run.ivy">
         <ivy:retrieve pattern="${lib.dir}/[artifact].[ext]" />
     </target>
 
     <target name="init" description="-> Initialize Ivy, resolve and retrieve dependency">
         <echo message="${ant.project.name} init" />
+        
+        <ivy:settings file="${ivy.settings}" />
+        <ivy:resolve file="${ivy.conf}"  />
+        
         <condition property="run.ivy" value="true">
             <equals arg1="${skip.ivy}"
                     arg2="true" 
@@ -16,7 +18,7 @@
                     trim="true" />
         </condition>
 
-        <antcall target="donwloadDependencies" />
+        <antcall target="downloadDependencies" />
 
         <mkdir dir="${build.dir}" />
         <mkdir dir="${java.classes.dir}" />
@@ -40,6 +42,12 @@
         </delete>
         <delete includeemptydirs="true" includesfile="true">
             <fileset dir="${dist.dir}" includes="**/*" />
+        </delete>
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${local.lib.dir}" includes="**/*" />
+        </delete>
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${lib.dir}" includes="**/*" />
         </delete>
         <antcall target="_clean" />
     </target>
@@ -112,10 +120,8 @@
         <antcall target="_clean_deploy" />
     </target>
 
-    <target name="deploy" depends="publish" description="-> Deploy artifacts">
+    <target name="deploy" depends="compile" description="-> Deploy artifacts">
         <echo message="${ant.project.name} deploys" />
-
-        <antcall target="clean_deploy" />
 
         <!-- copy classes file to tomcat -->
         <copy todir="${tomcat.webapps.miniwiki.classes.dir}" overwrite="true">

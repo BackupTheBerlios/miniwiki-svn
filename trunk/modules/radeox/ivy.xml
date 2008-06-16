@@ -8,9 +8,13 @@
         <ivyauthor name="tmjee" />
     </info>
     <configurations>
+        <conf name="api" visibility="public" />
         <conf name="default" visibility="public" />
         <conf name="test" extends="default" visibility="private" />
     </configurations>
+    <publications>
+        <artifact conf="api" name="radeox" type="jar" ext="jar"/>
+    </publications>
     <dependencies>
         <dependency org="picocontainer" name="picocontainer" rev="1.0" conf="default->default"  />
         <dependency org="oro" name="oro" rev="2.0.7" conf="default->default" />

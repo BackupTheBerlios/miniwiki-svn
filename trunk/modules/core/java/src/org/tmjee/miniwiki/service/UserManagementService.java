@@ -2,7 +2,7 @@ package org.tmjee.miniwiki.service;
 
 import org.tmjee.miniwiki.client.domain.*;
 import org.tmjee.miniwiki.client.server.PagingInfo;
-import org.tmjee.miniwiki.MiniWikiConfig;
+import org.tmjee.miniwiki.core.MiniWikiConfig;
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
 

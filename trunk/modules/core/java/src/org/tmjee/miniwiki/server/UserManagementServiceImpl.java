@@ -1,6 +1,7 @@
 package org.tmjee.miniwiki.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import com.sun.corba.se.internal.CosNaming.BootstrapServer;
 import org.tmjee.miniwiki.client.server.UserManagementService;
 import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.client.domain.*;
@@ -17,8 +18,7 @@ import java.util.List;
 public class UserManagementServiceImpl extends RemoteServiceServlet implements UserManagementService {
 
     public Credentials authenticate(String username, String password) {
-        
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return null;    
     }
 
     public Users searchForUser(String username, PagingInfo pagingInfo, boolean exactMatch) {
