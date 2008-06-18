@@ -17,6 +17,20 @@
                     casesensitive="false"
                     trim="true" />
         </condition>
+		
+		<condition property="run.gwtCompile" value="true">
+		    <equals arg1="${skip.gwtCompile}"
+			        arg2="true"
+					casesensitive="false"
+					trim="true" />
+		</condition>
+
+		<condition property="run.jpaEnhance" value="true">
+		    <equals arg1="${skip.jpaEnhance}"
+			        arg2="true"
+					casesensitive="false"
+					trim="true" />
+		</condition>
 
         <antcall target="downloadDependencies" />
 
