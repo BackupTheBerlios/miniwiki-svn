@@ -16,7 +16,7 @@ public class GroupProperty {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "groupPropertyIdGenerator")
     @TableGenerator(name="groupPropertyIdGenerator", table = "TBL_ID_GENERATOR",
-                    pkColumnName = "ID", valueColumnName = "VALUE",
+                    pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_GROUP_PROPERTY_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
     @Column(name = "ID", unique = true, nullable = false)

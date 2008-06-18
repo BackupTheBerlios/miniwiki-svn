@@ -20,7 +20,7 @@ public class SpacePriviledge {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "spacePriviledgeIdGenerator")
     @TableGenerator(name="spacePriviledgeIdGenerator", table = "TBL_ID_GENERATOR",
-                    pkColumnName = "ID", valueColumnName = "VALUE",
+                    pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_SPACE_PRIVILEDGE_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
     @Column(name="ID", unique = true, nullable = false)

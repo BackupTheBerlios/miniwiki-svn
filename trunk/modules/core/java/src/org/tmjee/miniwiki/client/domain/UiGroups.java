@@ -23,9 +23,9 @@ public class UiGroups implements IsSerializable {
         uiGroups = new ArrayList<UiGroup>();
     }
 
-    public UiGroups(ResponsePagingInfo responsePagingInfo) {
-        super();
+    public UiGroups(List<UiGroup> groups, ResponsePagingInfo responsePagingInfo) {
         this.responsePagingInfo = responsePagingInfo;
+        this.uiGroups = uiGroups;
     }
 
     public ResponsePagingInfo getResponsePagingInfo() {

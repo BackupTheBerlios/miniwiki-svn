@@ -1,9 +1,6 @@
 package org.tmjee.miniwiki.client.widgets;
 
-import com.google.gwt.user.client.ui.PopupPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.TabPanel;
-import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,7 +9,7 @@ import com.google.gwt.user.client.ui.SimplePanel;
  * Time: 5:06:30 PM
  * To change this template use File | Settings | File Templates.
  */
-public class GroupManagementPopupPanel extends PopupPanel {
+public class GroupManagementPopupPanel extends DialogBox {
 
     private VerticalPanel mainPanel;
     private TabPanel tabPanel;
@@ -20,17 +17,20 @@ public class GroupManagementPopupPanel extends PopupPanel {
 
 
     public GroupManagementPopupPanel() {
+        setText("Group Management");
+        setAnimationEnabled(true);
 
         messageDisplayWidget = new MessageDisplayWidget();
 
         tabPanel = new TabPanel();
-        tabPanel.add(new GroupManagementTab(), "UiGroup Management");
+        tabPanel.add(new GroupManagementTab(), "Group Management");
         tabPanel.selectTab(0);
 
         mainPanel = new VerticalPanel();
         mainPanel.add(messageDisplayWidget);
         mainPanel.add(tabPanel);
 
+        center();
     }
 
 

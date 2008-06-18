@@ -21,7 +21,7 @@ public class User {
     @Column(name = "ID", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "userIdGenerator")
     @TableGenerator(name="userIdGenerator", table = "TBL_ID_GENERATOR",
-                    pkColumnName = "ID", valueColumnName = "VALUE",
+                    pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_USER_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
     private long id;
@@ -40,7 +40,7 @@ public class User {
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "USER_ID", referencedColumnName = "ID")
-    private List<UserProperty> userProperties;
+    private List<UserProperty> properties;
 
 
     @ManyToMany(targetEntity = Group.class,

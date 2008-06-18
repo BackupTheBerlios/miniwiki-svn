@@ -16,7 +16,7 @@ public class WikiProperty {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "wikiPropertyIdGenerator")
     @TableGenerator(name="wikiPropertyIdGenerator", table = "TBL_ID_GENERATOR",
-                    pkColumnName = "ID", valueColumnName = "VALUE",
+                    pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_WIKI_PROPERTY_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
     @Column(name = "ID", unique = true, nullable = false)
@@ -33,4 +33,22 @@ public class WikiProperty {
     @Version
     @Column(name = "VERSION")
     private int version;
+
+
+    public WikiProperty(String name, String value) {
+        this.name = name;
+        this.value = value;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }

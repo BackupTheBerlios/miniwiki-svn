@@ -23,8 +23,8 @@ public class SetupService {
 
     private JpaTemplate template;
 
-    public SetupService(EntityManagerFactory entityManagerfactory) {
-        this.template = new JpaTemplate(entityManagerfactory);    
+    public SetupService(JpaTemplate template) {
+        this.template = template;    
     }
 
     public void setup() {

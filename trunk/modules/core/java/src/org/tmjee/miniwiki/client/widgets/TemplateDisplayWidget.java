@@ -52,8 +52,6 @@ public class TemplateDisplayWidget extends VerticalPanel {
      */
     public TemplateDisplayWidget(TemplateInfo templateInfo) {
 
-        GWT.log("*********** "+Myself.getInstance(), null);
-
         Myself.getInstance().addCredentialListener(new CredentialListener() {
             public void onCredentialsEvent(CredentialsEvent event) {
                 loginLogoutMenuItem.setText(Myself.getInstance().getCredentials().isAnonymous() ? "Login" : "Logout");
@@ -174,12 +172,12 @@ public class TemplateDisplayWidget extends VerticalPanel {
 
 
         /*
-         * UiUser
-         *   + UiUser Management
+         * User
+         *   + User Management
          */
         MenuBar userMenuBar = new MenuBar(true);
-        MenuItem userMenuItem = new MenuItem("UiUser", userMenuBar);
-        userMenuBar.addItem(new MenuItem("UiUser Management", new Command() {
+        MenuItem userMenuItem = new MenuItem("User", userMenuBar);
+        userMenuBar.addItem(new MenuItem("User Management", new Command() {
             public void execute() {
                 new UserManagementPopupPanel();
             }
@@ -188,12 +186,12 @@ public class TemplateDisplayWidget extends VerticalPanel {
 
 
         /*
-         * UiGroup
-         *   + UiGroup Management
+         * Group
+         *   + Group Management
          */
         MenuBar groupMenuBar = new MenuBar(true);
-        MenuItem groupMenuItem = new MenuItem("UiGroup", groupMenuBar);
-        groupMenuBar.addItem(new MenuItem("UiGroup Management", new Command() {
+        MenuItem groupMenuItem = new MenuItem("Group", groupMenuBar);
+        groupMenuBar.addItem(new MenuItem("Group Management", new Command() {
             public void execute() {
                 new GroupManagementPopupPanel();
             }

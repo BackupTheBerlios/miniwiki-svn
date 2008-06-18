@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.service.Service;
-import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
+import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.domain.UiGroup;
 import org.tmjee.miniwiki.client.domain.UiUserUiProperty;
@@ -16,7 +16,7 @@ import org.tmjee.miniwiki.client.domain.UiUserUiProperty;
  * Time: 7:39:01 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UserDetailsPopupPanel extends PopupPanel {
+public class UserDetailsPopupPanel extends DialogBox {
 
     private UiUser uiUser;
 
@@ -50,6 +50,9 @@ public class UserDetailsPopupPanel extends PopupPanel {
 
     public UserDetailsPopupPanel(UiUser uiUser, Handler handler) {
 
+        setText("User Details");
+        setAnimationEnabled(true);
+
         this.uiUser = uiUser;
 
         mainPanel = new VerticalPanel();
@@ -82,7 +85,7 @@ public class UserDetailsPopupPanel extends PopupPanel {
 
 
         groupsButtonPanel = new HorizontalPanel();
-        assignGroup = new Button("Assign UiGroup", new ClickListener() {
+        assignGroup = new Button("Assign Group", new ClickListener() {
             public void onClick(Widget sender) {
                 new AssignGroupPopupPanel(UserDetailsPopupPanel.this.uiUser,
                         new AssignGroupPopupPanel.Handler() {
@@ -97,17 +100,17 @@ public class UserDetailsPopupPanel extends PopupPanel {
         });
         groupsButtonPanel.add(assignGroup);
         groupsTable = new FlexTable();
-        groupsTable.setWidget(0, 0, new Label("UiGroup Name"));
+        groupsTable.setWidget(0, 0, new Label("Group Name"));
         groupsTable.setWidget(0, 1, new Label(""));
 
 
         propertiesTable = new FlexTable();
-        propertiesTable.setWidget(0, 0, new Label("UiProperty Name"));
-        propertiesTable.setWidget(0, 1, new Label("UiProperty Value"));
+        propertiesTable.setWidget(0, 0, new Label("Property Name"));
+        propertiesTable.setWidget(0, 1, new Label("Property Value"));
         propertiesTable.setWidget(0, 2, new Label(""));
 
 
-        deleteProperty = new Button("Delete UiProperty", new ClickListener() {
+        deleteProperty = new Button("Delete Property", new ClickListener() {
             public void onClick(Widget sender) {
                 for (int row=0; row< propertiesTable.getRowCount(); row++) {
                     ObjectHoldableCheckBox checkBox = (ObjectHoldableCheckBox) propertiesTable.getWidget(row, 2);
@@ -117,7 +120,7 @@ public class UserDetailsPopupPanel extends PopupPanel {
             }
         });
 
-        addProperty = new Button("Add UiProperty", new ClickListener() {
+        addProperty = new Button("Add Property", new ClickListener() {
             public void onClick(Widget sender) {
                 new PropertyDetailsPopupPanel(new PropertyDetailsPopupPanel.Handler() {
                     public void save(String propertyName, String propertyValue) {
@@ -133,8 +136,8 @@ public class UserDetailsPopupPanel extends PopupPanel {
 
         saveUserDetails = new Button("Save", new ClickListener() {
             public void onClick(Widget sender) {
-                LoadingMessageDisplayWidget.getInstance().display("Saving UiUser Info ...");
-                UserManagementServiceAsync userManagement = Service.getUserManagementService();
+                LoadingMessageDisplayWidget.getInstance().display("Saving User Info ...");
+                UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
                 userManagement.updateUser(UserDetailsPopupPanel.this.uiUser, new AsyncCallback() {
                     public void onFailure(Throwable caught) {
                         // TODO: logging
@@ -163,6 +166,8 @@ public class UserDetailsPopupPanel extends PopupPanel {
         mainPanel.add(saveCancelButtonPanel);
 
         setWidget(mainPanel);
+
+        center();
     }
 
 

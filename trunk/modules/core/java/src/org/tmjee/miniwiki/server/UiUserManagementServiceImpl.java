@@ -41,7 +41,13 @@ public class UiUserManagementServiceImpl extends RemoteServiceServlet implements
     }
 
     public UiGroups getAllGroups(PagingInfo pagingInfo) {
-        return getUserManagementService().getAllGroups(pagingInfo);
+        try {
+            return getUserManagementService().getAllGroups(pagingInfo);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public void updateGroup(UiGroup uiGroup) {

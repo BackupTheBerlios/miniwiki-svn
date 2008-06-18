@@ -1,6 +1,6 @@
 package org.tmjee.miniwiki.client.events;
 
-import org.tmjee.miniwiki.client.domain.Credentials;
+import org.tmjee.miniwiki.client.domain.UiCredentials;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,10 +16,10 @@ public class CredentialsEvent extends Event {
 
 
     private int type;
-    private Credentials oldCredentials;
-    private Credentials newCredentials;
+    private UiCredentials oldCredentials;
+    private UiCredentials newCredentials;
 
-    public CredentialsEvent(int type, Credentials oldCredentials, Credentials newCredentials) {
+    public CredentialsEvent(int type, UiCredentials oldCredentials, UiCredentials newCredentials) {
         this.type = type;
         this.oldCredentials = oldCredentials;
         this.newCredentials = newCredentials;
@@ -29,11 +29,11 @@ public class CredentialsEvent extends Event {
         return type;
     }
 
-    public Credentials getOldCredentials() {
+    public UiCredentials getOldCredentials() {
         return oldCredentials;
     }
 
-    public Credentials getNewCredentials() {
+    public UiCredentials getNewCredentials() {
         return newCredentials;
     }
 

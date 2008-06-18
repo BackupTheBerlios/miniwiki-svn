@@ -21,7 +21,7 @@ public class Page {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "pageIdGenerator")
     @TableGenerator(name="pageIdGenerator", table = "TBL_ID_GENERATOR",
-                    pkColumnName = "ID", valueColumnName = "VALUE",
+                    pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_PAGE_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
     @Column(name = "ID", unique = true, nullable = false)

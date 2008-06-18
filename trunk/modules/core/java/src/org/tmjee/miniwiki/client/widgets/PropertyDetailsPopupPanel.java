@@ -13,7 +13,7 @@ import org.tmjee.miniwiki.client.events.MessageEvent;
  * Time: 3:00:01 PM
  * To change this template use File | Settings | File Templates.
  */
-public class PropertyDetailsPopupPanel extends PopupPanel implements SourcesMessageEvents {
+public class PropertyDetailsPopupPanel extends DialogBox implements SourcesMessageEvents {
 
 
     public static interface Handler {
@@ -33,6 +33,9 @@ public class PropertyDetailsPopupPanel extends PopupPanel implements SourcesMess
 
     public PropertyDetailsPopupPanel(Handler handler) {
 
+        setText("Property Details");
+        setAnimationEnabled(true);
+
         eventsSupport = new SourcesEventsSupport();
 
         this.handler = handler;
@@ -48,7 +51,7 @@ public class PropertyDetailsPopupPanel extends PopupPanel implements SourcesMess
                     propertyValue.getText() == null || (propertyValue.getText().trim().length() <= 0)) {
                     eventsSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
                         public void handle(Object listener) {
-                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "UiProperty Name and Value cannot be empty"));
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Property Name and Value cannot be empty"));
                         }
                     });
                 }
@@ -65,13 +68,15 @@ public class PropertyDetailsPopupPanel extends PopupPanel implements SourcesMess
         buttonPanel.add(save);
         buttonPanel.add(cancel);
 
-        mainPanel.add(new Label("UiProperty Name:"));
+        mainPanel.add(new Label("Property Name:"));
         mainPanel.add(propertyName);
-        mainPanel.add(new Label("UiProperty Value"));
+        mainPanel.add(new Label("Property Value"));
         mainPanel.add(propertyValue);
         mainPanel.add(buttonPanel);
 
         setWidget(mainPanel);
+
+        center();
     }
 
 

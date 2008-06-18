@@ -2,8 +2,8 @@ package org.tmjee.miniwiki.client.service;
 
 import org.tmjee.miniwiki.client.server.UiLoadTemplateServiceAsync;
 import org.tmjee.miniwiki.client.server.UiLoadTemplateService;
-import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
-import org.tmjee.miniwiki.client.server.UserManagementService;
+import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
+import org.tmjee.miniwiki.client.server.UiUserManagementService;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
@@ -17,7 +17,7 @@ import com.google.gwt.user.client.rpc.ServiceDefTarget;
 public class Service {
 
     private static UiLoadTemplateServiceAsync loadTemplateService;
-    private static UserManagementServiceAsync userManagementService;
+    private static UiUserManagementServiceAsync userManagementService;
 
     public static UiLoadTemplateServiceAsync getLoadTemplateService() {
         loadTemplateService = (UiLoadTemplateServiceAsync) GWT.create(UiLoadTemplateService.class);
@@ -26,8 +26,8 @@ public class Service {
         return loadTemplateService;
     }
 
-    public static UserManagementServiceAsync getUserManagementService() {
-        userManagementService = (UserManagementServiceAsync) GWT.create(UserManagementService.class);
+    public static UiUserManagementServiceAsync getUserManagementService() {
+        userManagementService = (UiUserManagementServiceAsync) GWT.create(UiUserManagementService.class);
         ServiceDefTarget target = (ServiceDefTarget) userManagementService;
         target.setServiceEntryPoint(GWT.getModuleBaseURL()+"userManagement");
         return userManagementService;

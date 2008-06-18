@@ -21,6 +21,7 @@ public class LoadingMessageDisplayWidget extends SimplePanel {
     private Label label;
 
     private LoadingMessageDisplayWidget() {
+        setStyleName("LoadingMessageDisplayWidget");
         label = new Label("");
         messages = new ArrayList();
         setWidget(label);

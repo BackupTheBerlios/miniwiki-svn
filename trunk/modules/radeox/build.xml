@@ -6,7 +6,7 @@
 
 
     <!-- imports/preparation -->
-    <propertyUi file="build.properties" />
+    <property file="build.properties" />
 
     <path id="compilation_classpath">
         <fileset dir="${lib.dir}">

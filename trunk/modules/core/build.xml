@@ -6,8 +6,8 @@
     </description>
 
     <!-- imports/preparation -->
-    <propertyUi file="build.properties" />
-    <propertyUi file="${java.resources.dir}/db.properties" />
+    <property file="build.properties" />
+    <property file="${java.resources.dir}/db.properties" />
 
     <path id="compilation_classpath">
         <fileset dir="${lib.dir}">
@@ -47,8 +47,36 @@
         <taskdef name="mappingtool"
                  classname="org.apache.openjpa.jdbc.ant.MappingToolTask"
                  classpathref="build_classpath" />
-        <mappingtool action="buildSchema" sqlFile="${scripts.dir}/schema.sql"
-                     foreignKeys="true" primaryKeys="false" indexes="true">
+        <taskdef name="schematool"
+                 classname="org.apache.openjpa.jdbc.ant.SchemaToolTask"
+                 classpathref="build_classpath" />
+        <!--
+            actions:-
+                - buildSchema
+                - refresh
+                - drop
+        -->
+        <!--
+        <schematool action="build"
+                     sqlFile="${scripts.dir}/schema.sql"
+                     foreignKeys="true"
+                     primaryKeys="false"
+                     indexes="true"
+                     openjpaTables="false">
+            <classpath refid="build_classpath" />
+            <config connectionUserName="${db.username}"
+                    connectionPassword="${db.password}"
+                    connectionURL="${db.url}"
+                    connectionDriverName="${db.driverName}"
+                    propertiesFile="${java.resources.dir}/persistence.xml" />
+        </schematool>
+        -->
+        <mappingtool action="buildSchema"
+                     sqlFile="${scripts.dir}/schema.sql"
+                     foreignKeys="true"
+                     primaryKeys="true"
+                     indexes="true"
+                     openjpaTables="false">
             <classpath refid="build_classpath" />
             <config connectionUserName="${db.username}"
                     connectionPassword="${db.password}"
@@ -58,7 +86,7 @@
         </mappingtool>
     </target>
 
-    <target name="jpaEnhance" description="-> Enhance JPA classes">
+    <target name="jpaEnhance" description="-> Enhance JPA classes" unless="run.jpaEnhance">
         <taskdef name="openjpac"
                  classname="org.apache.openjpa.ant.PCEnhancerTask"
                  classpathref="build_classpath" />
@@ -68,7 +96,7 @@
         </openjpac>
     </target>
 
-    <target name="gwtCompile" description="-> GWT compile">
+    <target name="gwtCompile" description="-> GWT compile" unless="run.gwtCompile">
          <java classpathref="compilation_classpath"
               fork="true"
               failonerror="true"

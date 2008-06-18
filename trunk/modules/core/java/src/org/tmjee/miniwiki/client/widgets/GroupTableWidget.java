@@ -4,8 +4,8 @@ import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.server.PagingInfo;
-import org.tmjee.miniwiki.client.server.UserManagementService;
-import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
+import org.tmjee.miniwiki.client.server.UiUserManagementService;
+import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.domain.UiGroups;
@@ -74,7 +74,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
         });
         delete = new Button("Delete", new ClickListener() {
             public void onClick(Widget sender) {
-                UserManagementServiceAsync userManagement = Service.getUserManagementService();
+                UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
                 for (final UiGroup uiGroup : selectedUiGroups) {
                     LoadingMessageDisplayWidget.getInstance().display("Deleting uiGroup id "+ uiGroup.getId());
                     userManagement.deleteGroup(uiGroup, new AsyncCallback() {
@@ -118,7 +118,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
     public void listGroup(final String groupName, final PagingInfo pagingInfo) {
         state.capture(this, pagingInfo, false);
         selectedUiGroups.clear();
-        UserManagementServiceAsync userManagement = Service.getUserManagementService();
+        UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.searchForGroup(groupName, pagingInfo, false,
                 new AsyncCallback() {
                     public void onFailure(Throwable caught) {
@@ -191,7 +191,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
     public void listAllGroups(PagingInfo pagingInfo) {
         state.capture(this, pagingInfo, false);
         selectedUiGroups.clear();
-        UserManagementServiceAsync userManagement = Service.getUserManagementService();
+        UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.getAllGroups(pagingInfo,
                 new AsyncCallback() {
                     public void onFailure(Throwable caught) {

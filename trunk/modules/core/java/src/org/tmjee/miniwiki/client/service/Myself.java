@@ -1,6 +1,6 @@
 package org.tmjee.miniwiki.client.service;
 
-import org.tmjee.miniwiki.client.domain.Credentials;
+import org.tmjee.miniwiki.client.domain.UiCredentials;
 import org.tmjee.miniwiki.client.events.SourcesCredentialEvents;
 import org.tmjee.miniwiki.client.events.CredentialListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
@@ -18,36 +18,32 @@ public class Myself implements SourcesCredentialEvents {
     private static Myself INSTANCE;
 
     public static Myself getInstance() {
-        GWT.log("1", null);
         if (INSTANCE == null) {
-            GWT.log("2="+INSTANCE, null);
             INSTANCE = new Myself();
-            GWT.log("3="+INSTANCE, null);
         }
-        GWT.log("4="+INSTANCE, null);
         return INSTANCE;
     }
 
 
-    private Credentials credentials;
+    private UiCredentials credentials;
     private SourcesEventsSupport sourcesEventSupport;
 
     Myself() {
-        credentials = Credentials.ANONYMOUS;
+        credentials = UiCredentials.ANONYMOUS;
         sourcesEventSupport = new SourcesEventsSupport();
     }
 
 
-    public Credentials getCredentials() {
+    public UiCredentials getCredentials() {
         return credentials;
     }
 
-    public void setCredentials(Credentials credentials) {
+    public void setCredentials(UiCredentials credentials) {
         this.credentials = credentials;
     }
 
     public void setCretentialsToAnonymous() {
-        credentials = Credentials.ANONYMOUS;
+        credentials = UiCredentials.ANONYMOUS;
     }
 
     public void addCredentialListener(CredentialListener credentialListener) {

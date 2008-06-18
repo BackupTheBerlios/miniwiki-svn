@@ -20,11 +20,15 @@ public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "groupIdGenerator")
     @TableGenerator(name="groupIdGenerator", table = "TBL_ID_GENERATOR",
-                    pkColumnName = "ID", valueColumnName = "VALUE",
+                    pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_GROUP_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
     @Column(name = "ID", unique = true, nullable = false)
     private long id;
+
+    @Basic
+    @Column(name="NAME", nullable = false)
+    private String name;
 
     @ManyToMany(targetEntity = User.class,
                 fetch = FetchType.LAZY,
@@ -36,7 +40,7 @@ public class Group {
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "GROUP_ID", referencedColumnName = "ID")
-    private List<GroupProperty> groupInfo;
+    private List<GroupProperty> properties;
 
     @Version
     @Column(name = "VERSION")

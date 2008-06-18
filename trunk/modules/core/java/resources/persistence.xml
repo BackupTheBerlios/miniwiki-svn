@@ -4,7 +4,8 @@
              version="1.0"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
 
-    <persistence-unit name="miniWikiPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="miniWikiPersistenceUnit"
+                      transaction-type="RESOURCE_LOCAL">
         <description>MiniWiki Persistence Unit</description>
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
         <class>org.tmjee.miniwiki.core.domain.Queries</class>
@@ -22,13 +23,14 @@
         <class>org.tmjee.miniwiki.core.domain.User</class>
         <class>org.tmjee.miniwiki.core.domain.UserProperty</class>
         <class>org.tmjee.miniwiki.core.domain.Wiki</class>
+        <class>org.tmjee.miniwiki.core.domain.WikiProperty</class>
         <class>org.tmjee.miniwiki.core.domain.WikiPriviledge</class>
         <class>org.tmjee.miniwiki.core.domain.WikiPriviledgeValue</class>
         <exclude-unlisted-classes/>
         <properties>
-            <propertyUi name="openjpa.Log" value="commons" />
-            <!--
-            <propertyUi name="openjpa.Log"
+
+            <!-- we are using commons-logging for logging, see below
+            <property name="openjpa.Log"
                       value="DefaultLevel=WARN,
                              Enhance=INFO,
                              MetaData=INFO,
@@ -40,10 +42,27 @@
                              Schema=INFO,
                              Tool=INFO"/>
             -->
-            <propertyUi name="openjpa.ConnectionFactoryProperties"
-                      value="PrettyPrint=true, PrettyPrintLineLength=72"/>
+            <property name="openjpa.Log" value="commons" />
+
             <!--
-            <propertyUi name="openjpa.jdbc.SynchronizeMappings"
+                DESCRIPTION:
+                    Pretty print sql statements
+            -->
+            <property name="openjpa.ConnectionFactoryProperties"
+                      value="PrettyPrint=true, PrettyPrintLineLength=72"/>
+
+            <!--
+                DESCRIPTION:
+                    warn when there's inconsistency in bi-directional relationship
+            -->
+            <property name="openjpa.InverseManager" value="true(Action=warn)"/>
+            <!--
+               DESCRIPTION:
+                    Warn when there's orphaned relationship
+            -->
+            <property name="openjpa.OrphanedKeyAction" value="log(Channel=Orphans, Level=ERROR)"/>
+            <!--
+            <property name="openjpa.jdbc.SynchronizeMappings"
                       value="buildSchema(ForeignKeys=true)"/>
             -->
         </properties>

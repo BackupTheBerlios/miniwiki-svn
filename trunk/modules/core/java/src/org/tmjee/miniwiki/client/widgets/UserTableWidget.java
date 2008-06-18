@@ -5,7 +5,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
-import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
+import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.Constants;
 import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
@@ -51,7 +51,7 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
 
         searchPanel = new HorizontalPanel();
         search = new TextBox();
-        searchUser = new Button("Search UiUser",
+        searchUser = new Button("Search User",
                 new ClickListener() {
                     public void onClick(Widget sender) {
                         if (search.getText() == null || (search.getText().trim().length() <= 0)) {
@@ -75,9 +75,9 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
         delete = new Button("Delete",
                 new ClickListener() {
                     public void onClick(Widget sender) {
-                        UserManagementServiceAsync userManagementService = Service.getUserManagementService();
+                        UiUserManagementServiceAsync userManagementService = Service.getUserManagementService();
                         for (final UiUser uiUser : selectedUiUser) {
-                            LoadingMessageDisplayWidget.getInstance().display("Deleting uiUser ID "+ uiUser.getId());
+                            LoadingMessageDisplayWidget.getInstance().display("Deleting User ID "+ uiUser.getId());
                             userManagementService.deleteUser(uiUser, new AsyncCallback() {
                                 public void onFailure(Throwable caught) {
                                     // TODO: logging
@@ -127,7 +127,7 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
     public void listUser(final String username, final PagingInfo pagingInfo) {
         state.capture(pagingInfo, false);
         selectedUiUser.clear();
-        UserManagementServiceAsync userManagement = Service.getUserManagementService();
+        UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.searchForUser(
                 username,
                 pagingInfo,
@@ -235,7 +235,7 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
     public void listAllUsers(final PagingInfo pagingInfo) {
         state.capture(pagingInfo, true);
         selectedUiUser.clear();
-        UserManagementServiceAsync userManagement = Service.getUserManagementService();
+        UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.getAllUsers(pagingInfo,
                 new AsyncCallback() {
                     public void onFailure(Throwable caught) {

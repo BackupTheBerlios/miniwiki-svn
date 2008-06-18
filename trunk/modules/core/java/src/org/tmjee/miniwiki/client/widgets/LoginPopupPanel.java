@@ -5,12 +5,12 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.service.Myself;
-import org.tmjee.miniwiki.client.server.UserManagementServiceAsync;
+import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.MessageEvent;
-import org.tmjee.miniwiki.client.domain.Credentials;
+import org.tmjee.miniwiki.client.domain.UiCredentials;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,7 +19,7 @@ import org.tmjee.miniwiki.client.domain.Credentials;
  * Time: 9:05:11 PM
  * To change this template use File | Settings | File Templates.
  */
-public class LoginPopupPanel extends PopupPanel implements SourcesMessageEvents {
+public class LoginPopupPanel extends DialogBox implements SourcesMessageEvents {
 
     private SourcesEventsSupport sourcesEventsSupport;
 
@@ -34,6 +34,9 @@ public class LoginPopupPanel extends PopupPanel implements SourcesMessageEvents 
     private Button cancel;
 
     public LoginPopupPanel() {
+
+        setText("Login");
+        setAnimationEnabled(true);
 
         sourcesEventsSupport = new SourcesEventsSupport();
 
@@ -71,7 +74,7 @@ public class LoginPopupPanel extends PopupPanel implements SourcesMessageEvents 
 
 
                 LoadingMessageDisplayWidget.getInstance().display("Authenticating ...");
-                UserManagementServiceAsync userManagementService = Service.getUserManagementService();
+                UiUserManagementServiceAsync userManagementService = Service.getUserManagementService();
                 userManagementService.authenticate(
                         username.getText(),
                         password.getText(),
@@ -81,7 +84,7 @@ public class LoginPopupPanel extends PopupPanel implements SourcesMessageEvents 
                                 GWT.log(caught.toString(), caught);
                             }
                             public void onSuccess(Object result) {
-                                Credentials credentials = (Credentials) result;
+                                UiCredentials credentials = (UiCredentials) result;
                                 Myself.getInstance().setCredentials(credentials);
                                 LoadingMessageDisplayWidget.getInstance().done();
                             }
@@ -107,6 +110,7 @@ public class LoginPopupPanel extends PopupPanel implements SourcesMessageEvents 
 
         setWidget(mainPanel);
 
+        center();
     }
 
     public void addMessageEventListener(MessageEventListener listener) {

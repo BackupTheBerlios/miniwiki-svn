@@ -11,7 +11,7 @@ import org.tmjee.miniwiki.client.Constants;
  */
 public class ResponsePagingInfo extends PagingInfo {
 
-    private int totalPages;
+    private long totalPages;
 
     public ResponsePagingInfo() {}
 
@@ -20,7 +20,12 @@ public class ResponsePagingInfo extends PagingInfo {
         this.totalPages = totalPages;
     }
 
-    public int getTotalPages() {
+    public ResponsePagingInfo(PagingInfo pagingInfo, long totalPages) {
+        super(pagingInfo.getPageNumber(), pagingInfo.getPageSize());
+        this.totalPages = totalPages;
+    }
+
+    public long getTotalPages() {
         return totalPages;
     }
 

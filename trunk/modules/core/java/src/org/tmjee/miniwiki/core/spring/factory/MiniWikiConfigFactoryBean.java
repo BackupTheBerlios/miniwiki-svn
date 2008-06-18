@@ -16,7 +16,7 @@ public class MiniWikiConfigFactoryBean implements FactoryBean {
 
     public Object getObject() throws Exception {
         Properties prop = new Properties();
-        prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("/miniwiki.properties"));
+        prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("miniwiki.properties"));
         return new MiniWikiConfig(prop);
     }
 

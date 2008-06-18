@@ -25,9 +25,9 @@ public class UiUsers implements IsSerializable {
     }
     
 
-    public UiUsers(ResponsePagingInfo responsePagingInfo) {
-        super();
+    public UiUsers(List<UiUser> uiUsers, ResponsePagingInfo responsePagingInfo) {
         this.responsePagingInfo = responsePagingInfo;
+        this.uiUsers = uiUsers;
     }
 
     public ResponsePagingInfo getResponsePagingInfo() {

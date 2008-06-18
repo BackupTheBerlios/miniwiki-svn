@@ -20,7 +20,7 @@ public class WikiPriviledge {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "wikiPriviledgeIdGenerator")
     @TableGenerator(name="wikiPriviledgeIdGenerator", table = "TBL_ID_GENERATOR",
-                    pkColumnName = "ID", valueColumnName = "VALUE",
+                    pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_WIKI_PRIVILEDGE_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
     @Column(name = "ID", unique = true, nullable = false)

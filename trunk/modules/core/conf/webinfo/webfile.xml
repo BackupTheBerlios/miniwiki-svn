@@ -15,8 +15,8 @@
       <servlet-class>org.tmjee.miniwiki.server.UiUiLoadTemplateServiceImpl</servlet-class>
   </servlet>
   <servlet>
-      <servlet-name>org.tmjee.miniwiki.server.UserManagementServiceImpl</servlet-name>
-      <servlet-class>org.tmjee.miniwiki.server.UserManagementServiceImpl</servlet-class>
+      <servlet-name>org.tmjee.miniwiki.server.UiUserManagementServiceImpl</servlet-name>
+      <servlet-class>org.tmjee.miniwiki.server.UiUserManagementServiceImpl</servlet-class>
   </servlet>
 
 
@@ -25,7 +25,7 @@
       <url-pattern>/org.tmjee.miniwiki.MiniWiki/loadTemplate</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-      <servlet-name>org.tmjee.miniwiki.server.UserManagementServiceImpl</servlet-name>
+      <servlet-name>org.tmjee.miniwiki.server.UiUserManagementServiceImpl</servlet-name>
       <url-pattern>/org.tmjee.miniwiki.MiniWiki/userManagement</url-pattern>
   </servlet-mapping>
 

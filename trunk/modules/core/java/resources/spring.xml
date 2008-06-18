@@ -19,7 +19,7 @@
     <!-- # Properties setup        -->
     <!-- ######################### -->
     <bean name="dbProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <propertyUi name="location" value="classpath:/db.properties" />
+        <property name="location" value="classpath:/db.properties" />
     </bean>
 
 
@@ -27,28 +27,66 @@
     <!-- # DataSource              -->
     <!-- ######################### -->
     <bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <propertyUi name="username" value="${db.username}" />
-        <propertyUi name="password" value="${db.password}" />
-        <propertyUi name="url" value="${db.url}" />
-        <propertyUi name="driverClassName" value="${db.driverName}" />
+        <property name="username" value="${db.username}" />
+        <property name="password" value="${db.password}" />
+        <property name="url" value="${db.url}" />
+        <property name="driverClassName" value="${db.driverName}" />
     </bean>
 
 
     <!-- ######################### -->
-    <!-- # JDO setup               -->
+    <!-- # JDO & Tx setup          -->
     <!-- ######################### -->
+    <bean name="jpaDialect" class="org.springframework.orm.jpa.vendor.OpenJpaDialect" />
     <bean name="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <propertyUi name="dataSource" ref="dataSource" />
-        <propertyUi name="persistenceXmlLocation" value="classpath:persistence.xml" />
-        <propertyUi name="persistenceUnitName" value="miniWikiPersistenceUnit" />
+        <property name="dataSource" ref="dataSource" />
+        <property name="jpaDialect" ref="jpaDialect" />
+        <property name="persistenceXmlLocation" value="classpath:persistence.xml" />
+        <property name="persistenceUnitName" value="miniWikiPersistenceUnit" />
         <!--
             The following will need JVM to be started with
                -javaagent:/path/to/spring-agent.jar
         -->
-        <propertyUi name="loadTimeWeaver">
+        <property name="loadTimeWeaver">
             <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
-        </propertyUi>
+        </property>
     </bean>
+    <bean name="jpaTemplate" class="org.springframework.orm.jpa.JpaTemplate">
+        <constructor-arg index="0" ref="entityManagerFactory" />
+        <property name="jpaDialect" ref="jpaDialect" />
+    </bean>
+    <bean name="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <constructor-arg index="0" ref="entityManagerFactory" />
+        <property name="jpaDialect" ref="jpaDialect" />
+    </bean>
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="get*"
+                       propagation="REQUIRED"
+                       read-only="true"/>
+            <tx:method name="*"
+                       propagation="REQUIRED"
+                       read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut id="servicesPointCut"
+                      expression="execution(* testing.TstService.*(..))" />
+        <aop:advisor advice-ref="txAdvice"
+                     pointcut-ref="servicesPointCut" />
+        <!--
+        <aop:pointcut id="pcSetupService"
+                      type="aspectj"
+                      expression="execution(* org.tmjee.miniwiki.core.service.SetupService.*(..))" />
+        <aop:pointcut id="pcUserManagementService"
+                      type="aspectj"
+                      expression="execution(* org.tmjee.miniwiki.core.service.UserManagementService.*(..))" />
+        <aop:advisor advice-ref="txAdvice"
+                     pointcut-ref="pcSetupService" />
+        <aop:advisor advice-ref="txAdvice"
+                     pointcut-ref="pcUserManagementService" />
+        -->
+    </aop:config>
 
 
 
@@ -59,22 +97,25 @@
     <bean name="miniWikiConfig" class="org.tmjee.miniwiki.core.spring.factory.MiniWikiConfigFactoryBean">
     </bean>
     <bean name="dozerBeanMapper" class="net.sf.dozer.util.mapping.spring.DozerBeanMapperFactoryBean">
-        <propertyUi name="mappingFiles">
+        <property name="mappingFiles">
             <list>
                 <value>beansMappings.xml</value>
             </list>
-        </propertyUi>
+        </property>
     </bean>
 
 
     <!-- ######################### -->
     <!-- # Services setup          -->
     <!-- ######################### -->
+    <bean name="tstService" class="testing.TstService">
+        <constructor-arg index="0" ref="jpaTemplate" />    
+    </bean>
     <bean name="setupService" class="org.tmjee.miniwiki.core.service.SetupService">
-        <constructor-arg index="0" ref="entityManagerFactory" />
+        <constructor-arg index="0" ref="jpaTemplate" />
     </bean>
     <bean name="userManagementService" class="org.tmjee.miniwiki.core.service.UserManagementService">
-        <constructor-arg index="0" ref="entityManagerFactory" />
+        <constructor-arg index="0" ref="jpaTemplate" />
         <constructor-arg index="1" ref="miniWikiConfig" />
         <constructor-arg index="2" ref="dozerBeanMapper" />
     </bean>

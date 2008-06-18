@@ -19,9 +19,10 @@ public class JpaTest {
         Bootstrap bootstrap = Bootstrap.getInstance();
 
         ApplicationContext ctx = bootstrap.getApplicationContext();
+        TstService service = (TstService) ctx.getBean("tstService");
 
-        Object o = ctx.getBean("entityManager");
-        System.out.println(o instanceof EntityManager);
+        service.tryOut();
+        
     }
 
 
