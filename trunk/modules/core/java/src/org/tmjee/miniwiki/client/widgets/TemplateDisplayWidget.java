@@ -58,9 +58,12 @@ public class TemplateDisplayWidget extends VerticalPanel {
             }
         });
 
+        setWidth("100%");
+        setHeight("100%");
 
         // 1] Info Panel
         HorizontalPanel infoPanel = new HorizontalPanel();
+        infoPanel.setWidth("100%");
 
         /*
          * Wiki
@@ -96,6 +99,7 @@ public class TemplateDisplayWidget extends VerticalPanel {
             }
         }));
         mainMenuBar.addItem(wikiMenuItem);
+        mainMenuBar.setWidth("100%");
 
 
         /*
@@ -230,6 +234,8 @@ public class TemplateDisplayWidget extends VerticalPanel {
               }
               contentPanel.add(widget, name);
         }
+        contentPanel.setWidth("100%");
+        contentPanel.setHeight("100%");
         add(contentPanel);
 
 
@@ -237,6 +243,7 @@ public class TemplateDisplayWidget extends VerticalPanel {
         
          // 3] comments
          DisclosurePanel commentPanel = new DisclosurePanel("Comments", true);
+         commentPanel.setWidth("100%");
          add(commentPanel);
 
     }
