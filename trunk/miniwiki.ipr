@@ -279,6 +279,15 @@
         <root url="jar://C:/mojo/gwt/gwt-windows-1.5.0/gwt-user.jar!/" />
       </SOURCES>
     </library>
+    <library name="gwt-user (2)">
+      <CLASSES>
+        <root url="jar://C:/mojo/gwt/gwt-windows-1.5.0/gwt-user.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://C:/mojo/gwt/gwt-windows-1.5.0/gwt-user.jar!/" />
+      </SOURCES>
+    </library>
   </component>
 </project>
 

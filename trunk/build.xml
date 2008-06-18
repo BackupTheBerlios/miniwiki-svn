@@ -116,7 +116,7 @@
 
     <target name="shell">
         <subant target="shell">
-            <fileset dir="${web.module.dir}" includes="build.xml" />
+            <fileset dir="${core.module.dir}" includes="build.xml" />
         </subant>
     </target>
 
