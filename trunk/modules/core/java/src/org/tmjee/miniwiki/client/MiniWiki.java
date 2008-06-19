@@ -1,6 +1,7 @@
 package org.tmjee.miniwiki.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.History;
@@ -111,7 +112,7 @@ public class MiniWiki implements EntryPoint {
 
           RootPanel.get("content").clear();
           RootPanel.get("content").add(templateDisplayWidget);
-
+          
           LoadingMessageDisplayWidget.getInstance().done();
       }
   }

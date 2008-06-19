@@ -10,23 +10,41 @@
       MiniWiki Web Application.
   </description>
 
+  <!-- GWT's RPC servlets -->
   <servlet>
-      <servlet-name>org.tmjee.miniwiki.server.UiUiLoadTemplateServiceImpl</servlet-name>
-      <servlet-class>org.tmjee.miniwiki.server.UiUiLoadTemplateServiceImpl</servlet-class>
+      <servlet-name>org.tmjee.miniwiki.server.UiTemplateManagementServiceImpl</servlet-name>
+      <servlet-class>org.tmjee.miniwiki.server.UiTemplateManagementServiceImpl</servlet-class>
   </servlet>
   <servlet>
       <servlet-name>org.tmjee.miniwiki.server.UiUserManagementServiceImpl</servlet-name>
       <servlet-class>org.tmjee.miniwiki.server.UiUserManagementServiceImpl</servlet-class>
   </servlet>
-
-
+  <servlet>
+      <servlet-name>org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl</servlet-name>
+      <servlet-class>org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl</servlet-class>
+  </servlet>
   <servlet-mapping>
-      <servlet-name>org.tmjee.miniwiki.server.UiUiLoadTemplateServiceImpl</servlet-name>
-      <url-pattern>/org.tmjee.miniwiki.MiniWiki/loadTemplate</url-pattern>
+      <servlet-name>org.tmjee.miniwiki.server.UiTemplateManagementServiceImpl</servlet-name>
+      <url-pattern>/org.tmjee.miniwiki.MiniWiki/templateManagement</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
       <servlet-name>org.tmjee.miniwiki.server.UiUserManagementServiceImpl</servlet-name>
       <url-pattern>/org.tmjee.miniwiki.MiniWiki/userManagement</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl</servlet-name>
+      <url-pattern>/org.tmjee/miniwiki.MiniWiki/loggingManagement</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- MiniWiki's Initializing Servlet -->  
+  <servlet>
+      <servlet-name>org.tmjee.miniwiki.core.InitializingServlet</servlet-name>
+      <servlet-class>org.tmjee.miniwiki.core.InitializingServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+  </servlet>
 
 </web-app>
+
+
+        

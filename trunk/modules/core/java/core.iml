@@ -24,7 +24,7 @@
       <configuration>
         <setting name="gwtSdkUrl" value="file://C:/mojo/gwt/gwt-windows-1.5.0" />
         <setting name="gwtScriptOutputStyle" value="DETAILED" />
-        <setting name="runGwtCompilerOnMake" value="true" />
+        <setting name="runGwtCompilerOnMake" value="false" />
         <setting name="compilerMaxHeapSize" value="128" />
         <packaging>
           <module name="org.tmjee.miniwiki.MiniWiki" path="/org.tmjee.miniwiki.MiniWiki" />

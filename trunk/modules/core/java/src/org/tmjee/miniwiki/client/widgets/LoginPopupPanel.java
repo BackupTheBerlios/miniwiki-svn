@@ -11,6 +11,7 @@ import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.MessageEvent;
 import org.tmjee.miniwiki.client.domain.UiCredentials;
+import org.tmjee.miniwiki.client.utils.Logger;
 
 /**
  * Created by IntelliJ IDEA.
@@ -80,8 +81,8 @@ public class LoginPopupPanel extends DialogBox implements SourcesMessageEvents {
                         password.getText(),
                         new AsyncCallback() {
                             public void onFailure(Throwable caught) {
-                                // TODO: logging
-                                GWT.log(caught.toString(), caught);
+                                Logger.error(caught.toString(), caught);
+                                LoadingMessageDisplayWidget.getInstance().done();
                             }
                             public void onSuccess(Object result) {
                                 UiCredentials credentials = (UiCredentials) result;

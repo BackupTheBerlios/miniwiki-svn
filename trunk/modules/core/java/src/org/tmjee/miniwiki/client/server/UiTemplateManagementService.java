@@ -9,6 +9,6 @@ import com.google.gwt.user.client.rpc.RemoteService;
  * Time: 3:35:59 PM
  * To change this template use File | Settings | File Templates.
  */
-public interface UiLoadTemplateService extends RemoteService {
+public interface UiTemplateManagementService extends RemoteService {
     TemplateInfo loadTemplate(String template);
 }

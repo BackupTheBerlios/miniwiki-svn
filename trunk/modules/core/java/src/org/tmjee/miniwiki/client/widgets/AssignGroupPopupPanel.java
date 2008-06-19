@@ -11,6 +11,7 @@ import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
 import org.tmjee.miniwiki.client.Constants;
+import org.tmjee.miniwiki.client.utils.Logger;
 
 /**
  * Created by IntelliJ IDEA.
@@ -63,7 +64,9 @@ public class AssignGroupPopupPanel extends DialogBox {
         mainPanel.add(groupsTable);
         mainPanel.add(buttonPanel);
 
-        //loadData(new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE));
+        setWidget(mainPanel);
+
+        loadData(new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE));
 
         center();
     }
@@ -78,8 +81,8 @@ public class AssignGroupPopupPanel extends DialogBox {
         userManagement.getAllGroups(new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE),
                 new AsyncCallback() {
                     public void onFailure(Throwable caught) {
-                        // TODO: logging
-                        GWT.log(caught.toString(), caught);
+                        Logger.error(caught.toString(), caught);
+                        LoadingMessageDisplayWidget.getInstance().done();
                     }
                     public void onSuccess(Object result) {
 

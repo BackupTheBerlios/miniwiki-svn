@@ -31,7 +31,7 @@ public class AbstractService {
     }
 
     protected Query preparePagingInfo(Query query, PagingInfo pagingInfo) {
-        query.setFirstResult(pagingInfo.getPageNumber()*pagingInfo.getPageSize());
+        query.setFirstResult(pagingInfo.getPageNumber()*(pagingInfo.getPageSize()-1));
         query.setMaxResults(pagingInfo.getPageSize());
         return query;
     }

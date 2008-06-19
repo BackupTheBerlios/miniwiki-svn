@@ -15,6 +15,7 @@ import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.events.MessageEvent;
 import org.tmjee.miniwiki.client.Constants;
+import org.tmjee.miniwiki.client.utils.Logger;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -49,6 +50,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
 
         state = new State();
 
+        sourcesEventSupport = new SourcesEventsSupport();
         selectedUiGroups = new ArrayList<UiGroup>();
 
         searchPanel = new HorizontalPanel();
@@ -74,17 +76,28 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
         });
         delete = new Button("Delete", new ClickListener() {
             public void onClick(Widget sender) {
+
+                if (selectedUiGroups.size() <= 0) {
+                    sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                        public void handle(Object listener) {
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Group is not available/selected"));
+                        }
+                    });
+                    return;
+                }
+
+
                 UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
                 for (final UiGroup uiGroup : selectedUiGroups) {
                     LoadingMessageDisplayWidget.getInstance().display("Deleting uiGroup id "+ uiGroup.getId());
                     userManagement.deleteGroup(uiGroup, new AsyncCallback() {
                         public void onFailure(Throwable caught) {
-                            // TODO: logging
-                            GWT.log(caught.toString(), caught);
+                            Logger.error(caught.toString(), caught);
+                            LoadingMessageDisplayWidget.getInstance().done();
                         }
                         public void onSuccess(Object result) {
-                            LoadingMessageDisplayWidget.getInstance().done();
                             state.restore(GroupTableWidget.this);
+                            LoadingMessageDisplayWidget.getInstance().done();
                         }
                     });
                 }
@@ -113,17 +126,31 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
         table.setWidget(0, 2, new Label("")); // checkbox
         table.setWidget(0, 3, new Label("")); // edit button
         add(table);
+
+        listAllGroups(new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE));
     }
 
     public void listGroup(final String groupName, final PagingInfo pagingInfo) {
+
+        if (groupName == null || (groupName.trim().length() <= 0)) {
+            sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                public void handle(Object listener) {
+                    ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Group Name is required"));
+                }
+            });
+            return;
+        }
+
+
+        LoadingMessageDisplayWidget.getInstance().display("Loading groups info ...");
         state.capture(this, pagingInfo, false);
         selectedUiGroups.clear();
         UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.searchForGroup(groupName, pagingInfo, false,
                 new AsyncCallback() {
                     public void onFailure(Throwable caught) {
-                        // TODO: logging
-                        GWT.log(caught.toString(), caught);
+                        Logger.error(caught.toString(), caught);
+                        LoadingMessageDisplayWidget.getInstance().done();
                     }
                     public void onSuccess(Object result) {
                         UiGroups uiGroups = (UiGroups) result;
@@ -184,19 +211,22 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
                             table.removeRow(currentRow);
                             currentRow++;
                         }
+                        LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
     }
 
     public void listAllGroups(PagingInfo pagingInfo) {
+
+        LoadingMessageDisplayWidget.getInstance().display("Loading Groups Info ...");
         state.capture(this, pagingInfo, false);
         selectedUiGroups.clear();
         UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.getAllGroups(pagingInfo,
                 new AsyncCallback() {
                     public void onFailure(Throwable caught) {
-                        // TODO: logging
-                        GWT.log(caught.toString(), caught);
+                        Logger.error(caught.toString(), caught);
+                        LoadingMessageDisplayWidget.getInstance().done();
                     }
                     public void onSuccess(Object result) {
                         UiGroups uiGroups = (UiGroups) result;
@@ -257,6 +287,7 @@ public class GroupTableWidget extends VerticalPanel implements SourcesMessageEve
                             table.removeRow(currentRow);
                             currentRow++;
                         }
+                        LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
     }

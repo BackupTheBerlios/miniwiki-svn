@@ -14,9 +14,9 @@ public class UserManagementPopupPanel extends DialogBox {
 
     private VerticalPanel mainPanel;
 
-    private TabPanel tabPanel;
     private HorizontalPanel buttonsPanel;
     private MessageDisplayWidget messageDisplayWidget;
+    private UserTableWidget userTableWidget;
 
     public UserManagementPopupPanel() {
         
@@ -27,9 +27,8 @@ public class UserManagementPopupPanel extends DialogBox {
 
         messageDisplayWidget = new MessageDisplayWidget();
 
-        tabPanel = new TabPanel();
-        tabPanel.add(new UserManagementTab(), "User Management");
-        tabPanel.selectTab(0);
+        userTableWidget = new UserTableWidget();
+        userTableWidget.addMessageEventListener(messageDisplayWidget);
 
         buttonsPanel = new HorizontalPanel();
         buttonsPanel.add(new Button("Cancel", new ClickListener() {
@@ -39,7 +38,7 @@ public class UserManagementPopupPanel extends DialogBox {
         }));
 
         mainPanel.add(messageDisplayWidget);
-        mainPanel.add(tabPanel);
+        mainPanel.add(userTableWidget);
         mainPanel.add(buttonsPanel);
         setWidget(mainPanel);
 
@@ -47,18 +46,5 @@ public class UserManagementPopupPanel extends DialogBox {
     }
 
 
-
-    private class UserManagementTab extends SimplePanel {
-
-        private UserTableWidget userTableWidget;
-
-        public UserManagementTab() {
-
-            userTableWidget = new UserTableWidget();
-            userTableWidget.addMessageEventListener(messageDisplayWidget);
-
-            setWidget(userTableWidget);
-        }
-    }
 }
 

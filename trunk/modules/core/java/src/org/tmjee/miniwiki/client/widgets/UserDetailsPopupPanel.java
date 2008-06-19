@@ -8,6 +8,11 @@ import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.domain.UiGroup;
 import org.tmjee.miniwiki.client.domain.UiUserUiProperty;
+import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
+import org.tmjee.miniwiki.client.events.MessageEventListener;
+import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
+import org.tmjee.miniwiki.client.events.MessageEvent;
+import org.tmjee.miniwiki.client.utils.Logger;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,15 +21,22 @@ import org.tmjee.miniwiki.client.domain.UiUserUiProperty;
  * Time: 7:39:01 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UserDetailsPopupPanel extends DialogBox {
+public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEvents {
+
+    private SourcesEventsSupport sourcesEventSupport;
 
     private UiUser uiUser;
 
     private VerticalPanel mainPanel;
 
+    private MessageDisplayWidget messageDisplayWidget;
+
     private TextBox username;
     private TextBox firstName;
     private TextBox lastName;
+    private TextBox description;
+    private PasswordTextBox password;
+    private PasswordTextBox confirmPassword;
     private Grid grid;  // hold username, firstname and lastname
 
 
@@ -43,6 +55,8 @@ public class UserDetailsPopupPanel extends DialogBox {
     private Button cancelUserDetails;
 
 
+
+
     public static interface Handler {
         void save(UiUser uiUser);
     }
@@ -52,6 +66,11 @@ public class UserDetailsPopupPanel extends DialogBox {
 
         setText("User Details");
         setAnimationEnabled(true);
+
+        sourcesEventSupport = new SourcesEventsSupport();
+        
+        messageDisplayWidget = new MessageDisplayWidget();
+        addMessageEventListener(messageDisplayWidget);
 
         this.uiUser = uiUser;
 
@@ -112,10 +131,23 @@ public class UserDetailsPopupPanel extends DialogBox {
 
         deleteProperty = new Button("Delete Property", new ClickListener() {
             public void onClick(Widget sender) {
+                boolean needsReloadOfPropertiesInfo = false;
                 for (int row=0; row< propertiesTable.getRowCount(); row++) {
                     ObjectHoldableCheckBox checkBox = (ObjectHoldableCheckBox) propertiesTable.getWidget(row, 2);
-                    UserDetailsPopupPanel.this.uiUser.removeProperty((UiUserUiProperty) checkBox.getObject());
+                    if (checkBox.isChecked()) {
+                        UserDetailsPopupPanel.this.uiUser.removeProperty((UiUserUiProperty) checkBox.getObject());
+                        needsReloadOfPropertiesInfo = true;
+                    }
+                }
+                if (needsReloadOfPropertiesInfo) {
                     loadPropertiesInfo();
+                }
+                else {
+                    sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                        public void handle(Object listener) {
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "No property(s) available/selected for deletion"));
+                        }
+                    });
                 }
             }
         });
@@ -136,17 +168,41 @@ public class UserDetailsPopupPanel extends DialogBox {
 
         saveUserDetails = new Button("Save", new ClickListener() {
             public void onClick(Widget sender) {
+                if (username.getText().trim().length() <= 0) {
+                    sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                        public void handle(Object listener) {
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Username is required"));
+                        }
+                    });
+                }
+                if (firstName.getText().trim().length() <= 0) {
+                    sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                        public void handle(Object listener) {
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "First Name is required"));
+                        }
+                    });
+                }
+                if (lastName.getText().trim().length() <= 0) {
+                    sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                        public void handle(Object listener) {
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Last Name is required"));
+                        }
+                    });
+                }
+
+
                 LoadingMessageDisplayWidget.getInstance().display("Saving User Info ...");
                 UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
-                userManagement.updateUser(UserDetailsPopupPanel.this.uiUser, new AsyncCallback() {
-                    public void onFailure(Throwable caught) {
-                        // TODO: logging
-                        GWT.log(caught.toString(), caught);
-                    }
-                    public void onSuccess(Object result) {
-                        LoadingMessageDisplayWidget.getInstance().done();    
-                    }
-                });
+                userManagement.updateUser(UserDetailsPopupPanel.this.uiUser,
+                    new AsyncCallback() {
+                        public void onFailure(Throwable caught) {
+                            Logger.error(caught.toString(), caught);
+                            LoadingMessageDisplayWidget.getInstance().done();
+                        }
+                        public void onSuccess(Object result) {
+                            LoadingMessageDisplayWidget.getInstance().done();
+                        }
+                    });
             }
         });
         cancelUserDetails = new Button("Cancel", new ClickListener() {
@@ -158,6 +214,7 @@ public class UserDetailsPopupPanel extends DialogBox {
         saveCancelButtonPanel.add(saveUserDetails);
         saveCancelButtonPanel.add(cancelUserDetails);
 
+        mainPanel.add(messageDisplayWidget);
         mainPanel.add(grid);
         mainPanel.add(groupsButtonPanel);
         mainPanel.add(groupsTable);
@@ -168,6 +225,14 @@ public class UserDetailsPopupPanel extends DialogBox {
         setWidget(mainPanel);
 
         center();
+    }
+
+    public void addMessageEventListener(MessageEventListener listener) {
+        sourcesEventSupport.addListener(listener);
+    }
+
+    public void removeMessageEventListener(MessageEventListener listener) {
+        sourcesEventSupport.removeListener(listener);
     }
 
 

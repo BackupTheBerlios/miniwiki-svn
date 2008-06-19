@@ -23,8 +23,10 @@
 
     <entry-point class='org.tmjee.miniwiki.client.MiniWiki'/>
 
-    <servlet path="/loadTemplate"
-             class="org.tmjee.miniwiki.server.UiUiLoadTemplateServiceImpl" />
+    <servlet path="/templateManagement"
+             class="org.tmjee.miniwiki.server.UiTemplateManagementServiceImpl" />
     <servlet path="/userManagement"
              class="org.tmjee.miniwiki.server.UiUserManagementServiceImpl" />
+    <servlet path="/loggingManagement"
+             class="org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl" />
 </module>

@@ -1,9 +1,6 @@
 package org.tmjee.miniwiki.client.service;
 
-import org.tmjee.miniwiki.client.server.UiLoadTemplateServiceAsync;
-import org.tmjee.miniwiki.client.server.UiLoadTemplateService;
-import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
-import org.tmjee.miniwiki.client.server.UiUserManagementService;
+import org.tmjee.miniwiki.client.server.*;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
@@ -16,13 +13,14 @@ import com.google.gwt.user.client.rpc.ServiceDefTarget;
  */
 public class Service {
 
-    private static UiLoadTemplateServiceAsync loadTemplateService;
+    private static UiTemplateManagementServiceAsync loadTemplateService;
     private static UiUserManagementServiceAsync userManagementService;
+    private static UiLoggingManagementServiceAsync loggingManagementService;
 
-    public static UiLoadTemplateServiceAsync getLoadTemplateService() {
-        loadTemplateService = (UiLoadTemplateServiceAsync) GWT.create(UiLoadTemplateService.class);
+    public static UiTemplateManagementServiceAsync getLoadTemplateService() {
+        loadTemplateService = (UiTemplateManagementServiceAsync) GWT.create(UiTemplateManagementService.class);
         ServiceDefTarget target = (ServiceDefTarget) loadTemplateService;
-        target.setServiceEntryPoint(GWT.getModuleBaseURL()+"loadTemplate");
+        target.setServiceEntryPoint(GWT.getModuleBaseURL()+"templateManagement");
         return loadTemplateService;
     }
 
@@ -31,6 +29,13 @@ public class Service {
         ServiceDefTarget target = (ServiceDefTarget) userManagementService;
         target.setServiceEntryPoint(GWT.getModuleBaseURL()+"userManagement");
         return userManagementService;
+    }
+
+    public static UiLoggingManagementServiceAsync getLoggingService() {
+        loggingManagementService = (UiLoggingManagementServiceAsync) GWT.create(UiLoggingManagementService.class);
+        ServiceDefTarget target = (ServiceDefTarget) loggingManagementService;
+        target.setServiceEntryPoint(GWT.getModuleBaseURL()+"loggingManagement");
+        return loggingManagementService;
     }
 
 }

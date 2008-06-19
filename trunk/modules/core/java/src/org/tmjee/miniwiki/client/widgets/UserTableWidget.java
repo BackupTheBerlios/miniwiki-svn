@@ -8,6 +8,7 @@ import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
 import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.Constants;
+import org.tmjee.miniwiki.client.utils.Logger;
 import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
@@ -76,16 +77,24 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
                 new ClickListener() {
                     public void onClick(Widget sender) {
                         UiUserManagementServiceAsync userManagementService = Service.getUserManagementService();
+                        if (selectedUiUser.size() <= 0) {
+                            sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                                public void handle(Object listener) {
+                                    ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "No users available/selected"));
+                                }
+                            });
+                            return;
+                        }
                         for (final UiUser uiUser : selectedUiUser) {
                             LoadingMessageDisplayWidget.getInstance().display("Deleting User ID "+ uiUser.getId());
                             userManagementService.deleteUser(uiUser, new AsyncCallback() {
                                 public void onFailure(Throwable caught) {
-                                    // TODO: logging
-                                    GWT.log(caught.toString(), caught);
+                                    Logger.error(caught.toString(), caught);
+                                    LoadingMessageDisplayWidget.getInstance().done();    
                                 }
                                 public void onSuccess(Object result) {
-                                   LoadingMessageDisplayWidget.getInstance().done();
                                    state.restore();
+                                   LoadingMessageDisplayWidget.getInstance().done();
                                 }
                             });
                         }
@@ -125,6 +134,8 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
 
 
     public void listUser(final String username, final PagingInfo pagingInfo) {
+
+        LoadingMessageDisplayWidget.getInstance().display("Loading user info ...");
         state.capture(pagingInfo, false);
         selectedUiUser.clear();
         UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
@@ -134,8 +145,8 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
                 false,
                 new AsyncCallback() {
                     public void onFailure(Throwable caught) {
-                        // TODO: logging
-                        GWT.log(caught.toString(), caught);
+                        Logger.error(caught.toString(), caught);
+                        LoadingMessageDisplayWidget.getInstance().done();
                     }
                     public void onSuccess(Object result) {
                         UiUsers uiUsers = (UiUsers) result;
@@ -228,19 +239,24 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
                             table.removeRow(currentRow);
                             currentRow++;
                         }
+
+                        LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
     }
 
     public void listAllUsers(final PagingInfo pagingInfo) {
+
+        LoadingMessageDisplayWidget.getInstance().display("Loading Users ...");
+
         state.capture(pagingInfo, true);
         selectedUiUser.clear();
         UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
         userManagement.getAllUsers(pagingInfo,
                 new AsyncCallback() {
                     public void onFailure(Throwable caught) {
-                        // TODO: logging
-                        GWT.log(caught.toString(), caught);
+                        Logger.error(caught.toString(), caught);
+                        LoadingMessageDisplayWidget.getInstance().display("Loading User Info ...");
                     }
                     public void onSuccess(Object result) {
                         UiUsers uiUsers = (UiUsers) result;
@@ -317,6 +333,8 @@ public class UserTableWidget extends VerticalPanel implements SourcesMessageEven
                             table.removeRow(currentRow);
                             currentRow++;
                         }
+
+                        LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
     }

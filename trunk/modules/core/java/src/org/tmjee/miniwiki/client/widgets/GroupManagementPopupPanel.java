@@ -12,9 +12,10 @@ import com.google.gwt.user.client.ui.*;
 public class GroupManagementPopupPanel extends DialogBox {
 
     private VerticalPanel mainPanel;
-    private TabPanel tabPanel;
+    private GroupTableWidget groupTableWidget;
     private MessageDisplayWidget messageDisplayWidget;
 
+    private HorizontalPanel buttonsPanel;
 
     public GroupManagementPopupPanel() {
         setText("Group Management");
@@ -22,26 +23,28 @@ public class GroupManagementPopupPanel extends DialogBox {
 
         messageDisplayWidget = new MessageDisplayWidget();
 
-        tabPanel = new TabPanel();
-        tabPanel.add(new GroupManagementTab(), "Group Management");
-        tabPanel.selectTab(0);
+        groupTableWidget = new GroupTableWidget();
+        groupTableWidget.addMessageEventListener(messageDisplayWidget);
+
+        buttonsPanel = new HorizontalPanel();
+        buttonsPanel.add(new Button("Cancel", new ClickListener() {
+            public void onClick(Widget widget) {
+                hide();
+            }
+        }));
+
 
         mainPanel = new VerticalPanel();
         mainPanel.add(messageDisplayWidget);
-        mainPanel.add(tabPanel);
+        mainPanel.add(groupTableWidget);
+        mainPanel.add(buttonsPanel);
+
+        setWidget(mainPanel);
 
         center();
     }
 
 
-    private class GroupManagementTab extends SimplePanel {
-        private GroupTableWidget groupsTable;
 
-        public GroupManagementTab() {
-            groupsTable = new GroupTableWidget();
-
-            setWidget(groupsTable);
-        }
-    }
 
 }
