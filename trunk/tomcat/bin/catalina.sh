@@ -106,10 +106,6 @@ elif [ -r "$CATALINA_HOME"/bin/setenv.sh ]; then
   . "$CATALINA_HOME"/bin/setenv.sh
 fi
 
-JAVA_OPTS="-javaagent:$CATALINA_HOME/lib/spring-agent.jar $JAVA_OPTS"
-
-echo "xxxxxxxxxx$JAVA_OPTS"
-
 # For Cygwin, ensure paths are in UNIX format before anything is touched
 if $cygwin; then
   [ -n "$JAVA_HOME" ] && JAVA_HOME=`cygpath --unix "$JAVA_HOME"`
@@ -189,6 +185,8 @@ if [ -r "$CATALINA_BASE"/conf/logging.properties ]; then
   JAVA_OPTS="$JAVA_OPTS "-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager" "-Djava.util.logging.config.file="$CATALINA_BASE/conf/logging.properties"
 fi
 
+JAVA_OPTS="-javaagent:$CATALINA_HOME/lib/spring-agent.jar $JAVA_OPTS"
+
 # ----- Execute The Requested Command -----------------------------------------
 
 # Bugzilla 37848: only output this if we have a TTY
@@ -196,6 +194,7 @@ if [ $have_tty -eq 1 ]; then
   echo "Using CATALINA_BASE:   $CATALINA_BASE"
   echo "Using CATALINA_HOME:   $CATALINA_HOME"
   echo "Using CATALINA_TMPDIR: $CATALINA_TMPDIR"
+  echo "Using JAVA_OPTS: $JAVA_OPTS"
   if [ "$1" = "debug" -o "$1" = "javac" ] ; then
     echo "Using JAVA_HOME:       $JAVA_HOME"
   else

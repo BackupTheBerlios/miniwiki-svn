@@ -120,9 +120,12 @@ set JAVA_OPTS=%JAVA_OPTS% -Djava.util.logging.manager=org.apache.juli.ClassLoade
 
 rem ----- Execute The Requested Command ---------------------------------------
 
+set JAVA_OPTS=-javaagent:%CATALINA_HOME%\lib\spring-agent.jar %JAVA_OPTS%
+
 echo Using CATALINA_BASE:   %CATALINA_BASE%
 echo Using CATALINA_HOME:   %CATALINA_HOME%
 echo Using CATALINA_TMPDIR: %CATALINA_TMPDIR%
+echo Using JAVA_OPTS: %JAVA_OPTS%
 if ""%1"" == ""debug"" goto use_jdk
 echo Using JRE_HOME:        %JRE_HOME%
 goto java_dir_displayed
