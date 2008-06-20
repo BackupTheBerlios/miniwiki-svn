@@ -24,7 +24,7 @@
       <configuration>
         <setting name="gwtSdkUrl" value="file://C:/mojo/gwt/gwt-windows-1.5.0" />
         <setting name="gwtScriptOutputStyle" value="DETAILED" />
-        <setting name="runGwtCompilerOnMake" value="false" />
+        <setting name="runGwtCompilerOnMake" value="true" />
         <setting name="compilerMaxHeapSize" value="128" />
         <packaging>
           <module name="org.tmjee.miniwiki.MiniWiki" path="/org.tmjee.miniwiki.MiniWiki" />
@@ -39,6 +39,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://C:/mybrain/miniwiki/modules/core/test/resources" isTestSource="true" />
       <sourceFolder url="file://C:/mybrain/miniwiki/modules/core/test/src" isTestSource="true" />
+      <excludeFolder url="file://C:/mybrain/miniwiki/modules/core/build/dist" />
+      <excludeFolder url="file://C:/mybrain/miniwiki/modules/core/build/java" />
+      <excludeFolder url="file://C:/mybrain/miniwiki/modules/core/build/test" />
+      <excludeFolder url="file://C:/mybrain/miniwiki/modules/core/build/www" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -2,17 +2,24 @@ package org.tmjee.miniwiki.client.widgets;
 
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.domain.UiGroup;
-import org.tmjee.miniwiki.client.domain.UiUserUiProperty;
+import org.tmjee.miniwiki.client.domain.UiUserProperty;
+import org.tmjee.miniwiki.client.domain.UiProperty;
 import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.events.MessageEvent;
 import org.tmjee.miniwiki.client.utils.Logger;
+import org.tmjee.miniwiki.client.beans.PropertyListener;
+import org.tmjee.miniwiki.client.beans.EventObject;
+import org.tmjee.miniwiki.client.beans.PropertyAdditionEvent;
+import org.tmjee.miniwiki.client.beans.PropertyDeletionEvent;
+
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,11 +28,12 @@ import org.tmjee.miniwiki.client.utils.Logger;
  * Time: 7:39:01 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEvents {
+public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEvents, PropertyListener {
 
     private SourcesEventsSupport sourcesEventSupport;
 
     private UiUser uiUser;
+    private List<UiUserProperty> selectedProperties;
 
     private VerticalPanel mainPanel;
 
@@ -34,7 +42,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     private TextBox username;
     private TextBox firstName;
     private TextBox lastName;
-    private TextBox description;
+    private TextArea description;
     private PasswordTextBox password;
     private PasswordTextBox confirmPassword;
     private Grid grid;  // hold username, firstname and lastname
@@ -55,8 +63,6 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     private Button cancelUserDetails;
 
 
-
-
     public static interface Handler {
         void save(UiUser uiUser);
     }
@@ -66,6 +72,8 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
 
         setText("User Details");
         setAnimationEnabled(true);
+
+        selectedProperties = new ArrayList<UiUserProperty>();
 
         sourcesEventSupport = new SourcesEventsSupport();
         
@@ -94,6 +102,21 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                 UserDetailsPopupPanel.this.uiUser.setFirstName(firstName.getText());
             }
         });
+        description = new TextArea();
+        description.addChangeListener(new ChangeListener() {
+            public void onChange(Widget widget) {
+                UserDetailsPopupPanel.this.uiUser.setDescription(description.getText());
+            }
+        });
+        password = new PasswordTextBox();
+        password.addChangeListener(new ChangeListener() {
+            public void onChange(Widget widget) {
+                UserDetailsPopupPanel.this.uiUser.setPassword(password.getText());
+            }
+        });
+        confirmPassword = new PasswordTextBox();
+
+
         grid = new Grid(3, 2);
         grid.setWidget(0, 0, new Label("Username"));
         grid.setWidget(0, 1, username);
@@ -120,34 +143,27 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         groupsButtonPanel.add(assignGroup);
         groupsTable = new FlexTable();
         groupsTable.setWidget(0, 0, new Label("Group Name"));
-        groupsTable.setWidget(0, 1, new Label(""));
+        groupsTable.setWidget(0, 1, new Label(""));  // button to remove group
 
 
         propertiesTable = new FlexTable();
         propertiesTable.setWidget(0, 0, new Label("Property Name"));
         propertiesTable.setWidget(0, 1, new Label("Property Value"));
-        propertiesTable.setWidget(0, 2, new Label(""));
+        propertiesTable.setWidget(0, 2, new Label("")); // checkbox 
 
 
         deleteProperty = new Button("Delete Property", new ClickListener() {
             public void onClick(Widget sender) {
-                boolean needsReloadOfPropertiesInfo = false;
-                for (int row=0; row< propertiesTable.getRowCount(); row++) {
-                    ObjectHoldableCheckBox checkBox = (ObjectHoldableCheckBox) propertiesTable.getWidget(row, 2);
-                    if (checkBox.isChecked()) {
-                        UserDetailsPopupPanel.this.uiUser.removeProperty((UiUserUiProperty) checkBox.getObject());
-                        needsReloadOfPropertiesInfo = true;
-                    }
-                }
-                if (needsReloadOfPropertiesInfo) {
-                    loadPropertiesInfo();
-                }
-                else {
+                if (selectedProperties.size() <= 0) {
                     sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
                         public void handle(Object listener) {
-                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "No property(s) available/selected for deletion"));
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "No property(s) available / selected"));
                         }
                     });
+                    return;
+                }
+                for (UiUserProperty p : selectedProperties) {
+                    UserDetailsPopupPanel.this.uiUser.removeProperty(p);
                 }
             }
         });
@@ -156,7 +172,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
             public void onClick(Widget sender) {
                 new PropertyDetailsPopupPanel(new PropertyDetailsPopupPanel.Handler() {
                     public void save(String propertyName, String propertyValue) {
-                        UserDetailsPopupPanel.this.uiUser.addProperty(new UiUserUiProperty(propertyName, propertyValue));
+                        UserDetailsPopupPanel.this.uiUser.addProperty(new UiUserProperty(propertyName, propertyValue));
                         loadPropertiesInfo();
                     }
                 });
@@ -197,9 +213,11 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                     new AsyncCallback() {
                         public void onFailure(Throwable caught) {
                             Logger.error(caught.toString(), caught);
+                            UserDetailsPopupPanel.this.cleanUp();
                             LoadingMessageDisplayWidget.getInstance().done();
                         }
                         public void onSuccess(Object result) {
+                            UserDetailsPopupPanel.this.cleanUp();
                             LoadingMessageDisplayWidget.getInstance().done();
                         }
                     });
@@ -207,6 +225,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         });
         cancelUserDetails = new Button("Cancel", new ClickListener() {
             public void onClick(Widget sender) {
+                UserDetailsPopupPanel.this.cleanUp();
                 hide();
             }
         });
@@ -222,6 +241,8 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         mainPanel.add(propertiesTable);
         mainPanel.add(saveCancelButtonPanel);
 
+        init();
+
         setWidget(mainPanel);
 
         center();
@@ -235,6 +256,31 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         sourcesEventSupport.removeListener(listener);
     }
 
+    public void propertyChange(EventObject event) {
+        String propName = event.getPropertyName();
+        if (event instanceof PropertyAdditionEvent) {
+            if ("group".equals(propName)) {
+                for (int a=1; a< propertiesTable.getRowCount(); a++) {
+                    //propertiesTable    
+                }
+            }
+            else if ("property".equals(propName)) {
+
+            }
+        }
+        else if (event instanceof PropertyDeletionEvent) {
+            
+        }
+    }
+
+
+    protected void init() {
+        uiUser.addPropertyListener(this);
+    }
+
+    protected void cleanUp() {
+        uiUser.removePropertyListener(this);
+    }
 
     protected void loadGroupInfo() {
         {
@@ -268,11 +314,27 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         {
             int currentRow = 1;
             int totalRows = propertiesTable.getRowCount();
-            for (final UiUserUiProperty uiUserProperty : uiUser.getProperties()) {
+            for (final UiUserProperty uiUserProperty : uiUser.getProperties()) {
                 if (currentRow < totalRows) {
                     propertiesTable.setWidget(currentRow, 0, new Label(uiUserProperty.getName()));
                     propertiesTable.setWidget(currentRow, 1, new Label(uiUserProperty.getValue()));
-                    propertiesTable.setWidget(currentRow, 2, new ObjectHoldableCheckBox(uiUserProperty));
+                    propertiesTable.setWidget(currentRow, 2, new ObjectHoldableCheckBox(uiUserProperty,
+                            new ClickListener() {
+                                public void onClick(Widget widget) {
+                                    ObjectHoldableCheckBox cb  = (ObjectHoldableCheckBox) widget;
+                                    UiUserProperty property = (UiUserProperty) cb.getObject();
+                                    if (cb.isChecked()) {
+                                        if (selectedProperties.contains(property)) {
+                                            selectedProperties.add(property);
+                                        }
+                                    }
+                                    else {
+                                        if (selectedProperties.contains(property)) {
+                                            selectedProperties.remove(property);
+                                        }
+                                    }
+                                }
+                            }));
                 }
                 else {
                     ((Label)propertiesTable.getWidget(currentRow, 0)).setText(uiUserProperty.getName());

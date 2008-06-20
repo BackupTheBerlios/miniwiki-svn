@@ -24,14 +24,16 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
     private String username;
     private String firstName;
     private String lastName;
+    private String description;
+    private String password;
 
-    private transient List<UiUserUiProperty> uiUserProperties;
+    private transient List<UiUserProperty> uiUserProperties;
     private transient List<UiGroup> uiGroups;
 
     private PropertySupport propertySupport;
 
     public UiUser() {
-        uiUserProperties = new ArrayList<UiUserUiProperty>();
+        uiUserProperties = new ArrayList<UiUserProperty>();
         uiGroups = new ArrayList<UiGroup>();
         propertySupport = new PropertySupport();
     }
@@ -58,24 +60,26 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
 
     public void removeGroup(UiGroup uiGroup) {
         uiGroups.remove(uiGroup);
+        propertySupport.firePropertyDeletion("group", uiGroup);
     }
 
     public void addGroup(UiGroup uiGroup) {
         uiGroups.add(uiGroup);
+        propertySupport.firePropertyAddition("group", uiGroup);
     }
 
 
-    public void removeProperty(UiUserUiProperty propertyUi) {
+    public void removeProperty(UiUserProperty propertyUi) {
         uiUserProperties.remove(propertyUi);
-        propertySupport.firePropertyDeletion("prop."+ propertyUi.getName(), propertyUi.getValue());
+        propertySupport.firePropertyDeletion("property", propertyUi);
     }
 
-    public void addProperty(UiUserUiProperty propertyUi) {
+    public void addProperty(UiUserProperty propertyUi) {
         uiUserProperties.add(propertyUi);
-        propertySupport.firePropertyAddition("prop."+ propertyUi.getName(), propertyUi.getValue());
+        propertySupport.firePropertyAddition("property", propertyUi);
     }
 
-    public List<UiUserUiProperty> getProperties() {
+    public List<UiUserProperty> getProperties() {
         return uiUserProperties;
     }
 
@@ -119,6 +123,22 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
         String oldLastName = this.lastName;
         this.lastName = lastName;
         propertySupport.firePropertyChange("lastName", oldLastName, this.lastName);
+    }
+
+    public void setDescription(String description) {
+        String oldDescription = this.description;
+        this.description = description;
+        propertySupport.firePropertyChange("description", oldDescription, this.description);
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setPassword(String password) {
+        String oldPassword = this.password;
+        this.password = password;
+        propertySupport.firePropertyChange("password", oldPassword, this.password);
     }
 
     public void addPropertyListener(PropertyListener listener) {

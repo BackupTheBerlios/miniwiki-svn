@@ -1,7 +1,6 @@
 <module>
 
 	<inherits name="com.google.gwt.user.User"/>
-    <inherits name="com.google.gwt.user.Accessibility" />
     <!--
         With this we have propertyUi "uiUser.agent" with possible values
         "ie6,gecko,gecko1_8,safari,opera"

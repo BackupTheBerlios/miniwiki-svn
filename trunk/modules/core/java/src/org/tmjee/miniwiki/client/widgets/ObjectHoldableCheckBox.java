@@ -1,6 +1,7 @@
 package org.tmjee.miniwiki.client.widgets;
 
 import com.google.gwt.user.client.ui.CheckBox;
+import com.google.gwt.user.client.ui.ClickListener;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,6 +26,23 @@ public class ObjectHoldableCheckBox extends CheckBox {
     public ObjectHoldableCheckBox(Object object, String label, boolean asHtml) {
         super(label, asHtml);
         this.object = object;
+    }
+
+    public ObjectHoldableCheckBox(Object object, ClickListener clickListener) {
+        this.object = object;
+        addClickListener(clickListener);
+    }
+
+    public ObjectHoldableCheckBox(Object object, String label, ClickListener clickListener) {
+        super(label);
+        this.object = object;
+        addClickListener(clickListener);
+    }
+
+    public ObjectHoldableCheckBox(Object object, String label, boolean asHtml, ClickListener clickListener) {
+        super(label, asHtml);
+        this.object = object;
+        addClickListener(clickListener);
     }
 
     public Object getObject() {

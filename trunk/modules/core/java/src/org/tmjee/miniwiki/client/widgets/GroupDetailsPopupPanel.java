@@ -23,7 +23,6 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
     private VerticalPanel mainPanel;
 
     private TextBox groupName;
-    private 
 
     public GroupDetailsPopupPanel(UiGroup uiGroup) {
 

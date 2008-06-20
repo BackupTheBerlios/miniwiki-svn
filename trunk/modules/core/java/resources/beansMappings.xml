@@ -41,7 +41,7 @@
         </field>
     </mapping>
     <mapping>
-        <class-a>org.tmjee.miniwiki.client.domain.UiUserUiProperty</class-a>
+        <class-a>org.tmjee.miniwiki.client.domain.UiUserProperty</class-a>
         <class-b>org.tmjee.miniwiki.core.domain.UserProperty</class-b>
         <field>
             <a>id</a>
