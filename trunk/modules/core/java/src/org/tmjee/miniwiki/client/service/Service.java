@@ -16,26 +16,42 @@ public class Service {
     private static UiTemplateManagementServiceAsync loadTemplateService;
     private static UiUserManagementServiceAsync userManagementService;
     private static UiLoggingManagementServiceAsync loggingManagementService;
+    private static TestServiceAsync testService;
 
     public static UiTemplateManagementServiceAsync getLoadTemplateService() {
         loadTemplateService = (UiTemplateManagementServiceAsync) GWT.create(UiTemplateManagementService.class);
-        ServiceDefTarget target = (ServiceDefTarget) loadTemplateService;
-        target.setServiceEntryPoint(GWT.getModuleBaseURL()+"templateManagement");
+        if (loadTemplateService == null) {
+            ServiceDefTarget target = (ServiceDefTarget) loadTemplateService;
+            target.setServiceEntryPoint(GWT.getModuleBaseURL()+"templateManagement");
+        }
         return loadTemplateService;
     }
 
     public static UiUserManagementServiceAsync getUserManagementService() {
         userManagementService = (UiUserManagementServiceAsync) GWT.create(UiUserManagementService.class);
-        ServiceDefTarget target = (ServiceDefTarget) userManagementService;
-        target.setServiceEntryPoint(GWT.getModuleBaseURL()+"userManagement");
+        if (userManagementService == null) {
+            ServiceDefTarget target = (ServiceDefTarget) userManagementService;
+            target.setServiceEntryPoint(GWT.getModuleBaseURL()+"userManagement");
+        }
         return userManagementService;
     }
 
     public static UiLoggingManagementServiceAsync getLoggingService() {
         loggingManagementService = (UiLoggingManagementServiceAsync) GWT.create(UiLoggingManagementService.class);
-        ServiceDefTarget target = (ServiceDefTarget) loggingManagementService;
-        target.setServiceEntryPoint(GWT.getModuleBaseURL()+"loggingManagement");
+        if (loggingManagementService == null) {
+            ServiceDefTarget target = (ServiceDefTarget) loggingManagementService;
+            target.setServiceEntryPoint(GWT.getModuleBaseURL()+"loggingManagement");
+        }
         return loggingManagementService;
+    }
+
+    public static TestServiceAsync getTestService() {
+        testService = (TestServiceAsync) GWT.create(TestService.class);
+        if (testService == null) {
+            ServiceDefTarget target = (ServiceDefTarget) testService;
+            target.setServiceEntryPoint(GWT.getModuleBaseURL()+"test");
+        }
+        return testService;
     }
 
 }

@@ -28,4 +28,6 @@
              class="org.tmjee.miniwiki.server.UiUserManagementServiceImpl" />
     <servlet path="/loggingManagement"
              class="org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl" />
+    <servlet path="/test"
+             class="org.tmjee.miniwiki.server.TestServiceImpl" />
 </module>

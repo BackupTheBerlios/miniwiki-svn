@@ -23,6 +23,10 @@
       <servlet-name>org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl</servlet-name>
       <servlet-class>org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl</servlet-class>
   </servlet>
+  <servlet>
+      <servlet-name>org.tmjee.miniwiki.server.TestServiceImpl</servlet-name>
+      <servlet-class>org.tmjee.miniwiki.server.TestServiceImpl</servlet-class>
+  </servlet>
   <servlet-mapping>
       <servlet-name>org.tmjee.miniwiki.server.UiTemplateManagementServiceImpl</servlet-name>
       <url-pattern>/org.tmjee.miniwiki.MiniWiki/templateManagement</url-pattern>
@@ -34,6 +38,10 @@
   <servlet-mapping>
       <servlet-name>org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl</servlet-name>
       <url-pattern>/org.tmjee/miniwiki.MiniWiki/loggingManagement</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>org.tmjee.miniwiki.server.TestServiceImpl</servlet-name>
+      <url-pattern>/test</url-pattern>
   </servlet-mapping>
 
 
