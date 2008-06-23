@@ -19,8 +19,9 @@ public class FlexTableExt extends FlexTable {
 
     public static interface TitleHandler {
         int getTotalCols();
-        boolean addCheckableCol();
-        Widget[] getControlColWidgets();
+        boolean hasCheckableCol();
+        boolean hasControlWidget();
+        int numOfControlWidget();
         Widget getTitleWidget(int col);
     }
 
@@ -29,15 +30,17 @@ public class FlexTableExt extends FlexTable {
         int getTotalRows();
         Object getRowObject(int row);
         Widget getDataWidget(Object rowObject, int col);
+        Widget getControlWidget(Object rowObject, int col, int index);
     }
 
     private List<Object> selectedRowObjects;
 
     private TitleHandler titleHandler;
-    private DataHandler dataHandler;
     private ArrayList<Object> rowObjects;
 
     public FlexTableExt(TitleHandler titleHandler) {
+
+        setStyleName("flexTableExt");
 
         this.titleHandler = titleHandler;
 
@@ -46,15 +49,16 @@ public class FlexTableExt extends FlexTable {
             setWidget(0, col, titleHandler.getTitleWidget(col));
             colCount++;
         }
-        if (titleHandler.getControlColWidgets() != null) {
-            for (Widget widget : titleHandler.getControlColWidgets()) {
+        if (titleHandler.hasControlWidget()) {
+            for (int a=0; a< titleHandler.numOfControlWidget(); a++) {
                 setWidget(0, colCount, new Label(""));
                 colCount++;
             }
         }
-        if (titleHandler.addCheckableCol()) {
+        if (titleHandler.hasCheckableCol()) {
             setWidget(0, colCount, new Label(""));
         }
+        getRowFormatter().setStyleName(0, "flexTableExt-header");
         
         refresh(null);
     }
@@ -78,20 +82,21 @@ public class FlexTableExt extends FlexTable {
 
                     int totalCols = 0;
 
-                    Object rowObject = dataHandler.getRowObject(row);
+                    Object rowObject = dataHandler.getRowObject(row-1);
                     rowObjects.add(rowObject);
                     for (int col=0; col<titleHandler.getTotalCols(); col++) {
                         setWidget(row, col, dataHandler.getDataWidget(rowObject, col));
                         getFlexCellFormatter().setColSpan(row, col, 1);
                         totalCols++;
                     }
-                    if (titleHandler.getControlColWidgets() != null) {
-                        for (Widget controlWidget: handler.getControlColWidgets()) {
+                    if (titleHandler.hasControlWidget()) {
+                        for (int a=0; a< titleHandler.numOfControlWidget(); a++) {
+                            Widget controlWidget = dataHandler.getControlWidget(rowObject, totalCols, a);
                             setWidget(row, totalCols, controlWidget);
                             totalCols++;
                         }
                     }
-                    if (handler.addCheckableCol()) {
+                    if (titleHandler.hasCheckableCol()) {
                         setWidget(row, totalCols, new ObjectHoldableCheckBox(rowObject, new ClickListener() {
                             public void onClick(Widget widget) {
                                 ObjectHoldableCheckBox _cb = (ObjectHoldableCheckBox) widget;
@@ -99,15 +104,22 @@ public class FlexTableExt extends FlexTable {
                                     if (!selectedRowObjects.contains(_cb.getObject())) {
                                         selectedRowObjects.add(_cb.getObject());
                                     }
+                                    int rowNum =  rowObjects.indexOf(_cb.getObject())+1;
+                                    getRowFormatter().setStyleName(rowNum, "flexTableExt-selected");
                                 }
                                 else {
                                     if (selectedRowObjects.contains(_cb.getObject())) {
                                         selectedRowObjects.remove(_cb.getObject());
                                     }
+                                    int rowNum =  rowObjects.indexOf(_cb.getObject())+1;
+                                    getRowFormatter().setStyleName(rowNum, ((rowNum%2==0)?"flexTableExt-even":"flexTableExt-odd"));
                                 }
                             }
                         }));
                     }
+
+                    getRowFormatter().setStyleName(totalRows, ((totalRows%2==0)?"flexTableExt-even":"flexTableExt-odd"));
+
                     totalRows++;
                 }
             }
@@ -117,6 +129,7 @@ public class FlexTableExt extends FlexTable {
         }
         else {
             setWidget(1, 0, new Label("--- No Entries ---"));
+            getRowFormatter().setStyleName(1, "flexTableExt-even");
             int totalCols = titleHandler.getTotalCols();
             getFlexCellFormatter().setColSpan(1, 0, totalCols);
 

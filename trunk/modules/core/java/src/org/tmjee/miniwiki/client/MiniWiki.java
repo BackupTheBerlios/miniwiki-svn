@@ -13,6 +13,7 @@ import org.tmjee.miniwiki.client.handlers.WikiHandler;
 import org.tmjee.miniwiki.client.handlers.PageHandler;
 import org.tmjee.miniwiki.client.widgets.LoadingMessageDisplayWidget;
 import org.tmjee.miniwiki.client.widgets.TemplateDisplayWidget;
+import org.tmjee.miniwiki.client.widgets.TestTableWidget;
 import org.tmjee.miniwiki.client.server.TemplateInfo;
 
 /**
@@ -40,7 +41,10 @@ public class MiniWiki implements EntryPoint {
    */
   public void onModuleLoad() {
 
-      wikiHandler = new WikiHandler();
+      RootPanel.get().add(new TestTableWidget());
+
+
+      /*wikiHandler = new WikiHandler();
       spaceHandler = new SpaceHandler();
       pageHandler = new PageHandler();
 
@@ -53,7 +57,7 @@ public class MiniWiki implements EntryPoint {
       if ((History.getToken() == null) ||
           (History.getToken().trim().length()<=0)) {
         historyListener.onHistoryChanged(DEFAULT_HISTORY_TOKEN);
-      }
+      }*/
 
   }
 

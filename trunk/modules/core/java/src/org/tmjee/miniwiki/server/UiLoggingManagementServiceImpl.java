@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import java.io.Serializable;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import com.google.gwt.user.client.rpc.SerializableException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,7 +20,7 @@ public class UiLoggingManagementServiceImpl extends RemoteServiceServlet impleme
 
     private static final transient Log LOG = LogFactory.getLog(UiLoggingManagementServiceImpl.class);
 
-    public void log(Level level, String message, Serializable serializableException) {
+    public void log(Level level, String message, SerializableException serializableException) {
         if (Level.DEBUG.equals(level)) {
             debug(message, serializableException);
         }
@@ -55,10 +56,10 @@ public class UiLoggingManagementServiceImpl extends RemoteServiceServlet impleme
         }
     }
 
-    public void debug(final String message, final Serializable serializableException) {
+    public void debug(final String message, final SerializableException serializableException) {
         new ExceptionCatcher() {
             protected void _doIt() {
-                LOG.debug(message, (Throwable) serializableException);
+                LOG.debug(message, serializableException);
             }
         }.doIt();
     }
@@ -71,10 +72,10 @@ public class UiLoggingManagementServiceImpl extends RemoteServiceServlet impleme
         }.doIt();
     }
 
-    public void info(final String message, final Serializable serializableException) {
+    public void info(final String message, final SerializableException serializableException) {
         new ExceptionCatcher() {
             protected void _doIt() {
-                LOG.info(message, (Throwable) serializableException);
+                LOG.info(message, serializableException);
             }
         }.doIt();
     }
@@ -87,10 +88,10 @@ public class UiLoggingManagementServiceImpl extends RemoteServiceServlet impleme
         }.doIt();
     }
 
-    public void warn(final String message, final Serializable serializableException) {
+    public void warn(final String message, final SerializableException serializableException) {
         new ExceptionCatcher() {
             protected void _doIt() {
-                LOG.warn(message, (Throwable)serializableException);
+                LOG.warn(message, serializableException);
             }
         }.doIt();
     }
@@ -103,10 +104,10 @@ public class UiLoggingManagementServiceImpl extends RemoteServiceServlet impleme
         }.doIt();
     }
 
-    public void error(final String message, final Serializable serializableException) {
+    public void error(final String message, final SerializableException serializableException) {
         new ExceptionCatcher() {
             protected void _doIt() {
-                LOG.error(message, (Throwable) serializableException);
+                LOG.error(message, serializableException);
             }
         }.doIt();
     }
@@ -119,10 +120,10 @@ public class UiLoggingManagementServiceImpl extends RemoteServiceServlet impleme
         }.doIt();
     }
 
-    public void fatal(final String message, final Serializable serializableException) {
+    public void fatal(final String message, final SerializableException serializableException) {
         new ExceptionCatcher(){
             protected void _doIt() {
-                LOG.fatal(message, (Throwable)serializableException);
+                LOG.fatal(message, serializableException);
             }
         }.doIt();
     }

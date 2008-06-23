@@ -1,11 +1,52 @@
 /**
  *  Custom style sheets goes here !!!
  */
+
+/*
+ * LoadingMessageDisplayWidget
+ */
 .LoadingMessageDisplayWidget {
     background-color: red;
     font-size: 10px;
     font-weight: bold;
     color: white;
     padding: 5px;
+}
+
+/*
+ *  Flex Table
+ */
+.flexTableExt {
+    /* font-family: Arial, Helvetica, sans-serif;*/
+    border: 1px solid black;
+}
+.flexTableExt-header {
+    background-color: #444444;
+    color: white;
+    border-bottom: 1px solid black;
+}
+.flexTableExt-odd {
+    background-color: darkblue;
+    color: white;
+    border: 1px dotted white;
+}
+.flexTableExt-even {
+    background-color: darkcyan;
+    color: white;
+    border: 1px dotted white;
+}
+.flexTableExt-selected {
+    background-color: green;
+    color: white;
+    border: 1px dotted white;    
+}
+
+
+
+/*
+ *  DialogBox
+ */
+.gwt-DialogBox .Caption {
+    cursor: move;
 }
 
