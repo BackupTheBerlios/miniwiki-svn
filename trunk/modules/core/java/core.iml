@@ -32,8 +32,10 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://C:/mybrain/miniwiki/out/production/core" />
     <exclude-output />
+    <output-test url="file://C:/mybrain/miniwiki/out/test/core" />
     <content url="file://C:/mybrain/miniwiki/modules/core">
       <sourceFolder url="file://$MODULE_DIR$/resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />

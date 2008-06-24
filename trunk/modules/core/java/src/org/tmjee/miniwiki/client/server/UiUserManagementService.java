@@ -18,11 +18,11 @@ public interface UiUserManagementService extends RemoteService {
     UiUsers searchForUser(String username, PagingInfo pagingInfo, boolean exactMatch);
     UiUsers getAllUsers(PagingInfo pagingInfo);
     void updateUser(UiUser uiUser);
-    void deleteUser(UiUser uiUser);
+    void deleteUsers(UiUser[] uiUsers);
 
     UiGroups searchForGroup(String groupName, PagingInfo pagingInfo, boolean exactMatch);
     UiGroups getAllGroups(PagingInfo pagingInfo);
     void updateGroup(UiGroup uiGroup);
-    void deleteGroup(UiGroup uiGroup);
+    void deleteGroups(UiGroup[] uiGroups);
     
 }

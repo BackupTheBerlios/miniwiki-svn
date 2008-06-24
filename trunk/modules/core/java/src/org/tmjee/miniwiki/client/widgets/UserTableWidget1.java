@@ -1,6 +1,5 @@
 package org.tmjee.miniwiki.client.widgets;
 
-import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.domain.UiUsers;
@@ -13,6 +12,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
 
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,10 +21,10 @@ import java.util.Iterator;
  * Time: 3:00:20 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UserTableWidget2 extends SimpleTableWidget {
+public class UserTableWidget extends SimpleTableWidget {
 
     
-    public UserTableWidget2() {
+    public UserTableWidget() {
         super(new FlexTableExt.TitleHandler() {
             public int getTotalCols() {
                 return 3;
@@ -64,23 +64,26 @@ public class UserTableWidget2 extends SimpleTableWidget {
                         });
     }
 
-    protected void doDelete(Status status) {
+    protected void doDelete(final Status status) {
+        LoadingMessageDisplayWidget.getInstance().display("Deleting users ...");
+
         UiUserManagementServiceAsync userManagementService = Service.getUserManagementService();
-        for (Iterator i = status.getSelectedRowObjects().iterator(); i.hasNext(); ) {
-            UiUser uiUser = (UiUser) i.next();
-            LoadingMessageDisplayWidget.getInstance().display("Deleting User ID "+ uiUser.getId());
-            userManagementService.deleteUser(uiUser,
-                    new AsyncCallback() {
-                        public void onFailure(Throwable caught) {
-                            Logger.error(caught.toString(), caught);
-                            LoadingMessageDisplayWidget.getInstance().done();
-                        }
-                        public void onSuccess(Object result) {
-                            LoadingMessageDisplayWidget.getInstance().done();
-                        }
-                    });
+        UiUser[] uiUsers = new UiUser[status.getSelectedRowObjects().size()];
+        for (int a=0; a< status.getSelectedRowObjects().size(); a++) {
+            uiUsers[a] = (UiUser) ((List)status.getSelectedRowObjects()).get(a);
         }
-        status.restore();
+        userManagementService.deleteUsers(
+            uiUsers,
+            new AsyncCallback() {
+                public void onFailure(Throwable caught) {
+                    Logger.error(caught.toString(), caught);
+                    LoadingMessageDisplayWidget.getInstance().done();
+                }
+                public void onSuccess(Object result) {
+                    status.restore();
+                    LoadingMessageDisplayWidget.getInstance().done();
+                }
+            });
     }
 
     protected void doListAll(final Status status) {

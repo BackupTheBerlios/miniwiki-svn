@@ -7,12 +7,12 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import org.tmjee.miniwiki.client.domain.UiGroups;
 import org.tmjee.miniwiki.client.domain.UiGroup;
-import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.utils.Logger;
 
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,9 +21,9 @@ import java.util.Iterator;
  * Time: 6:03:36 PM
  * To change this template use File | Settings | File Templates.
  */
-public class GroupTableWidget2 extends SimpleTableWidget {
+public class GroupTableWidget extends SimpleTableWidget {
 
-    public GroupTableWidget2() {
+    public GroupTableWidget() {
         super(new FlexTableExt.TitleHandler() {
             public int getTotalCols() {
                 return 2;
@@ -55,12 +55,16 @@ public class GroupTableWidget2 extends SimpleTableWidget {
     }
 
     protected void doDelete(final Status status) {
+        LoadingMessageDisplayWidget.getInstance().display("Deleting Groups ...");
+
         UiUserManagementServiceAsync userManagementService = Service.getUserManagementService();
-        for (Iterator i = status.getSelectedRowObjects().iterator(); i.hasNext(); ) {
-            UiGroup uiGroup = (UiGroup) i.next();
-            LoadingMessageDisplayWidget.getInstance().display("Deleting Group ID "+ uiGroup.getId());
-            userManagementService.deleteGroup(uiGroup,
-                    new AsyncCallback() {
+        UiGroup[] uiGroups = new UiGroup[status.getSelectedRowObjects().size()];
+        for (int a=0; a< status.getSelectedRowObjects().size(); a++) {
+            uiGroups[a] = (UiGroup) ((List)status.getSelectedRowObjects()).get(a);
+        }
+        userManagementService.deleteGroups(
+                uiGroups,
+                new AsyncCallback() {
                         public void onFailure(Throwable caught) {
                             Logger.error(caught.toString(), caught);
                             LoadingMessageDisplayWidget.getInstance().done();
@@ -69,8 +73,8 @@ public class GroupTableWidget2 extends SimpleTableWidget {
                             LoadingMessageDisplayWidget.getInstance().done();
                             status.restore();
                         }
-                    });
-        }
+                }
+        );
     }
 
     protected void doListAll(final Status status) {

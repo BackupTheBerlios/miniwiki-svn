@@ -18,12 +18,12 @@ public interface UiUserManagementServiceAsync {
     void searchForUser(String username, PagingInfo pagingInfo, boolean exactMatch, AsyncCallback callback);
     void getAllUsers(PagingInfo pagingInfo, AsyncCallback callback);
     void updateUser(UiUser uiUser, AsyncCallback callback);
-    void deleteUser(UiUser uiUser, AsyncCallback callback);
+    void deleteUsers(UiUser[] uiUser, AsyncCallback callback);
 
     void searchForGroup(String groupName, PagingInfo pagingInfo, boolean exactMatch, AsyncCallback async);
     void getAllGroups(PagingInfo pagingInfo, AsyncCallback callback);
     void updateGroup(UiGroup uiGroup, AsyncCallback callback);
-    void deleteGroup(UiGroup uiGroup, AsyncCallback callback);
+    void deleteGroups(UiGroup[] uiGroup, AsyncCallback callback);
 
 
 

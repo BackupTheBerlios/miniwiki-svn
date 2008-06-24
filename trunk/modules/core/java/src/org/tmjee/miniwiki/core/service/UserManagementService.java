@@ -116,10 +116,12 @@ public class UserManagementService extends AbstractService {
         });
     }
 
-    public void deleteUser(final UiUser uiUser) {
+    public void deleteUsers(final UiUser[] uiUsers) {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                entityManager.remove(map(uiUser, new User()));
+                for (UiUser uiUser: uiUsers) {
+                    entityManager.remove(map(uiUser, new User()));
+                }
                 return null;
             }
         });
@@ -170,10 +172,12 @@ public class UserManagementService extends AbstractService {
         });
     }
 
-    public void deleteGroup(final UiGroup uiGroup) {
+    public void deleteGroups(final UiGroup[] uiGroups) {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                entityManager.remove(map(uiGroup, new Group()));
+                for (int a=0; a< uiGroups.length; a++) {
+                    entityManager.remove(map(uiGroups[a], new Group()));
+                }
                 return null;
             }
         });
