@@ -20,7 +20,9 @@ package org.tmjee.miniwiki.radeox.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.filter.ParamFilter;
+import org.tmjee.miniwiki.radeox.filter.ParamFilter;
+import org.tmjee.miniwiki.radeox.filter.FilterTestSupport;
+import org.tmjee.miniwiki.radeox.filter.ParamFilter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,5 +43,6 @@ public class ParamFilterTest extends FilterTestSupport {
     params.put("var1","test");
     context.getRenderContext().setParameters(params);
     assertEquals("test", filter.filter("{$var1}", context));
+      System.out.println(filter.filter("{$var1}{$var1}", context));
   }
 }

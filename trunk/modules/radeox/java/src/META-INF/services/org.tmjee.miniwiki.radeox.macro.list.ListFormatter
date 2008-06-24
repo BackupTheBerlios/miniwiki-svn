@@ -1,5 +1,5 @@
 # default list formatter
-org.radeox.macro.list.SimpleList
-org.radeox.macro.list.AtoZListFormatter
-org.radeox.macro.list.ExampleListFormatter
-org.radeox.macro.list.CollationListFormatter
+org.tmjee.miniwiki.radeox.macro.list.SimpleList
+org.tmjee.miniwiki.radeox.macro.list.AtoZListFormatter
+org.tmjee.miniwiki.radeox.macro.list.ExampleListFormatter
+org.tmjee.miniwiki.radeox.macro.list.CollationListFormatter

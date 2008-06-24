@@ -140,9 +140,11 @@ public class Service {
   }
 
   private static void loadInstances(Reader input, ClassLoader classLoader, List providers) throws IOException {
+    LOG.debug("Loading provider instances ...");
     Iterator classesIt = readLines(input).iterator();
     while (classesIt.hasNext()) {
       String className = (String) classesIt.next();
+
       int modifierIndex = className.indexOf('_');
       String modifier = null;
       if (modifierIndex != -1) {
@@ -159,6 +161,7 @@ public class Service {
 //          System.out.println("Loading modified version of '"+className+"' ("+modifier+")");
         }
         // stick it into our vector...
+        LOG.debug("Loaded provider (instance) ["+obj+"]");
         providers.add(obj);
       } catch (NoSuchMethodException e) {
         // ignore silently
@@ -201,6 +204,7 @@ public class Service {
 
         // store line if there is still more than spaces on it
         if (line.length() > 0) {
+          LOG.debug("Line read ["+line+"]");
           linesList.add(line);
         }
       } catch (Exception ex) {
