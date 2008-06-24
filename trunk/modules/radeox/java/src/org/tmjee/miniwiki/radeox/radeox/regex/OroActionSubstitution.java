@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.regex;
+package org.tmjee.miniwiki.radeox.regex;
 
 import org.apache.oro.text.regex.*;
 import org.apache.oro.text.regex.MatchResult;
@@ -32,7 +32,7 @@ import org.apache.oro.text.regex.MatchResult;
  */
 
 public class OroActionSubstitution extends StringSubstitution {
-  private org.tmjee.miniwiki.radeox.radeox.regex.Substitution substitution;
+  private org.tmjee.miniwiki.radeox.regex.Substitution substitution;
 
   public OroActionSubstitution(Substitution substitution) {
     this.substitution = substitution;

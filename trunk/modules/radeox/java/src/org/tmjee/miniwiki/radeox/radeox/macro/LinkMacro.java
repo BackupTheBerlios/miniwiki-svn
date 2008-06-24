@@ -16,13 +16,13 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox.macro;
+package org.tmjee.miniwiki.radeox.macro;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.ImageRenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
-import org.tmjee.miniwiki.radeox.radeox.macro.parameter.MacroParameter;
-import org.tmjee.miniwiki.radeox.radeox.util.Encoder;
+import org.tmjee.miniwiki.radeox.api.engine.ImageRenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.macro.parameter.MacroParameter;
+import org.tmjee.miniwiki.radeox.util.Encoder;
 
 import java.io.IOException;
 import java.io.Writer;

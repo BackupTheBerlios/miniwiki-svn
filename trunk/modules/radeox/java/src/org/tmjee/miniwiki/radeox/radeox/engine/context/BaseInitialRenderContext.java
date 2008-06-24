@@ -17,12 +17,12 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.engine.context;
+package org.tmjee.miniwiki.radeox.engine.context;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.InitialRenderContext;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
-import org.tmjee.miniwiki.radeox.radeox.util.i18n.ResourceManager;
-import org.tmjee.miniwiki.radeox.radeox.filter.FilterPipe;
+import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.util.i18n.ResourceManager;
+import org.tmjee.miniwiki.radeox.filter.FilterPipe;
 
 import java.util.Locale;
 

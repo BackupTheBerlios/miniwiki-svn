@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.api.engine;
+package org.tmjee.miniwiki.radeox.api.engine;
 
 /**
  * Interface for RenderEngines that know about Wiki pages.

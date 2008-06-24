@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.regex;
+package org.tmjee.miniwiki.radeox.regex;
 
 import org.apache.oro.text.regex.Perl5Compiler;
 import org.apache.oro.text.regex.MalformedPatternException;

@@ -17,10 +17,10 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter.regex;
+package org.tmjee.miniwiki.radeox.filter.regex;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.InitialRenderContext;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
 
 import java.util.Locale;
 import java.util.ResourceBundle;

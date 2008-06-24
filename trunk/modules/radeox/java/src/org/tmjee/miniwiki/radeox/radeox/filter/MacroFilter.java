@@ -17,21 +17,21 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.IncludeRenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.InitialRenderContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.context.FilterContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.RegexTokenFilter;
-import org.tmjee.miniwiki.radeox.radeox.regex.MatchResult;
-import org.tmjee.miniwiki.radeox.radeox.macro.Macro;
-import org.tmjee.miniwiki.radeox.radeox.macro.MacroRepository;
-import org.tmjee.miniwiki.radeox.radeox.macro.Repository;
-import org.tmjee.miniwiki.radeox.radeox.macro.parameter.MacroParameter;
-import org.tmjee.miniwiki.radeox.radeox.util.StringBufferWriter;
+import org.tmjee.miniwiki.radeox.api.engine.IncludeRenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
+import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
+import org.tmjee.miniwiki.radeox.filter.regex.RegexTokenFilter;
+import org.tmjee.miniwiki.radeox.regex.MatchResult;
+import org.tmjee.miniwiki.radeox.macro.Macro;
+import org.tmjee.miniwiki.radeox.macro.MacroRepository;
+import org.tmjee.miniwiki.radeox.macro.Repository;
+import org.tmjee.miniwiki.radeox.macro.parameter.MacroParameter;
+import org.tmjee.miniwiki.radeox.util.StringBufferWriter;
 
 import java.io.Writer;
 

@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.util.logging;
+package org.tmjee.miniwiki.radeox.util.logging;
 
 /**
  * Interface for concrete Loggers

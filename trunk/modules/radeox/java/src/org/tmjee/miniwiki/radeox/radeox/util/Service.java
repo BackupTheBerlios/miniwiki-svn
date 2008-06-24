@@ -1,4 +1,7 @@
-package org.tmjee.miniwiki.radeox.radeox.util;
+package org.tmjee.miniwiki.radeox.util;
+
+import org.apache.commons.logging.LogFactory;
+import org.apache.commons.logging.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,9 +24,12 @@ import java.util.List;
  * credits Frédéric Miserey, Joseph Oettinger
  *
  * @author Matthias L. Jugel
+ * @author tmjee
  * @version $id$
  */
 public class Service {
+
+  private static final Log LOG = LogFactory.getLog(Service.class);
 
   public static final int RESOURCE = 0;
   public static final int CLASS = 1;
@@ -51,6 +57,8 @@ public class Service {
     ClassLoader classLoader = cls.getClassLoader();
     String providerFile = "META-INF/services/" + cls.getName();
 
+    LOG.debug("Trying to read provider file ["+providerFile+"]");
+
     // check whether we already loaded the provider classes
     List providers = (List) services.get(providerFile);
     if (providers != null) {
@@ -70,6 +78,9 @@ public class Service {
         while (providerFiles.hasMoreElements()) {
           try {
             URL url = (URL) providerFiles.nextElement();
+
+            LOG.info("Found provider file at ["+url+"]");
+
             Reader reader = new InputStreamReader(url.openStream(), "UTF-8");
             switch (providerKind) {
               case Service.RESOURCE:

@@ -16,9 +16,9 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox.macro;
+package org.tmjee.miniwiki.radeox.macro;
 
-import org.tmjee.miniwiki.radeox.radeox.util.Encoder;
+import org.tmjee.miniwiki.radeox.util.Encoder;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -17,9 +17,9 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.InitialRenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
 
 /*
  * Abstract Filter Class that supplies the

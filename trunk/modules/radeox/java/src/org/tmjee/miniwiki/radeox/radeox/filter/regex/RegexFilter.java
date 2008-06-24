@@ -17,12 +17,12 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter.regex;
+package org.tmjee.miniwiki.radeox.filter.regex;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.filter.FilterSupport;
-import org.tmjee.miniwiki.radeox.radeox.filter.context.FilterContext;
+import org.tmjee.miniwiki.radeox.filter.FilterSupport;
+import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +78,7 @@ public abstract class RegexFilter extends FilterSupport {
   public void addRegex(String regex, String substitute, boolean multiline) {
     // compiler.compile(regex, (multiline ? Perl5Compiler.MULTILINE_MASK : Perl5Compiler.SINGLELINE_MASK) | Perl5Compiler.READ_ONLY_MASK));
     try {
-      org.tmjee.miniwiki.radeox.radeox.regex.Compiler compiler = org.tmjee.miniwiki.radeox.radeox.regex.Compiler.create();
+      org.tmjee.miniwiki.radeox.regex.Compiler compiler = org.tmjee.miniwiki.radeox.regex.Compiler.create();
       compiler.setMultiline(multiline);
       this.pattern.add(compiler.compile(regex));
       // Pattern.DOTALL

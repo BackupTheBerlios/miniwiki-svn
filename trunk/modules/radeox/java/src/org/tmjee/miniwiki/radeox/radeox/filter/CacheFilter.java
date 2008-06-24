@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 
 /*

@@ -17,11 +17,11 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro;
+package org.tmjee.miniwiki.radeox.macro;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.InitialRenderContext;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
-import org.tmjee.miniwiki.radeox.radeox.util.i18n.ResourceManager;
+import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.util.i18n.ResourceManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

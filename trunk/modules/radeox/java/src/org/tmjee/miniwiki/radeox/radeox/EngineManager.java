@@ -17,13 +17,13 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox;
+package org.tmjee.miniwiki.radeox;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.engine.BaseRenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.util.Service;
+import org.tmjee.miniwiki.radeox.engine.BaseRenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.util.Service;
 
 import java.util.HashMap;
 import java.util.Iterator;

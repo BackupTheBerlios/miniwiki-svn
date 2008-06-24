@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.table;
+package org.tmjee.miniwiki.radeox.macro.table;
 
 import java.util.StringTokenizer;
 

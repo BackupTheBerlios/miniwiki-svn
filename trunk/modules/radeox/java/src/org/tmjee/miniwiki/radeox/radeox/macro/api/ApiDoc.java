@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.api;
+package org.tmjee.miniwiki.radeox.macro.api;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

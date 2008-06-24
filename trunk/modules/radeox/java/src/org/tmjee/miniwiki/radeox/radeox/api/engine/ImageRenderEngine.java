@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.api.engine;
+package org.tmjee.miniwiki.radeox.api.engine;
 
 /**
  * RenderEngine interface for RenderEngines that know how to handle images,

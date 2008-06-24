@@ -17,10 +17,10 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.table;
+package org.tmjee.miniwiki.radeox.macro.table;
 
-import org.tmjee.miniwiki.radeox.radeox.macro.PluginRepository;
-import org.tmjee.miniwiki.radeox.radeox.macro.Repository;
+import org.tmjee.miniwiki.radeox.macro.PluginRepository;
+import org.tmjee.miniwiki.radeox.macro.Repository;
 
 import java.util.ArrayList;
 import java.util.Iterator;

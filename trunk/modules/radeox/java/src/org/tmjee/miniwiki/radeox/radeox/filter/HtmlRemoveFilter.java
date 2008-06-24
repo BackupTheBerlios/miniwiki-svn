@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 /*
  * HtmlRemoveFilter removes HTML tags, e.g. foo <bar>foo</bar> will
@@ -27,7 +27,7 @@ package org.tmjee.miniwiki.radeox.radeox.filter;
  * @version $Id: HtmlRemoveFilter.java,v 1.3 2003/02/24 09:00:23 stephan Exp $
  */
 
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.RegexReplaceFilter;
+import org.tmjee.miniwiki.radeox.filter.regex.RegexReplaceFilter;
 
 public class HtmlRemoveFilter extends RegexReplaceFilter implements CacheFilter {
 

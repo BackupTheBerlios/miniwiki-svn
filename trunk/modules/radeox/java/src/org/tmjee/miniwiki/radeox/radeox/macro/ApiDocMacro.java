@@ -16,10 +16,10 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox.macro;
+package org.tmjee.miniwiki.radeox.macro;
 
-import org.tmjee.miniwiki.radeox.radeox.macro.api.ApiDoc;
-import org.tmjee.miniwiki.radeox.radeox.macro.parameter.MacroParameter;
+import org.tmjee.miniwiki.radeox.macro.api.ApiDoc;
+import org.tmjee.miniwiki.radeox.macro.parameter.MacroParameter;
 
 import java.io.IOException;
 import java.io.Writer;

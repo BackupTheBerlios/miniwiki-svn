@@ -17,10 +17,10 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter.context;
+package org.tmjee.miniwiki.radeox.filter.context;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
-import org.tmjee.miniwiki.radeox.radeox.macro.parameter.MacroParameter;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.macro.parameter.MacroParameter;
 
 /**
  * FilterContext stores basic data for the context

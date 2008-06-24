@@ -17,12 +17,12 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro;
+package org.tmjee.miniwiki.radeox.macro;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.macro.book.AsinServices;
-import org.tmjee.miniwiki.radeox.radeox.macro.parameter.MacroParameter;
+import org.tmjee.miniwiki.radeox.macro.book.AsinServices;
+import org.tmjee.miniwiki.radeox.macro.parameter.MacroParameter;
 
 import java.io.IOException;
 import java.io.Writer;

@@ -17,8 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.regex;
-
+package org.tmjee.miniwiki.radeox.regex;
 /*
  * Class which stores compiled regular expressions
  *

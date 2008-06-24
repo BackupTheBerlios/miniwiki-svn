@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 /*
  * WikiLinkFilter finds WikiLinks in CamelCase in its input and transforms this

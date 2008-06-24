@@ -1,4 +1,4 @@
-package org.tmjee.miniwiki.radeox.radeox.filter.regex;
+package org.tmjee.miniwiki.radeox.filter.regex;
 
 import java.util.regex.Matcher;
 

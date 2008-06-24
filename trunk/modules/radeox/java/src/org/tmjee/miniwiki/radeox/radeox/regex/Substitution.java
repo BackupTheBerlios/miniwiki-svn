@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.regex;
+package org.tmjee.miniwiki.radeox.regex;
 
 /*
  * Called with a MatchResult which is substituted

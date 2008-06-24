@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 /*
  * SmileyFilter replaces frownies :-( with smileys :-)
@@ -26,7 +26,7 @@ package org.tmjee.miniwiki.radeox.radeox.filter;
  * @version $Id: SmileyFilter.java,v 1.1 2003/03/05 15:25:08 stephan Exp $
  */
 
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.RegexReplaceFilter;
+import org.tmjee.miniwiki.radeox.filter.regex.RegexReplaceFilter;
 
 public class SmileyFilter extends RegexReplaceFilter implements CacheFilter {
   public SmileyFilter() {

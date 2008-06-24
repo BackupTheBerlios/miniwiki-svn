@@ -17,12 +17,12 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.table;
+package org.tmjee.miniwiki.radeox.macro.table;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.macro.PluginLoader;
-import org.tmjee.miniwiki.radeox.radeox.macro.Repository;
+import org.tmjee.miniwiki.radeox.macro.PluginLoader;
+import org.tmjee.miniwiki.radeox.macro.Repository;
 
 /**
  * Plugin loader for table functions

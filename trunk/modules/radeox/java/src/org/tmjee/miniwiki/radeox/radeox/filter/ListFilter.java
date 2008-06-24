@@ -16,13 +16,13 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.filter.context.FilterContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.LocaleRegexTokenFilter;
-import org.tmjee.miniwiki.radeox.radeox.regex.MatchResult;
+import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
+import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexTokenFilter;
+import org.tmjee.miniwiki.radeox.regex.MatchResult;
 
 import java.io.*;
 import java.util.HashMap;

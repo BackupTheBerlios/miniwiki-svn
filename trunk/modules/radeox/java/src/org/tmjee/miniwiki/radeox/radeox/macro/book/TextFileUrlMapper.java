@@ -17,11 +17,11 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.book;
+package org.tmjee.miniwiki.radeox.macro.book;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.util.Encoder;
+import org.tmjee.miniwiki.radeox.util.Encoder;
 
 import java.io.*;
 import java.util.HashMap;

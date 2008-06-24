@@ -17,15 +17,15 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter.regex;
+package org.tmjee.miniwiki.radeox.filter.regex;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.filter.context.FilterContext;
-import org.tmjee.miniwiki.radeox.radeox.regex.Pattern;
-import org.tmjee.miniwiki.radeox.radeox.regex.Matcher;
-import org.tmjee.miniwiki.radeox.radeox.regex.MatchResult;
-import org.tmjee.miniwiki.radeox.radeox.regex.Substitution;
+import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
+import org.tmjee.miniwiki.radeox.regex.Pattern;
+import org.tmjee.miniwiki.radeox.regex.Matcher;
+import org.tmjee.miniwiki.radeox.regex.MatchResult;
+import org.tmjee.miniwiki.radeox.regex.Substitution;
 
 /*
  * Filter that calls a special handler method handleMatch() for

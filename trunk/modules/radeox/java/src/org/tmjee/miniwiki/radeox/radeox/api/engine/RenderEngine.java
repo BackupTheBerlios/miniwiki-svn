@@ -17,10 +17,10 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.api.engine;
+package org.tmjee.miniwiki.radeox.api.engine;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.InitialRenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
 
 import java.io.IOException;
 import java.io.Writer;

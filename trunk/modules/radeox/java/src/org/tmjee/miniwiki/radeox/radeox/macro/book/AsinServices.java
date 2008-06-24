@@ -18,7 +18,7 @@
 
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.book;
+package org.tmjee.miniwiki.radeox.macro.book;
 
 /**
  * Manages links to asin (DVD, CD) dealears or comparison services

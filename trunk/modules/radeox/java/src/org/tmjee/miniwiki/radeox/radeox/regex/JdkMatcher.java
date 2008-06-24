@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.regex;
+package org.tmjee.miniwiki.radeox.regex;
 
 /*
  * Matcher matches regular expressions (Pattern) to input

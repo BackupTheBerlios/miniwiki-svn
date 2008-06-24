@@ -1,4 +1,4 @@
-package org.tmjee.miniwiki.radeox.radeox.macro;
+package org.tmjee.miniwiki.radeox.macro;
 
 /*
  *      Copyright 2001-2004 Fraunhofer Gesellschaft, Munich, Germany, for its 

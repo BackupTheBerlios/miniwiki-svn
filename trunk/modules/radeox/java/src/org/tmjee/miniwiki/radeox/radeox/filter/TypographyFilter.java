@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 /*
  * Typography replaces some characters with typographic entities,
@@ -29,7 +29,7 @@ package org.tmjee.miniwiki.radeox.radeox.filter;
  * @version $Id: TypographyFilter.java,v 1.5 2003/08/13 12:37:06 stephan Exp $
  */
 
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.LocaleRegexReplaceFilter;
+import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
 
 public class TypographyFilter extends LocaleRegexReplaceFilter implements CacheFilter {
   protected String getLocaleKey() {

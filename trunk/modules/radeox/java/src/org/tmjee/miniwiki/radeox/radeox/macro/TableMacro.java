@@ -17,11 +17,11 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro;
+package org.tmjee.miniwiki.radeox.macro;
 
-import org.tmjee.miniwiki.radeox.radeox.macro.parameter.MacroParameter;
-import org.tmjee.miniwiki.radeox.radeox.macro.table.Table;
-import org.tmjee.miniwiki.radeox.radeox.macro.table.TableBuilder;
+import org.tmjee.miniwiki.radeox.macro.parameter.MacroParameter;
+import org.tmjee.miniwiki.radeox.macro.table.Table;
+import org.tmjee.miniwiki.radeox.macro.table.TableBuilder;
 
 import java.io.IOException;
 import java.io.Writer;

@@ -17,13 +17,13 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro;
+package org.tmjee.miniwiki.radeox.macro;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.macro.parameter.MacroParameter;
-import org.tmjee.miniwiki.radeox.radeox.util.i18n.ResourceManager;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.macro.parameter.MacroParameter;
+import org.tmjee.miniwiki.radeox.util.i18n.ResourceManager;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
 
 import java.io.IOException;
 import java.io.Writer;

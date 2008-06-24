@@ -16,7 +16,7 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox.util.i18n;
+package org.tmjee.miniwiki.radeox.util.i18n;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

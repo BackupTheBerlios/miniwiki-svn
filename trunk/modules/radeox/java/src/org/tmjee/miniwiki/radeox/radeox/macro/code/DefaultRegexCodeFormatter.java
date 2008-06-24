@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.code;
+package org.tmjee.miniwiki.radeox.macro.code;
 
 /*
  * Default code formatter
@@ -27,7 +27,7 @@ package org.tmjee.miniwiki.radeox.radeox.macro.code;
  * @version $Id: DefaultRegexCodeFormatter.java,v 1.1 2003/08/29 12:32:55 stephan Exp $
  */
 
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.RegexReplaceFilter;
+import org.tmjee.miniwiki.radeox.filter.regex.RegexReplaceFilter;
 
 public class DefaultRegexCodeFormatter extends RegexReplaceFilter {
   public DefaultRegexCodeFormatter(String regex, String substitute) {

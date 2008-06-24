@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 /*
  * Boldfilter replaces __text__ with bold "text".
@@ -26,7 +26,7 @@ package org.tmjee.miniwiki.radeox.radeox.filter;
  * @version $Id: BoldFilter.java,v 1.9 2003/08/14 07:46:03 stephan Exp $
  */
 
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.LocaleRegexReplaceFilter;
+import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
 
 public class BoldFilter extends LocaleRegexReplaceFilter implements CacheFilter {
   protected String getLocaleKey() {

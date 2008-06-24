@@ -17,9 +17,9 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.code;
+package org.tmjee.miniwiki.radeox.macro.code;
 
-import org.tmjee.miniwiki.radeox.radeox.filter.context.FilterContext;
+import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
 
 /**
  * Displays source code with syntax highlighting etc.

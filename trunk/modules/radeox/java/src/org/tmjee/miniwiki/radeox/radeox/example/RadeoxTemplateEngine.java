@@ -16,16 +16,16 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox.example;
+package org.tmjee.miniwiki.radeox.example;
 
 import groovy.text.SimpleTemplateEngine;
 import groovy.text.Template;
 import groovy.text.TemplateEngine;
 import org.codehaus.groovy.syntax.SyntaxException;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
-import org.tmjee.miniwiki.radeox.radeox.engine.BaseRenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.engine.context.BaseRenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.engine.BaseRenderEngine;
+import org.tmjee.miniwiki.radeox.engine.context.BaseRenderContext;
 
 import java.io.IOException;
 import java.io.Reader;

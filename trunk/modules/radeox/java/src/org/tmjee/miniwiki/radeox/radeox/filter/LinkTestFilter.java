@@ -17,18 +17,18 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.WikiRenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.filter.context.FilterContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.interwiki.InterWiki;
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.LocaleRegexTokenFilter;
-import org.tmjee.miniwiki.radeox.radeox.regex.MatchResult;
-import org.tmjee.miniwiki.radeox.radeox.util.Encoder;
-import org.tmjee.miniwiki.radeox.radeox.util.StringBufferWriter;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.WikiRenderEngine;
+import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
+import org.tmjee.miniwiki.radeox.filter.interwiki.InterWiki;
+import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexTokenFilter;
+import org.tmjee.miniwiki.radeox.regex.MatchResult;
+import org.tmjee.miniwiki.radeox.util.Encoder;
+import org.tmjee.miniwiki.radeox.util.StringBufferWriter;
 
 import java.io.IOException;
 import java.io.Writer;

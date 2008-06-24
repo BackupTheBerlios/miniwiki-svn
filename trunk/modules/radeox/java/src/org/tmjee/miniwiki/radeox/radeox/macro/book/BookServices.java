@@ -18,7 +18,7 @@
 
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.book;
+package org.tmjee.miniwiki.radeox.macro.book;
 
 /**
  * Manages links to book dealears or comparison services

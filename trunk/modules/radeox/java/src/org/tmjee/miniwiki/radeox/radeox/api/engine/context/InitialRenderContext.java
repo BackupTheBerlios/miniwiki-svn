@@ -17,9 +17,9 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.api.engine.context;
+package org.tmjee.miniwiki.radeox.api.engine.context;
 
-import org.tmjee.miniwiki.radeox.radeox.filter.FilterPipe;
+import org.tmjee.miniwiki.radeox.filter.FilterPipe;
 
 
 /**

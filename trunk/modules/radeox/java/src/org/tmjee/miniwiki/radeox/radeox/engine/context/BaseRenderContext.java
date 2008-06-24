@@ -17,10 +17,10 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.engine.context;
+package org.tmjee.miniwiki.radeox.engine.context;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
 
 import java.util.HashMap;
 import java.util.Map;

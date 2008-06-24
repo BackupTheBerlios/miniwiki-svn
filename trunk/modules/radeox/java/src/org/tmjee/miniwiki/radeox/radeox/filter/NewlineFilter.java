@@ -17,9 +17,9 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.LocaleRegexReplaceFilter;
+import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
 
 /*
  * NewlineFilter finds \\ in its input and transforms this

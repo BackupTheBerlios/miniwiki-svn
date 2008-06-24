@@ -17,12 +17,12 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.util;
+package org.tmjee.miniwiki.radeox.util;
 
-import org.tmjee.miniwiki.radeox.radeox.regex.Pattern;
-import org.tmjee.miniwiki.radeox.radeox.regex.Matcher;
-import org.tmjee.miniwiki.radeox.radeox.regex.Substitution;
-import org.tmjee.miniwiki.radeox.radeox.regex.MatchResult;
+import org.tmjee.miniwiki.radeox.regex.Pattern;
+import org.tmjee.miniwiki.radeox.regex.Matcher;
+import org.tmjee.miniwiki.radeox.regex.Substitution;
+import org.tmjee.miniwiki.radeox.regex.MatchResult;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -73,7 +73,7 @@ public class Encoder {
   public static String unescape(String str) {
     StringBuffer result = new StringBuffer();
 
-    org.tmjee.miniwiki.radeox.radeox.regex.Compiler compiler = org.tmjee.miniwiki.radeox.radeox.regex.Compiler.create();
+    org.tmjee.miniwiki.radeox.regex.Compiler compiler = org.tmjee.miniwiki.radeox.regex.Compiler.create();
     Pattern entityPattern = compiler.compile("&(#?[0-9a-fA-F]+);");
 
     Matcher matcher = Matcher.create(str, entityPattern);

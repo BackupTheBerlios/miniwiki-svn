@@ -17,9 +17,9 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.LocaleRegexReplaceFilter;
+import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
 
 /*
  * StrikeThrough finds --text-- in its input and transforms this

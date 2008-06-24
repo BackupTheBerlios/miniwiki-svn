@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.book;
+package org.tmjee.miniwiki.radeox.macro.book;
 
 import java.io.IOException;
 import java.io.Writer;
