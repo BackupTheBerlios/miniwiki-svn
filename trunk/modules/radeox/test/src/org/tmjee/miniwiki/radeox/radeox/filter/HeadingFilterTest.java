@@ -20,6 +20,8 @@ package org.tmjee.miniwiki.radeox.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.tmjee.miniwiki.radeox.filter.FilterTestSupport;
+import org.tmjee.miniwiki.radeox.filter.HeadingFilter;
 
 public class HeadingFilterTest extends FilterTestSupport {
   private static final String RESULT_HEADING_1 = "<h3 class=\"heading-1\">Test</h3>";
@@ -59,5 +61,9 @@ public class HeadingFilterTest extends FilterTestSupport {
 
   public void testSubHeadingsCreoleWithoutSpace() {
     assertEquals(RESULT_SUB_HEADINGS, filterCreole.filter("=Test\n==Test\n===Test\n=Test", context));
+  }
+
+  public void test() {
+      System.out.println(filterCreole.filter("= TestA\n== TestB", context));
   }
 }

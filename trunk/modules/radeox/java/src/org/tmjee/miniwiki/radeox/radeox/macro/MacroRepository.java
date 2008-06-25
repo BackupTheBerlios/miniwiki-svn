@@ -29,6 +29,7 @@ import java.util.*;
  * Repository for plugins
  *
  * @author Stephan J. Schmidt
+ * @author tmjee
  * @version $Id: MacroRepository.java,v 1.9 2003/12/17 13:35:36 stephan Exp $
  */
 
@@ -76,14 +77,14 @@ public class MacroRepository extends PluginRepository {
     Iterator iterator = loaders.iterator();
     while (iterator.hasNext()) {
       MacroLoader loader = (MacroLoader) iterator.next();
-      loader.setRepository(this);
+      //loader.setRepository(this);
       log.debug("Loading from: " + loader.getClass());
       loader.loadPlugins(this);
     }
   }
 
   public void addLoader(MacroLoader loader) {
-    loader.setRepository(this);
+    //loader.setRepository(this);
     loaders.add(loader);
     plugins = new HashMap();
     list = new ArrayList();

@@ -30,6 +30,31 @@ import java.text.MessageFormat;
  * Transforms header style lines into subsections. A header starts with a 1 for
  * first level headers and 1.1 for secend level headers. Headers are
  * numbered automatically
+ * <p/>
+ * Example :-
+ * <table>
+ * <tr>
+ * <td>
+ * 1 Test  or  = Test
+ * </td>
+ * <td>
+ *  <h3 class="header-1">Test</h3>
+ * </td>
+ * </tr>
+ * <tr>
+ * <td>
+ *   1 Test<br/>
+ *   1.1 Banana<br/>
+ *   or
+ *   = Test<br/>
+ *   == Banana<br/>
+ * </td>
+ * <td>
+ *   <h3 class="header-1">Test</h3>
+ *   <h3 class="header-1-1">Banana</h3>
+ * </td>
+ * </tr>
+ * </table>
  *
  * @author leo
  * @team other

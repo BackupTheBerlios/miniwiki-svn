@@ -35,7 +35,6 @@ public class PluginRepository implements Repository {
   protected Map plugins;
   protected List list;
 
-  protected static Repository instance;
 
   public PluginRepository() {
     plugins = new HashMap();

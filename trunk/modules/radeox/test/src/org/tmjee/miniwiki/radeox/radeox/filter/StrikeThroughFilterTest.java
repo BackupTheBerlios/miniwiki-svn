@@ -21,6 +21,8 @@ package org.tmjee.miniwiki.radeox.radeox.filter;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.tmjee.miniwiki.radeox.radeox.filter.StrikeThroughFilter;
+import org.tmjee.miniwiki.radeox.filter.FilterTestSupport;
+import org.tmjee.miniwiki.radeox.filter.StrikeThroughFilter;
 
 public class StrikeThroughFilterTest extends FilterTestSupport {
 

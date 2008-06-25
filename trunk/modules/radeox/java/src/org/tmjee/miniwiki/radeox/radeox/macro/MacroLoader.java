@@ -30,6 +30,7 @@ import org.apache.commons.logging.LogFactory;
  */
 
 public class MacroLoader extends PluginLoader {
+    
   private static Log log = LogFactory.getLog(MacroLoader.class);
 
   public Class getLoadClass() {
@@ -46,7 +47,7 @@ public class MacroLoader extends PluginLoader {
     if (plugin instanceof Macro) {
       repository.put(((Macro) plugin).getName(), plugin);
     } else {
-      log.debug("MacroLoader: " + plugin.getClass() + " not of Type " + getLoadClass());
+      log.warn("MacroLoader: " + plugin.getClass() + " not of Type " + getLoadClass());
     }
   }
 

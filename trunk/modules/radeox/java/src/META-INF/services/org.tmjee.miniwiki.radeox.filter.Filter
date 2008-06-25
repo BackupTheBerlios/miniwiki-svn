@@ -1,7 +1,5 @@
 org.tmjee.miniwiki.radeox.filter.ParamFilter
 org.tmjee.miniwiki.radeox.filter.MacroFilter
-org.tmjee.miniwiki.radeox.filter.MacroFilter
-#org.snipsnap.render.filter.CalendarFilter
 org.tmjee.miniwiki.radeox.filter.HeadingFilter
 org.tmjee.miniwiki.radeox.filter.HeadingFilter_Creole
 org.tmjee.miniwiki.radeox.filter.LineFilter
@@ -16,7 +14,6 @@ org.tmjee.miniwiki.radeox.filter.ItalicFilter_Creole
 org.tmjee.miniwiki.radeox.filter.UrlFilter
 org.tmjee.miniwiki.radeox.filter.MarkFilter
 org.tmjee.miniwiki.radeox.filter.KeyFilter
-#org.snipsnap.render.filter.LateMacroFilter
 org.tmjee.miniwiki.radeox.filter.TypographyFilter
 org.tmjee.miniwiki.radeox.filter.LinkTestFilter
 org.tmjee.miniwiki.radeox.filter.LinkTestFilter_Creole

@@ -23,9 +23,29 @@ import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
 
 /*
  * LineFilter finds ---- in its input and transforms this
- * to <hr/>
+ * to &lt;hr/&gt;
+ * <p/>
+ * <table>
+ * <tr>
+ *  <td>
+ *    ----
+ *  </td>
+ *  <td>
+ *    &lt;hr class="line"/&gt;
+ *  </td>
+ * </tr>
+ * <td>
+ *   ---- ----
+ * </td>
+ * <td>
+ *   &lt;hr class="line"/&gt;
+ *   &lt;hr class="line"/&gt;
+ * </td>
+ * </tr>
+ * </table>
  *
  * @author stephan
+ * @author tmjee
  * @team sonicteam
  * @version $Id: LineFilter.java,v 1.4 2003/08/13 12:37:05 stephan Exp $
  */

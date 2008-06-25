@@ -39,11 +39,43 @@ import java.io.Writer;
  * Class that finds snippets (macros) like
  * {link:neotis|http://www.neotis.de} ---> <a href="....>
  * {!neotis} -> include neotis object, e.g. a wiki page
- *
+ * <p/>
  * Macros can built with a start and an end, e.g.
  * {code}
  *     ...
  * {code}
+ * <p/>
+ * Example :-
+ * <table>
+ * <tr>
+ *   <td>
+ *      Example of Macro
+ *   </td>
+ *   <td>
+ *      Description
+ *   </td>
+ * </tr>
+ * <tr>
+ *   <td>
+ *      {link:neotis|http://www.neotis.de}
+ *   </td>
+ *   <td>
+ *      <a href="....>
+ *   </td>
+ * </tr>
+ * <tr>
+ *   <td>
+ *      {!neotis}
+ *   </td>
+ *   <td>
+ *      include neotis object, e.g. a wiki page
+ *   </td>
+ * </tr>
+ * <p/>
+ * Syntax :-
+ * {<macro name>:<macro param 1>|<macro param 1>} <content> {<macro name>}
+ *    or
+ * {<macro name>:<macro param name 1>=<macro param value 1>|<macro param name 2>=<macro param value 2>} <content> {<macro name>}
  *
  * @author stephan
  * @team sonicteam
@@ -53,12 +85,9 @@ import java.io.Writer;
 public class MacroFilter extends RegexTokenFilter {
   private static Log log = LogFactory.getLog(MacroFilter.class);
 
-//  private static MacroFilter instance;
 
   // Map of known macros with name and macro object
   private MacroRepository macros;
-//  private static Object monitor = new Object();
-//  private static Object[] noArguments = new Object[]{};
 
   public MacroFilter() {
     // optimized by Jeffrey E.F. Friedl
@@ -90,7 +119,8 @@ public class MacroFilter extends RegexTokenFilter {
             mParams.setContent(result.group(3));
             mParams.setContentStart(result.beginOffset(3));
             mParams.setContentEnd(result.endOffset(3));
-          case 2: mParams.setParams(result.group(2));
+          case 2:
+            mParams.setParams(result.group(2));
             // Still left from ORO
 //          case 2: System.out.println(result.group(1));
 //          case 1: System.out.println(result.group(0));

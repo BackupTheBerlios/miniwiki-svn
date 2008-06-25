@@ -20,6 +20,7 @@ package org.tmjee.miniwiki.radeox.radeox.macro;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.tmjee.miniwiki.radeox.macro.MacroTestSupport;
 
 public class TableMacroTest extends MacroTestSupport {
   public TableMacroTest(String name) {

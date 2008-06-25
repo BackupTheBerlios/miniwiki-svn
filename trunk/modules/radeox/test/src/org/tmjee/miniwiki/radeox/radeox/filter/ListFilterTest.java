@@ -21,6 +21,8 @@ package org.tmjee.miniwiki.radeox.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.tmjee.miniwiki.radeox.filter.FilterTestSupport;
+import org.tmjee.miniwiki.radeox.filter.ListFilter;
 
 public class ListFilterTest extends FilterTestSupport {
   private static final String RESULT_UNNUMBERED = "<ul class=\"minus\">\n<li>test</li>\n</ul>";
@@ -45,6 +47,7 @@ public class ListFilterTest extends FilterTestSupport {
 
   protected void setUp() throws Exception {
     filter = new ListFilter();
+
 //    context.getRenderContext().setRenderEngine((RenderEngine)
 //        new MockWikiRenderEngine()
 //    );
@@ -116,5 +119,9 @@ public class ListFilterTest extends FilterTestSupport {
             "<li>[test1]</li>\n" +
             "<li>[test test2]</li>\n" +
             "</ul>", filter.filter("- [test]\n- [test1]\n- [test test2]\n", context));
+  }
+
+  public void test() {
+      System.out.println(filter.filter(" i test\n", context));
   }
 }

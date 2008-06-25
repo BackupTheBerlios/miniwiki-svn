@@ -29,21 +29,22 @@ import java.util.Iterator;
  * Plugin loader
  *
  * @author Stephan J. Schmidt
+ * @author tmjee
  * @version $Id: PluginLoader.java,v 1.6 2004/01/09 12:27:14 stephan Exp $
  */
 
 public abstract class PluginLoader {
   private static Log log = LogFactory.getLog(PluginLoader.class);
 
-  protected Repository repository;
+  //protected Repository repository;
 
   public Repository loadPlugins(Repository repository) {
     return loadPlugins(repository, getLoadClass());
   }
 
-  public void setRepository(Repository repository) {
+  /*public void setRepository(Repository repository) {
     this.repository = repository;
-  }
+  }*/
 
   public Iterator getPlugins(Class klass) {
     return Service.providers(klass);

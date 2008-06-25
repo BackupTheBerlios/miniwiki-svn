@@ -28,11 +28,27 @@ import java.util.Map;
  * ParamFilter replaces parametes from from the MacroFilter in the input.
  * These parameters could be read from an HTTP request and put in
  * MacroFilter.
+ * <p/>
  * A parameter is replaced in {$paramName}
- *
+ * <p/>
+ * Example :-
+ * With {@link RenderContext} having :-
+ * <ul>
+ *      <li>param1 = Australia</li>
+ *      <li>param2 = Vacation</li>
+ * </ul>
+ * {$param1} is a perfect place for {$param2}
+ * <p/>
+ * will result in :-
+ * <p/>
+ * Australia is a perfect place for Vacation.
+ * <p/>
+ * NOTE: Evaluation is NOT RECURSIVE
+ * 
  * @author stephan
+ * @author tmjee
  * @team sonicteam
- * @version $Id: ParamFilter.java,v 1.7 2004/04/15 13:56:14 stephan Exp $
+ * @version $Date$ $Id$
  */
 
 public class ParamFilter extends LocaleRegexTokenFilter {
