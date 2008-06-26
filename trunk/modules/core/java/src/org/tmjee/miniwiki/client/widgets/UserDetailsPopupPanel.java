@@ -53,7 +53,8 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     private Button assignGroup;
 
 
-    private FlexTable propertiesTable;    // uiUser's properties
+    //private FlexTable propertiesTable;    // uiUser's properties
+    private FlexTableExt propertiesTable;
     private HorizontalPanel propertyManipulationButtonsPanel;
     private Button addProperty;
     private Button deleteProperty;
@@ -124,6 +125,10 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         grid.setWidget(1, 1, firstName);
         grid.setWidget(2, 0, new Label("Last Name"));
         grid.setWidget(2, 1, lastName);
+        grid.setWidget(3, 0, new Label("Password"));
+        grid.setWidget(3, 1, password);
+        grid.setWidget(4, 0, new Label("Confirm Password"));
+        grid.setWidget(4, 1, confirmPassword);
 
 
         groupsButtonPanel = new HorizontalPanel();
@@ -146,10 +151,24 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         groupsTable.setWidget(0, 1, new Label(""));  // button to remove group
 
 
-        propertiesTable = new FlexTable();
-        propertiesTable.setWidget(0, 0, new Label("Property Name"));
-        propertiesTable.setWidget(0, 1, new Label("Property Value"));
-        propertiesTable.setWidget(0, 2, new Label("")); // checkbox 
+        propertiesTable = new FlexTableExt(new FlexTableExt.TitleHandler() {
+            public int getTotalCols() {
+                return 0;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+            public boolean hasCheckableCol() {
+                return false;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+            public boolean hasControlWidget() {
+                return false;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+            public int numOfControlWidget() {
+                return 0;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+            public Widget getTitleWidget(int col) {
+                return null;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+        });
+
 
 
         deleteProperty = new Button("Delete Property", new ClickListener() {

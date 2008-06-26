@@ -25,6 +25,9 @@ import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
  * NewlineFilter finds \\ in its input and transforms this
  * to <br/>
  *
+ * Example
+ * \\ -> <br/>
+ *
  * @author stephan
  * @team sonicteam
  * @version $Id: NewlineFilter.java,v 1.4 2003/08/13 12:37:05 stephan Exp $

@@ -26,7 +26,6 @@ public abstract class GenericTableWidget extends Composite implements SourcesMes
     private Button nextPageButton;
 
     protected ResponsePagingInfo currentResponsePagingInfo;
-    protected FlexTableExt.DataHandler currentFlexTableExtDataHandler;
     protected PagingInfo currentPagingInfo;
     protected PagingInfo nextPagingInfo;
     protected PagingInfo prevPagingInfo;
@@ -35,7 +34,8 @@ public abstract class GenericTableWidget extends Composite implements SourcesMes
 
 
 
-    public GenericTableWidget(FlexTableExt.TitleHandler flexTableExtTitleHandler) {
+    public GenericTableWidget(FlexTableExt.TitleHandler flexTableExtTitleHandler,
+                              FlexTableExt.DataHandler flexTableExtDataHandler) {
         currentPagingInfo = new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE);
         nextPagingInfo = new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE);
         prevPagingInfo = new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE);
@@ -44,7 +44,7 @@ public abstract class GenericTableWidget extends Composite implements SourcesMes
 
         searchPanel = new HorizontalPanel();
 
-        table = new FlexTableExt(flexTableExtTitleHandler);
+        table = new FlexTableExt(flexTableExtTitleHandler, flexTableExtDataHandler);
 
         prevPageButton = new Button("Previous", new ClickListener() {
             public void onClick(Widget widget) {
@@ -91,18 +91,16 @@ public abstract class GenericTableWidget extends Composite implements SourcesMes
 
     protected abstract void refresh(PagingInfo pagingInfo);
 
-    protected void update(ResponsePagingInfo responsePagingInfo, FlexTableExt.DataHandler flexTableExtDataHandler) {
+    protected void update(ResponsePagingInfo responsePagingInfo, Object) {
         currentResponsePagingInfo = responsePagingInfo;
-        currentFlexTableExtDataHandler = flexTableExtDataHandler;
         nextPagingInfo = responsePagingInfo.getNextPagePagingInfo();
         prevPagingInfo = responsePagingInfo.getPreviousPagePagingInfo();
         nextPageButton.setEnabled(responsePagingInfo.hasNextPage());
         prevPageButton.setEnabled(responsePagingInfo.hasPreviousPage());
-        table.refresh(flexTableExtDataHandler);
     }
 
     protected void update() {
         update(currentResponsePagingInfo, currentFlexTableExtDataHandler);
     }
-
+    
 }

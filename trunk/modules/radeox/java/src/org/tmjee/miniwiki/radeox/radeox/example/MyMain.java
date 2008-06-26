@@ -15,10 +15,16 @@ public class MyMain {
 
     public static void main(String[] args) throws Exception {
 
-        char[] c = new char[] { '1', '2', '3' };
+        /*char[] c = new char[] { '1', '2', '3' };
         System.out.println(c[1]);
         System.out.println(+c[1]);
+*/
 
+
+        System.out.println("");
+
+
+        
         /*Pattern pattern = Pattern.compile("\\{([^:}]+)(?::([^\\}]*))?\\}(.*?)\\{\\1\\}", Pattern.MULTILINE);
         //Pattern pattern = Pattern.compile("\\{([^:}]+)(?::([^\\}]*))?\\}", Pattern.MULTILINE);
         Matcher matcher = pattern.matcher("{table:ggg}\nxxx\n{table}");

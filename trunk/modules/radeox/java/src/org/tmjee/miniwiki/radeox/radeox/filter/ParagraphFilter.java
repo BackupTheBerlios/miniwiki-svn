@@ -25,6 +25,10 @@ import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
  * The paragraph filter finds any text between two empty lines and
  * inserts a <p/>
  *
+ * Example :-
+ * [space\tab][enter]
+ * [space\tab][enter]
+ *
  * @author stephan
  * @team sonicteam
  * @version $Id: ParagraphFilter.java,v 1.4 2003/08/13 12:37:06 stephan Exp $

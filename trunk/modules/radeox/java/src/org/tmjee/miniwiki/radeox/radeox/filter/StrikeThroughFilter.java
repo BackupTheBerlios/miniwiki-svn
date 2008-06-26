@@ -25,6 +25,9 @@ import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
  * StrikeThrough finds --text-- in its input and transforms this
  * striked through text.
  *
+ * Example
+ * --text-- 
+ *
  * @author Stephan J. Schmidt
  * @team sonicteam
  * @version $Id: StrikeThroughFilter.java,v 1.9 2003/08/13 12:37:06 stephan Exp $
