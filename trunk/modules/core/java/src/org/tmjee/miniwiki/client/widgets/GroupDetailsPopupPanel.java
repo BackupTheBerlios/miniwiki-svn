@@ -1,9 +1,6 @@
 package org.tmjee.miniwiki.client.widgets;
 
-import com.google.gwt.user.client.ui.DecoratedPopupPanel;
-import com.google.gwt.user.client.ui.DialogBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.*;
 import org.tmjee.miniwiki.client.domain.UiGroup;
 import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
@@ -23,6 +20,14 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
     private VerticalPanel mainPanel;
 
     private TextBox groupName;
+    private TextBox groupDescription;
+
+    
+
+    private HorizontalPanel buttonsPanel;
+    private Button save;
+    private Button cancel;
+
 
     public GroupDetailsPopupPanel(UiGroup uiGroup) {
 
@@ -30,7 +35,6 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
 
         setText("Group Details");
         setAnimationEnabled(true);
-
 
         center();
     }

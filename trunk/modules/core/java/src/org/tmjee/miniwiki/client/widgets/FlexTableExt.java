@@ -8,6 +8,8 @@ import com.google.gwt.user.client.ui.ClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.tmjee.miniwiki.client.utils.Utils;
+
 /**
  * Created by IntelliJ IDEA.
  * User: 1269870
@@ -15,22 +17,21 @@ import java.util.List;
  * Time: 1:57:34 PM
  * To change this template use File | Settings | File Templates.
  */
-public class FlexTableExt extends FlexTable {
+public class FlexTableExt<T> extends FlexTable {
 
-    public static interface TitleHandler {
+    public static interface TitleHandler<T> {
         int getTotalCols();
         boolean hasCheckableCol();
-        boolean hasControlWidget();
         int numOfControlWidget();
         Widget getTitleWidget(int col);
     }
 
-    public static interface DataHandler {
-        Widget getDataWidget(Object rowObject, int col);
-        Widget getControlWidget(Object rowObject, int col, int index);
+    public static interface DataHandler<T> {
+        Widget getDataWidget(T rowObject, int col);
+        Widget getControlWidget(T rowObject, int col, int index);
     }
 
-    private ArrayList<Object> selectedRowObjects;
+    private ArrayList<T> selectedRowObjects;
 
     private TitleHandler titleHandler;
     private DataHandler dataHandler;
@@ -40,7 +41,7 @@ public class FlexTableExt extends FlexTable {
 
         setStyleName("flexTableExt");
 
-        selectedRowObjects = new ArrayList<Object>();
+        selectedRowObjects = new ArrayList<T>();
         rowObjects = new ArrayList<Object>();
 
         this.titleHandler = titleHandler;
@@ -51,7 +52,7 @@ public class FlexTableExt extends FlexTable {
             setWidget(0, col, titleHandler.getTitleWidget(col));
             colCount++;
         }
-        if (titleHandler.hasControlWidget()) {
+        if (titleHandler.numOfControlWidget() > 0) {
             for (int a=0; a< titleHandler.numOfControlWidget(); a++) {
                 setWidget(0, colCount, new Label(""));
                 colCount++;
@@ -64,13 +65,13 @@ public class FlexTableExt extends FlexTable {
     }
 
 
-    public void refresh(Object[] _rowObjects) {
+    public void refresh(T[] _rowObjects) {
         selectedRowObjects.clear();
         rowObjects.clear();
 
         for (int a=0; a< _rowObjects.length; a++) {
                 int row = a+1;
-                Object rowObject = _rowObjects[a];
+                T rowObject = _rowObjects[a];
                 int totalCols = 0;
                 _doAdd(rowObject, row);
         }
@@ -78,15 +79,15 @@ public class FlexTableExt extends FlexTable {
         restyleRows();
     }
 
-    public List<Object> getSelectedRowObjects() {
+    public List<T> getSelectedRowObjects() {
         return selectedRowObjects;
     }
 
-    public void deleteRow(Object rowObject) {
-        deleteRows(new Object[] { rowObject });
+    public void deleteRow(T rowObject) {
+        deleteRows(Utils.toArray(rowObject));
     }
 
-    public void deleteRows(Object[] _rowObjects) {
+    public void deleteRows(T[] _rowObjects) {
         boolean anyRowsAffected = false;
         for (Object rowObject: _rowObjects) {
             if (rowObjects.contains(rowObject)) {
@@ -104,13 +105,13 @@ public class FlexTableExt extends FlexTable {
         }
     }
 
-    public void addRow(Object rowObject) {
-        addRows(new Object[] { rowObject });
+    public void addRow(T rowObject) {
+        addRows(Utils.toArray(rowObject));
     }
 
-    public void addRows(Object[] _rowObjects) {
+    public void addRows(T[] _rowObjects) {
         boolean rowAffected = false;
-        for (Object rowObject: _rowObjects) {
+        for (T rowObject: _rowObjects) {
             if (! rowObjects.contains(rowObject)) {
                 rowAffected = true;
                 int row = getRowCount();
@@ -130,7 +131,7 @@ public class FlexTableExt extends FlexTable {
     }
 
 
-    private void _doAdd(Object rowObject, int row) {
+    private void _doAdd(T rowObject, int row) {
         int totalCols = 0;
                 rowObjects.add(rowObject);
                                 for (int col=0; col<titleHandler.getTotalCols(); col++) {
@@ -138,7 +139,7 @@ public class FlexTableExt extends FlexTable {
                                     getFlexCellFormatter().setColSpan(row, col, 1);
                                     totalCols++;
                                 }
-                                if (titleHandler.hasControlWidget()) {
+                                if (titleHandler.numOfControlWidget() > 0) {
                                     for (int z=0; z< titleHandler.numOfControlWidget(); z++) {
                                         Widget controlWidget = dataHandler.getControlWidget(rowObject, totalCols, z);
                                         setWidget(row, totalCols, controlWidget);
@@ -151,7 +152,7 @@ public class FlexTableExt extends FlexTable {
                                             ObjectHoldableCheckBox _cb = (ObjectHoldableCheckBox) widget;
                                             if (_cb.isChecked()) {
                                                 if (!selectedRowObjects.contains(_cb.getObject())) {
-                                                    selectedRowObjects.add(_cb.getObject());
+                                                    selectedRowObjects.add((T)_cb.getObject());
                                                 }
                                                 int rowNum =  rowObjects.indexOf(_cb.getObject())+1;
                                                 getRowFormatter().setStyleName(rowNum, "flexTableExt-selected");

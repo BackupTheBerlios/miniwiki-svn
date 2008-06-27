@@ -25,32 +25,59 @@ public class UserTableWidget extends SimpleTableWidget {
 
     
     public UserTableWidget() {
-        super(new FlexTableExt.TitleHandler() {
-            public int getTotalCols() {
-                return 3;
-            }
-            public boolean hasCheckableCol() {
-                return true;
-            }
-            public boolean hasControlWidget() {
-                return true;
-            }
-            public int numOfControlWidget() {
-                return 1;
-            }
-            public Widget getTitleWidget(int col) {
-                switch(col) {
-                    case 0:
-                        return new Label("Username");
-                    case 1:
-                        return new Label("First Name");
-                    case 2:
-                        return new Label("Last Name");
-                    default:
-                        return null;
+        super(
+            new FlexTableExt.TitleHandler<UiUser>() {
+                public int getTotalCols() {
+                    return 3;
                 }
-            }
-        });
+                public boolean hasCheckableCol() {
+                    return true;
+                }
+                public int numOfControlWidget() {
+                    return 1;
+                }
+                public Widget getTitleWidget(int col) {
+                    switch(col) {
+                        case 0:
+                            return new Label("Username");
+                        case 1:
+                            return new Label("First Name");
+                        case 2:
+                            return new Label("Last Name");
+                        default:
+                            return null;
+                    }
+                }
+            },
+            new FlexTableExt.DataHandler<UiUser>() {
+                public Widget getDataWidget(UiUser rowObject, int col) {
+                    UiUser uiUser = (UiUser) rowObject;
+                    switch (col) {
+                        case 0:
+                            return new Label(uiUser.getUsername());
+                        case 1:
+                            return new Label(uiUser.getFirstName());
+                        case 2:
+                            return new Label(uiUser.getLastName());
+                        default:
+                            return null;
+                    }
+                }
+                public Widget getControlWidget(UiUser rowObject, int col, int index) {
+                    final UiUser uiUser = (UiUser) rowObject;
+                    return new Button("Edit",
+                        new ClickListener() {
+                            public void onClick(Widget widget) {
+                                new UserDetailsPopupPanel(uiUser,
+                                    new UserDetailsPopupPanel.Handler() {
+                                        public void save(UiUser uiUser) {
+                                            status.restore();
+                                        }
+                                    });
+                            }
+                        });
+                }
+            });
     }
 
 
@@ -99,7 +126,7 @@ public class UserTableWidget extends SimpleTableWidget {
                     public void onSuccess(Object o) {
                         final UiUsers uiUsers = (UiUsers) o;
                         update(uiUsers.getResponsePagingInfo(),
-                               new UiUserDataHandler(uiUsers, status));
+                               uiUsers.getUsers().toArray(new UiUser[0]));
                         LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
@@ -120,58 +147,10 @@ public class UserTableWidget extends SimpleTableWidget {
                     public void onSuccess(Object o) {
                         final UiUsers uiUsers = (UiUsers) o;
                         update(uiUsers.getResponsePagingInfo(),
-                               new UiUserDataHandler(uiUsers, status));
+                               uiUsers.getUsers().toArray(new UiUser[0]));
                         LoadingMessageDisplayWidget.getInstance().done();
                     }
                 }
         );
-    }
-
-
-    private class UiUserDataHandler implements FlexTableExt.DataHandler {
-
-        private UiUsers uiUsers;
-        private Status status;
-
-        public UiUserDataHandler(UiUsers uiUsers, Status status) {
-            this.uiUsers = uiUsers;
-            this.status = status;
-        }
-
-        public int getTotalRows() {
-            return uiUsers.getUsers().size();
-        }
-
-        public Object getRowObject(int row) {
-            return uiUsers.getUsers().get(row);
-        }
-
-        public Widget getDataWidget(Object rowObject, int col) {
-            UiUser uiUser = (UiUser) rowObject;
-            switch (col) {
-                case 0:
-                    return new Label(uiUser.getUsername());
-                case 1:
-                    return new Label(uiUser.getFirstName());
-                case 2:
-                    return new Label(uiUser.getLastName());
-                default:
-                    return null;
-            }
-        }
-
-        public Widget getControlWidget(Object rowObject, int col, int index) {
-            final UiUser uiUser = (UiUser) rowObject;
-            return new Button("Edit", new ClickListener() {
-                        public void onClick(Widget widget) {
-                            new UserDetailsPopupPanel(uiUser,
-                                    new UserDetailsPopupPanel.Handler() {
-                                        public void save(UiUser uiUser) {
-                                            status.restore();
-                                        }
-                                    });
-                        }
-                    });
-        }
     }
 }

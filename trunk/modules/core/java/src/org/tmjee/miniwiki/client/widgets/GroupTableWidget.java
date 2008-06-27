@@ -24,30 +24,51 @@ import java.util.List;
 public class GroupTableWidget extends SimpleTableWidget {
 
     public GroupTableWidget() {
-        super(new FlexTableExt.TitleHandler() {
-            public int getTotalCols() {
-                return 2;
-            }
-            public boolean hasCheckableCol() {
-                return true;
-            }
-            public boolean hasControlWidget() {
-                return true;
-            }
-            public int numOfControlWidget() {
-                return 1;
-            }
-            public Widget getTitleWidget(int col) {
-                switch(col) {
-                    case 0:
-                        return new Label("Group Name");
-                    case 1:
-                        return new Label("Description");
-                    default:
-                       return null;
+        super(
+            new FlexTableExt.TitleHandler<UiGroup>() {
+                public int getTotalCols() {
+                    return 2;
+                }
+                public boolean hasCheckableCol() {
+                    return true;
+                }
+                public int numOfControlWidget() {
+                    return 1;
+                }
+                public Widget getTitleWidget(int col) {
+                    switch(col) {
+                        case 0:
+                            return new Label("Group Name");
+                        case 1:
+                            return new Label("Description");
+                        default:
+                            return null;
+                    }
+                }
+            },
+            new FlexTableExt.DataHandler<UiGroup>() {
+                public Widget getDataWidget(UiGroup rowObject, int col) {
+                    UiGroup uiGroup = rowObject;
+                    switch(col) {
+                        case 0:
+                            return new Label(uiGroup.getName());
+                        case 1:
+                            return new Label(uiGroup.getDescription());
+                        default:
+                            return null;
+                    }
+                }
+                public Widget getControlWidget(UiGroup rowObject, int col, int index) {
+                    final UiGroup uiGroup = rowObject;
+                    return new Button("Edit",
+                        new ClickListener() {
+                            public void onClick(Widget widget) {
+                                new GroupDetailsPopupPanel(uiGroup);
+                            }
+                        });
                 }
             }
-        });
+        );
     }
 
     protected void doAdd(Status status) {
@@ -90,7 +111,7 @@ public class GroupTableWidget extends SimpleTableWidget {
                     public void onSuccess(Object o) {
                         UiGroups uiGroups = (UiGroups) o;
                         update(uiGroups.getResponsePagingInfo(),
-                                new GroupDataHandler(uiGroups, status));
+                                (UiGroup[])uiGroups.getGroups().toArray(new UiGroup[0]));
                         LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
@@ -111,50 +132,9 @@ public class GroupTableWidget extends SimpleTableWidget {
                     public void onSuccess(Object o) {
                         UiGroups uiGroups = (UiGroups)o;
                         update(uiGroups.getResponsePagingInfo(),
-                                new GroupDataHandler(uiGroups, status));
+                                uiGroups.getGroups().toArray(new UiGroup[0]));
                         LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
-    }
-
-
-    private class GroupDataHandler implements FlexTableExt.DataHandler {
-
-        private UiGroups uiGroups;
-        private Status status;
-
-        public GroupDataHandler(UiGroups uiGroups, Status status) {
-            this.uiGroups = uiGroups;
-            this.status = status;
-        }
-
-        public int getTotalRows() {
-            return uiGroups.getGroups().size();
-        }
-
-        public Object getRowObject(int row) {
-            return uiGroups.getGroups().get(row);
-        }
-
-        public Widget getDataWidget(Object rowObject, int col) {
-            UiGroup uiGroup = (UiGroup) rowObject;
-            switch(col) {
-                case 0:
-                    return new Label(uiGroup.getName());
-                case 1:
-                    return new Label(uiGroup.getDescription());
-                default:
-                    return null;
-            }
-        }
-
-        public Widget getControlWidget(Object rowObject, int col, int index) {
-            final UiGroup uiGroup = (UiGroup) rowObject;
-            return new Button("Edit", new ClickListener() {
-                public void onClick(Widget widget) {
-                    new GroupDetailsPopupPanel(uiGroup);
-                }
-            });
-        }
     }
 }

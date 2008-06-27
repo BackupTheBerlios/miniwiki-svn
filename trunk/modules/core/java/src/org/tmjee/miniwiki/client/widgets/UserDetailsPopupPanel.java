@@ -13,6 +13,7 @@ import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.events.MessageEvent;
 import org.tmjee.miniwiki.client.utils.Logger;
+import org.tmjee.miniwiki.client.utils.Utils;
 import org.tmjee.miniwiki.client.beans.PropertyListener;
 import org.tmjee.miniwiki.client.beans.EventObject;
 import org.tmjee.miniwiki.client.beans.PropertyAdditionEvent;
@@ -33,7 +34,6 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     private SourcesEventsSupport sourcesEventSupport;
 
     private UiUser uiUser;
-    private List<UiUserProperty> selectedProperties;
 
     private VerticalPanel mainPanel;
 
@@ -48,13 +48,13 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     private Grid grid;  // hold username, firstname and lastname
 
 
-    private FlexTable groupsTable;
+    private FlexTableExt<UiGroup> groupsTable;
     private HorizontalPanel groupsButtonPanel;
     private Button assignGroup;
 
 
     //private FlexTable propertiesTable;    // uiUser's properties
-    private FlexTableExt propertiesTable;
+    private FlexTableExt<UiUserProperty> propertiesTable;
     private HorizontalPanel propertyManipulationButtonsPanel;
     private Button addProperty;
     private Button deleteProperty;
@@ -73,8 +73,6 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
 
         setText("User Details");
         setAnimationEnabled(true);
-
-        selectedProperties = new ArrayList<UiUserProperty>();
 
         sourcesEventSupport = new SourcesEventsSupport();
         
@@ -118,7 +116,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         confirmPassword = new PasswordTextBox();
 
 
-        grid = new Grid(3, 2);
+        grid = new Grid(5, 2);
         grid.setWidget(0, 0, new Label("Username"));
         grid.setWidget(0, 1, username);
         grid.setWidget(1, 0, new Label("First Name"));
@@ -137,42 +135,104 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                 new AssignGroupPopupPanel(UserDetailsPopupPanel.this.uiUser,
                         new AssignGroupPopupPanel.Handler() {
                             public void join(UiUser uiUser, UiGroup uiGroup) {
-                                loadGroupInfo();
+                                uiUser.addGroup(uiGroup);
+                                groupsTable.refresh(Utils.toArray(uiUser.getGroups()));
                             }
                             public void leave(UiUser uiUser, UiGroup uiGroup) {
-                                loadGroupInfo();
+                                uiUser.removeGroup(uiGroup);
+                                groupsTable.refresh(Utils.toArray(uiUser.getGroups()));
                             }
                 });
             }
         });
         groupsButtonPanel.add(assignGroup);
-        groupsTable = new FlexTable();
-        groupsTable.setWidget(0, 0, new Label("Group Name"));
-        groupsTable.setWidget(0, 1, new Label(""));  // button to remove group
+        groupsTable = new FlexTableExt<UiGroup>(
+                new FlexTableExt.TitleHandler() {
+                    public int getTotalCols() {
+                        return 2;
+                    }
+                    public boolean hasCheckableCol() {
+                        return false;
+                    }
+                    public int numOfControlWidget() {
+                        return 0;
+                    }
+                    public Widget getTitleWidget(int col) {
+                        switch(col) {
+                            case 0:
+                                return new Label("Name");
+                            case 1:
+                                return new Label("Description");
+                            default:
+                                return null;
+                        }
+                    }
+                },
+                new FlexTableExt.DataHandler() {
+                    public Widget getDataWidget(Object rowObject, int col) {
+                        UiGroup uiGroup = (UiGroup) rowObject;
+                        switch(col) {
+                            case 0:
+                                return new Label(uiGroup.getName());
+                            case 1:
+                                return new Label(uiGroup.getDescription());
+                            default:
+                                return null;
+                        }
+                    }
+                    public Widget getControlWidget(Object rowObject, int col, int index) {
+                        return null;
+                    }
+                }
+        );
 
 
-        propertiesTable = new FlexTableExt(new FlexTableExt.TitleHandler() {
-            public int getTotalCols() {
-                return 0;  //To change body of implemented methods use File | Settings | File Templates.
-            }
-            public boolean hasCheckableCol() {
-                return false;  //To change body of implemented methods use File | Settings | File Templates.
-            }
-            public boolean hasControlWidget() {
-                return false;  //To change body of implemented methods use File | Settings | File Templates.
-            }
-            public int numOfControlWidget() {
-                return 0;  //To change body of implemented methods use File | Settings | File Templates.
-            }
-            public Widget getTitleWidget(int col) {
-                return null;  //To change body of implemented methods use File | Settings | File Templates.
-            }
-        });
-
-
+        propertiesTable = new FlexTableExt<UiUserProperty>(
+                new FlexTableExt.TitleHandler() {
+                    public int getTotalCols() {
+                        return 2;
+                    }
+                    public boolean hasCheckableCol() {
+                        return true;
+                    }
+                    public int numOfControlWidget() {
+                        return 1;
+                    }
+                    public Widget getTitleWidget(int col) {
+                        switch(col) {
+                            case 0:
+                                return new Label("Name");    
+                            case 1:
+                                return new Label("Value");
+                            default:
+                                return null;
+                        }
+                    }
+            },
+            new FlexTableExt.DataHandler() {
+                public Widget getDataWidget(Object rowObject, int col) {
+                    UiUserProperty property = (UiUserProperty) rowObject;
+                    return new Label(property.getName());
+                }
+                public Widget getControlWidget(Object rowObject, int col, int index) {
+                    final UiUserProperty uiUserProperty = (UiUserProperty) rowObject;
+                    return new Button("Edit", new ClickListener() {
+                        public void onClick(Widget widget) {
+                            new PropertyDetailsPopupPanel(new PropertyDetailsPopupPanel.Handler() {
+                                public void save(String propertyName, String propertyValue) {
+                                    uiUserProperty.setName(propertyName);
+                                    uiUserProperty.setValue(propertyValue);
+                                    propertiesTable.refresh(Utils.toArray(UserDetailsPopupPanel.this.uiUser.getProperties()));
+                                }
+                            });
+                        }
+                    });
+                }
+            });
 
         deleteProperty = new Button("Delete Property", new ClickListener() {
             public void onClick(Widget sender) {
+                List<UiUserProperty> selectedProperties =  propertiesTable.getSelectedRowObjects();
                 if (selectedProperties.size() <= 0) {
                     sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
                         public void handle(Object listener) {
@@ -184,6 +244,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                 for (UiUserProperty p : selectedProperties) {
                     UserDetailsPopupPanel.this.uiUser.removeProperty(p);
                 }
+                propertiesTable.refresh(Utils.toArray(UserDetailsPopupPanel.this.uiUser.getProperties()));
             }
         });
 
@@ -192,7 +253,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                 new PropertyDetailsPopupPanel(new PropertyDetailsPopupPanel.Handler() {
                     public void save(String propertyName, String propertyValue) {
                         UserDetailsPopupPanel.this.uiUser.addProperty(new UiUserProperty(propertyName, propertyValue));
-                        loadPropertiesInfo();
+                        propertiesTable.refresh(Utils.toArray(UserDetailsPopupPanel.this.uiUser.getProperties()));
                     }
                 });
             }
@@ -300,75 +361,4 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     protected void cleanUp() {
         uiUser.removePropertyListener(this);
     }
-
-    protected void loadGroupInfo() {
-        {
-            int currentRow = 1;
-            int totalRows = groupsTable.getRowCount();
-            for (final UiGroup uiGroup : uiUser.getGroups()) {
-                if (currentRow < totalRows) {
-                    groupsTable.setWidget(currentRow, 0, new Label(uiGroup.getName()));
-                    groupsTable.setWidget(currentRow, 1, new ObjectHoldableButton(uiGroup, "Remove", new ClickListener() {
-                        public void onClick(Widget sender) {
-                            ObjectHoldableButton button = (ObjectHoldableButton) sender;
-                            UiGroup grp = (UiGroup) button.getObject();
-                            UserDetailsPopupPanel.this.uiUser.removeGroup(grp);
-                        }
-                    }));
-                }
-                else {
-                    ((Label)groupsTable.getWidget(currentRow, 0)).setText(uiGroup.getName());
-                    ((ObjectHoldableButton)groupsTable.getWidget(currentRow, 1)).setObject(uiGroup);
-                }
-                currentRow++;
-            }
-            while (currentRow < totalRows) {
-                groupsTable.removeRow(currentRow);
-                currentRow++;
-            }
-        }
-    }
-
-    protected void loadPropertiesInfo() {
-        {
-            int currentRow = 1;
-            int totalRows = propertiesTable.getRowCount();
-            for (final UiUserProperty uiUserProperty : uiUser.getProperties()) {
-                if (currentRow < totalRows) {
-                    propertiesTable.setWidget(currentRow, 0, new Label(uiUserProperty.getName()));
-                    propertiesTable.setWidget(currentRow, 1, new Label(uiUserProperty.getValue()));
-                    propertiesTable.setWidget(currentRow, 2, new ObjectHoldableCheckBox(uiUserProperty,
-                            new ClickListener() {
-                                public void onClick(Widget widget) {
-                                    ObjectHoldableCheckBox cb  = (ObjectHoldableCheckBox) widget;
-                                    UiUserProperty property = (UiUserProperty) cb.getObject();
-                                    if (cb.isChecked()) {
-                                        if (selectedProperties.contains(property)) {
-                                            selectedProperties.add(property);
-                                        }
-                                    }
-                                    else {
-                                        if (selectedProperties.contains(property)) {
-                                            selectedProperties.remove(property);
-                                        }
-                                    }
-                                }
-                            }));
-                }
-                else {
-                    ((Label)propertiesTable.getWidget(currentRow, 0)).setText(uiUserProperty.getName());
-                    ((Label)propertiesTable.getWidget(currentRow, 1)).setText(uiUserProperty.getValue());
-                    ((ObjectHoldableCheckBox)propertiesTable.getWidget(currentRow, 2)).setObject(uiUserProperty);
-                }
-                currentRow++;
-            }
-            while(currentRow < totalRows) {
-                propertiesTable.removeRow(currentRow);
-                currentRow++;
-            }
-        }    
-    }
-
-
-
 }

@@ -9,13 +9,14 @@ import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.Constants;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 20, 2008
- * Time: 3:55:29 PM
- * To change this template use File | Settings | File Templates.
+ * Add :-
+ *  - Next button
+ *  - Prev button
+ *
+ * @author tmjee
+ * @version $Date$ $Id$
  */
-public abstract class GenericTableWidget extends Composite implements SourcesMessageEvents {
+public abstract class GenericTableWidget<T> extends Composite implements SourcesMessageEvents {
 
     private VerticalPanel mainPanel;
 
@@ -25,11 +26,10 @@ public abstract class GenericTableWidget extends Composite implements SourcesMes
     private Button prevPageButton;
     private Button nextPageButton;
 
-    protected ResponsePagingInfo currentResponsePagingInfo;
     protected PagingInfo currentPagingInfo;
     protected PagingInfo nextPagingInfo;
     protected PagingInfo prevPagingInfo;
-    protected FlexTableExt table;
+    protected FlexTableExt<T> table;
     protected SourcesEventsSupport sourcesEventsSupport;
 
 
@@ -91,16 +91,14 @@ public abstract class GenericTableWidget extends Composite implements SourcesMes
 
     protected abstract void refresh(PagingInfo pagingInfo);
 
-    protected void update(ResponsePagingInfo responsePagingInfo, Object) {
-        currentResponsePagingInfo = responsePagingInfo;
+    protected void update(ResponsePagingInfo responsePagingInfo, T[] rowObjects) {
         nextPagingInfo = responsePagingInfo.getNextPagePagingInfo();
         prevPagingInfo = responsePagingInfo.getPreviousPagePagingInfo();
         nextPageButton.setEnabled(responsePagingInfo.hasNextPage());
         prevPageButton.setEnabled(responsePagingInfo.hasPreviousPage());
+        table.refresh(rowObjects);
     }
 
-    protected void update() {
-        update(currentResponsePagingInfo, currentFlexTableExtDataHandler);
-    }
+
     
 }

@@ -12,13 +12,16 @@ import java.util.List;
 
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 23, 2008
- * Time: 10:06:24 AM
- * To change this template use File | Settings | File Templates.
+ * Add :-
+ *  - search button
+ *  - list all button
+ *  - add button
+ *  - delete button
+ *
+ * @author tmjee
+ * @version $Date$ $Id$
  */
-public abstract class SimpleTableWidget extends GenericTableWidget {
+public abstract class SimpleTableWidget<T> extends GenericTableWidget<T> {
 
     private TextBox searchTextBox;
     private Button searchButton;
@@ -26,10 +29,11 @@ public abstract class SimpleTableWidget extends GenericTableWidget {
     private Button addButton;
     private Button deleteButton;
 
-    private Status status;
+    protected Status status;
 
-    public SimpleTableWidget(FlexTableExt.TitleHandler flexTableExtTitleHandler) {
-        super(flexTableExtTitleHandler);
+    public SimpleTableWidget(FlexTableExt.TitleHandler flexTableExtTitleHandler,
+                             FlexTableExt.DataHandler flexTableExtDataHandler) {
+        super(flexTableExtTitleHandler, flexTableExtDataHandler);
         status = new Status(State.LIST_ALL);
     }
 
@@ -79,7 +83,6 @@ public abstract class SimpleTableWidget extends GenericTableWidget {
                 }
                 status.setState(State.DELETE);
                 status.setPagingInfo(currentPagingInfo);
-                status.capture();
                 refresh(status);
             }
         });
@@ -151,7 +154,7 @@ public abstract class SimpleTableWidget extends GenericTableWidget {
             this.pagingInfo = pagingInfo;
         }
 
-        public List<Object> getSelectedRowObjects() {
+        public List<T> getSelectedRowObjects() {
             return table.getSelectedRowObjects();
         }
 
