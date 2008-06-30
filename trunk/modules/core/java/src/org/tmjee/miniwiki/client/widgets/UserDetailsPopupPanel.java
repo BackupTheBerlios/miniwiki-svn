@@ -146,7 +146,8 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
             }
         });
         groupsButtonPanel.add(assignGroup);
-        groupsTable = new FlexTableExt<UiGroup>(
+        groupsTable = new FlexTableExt<UiGroup>();
+        groupsTable.init(
                 new FlexTableExt.TitleHandler() {
                     public int getTotalCols() {
                         return 2;
@@ -187,7 +188,8 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         );
 
 
-        propertiesTable = new FlexTableExt<UiUserProperty>(
+        propertiesTable = new FlexTableExt<UiUserProperty>();
+        propertiesTable.init(
                 new FlexTableExt.TitleHandler() {
                     public int getTotalCols() {
                         return 2;
@@ -218,13 +220,16 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                     final UiUserProperty uiUserProperty = (UiUserProperty) rowObject;
                     return new Button("Edit", new ClickListener() {
                         public void onClick(Widget widget) {
-                            new PropertyDetailsPopupPanel(new PropertyDetailsPopupPanel.Handler() {
-                                public void save(String propertyName, String propertyValue) {
-                                    uiUserProperty.setName(propertyName);
-                                    uiUserProperty.setValue(propertyValue);
-                                    propertiesTable.refresh(Utils.toArray(UserDetailsPopupPanel.this.uiUser.getProperties()));
-                                }
-                            });
+                            new PropertyDetailsPopupPanel(
+                                    uiUserProperty.getName(),
+                                    uiUserProperty.getValue(),
+                                    new PropertyDetailsPopupPanel.Handler() {
+                                        public void save(String propertyName, String propertyValue) {
+                                            uiUserProperty.setName(propertyName);
+                                            uiUserProperty.setValue(propertyValue);
+                                            propertiesTable.refresh(Utils.toArray(UserDetailsPopupPanel.this.uiUser.getProperties()));
+                                        }
+                                    });
                         }
                     });
                 }

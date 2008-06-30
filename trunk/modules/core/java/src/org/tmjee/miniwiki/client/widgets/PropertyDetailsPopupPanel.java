@@ -32,6 +32,11 @@ public class PropertyDetailsPopupPanel extends DialogBox implements SourcesMessa
     private HorizontalPanel buttonPanel;
 
     public PropertyDetailsPopupPanel(Handler handler) {
+        this("", "", handler);
+    }
+
+
+    public PropertyDetailsPopupPanel(String propName, String propValue, Handler handler) {
 
         setText("Property Details");
         setAnimationEnabled(true);
@@ -43,7 +48,9 @@ public class PropertyDetailsPopupPanel extends DialogBox implements SourcesMessa
         mainPanel = new VerticalPanel();
 
         propertyName = new TextBox();
+        propertyName.setText(propName);
         propertyValue = new TextBox();
+        propertyValue.setText(propValue);
 
         save = new Button("Save", new ClickListener() {
             public void onClick(Widget sender) {

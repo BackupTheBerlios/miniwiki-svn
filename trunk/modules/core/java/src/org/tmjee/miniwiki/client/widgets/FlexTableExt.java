@@ -11,11 +11,14 @@ import java.util.List;
 import org.tmjee.miniwiki.client.utils.Utils;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 20, 2008
- * Time: 1:57:34 PM
- * To change this template use File | Settings | File Templates.
+ * Generic extention of FlexTable allowing :-
+ *  - addRow/s
+ *  - deleteRow/s
+ *  - refresh
+ * through rowObjects.
+ *
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class FlexTableExt<T> extends FlexTable {
 
@@ -37,13 +40,15 @@ public class FlexTableExt<T> extends FlexTable {
     private DataHandler dataHandler;
     private ArrayList<Object> rowObjects;
 
-    public FlexTableExt(TitleHandler titleHandler, DataHandler dataHandler) {
+    public FlexTableExt() {
 
         setStyleName("flexTableExt");
 
         selectedRowObjects = new ArrayList<T>();
         rowObjects = new ArrayList<Object>();
+    }
 
+    public void init(TitleHandler titleHandler, DataHandler dataHandler) {
         this.titleHandler = titleHandler;
         this.dataHandler = dataHandler;
 

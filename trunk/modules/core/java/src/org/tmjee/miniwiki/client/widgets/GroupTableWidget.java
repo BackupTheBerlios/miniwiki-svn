@@ -24,51 +24,7 @@ import java.util.List;
 public class GroupTableWidget extends SimpleTableWidget {
 
     public GroupTableWidget() {
-        super(
-            new FlexTableExt.TitleHandler<UiGroup>() {
-                public int getTotalCols() {
-                    return 2;
-                }
-                public boolean hasCheckableCol() {
-                    return true;
-                }
-                public int numOfControlWidget() {
-                    return 1;
-                }
-                public Widget getTitleWidget(int col) {
-                    switch(col) {
-                        case 0:
-                            return new Label("Group Name");
-                        case 1:
-                            return new Label("Description");
-                        default:
-                            return null;
-                    }
-                }
-            },
-            new FlexTableExt.DataHandler<UiGroup>() {
-                public Widget getDataWidget(UiGroup rowObject, int col) {
-                    UiGroup uiGroup = rowObject;
-                    switch(col) {
-                        case 0:
-                            return new Label(uiGroup.getName());
-                        case 1:
-                            return new Label(uiGroup.getDescription());
-                        default:
-                            return null;
-                    }
-                }
-                public Widget getControlWidget(UiGroup rowObject, int col, int index) {
-                    final UiGroup uiGroup = rowObject;
-                    return new Button("Edit",
-                        new ClickListener() {
-                            public void onClick(Widget widget) {
-                                new GroupDetailsPopupPanel(uiGroup);
-                            }
-                        });
-                }
-            }
-        );
+        init(new InternalTitleHandler(), new InternalDataHandler());
     }
 
     protected void doAdd(Status status) {
@@ -136,5 +92,52 @@ public class GroupTableWidget extends SimpleTableWidget {
                         LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
+    }
+
+
+    private class InternalTitleHandler implements FlexTableExt.TitleHandler<UiGroup> {
+                public int getTotalCols() {
+                    return 2;
+                }
+                public boolean hasCheckableCol() {
+                    return true;
+                }
+                public int numOfControlWidget() {
+                    return 1;
+                }
+                public Widget getTitleWidget(int col) {
+                    switch(col) {
+                        case 0:
+                            return new Label("Group Name");
+                        case 1:
+                            return new Label("Description");
+                        default:
+                            return null;
+                    }
+                }
+    }
+
+
+    private class InternalDataHandler implements FlexTableExt.DataHandler<UiGroup> {
+            public Widget getDataWidget(UiGroup rowObject, int col) {
+                    UiGroup uiGroup = rowObject;
+                    switch(col) {
+                        case 0:
+                            return new Label(uiGroup.getName());
+                        case 1:
+                            return new Label(uiGroup.getDescription());
+                        default:
+                            return null;
+                    }
+                }
+                public Widget getControlWidget(UiGroup rowObject, int col, int index) {
+                    final UiGroup uiGroup = rowObject;
+                    return new Button("Edit",
+                        new ClickListener() {
+                            public void onClick(Widget widget) {
+                                new GroupDetailsPopupPanel(uiGroup);
+                            }
+                        });
+                }
     }
 }

@@ -34,8 +34,7 @@ public abstract class GenericTableWidget<T> extends Composite implements Sources
 
 
 
-    public GenericTableWidget(FlexTableExt.TitleHandler flexTableExtTitleHandler,
-                              FlexTableExt.DataHandler flexTableExtDataHandler) {
+    public GenericTableWidget() {
         currentPagingInfo = new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE);
         nextPagingInfo = new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE);
         prevPagingInfo = new PagingInfo(Constants.STARTING_PAGE_NUMBER, Constants.DEFAULT_PAGE_SIZE);
@@ -44,7 +43,7 @@ public abstract class GenericTableWidget<T> extends Composite implements Sources
 
         searchPanel = new HorizontalPanel();
 
-        table = new FlexTableExt(flexTableExtTitleHandler, flexTableExtDataHandler);
+        table = new FlexTableExt();
 
         prevPageButton = new Button("Previous", new ClickListener() {
             public void onClick(Widget widget) {
@@ -75,7 +74,11 @@ public abstract class GenericTableWidget<T> extends Composite implements Sources
         initWidget(mainPanel);
 
         addWidgetsToSearchPanel(searchPanel);
+    }
 
+    public void init(FlexTableExt.TitleHandler flexTableExtTitleHandler,
+                              FlexTableExt.DataHandler flexTableExtDataHandler) {
+        table.init(flexTableExtTitleHandler, flexTableExtDataHandler);
         refresh(currentPagingInfo);
     }
 

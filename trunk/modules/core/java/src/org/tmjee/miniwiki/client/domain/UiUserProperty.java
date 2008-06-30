@@ -11,4 +11,7 @@ public class UiUserProperty extends UiProperty {
     public UiUserProperty(String name, String value) {
         super(name, value);
     }
+
+    public UiUserProperty() {
+    }
 }

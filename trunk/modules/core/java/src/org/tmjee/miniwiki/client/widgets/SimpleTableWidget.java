@@ -31,11 +31,15 @@ public abstract class SimpleTableWidget<T> extends GenericTableWidget<T> {
 
     protected Status status;
 
-    public SimpleTableWidget(FlexTableExt.TitleHandler flexTableExtTitleHandler,
-                             FlexTableExt.DataHandler flexTableExtDataHandler) {
-        super(flexTableExtTitleHandler, flexTableExtDataHandler);
+    public SimpleTableWidget() {
         status = new Status(State.LIST_ALL);
     }
+
+    public void init(FlexTableExt.TitleHandler flexTableExtTitleHandler,
+                             FlexTableExt.DataHandler flexTableExtDataHandler) {
+        init(flexTableExtTitleHandler, flexTableExtDataHandler);
+    }
+
 
     protected void addWidgetsToSearchPanel(HorizontalPanel searchPanel) {
 

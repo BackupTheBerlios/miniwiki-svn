@@ -25,59 +25,7 @@ public class UserTableWidget extends SimpleTableWidget {
 
     
     public UserTableWidget() {
-        super(
-            new FlexTableExt.TitleHandler<UiUser>() {
-                public int getTotalCols() {
-                    return 3;
-                }
-                public boolean hasCheckableCol() {
-                    return true;
-                }
-                public int numOfControlWidget() {
-                    return 1;
-                }
-                public Widget getTitleWidget(int col) {
-                    switch(col) {
-                        case 0:
-                            return new Label("Username");
-                        case 1:
-                            return new Label("First Name");
-                        case 2:
-                            return new Label("Last Name");
-                        default:
-                            return null;
-                    }
-                }
-            },
-            new FlexTableExt.DataHandler<UiUser>() {
-                public Widget getDataWidget(UiUser rowObject, int col) {
-                    UiUser uiUser = (UiUser) rowObject;
-                    switch (col) {
-                        case 0:
-                            return new Label(uiUser.getUsername());
-                        case 1:
-                            return new Label(uiUser.getFirstName());
-                        case 2:
-                            return new Label(uiUser.getLastName());
-                        default:
-                            return null;
-                    }
-                }
-                public Widget getControlWidget(UiUser rowObject, int col, int index) {
-                    final UiUser uiUser = (UiUser) rowObject;
-                    return new Button("Edit",
-                        new ClickListener() {
-                            public void onClick(Widget widget) {
-                                new UserDetailsPopupPanel(uiUser,
-                                    new UserDetailsPopupPanel.Handler() {
-                                        public void save(UiUser uiUser) {
-                                            status.restore();
-                                        }
-                                    });
-                            }
-                        });
-                }
-            });
+        init(new InternalTitleHandler(), new InternalDataHandler());
     }
 
 
@@ -152,5 +100,61 @@ public class UserTableWidget extends SimpleTableWidget {
                     }
                 }
         );
+    }
+
+
+    private class InternalTitleHandler implements FlexTableExt.TitleHandler<UiUser> {
+                public int getTotalCols() {
+                    return 3;
+                }
+                public boolean hasCheckableCol() {
+                    return true;
+                }
+                public int numOfControlWidget() {
+                    return 1;
+                }
+                public Widget getTitleWidget(int col) {
+                    switch(col) {
+                        case 0:
+                            return new Label("Username");
+                        case 1:
+                            return new Label("First Name");
+                        case 2:
+                            return new Label("Last Name");
+                        default:
+                            return null;
+                    }
+                }
+    }
+
+
+    private class InternalDataHandler implements FlexTableExt.DataHandler<UiUser> {
+            public Widget getDataWidget(UiUser rowObject, int col) {
+                    UiUser uiUser = (UiUser) rowObject;
+                    switch (col) {
+                        case 0:
+                            return new Label(uiUser.getUsername());
+                        case 1:
+                            return new Label(uiUser.getFirstName());
+                        case 2:
+                            return new Label(uiUser.getLastName());
+                        default:
+                            return null;
+                    }
+                }
+                public Widget getControlWidget(UiUser rowObject, int col, int index) {
+                    final UiUser uiUser = (UiUser) rowObject;
+                    return new Button("Edit",
+                        new ClickListener() {
+                            public void onClick(Widget widget) {
+                                new UserDetailsPopupPanel(uiUser,
+                                    new UserDetailsPopupPanel.Handler() {
+                                        public void save(UiUser uiUser) {
+                                            status.restore();
+                                        }
+                                    });
+                            }
+                        });
+                }
     }
 }

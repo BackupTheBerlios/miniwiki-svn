@@ -2,6 +2,8 @@ package org.tmjee.miniwiki.client.domain;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * User: 1269870
@@ -14,6 +16,10 @@ public class UiGroup implements IsSerializable {
     private long id;
     private String name;
     private String description;
+
+    private transient List<UiGroupProperty> properties;
+    private transient List<UiUser> users;
+
 
     public UiGroup() {}
 
@@ -28,4 +34,22 @@ public class UiGroup implements IsSerializable {
     public String getDescription() {
         return description;
     }
+
+    public void addProperty(UiGroupProperty property) {
+        if (!properties.contains(property)) {
+            properties.add(property);
+        }
+    }
+
+    public void removeProperty(UiGroupProperty property) {
+        if (properties.contains(property)) {
+            properties.remove(property);
+        }
+    }
+
+    public List<UiProperty> getProperties() {
+        return properties;
+    }
+
+
 }
