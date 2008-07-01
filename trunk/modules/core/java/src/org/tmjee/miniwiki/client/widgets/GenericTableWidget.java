@@ -8,6 +8,8 @@ import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.Constants;
 
+import java.util.List;
+
 /**
  * Add :-
  *  - Next button
@@ -94,6 +96,10 @@ public abstract class GenericTableWidget<T> extends Composite implements Sources
 
     protected abstract void refresh(PagingInfo pagingInfo);
 
+    protected void refresh() {
+        refresh(currentPagingInfo);
+    }
+
     protected void update(ResponsePagingInfo responsePagingInfo, T[] rowObjects) {
         nextPagingInfo = responsePagingInfo.getNextPagePagingInfo();
         prevPagingInfo = responsePagingInfo.getPreviousPagePagingInfo();
@@ -102,6 +108,10 @@ public abstract class GenericTableWidget<T> extends Composite implements Sources
         table.refresh(rowObjects);
     }
 
+
+    public List<T> getSelectedRowObjects() {
+        return table.getSelectedRowObjects();
+    }
 
     
 }

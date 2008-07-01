@@ -47,8 +47,25 @@ public class UiGroup implements IsSerializable {
         }
     }
 
-    public List<UiProperty> getProperties() {
+    public List<UiGroupProperty> getProperties() {
         return properties;
+    }
+
+
+    public List<UiUser> getUsers() {
+        return users;
+    }
+
+    public void addUser(UiUser user) {
+        if (!users.contains(user)) {
+             users.add(user);
+        }
+    }
+
+    public void removeUser(UiUser user) {
+        if (users.contains(user)) {
+            users.remove(user);
+        }
     }
 
 

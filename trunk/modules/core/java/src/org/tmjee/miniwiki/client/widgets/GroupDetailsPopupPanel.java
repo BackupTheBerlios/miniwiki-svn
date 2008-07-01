@@ -3,11 +3,15 @@ package org.tmjee.miniwiki.client.widgets;
 import com.google.gwt.user.client.ui.*;
 import org.tmjee.miniwiki.client.domain.UiGroup;
 import org.tmjee.miniwiki.client.domain.UiGroupProperty;
+import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.utils.Utils;
 import org.tmjee.miniwiki.client.server.PagingInfo;
+import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
+import org.tmjee.miniwiki.client.service.Service;
+import org.tmjee.miniwiki.core.service.UserManagementService;
 
 import java.util.List;
 
@@ -30,8 +34,8 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
 
 
     private GenericTableWidget usersTable;
-    private HorizontalPanel assignUserButtonPanel;
     private Button assignUserButton;
+    private Button unassignUserButton;
 
 
     private FlexTableExt propertiesTable;
@@ -55,6 +59,11 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
         setText("Group Details");
         setAnimationEnabled(true);
 
+        groupName = new TextBox();
+        groupName.setText(uiGroup.getName());
+        groupDescription = new TextBox();
+        groupDescription.setText(uiGroup.getDescription());
+
         grid = new Grid(2, 2);
         grid.setWidget(0, 0, new Label("Group Name"));
         grid.setWidget(0, 1, groupName);
@@ -63,39 +72,80 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
 
 
 
-        usersTable = new GenericTableWidget() {
+
+        usersTable = new GenericTableWidget<UiUser>() {
             protected void addWidgetsToSearchPanel(HorizontalPanel searchPanel) {
-                // to nothing, we don't have anything to add
+                assignUserButton = new Button(
+                                        "Assign User",
+                                        new ClickListener() {
+                                            public void onClick(Widget widget) {
+                                                new AssignUserPopupPanel(
+                                                        GroupDetailsPopupPanel.this.uiGroup,
+                                                        new AssignUserPopupPanel.Handler() {
+                                                            public void assign(UiUser user, UiGroup group) {
+                                                                group.addUser(user);
+                                                                usersTable.refresh();
+                                                            }
+                                                            public void unassign(UiUser user, UiGroup group) {
+                                                                group.removeUser(user);
+                                                                usersTable.refresh();
+                                                            }
+                                                        });
+                                            }
+                                        });
+                searchPanel.add(assignUserButton);
             }
             protected void refresh(PagingInfo pagingInfo) {
-                
+                update(null, Utils.toArray(GroupDetailsPopupPanel.this.uiGroup.getUsers()));
             }
         };
         usersTable.init(
-                        new FlexTableExt.TitleHandler() {
+                        new FlexTableExt.TitleHandler<UiUser>() {
                             public int getTotalCols() {
-                                return 0;  //To change body of implemented methods use File | Settings | File Templates.
+                                return 4;
                             }
 
                             public boolean hasCheckableCol() {
-                                return false;  //To change body of implemented methods use File | Settings | File Templates.
+                                return true;
                             }
 
                             public int numOfControlWidget() {
-                                return 0;  //To change body of implemented methods use File | Settings | File Templates.
+                                return 0;
                             }
 
                             public Widget getTitleWidget(int col) {
-                                return null;  //To change body of implemented methods use File | Settings | File Templates.
+                                switch(col) {
+                                    case 0:
+                                        return new Label("Username");
+                                    case 1:
+                                        return new Label("First Name");
+                                    case 2:
+                                        return new Label("Last Name");
+                                    case 3:
+                                        return new Label("Description");
+                                    default:
+                                        return null;
+                                }
                             }
                         },
-                        new FlexTableExt.DataHandler() {
-                            public Widget getDataWidget(Object rowObject, int col) {
-                                return null;  //To change body of implemented methods use File | Settings | File Templates.
+                        new FlexTableExt.DataHandler<UiUser>() {
+                            public Widget getDataWidget(UiUser rowObject, int col) {
+                                switch(col) {
+                                    case 0:
+                                        return new Label(rowObject.getUsername());
+                                    case 1:
+                                        return new Label(rowObject.getFirstName());
+                                    case 2:
+                                        return new Label(rowObject.getLastName());
+                                    case 3:
+                                        return new Label(rowObject.getDescription());
+                                    default:
+                                        return null;
+                                }
                             }
 
-                            public Widget getControlWidget(Object rowObject, int col, int index) {
-                                return null;  //To change body of implemented methods use File | Settings | File Templates.
+                            public Widget getControlWidget(UiUser rowObject, int col, int index) {
+                                return null;
                             }
                         }
                 );
@@ -189,7 +239,6 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
 
         mainPanel = new VerticalPanel();
         mainPanel.add(grid);
-        mainPanel.add(assignUserButtonPanel);
         mainPanel.add(usersTable);
         mainPanel.add(propertiesButtonPanel);
         mainPanel.add(propertiesTable);
