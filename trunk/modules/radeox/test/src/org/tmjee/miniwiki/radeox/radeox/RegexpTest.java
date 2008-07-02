@@ -18,10 +18,10 @@
 
 package org.tmjee.miniwiki.radeox;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
-import org.tmjee.miniwiki.radeox.radeox.engine.BaseRenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.engine.context.BaseRenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.engine.BaseRenderEngine;
+import org.tmjee.miniwiki.radeox.engine.context.BaseRenderContext;
 
 import java.io.*;
 

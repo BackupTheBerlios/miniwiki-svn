@@ -16,16 +16,16 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox;
+package org.tmjee.miniwiki.radeox;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.tmjee.miniwiki.radeox.radeox.filter.AllFilterTests;
-import org.tmjee.miniwiki.radeox.radeox.groovy.AllGroovyTests;
-import org.tmjee.miniwiki.radeox.radeox.macro.AllMacroTests;
-import org.tmjee.miniwiki.radeox.radeox.regex.AllRegexTests;
+import org.tmjee.miniwiki.radeox.filter.AllFilterTests;
+import org.tmjee.miniwiki.radeox.groovy.AllGroovyTests;
+import org.tmjee.miniwiki.radeox.macro.AllMacroTests;
+import org.tmjee.miniwiki.radeox.regex.AllRegexTests;
 
 public class AllTests extends TestCase {
   public AllTests(String name) {

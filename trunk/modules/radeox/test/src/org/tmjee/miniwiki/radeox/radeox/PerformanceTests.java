@@ -22,9 +22,9 @@ import com.clarkware.junitperf.TimedTest;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.engine.BaseRenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.engine.context.BaseRenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.engine.BaseRenderEngine;
+import org.tmjee.miniwiki.radeox.engine.context.BaseRenderContext;
 
 import java.io.BufferedReader;
 import java.io.File;

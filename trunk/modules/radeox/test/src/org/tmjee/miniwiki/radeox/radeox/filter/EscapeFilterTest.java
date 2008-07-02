@@ -20,12 +20,12 @@ package org.tmjee.miniwiki.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.InitialRenderContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.EscapeFilter;
-import org.tmjee.miniwiki.radeox.radeox.filter.Filter;
-import org.tmjee.miniwiki.radeox.radeox.filter.FilterPipe;
-import org.tmjee.miniwiki.radeox.radeox.filter.context.FilterContext;
-import org.tmjee.miniwiki.radeox.radeox.util.Encoder;
+import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
+import org.tmjee.miniwiki.radeox.filter.EscapeFilter;
+import org.tmjee.miniwiki.radeox.filter.Filter;
+import org.tmjee.miniwiki.radeox.filter.FilterPipe;
+import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
+import org.tmjee.miniwiki.radeox.util.Encoder;
 
 public class EscapeFilterTest extends FilterTestSupport {
   protected void setUp() throws Exception {

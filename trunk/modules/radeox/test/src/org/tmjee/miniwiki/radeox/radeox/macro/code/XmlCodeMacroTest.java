@@ -20,9 +20,9 @@ package org.tmjee.miniwiki.radeox.macro.code;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.engine.BaseRenderEngine;
-import org.tmjee.miniwiki.radeox.radeox.macro.MacroTestSupport;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.engine.BaseRenderEngine;
+import org.tmjee.miniwiki.radeox.macro.MacroTestSupport;
 
 public class XmlCodeMacroTest extends MacroTestSupport {
   final String S_CODE = "<div class=\"code\"><pre>";

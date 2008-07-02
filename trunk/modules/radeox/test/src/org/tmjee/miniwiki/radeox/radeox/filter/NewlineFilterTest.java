@@ -20,7 +20,7 @@ package org.tmjee.miniwiki.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.filter.NewlineFilter;
+import org.tmjee.miniwiki.radeox.filter.NewlineFilter;
 
 public class NewlineFilterTest extends FilterTestSupport {
 

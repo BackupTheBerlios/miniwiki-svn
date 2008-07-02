@@ -26,8 +26,8 @@ package org.tmjee.miniwiki.radeox.macro.code;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.EngineManager;
-import org.tmjee.miniwiki.radeox.radeox.macro.MacroTestSupport;
+import org.tmjee.miniwiki.radeox.EngineManager;
+import org.tmjee.miniwiki.radeox.macro.MacroTestSupport;
 
 public class SqlCodeMacroTest extends MacroTestSupport {
   final String S_CODE = "<div class=\"code\"><pre>";

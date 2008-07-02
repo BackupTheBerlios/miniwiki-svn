@@ -26,7 +26,7 @@ import junit.framework.TestCase;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.tmjee.miniwiki.radeox.radeox.example.RadeoxTemplateEngine;
+import org.tmjee.miniwiki.radeox.example.RadeoxTemplateEngine;
 
 public class RadeoxTemplateEngineTest extends TestCase {
 

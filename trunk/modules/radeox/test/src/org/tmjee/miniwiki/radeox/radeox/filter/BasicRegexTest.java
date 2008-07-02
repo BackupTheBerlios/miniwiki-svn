@@ -21,24 +21,24 @@ package org.tmjee.miniwiki.radeox.filter;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.engine.context.BaseRenderContext;
-import org.tmjee.miniwiki.radeox.radeox.engine.context.BaseInitialRenderContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.context.BaseFilterContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.context.FilterContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.RegexReplaceFilter;
-import org.tmjee.miniwiki.radeox.radeox.filter.regex.RegexTokenFilter;
-import org.tmjee.miniwiki.radeox.radeox.regex.MatchResult;
-import org.tmjee.miniwiki.radeox.radeox.regex.Pattern;
-import org.tmjee.miniwiki.radeox.radeox.regex.Matcher;
-import org.tmjee.miniwiki.radeox.radeox.filter.HeadingFilter;
-import org.tmjee.miniwiki.radeox.radeox.filter.Filter;
-import org.tmjee.miniwiki.radeox.radeox.macro.code.XmlCodeFilter;
+import org.tmjee.miniwiki.radeox.engine.context.BaseRenderContext;
+import org.tmjee.miniwiki.radeox.engine.context.BaseInitialRenderContext;
+import org.tmjee.miniwiki.radeox.filter.context.BaseFilterContext;
+import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
+import org.tmjee.miniwiki.radeox.filter.regex.RegexReplaceFilter;
+import org.tmjee.miniwiki.radeox.filter.regex.RegexTokenFilter;
+import org.tmjee.miniwiki.radeox.regex.MatchResult;
+import org.tmjee.miniwiki.radeox.regex.Pattern;
+import org.tmjee.miniwiki.radeox.regex.Matcher;
+import org.tmjee.miniwiki.radeox.filter.HeadingFilter;
+import org.tmjee.miniwiki.radeox.filter.Filter;
+import org.tmjee.miniwiki.radeox.macro.code.XmlCodeFilter;
 
 import java.text.MessageFormat;
 
 public class BasicRegexTest extends TestCase {
   private static String BOLD_TEST_REGEX = "(^|>|[[:space:]]+)__(.*?)__([[:space:]]+|<|$)";
-  private org.tmjee.miniwiki.radeox.radeox.regex.Compiler compiler;
+  private org.tmjee.miniwiki.radeox.regex.Compiler compiler;
 
   public BasicRegexTest(String name) {
     super(name);
@@ -46,7 +46,7 @@ public class BasicRegexTest extends TestCase {
 
   protected void setUp() throws Exception {
     super.setUp();
-    compiler = org.tmjee.miniwiki.radeox.radeox.regex.Compiler.create();
+    compiler = org.tmjee.miniwiki.radeox.regex.Compiler.create();
     compiler.setMultiline(true);
   }
 

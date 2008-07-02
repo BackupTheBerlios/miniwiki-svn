@@ -1,8 +1,8 @@
 package org.tmjee.miniwiki.radeox.filter.mock;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.InitialRenderContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.Filter;
-import org.tmjee.miniwiki.radeox.radeox.filter.context.FilterContext;
+import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
+import org.tmjee.miniwiki.radeox.filter.Filter;
+import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
 
 public class MockReplacedFilter implements Filter {
   public String filter(String input, FilterContext context) {

@@ -20,8 +20,8 @@ package org.tmjee.miniwiki.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.filter.WikiLinkFilter;
-import org.tmjee.miniwiki.radeox.radeox.filter.mock.MockOldWikiRenderEngine;
+import org.tmjee.miniwiki.radeox.filter.WikiLinkFilter;
+import org.tmjee.miniwiki.radeox.filter.mock.MockOldWikiRenderEngine;
 
 public class WikiLinkFilterTest extends FilterTestSupport {
 

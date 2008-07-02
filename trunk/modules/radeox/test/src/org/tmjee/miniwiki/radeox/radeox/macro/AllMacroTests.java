@@ -23,7 +23,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.tmjee.miniwiki.radeox.radeox.macro.code.AllCodeMacroTests;
+import org.tmjee.miniwiki.radeox.macro.code.AllCodeMacroTests;
 
 public class AllMacroTests extends TestCase {
   public AllMacroTests(String name) {

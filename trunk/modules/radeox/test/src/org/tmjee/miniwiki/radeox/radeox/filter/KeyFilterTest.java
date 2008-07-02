@@ -21,7 +21,7 @@ package org.tmjee.miniwiki.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.filter.KeyFilter;
+import org.tmjee.miniwiki.radeox.filter.KeyFilter;
 
 public class KeyFilterTest extends FilterTestSupport {
   protected void setUp() throws Exception {

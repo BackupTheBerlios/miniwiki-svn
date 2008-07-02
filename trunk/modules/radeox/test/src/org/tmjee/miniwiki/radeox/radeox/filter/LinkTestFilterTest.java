@@ -20,8 +20,8 @@ package org.tmjee.miniwiki.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.mock.MockWikiRenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.filter.mock.MockWikiRenderEngine;
 
 public class LinkTestFilterTest extends FilterTestSupport {
   private static final String RESULT_URL = "<div class=\"error\">Do not surround URLs with [...].</div>";

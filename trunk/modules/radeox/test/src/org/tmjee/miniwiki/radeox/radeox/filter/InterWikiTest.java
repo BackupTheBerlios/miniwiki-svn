@@ -20,10 +20,10 @@ package org.tmjee.miniwiki.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
-import org.tmjee.miniwiki.radeox.radeox.filter.LinkTestFilter;
-import org.tmjee.miniwiki.radeox.radeox.filter.interwiki.InterWiki;
-import org.tmjee.miniwiki.radeox.radeox.filter.mock.MockInterWikiRenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.filter.LinkTestFilter;
+import org.tmjee.miniwiki.radeox.filter.interwiki.InterWiki;
+import org.tmjee.miniwiki.radeox.filter.mock.MockInterWikiRenderEngine;
 
 import java.io.StringWriter;
 import java.io.IOException;

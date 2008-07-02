@@ -20,7 +20,7 @@ package org.tmjee.miniwiki.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.filter.UrlFilter;
+import org.tmjee.miniwiki.radeox.filter.UrlFilter;
 
 public class UrlFilterTest extends FilterTestSupport {
 

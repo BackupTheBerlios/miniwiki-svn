@@ -20,7 +20,7 @@ package org.tmjee.miniwiki.radeox.filter;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.tmjee.miniwiki.radeox.radeox.filter.LineFilter;
+import org.tmjee.miniwiki.radeox.filter.LineFilter;
 
 public class LineFilterTest extends FilterTestSupport {
    protected void setUp() throws Exception {
