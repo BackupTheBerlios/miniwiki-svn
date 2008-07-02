@@ -37,11 +37,11 @@
   </servlet-mapping>
   <servlet-mapping>
       <servlet-name>org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl</servlet-name>
-      <url-pattern>/org.tmjee/miniwiki.MiniWiki/loggingManagement</url-pattern>
+      <url-pattern>/org.tmjee.miniwiki.MiniWiki/loggingManagement</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
       <servlet-name>org.tmjee.miniwiki.server.TestServiceImpl</servlet-name>
-      <url-pattern>/test</url-pattern>
+      <url-pattern>/org.tmjee.miniwiki.MiniWiki/test</url-pattern>
   </servlet-mapping>
 
 

@@ -9,9 +9,6 @@ import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.utils.Utils;
 import org.tmjee.miniwiki.client.server.PagingInfo;
-import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
-import org.tmjee.miniwiki.client.service.Service;
-import org.tmjee.miniwiki.core.service.UserManagementService;
 
 import java.util.List;
 
@@ -35,7 +32,6 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
 
     private GenericTableWidget usersTable;
     private Button assignUserButton;
-    private Button unassignUserButton;
 
 
     private FlexTableExt propertiesTable;
@@ -96,7 +92,10 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
                 searchPanel.add(assignUserButton);
             }
             protected void refresh(PagingInfo pagingInfo) {
-                update(null, Utils.toArray(GroupDetailsPopupPanel.this.uiGroup.getUsers()));
+                Utils.PageableObjectListWrapper<UiUser> w = Utils.toPageableObjectListWrapper(
+                        pagingInfo,
+                        GroupDetailsPopupPanel.this.uiGroup.getUsers());
+                update(w.getResponse(), Utils.toArray(w.getList()));
             }
         };
         usersTable.init(
