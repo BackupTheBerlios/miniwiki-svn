@@ -16,7 +16,7 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox;
+package org.tmjee.miniwiki.radeox;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -26,6 +26,10 @@ import org.tmjee.miniwiki.radeox.radeox.api.engine.context.RenderContext;
 import org.tmjee.miniwiki.radeox.radeox.engine.BaseRenderEngine;
 import org.tmjee.miniwiki.radeox.radeox.engine.context.BaseRenderContext;
 import org.tmjee.miniwiki.radeox.radeox.filter.mock.MockWikiRenderEngine;
+import org.tmjee.miniwiki.radeox.api.engine.context.RenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
+import org.tmjee.miniwiki.radeox.engine.BaseRenderEngine;
+import org.tmjee.miniwiki.radeox.engine.context.BaseRenderContext;
 
 import java.io.IOException;
 import java.io.StringWriter;

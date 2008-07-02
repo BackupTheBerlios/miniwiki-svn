@@ -16,7 +16,7 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 /*
  * LinkTester defines an interface for tests for existence of

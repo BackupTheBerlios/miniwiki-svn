@@ -16,7 +16,7 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox.groovy;
+package org.tmjee.miniwiki.radeox.groovy;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

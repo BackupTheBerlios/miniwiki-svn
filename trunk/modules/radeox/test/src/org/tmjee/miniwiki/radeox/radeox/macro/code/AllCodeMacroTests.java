@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.macro.code;
+package org.tmjee.miniwiki.radeox.macro.code;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

@@ -16,7 +16,7 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox;
+package org.tmjee.miniwiki.radeox;
 
 import com.clarkware.junitperf.TimedTest;
 import junit.framework.Test;

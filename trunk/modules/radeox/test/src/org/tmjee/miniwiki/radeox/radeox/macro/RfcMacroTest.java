@@ -16,10 +16,11 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox.macro;
+package org.tmjee.miniwiki.radeox.macro;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.tmjee.miniwiki.radeox.macro.MacroTestSupport;
 
 public class RfcMacroTest extends MacroTestSupport {
   public RfcMacroTest(String name) {

@@ -16,7 +16,7 @@
  *  limitations under the License.
  */
 
-package org.tmjee.miniwiki.radeox.radeox;
+package org.tmjee.miniwiki.radeox;
 
 import junit.framework.TestCase;
 import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;

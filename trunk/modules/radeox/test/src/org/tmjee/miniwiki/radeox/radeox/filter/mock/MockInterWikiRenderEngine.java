@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter.mock;
+package org.tmjee.miniwiki.radeox.filter.mock;
 
 import org.tmjee.miniwiki.radeox.radeox.api.engine.RenderEngine;
 import org.tmjee.miniwiki.radeox.radeox.api.engine.WikiRenderEngine;

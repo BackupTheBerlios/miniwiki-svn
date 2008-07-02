@@ -1,4 +1,4 @@
-package org.tmjee.miniwiki.radeox.radeox.filter;
+package org.tmjee.miniwiki.radeox.filter;
 
 /*
  *      Copyright 2001-2004 Fraunhofer Gesellschaft, Munich, Germany, for its 

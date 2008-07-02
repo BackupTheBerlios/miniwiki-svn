@@ -17,7 +17,7 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.groovy;
+package org.tmjee.miniwiki.radeox.groovy;
 
 import groovy.text.Template;
 import groovy.text.TemplateEngine;

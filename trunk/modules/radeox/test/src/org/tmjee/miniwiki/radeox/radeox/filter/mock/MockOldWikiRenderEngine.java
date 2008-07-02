@@ -17,9 +17,9 @@
  */
 
 
-package org.tmjee.miniwiki.radeox.radeox.filter.mock;
+package org.tmjee.miniwiki.radeox.filter.mock;
 
-import org.tmjee.miniwiki.radeox.radeox.api.engine.context.InitialRenderContext;
+import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
 
 
 public class MockOldWikiRenderEngine extends MockWikiRenderEngine {
