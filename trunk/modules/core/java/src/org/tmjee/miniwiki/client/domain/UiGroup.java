@@ -17,8 +17,8 @@ public class UiGroup implements IsSerializable {
     private String name;
     private String description;
 
-    private transient List<UiGroupProperty> properties;
-    private transient List<UiUser> users;
+    private List<UiGroupProperty> properties;
+    private List<UiUser> users;
 
 
     public UiGroup() {}

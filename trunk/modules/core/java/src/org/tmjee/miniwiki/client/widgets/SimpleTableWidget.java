@@ -37,7 +37,7 @@ public abstract class SimpleTableWidget<T> extends GenericTableWidget<T> {
 
     public void init(FlexTableExt.TitleHandler flexTableExtTitleHandler,
                              FlexTableExt.DataHandler flexTableExtDataHandler) {
-        init(flexTableExtTitleHandler, flexTableExtDataHandler);
+        super.init(flexTableExtTitleHandler, flexTableExtDataHandler);
     }
 
 

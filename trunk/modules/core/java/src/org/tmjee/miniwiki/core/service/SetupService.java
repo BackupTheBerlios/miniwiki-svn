@@ -23,6 +23,8 @@ public class SetupService {
 
     private JpaTemplate template;
 
+
+    SetupService() {}
     public SetupService(JpaTemplate template) {
         this.template = template;    
     }

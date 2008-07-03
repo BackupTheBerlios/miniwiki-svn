@@ -70,22 +70,21 @@
         </tx:attributes>
     </tx:advice>
     <aop:config>
-        <aop:pointcut id="servicesPointCut"
-                      expression="execution(* testing.TstService.*(..))" />
-        <aop:advisor advice-ref="txAdvice"
-                     pointcut-ref="servicesPointCut" />
-        <!--
+
         <aop:pointcut id="pcSetupService"
                       type="aspectj"
                       expression="execution(* org.tmjee.miniwiki.core.service.SetupService.*(..))" />
         <aop:pointcut id="pcUserManagementService"
                       type="aspectj"
                       expression="execution(* org.tmjee.miniwiki.core.service.UserManagementService.*(..))" />
+        <aop:pointcut id="pcTemplateManagementService"
+                      type="aspectj"
+                      expression="execution(* org.tmjee.miniwiki.core.service.TemplateManagementService.*(..))" />
+
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcSetupService" />
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcUserManagementService" />
-        -->
     </aop:config>
 
 
@@ -118,6 +117,8 @@
         <constructor-arg index="0" ref="jpaTemplate" />
         <constructor-arg index="1" ref="miniWikiConfig" />
         <constructor-arg index="2" ref="dozerBeanMapper" />
+    </bean>
+    <bean name="templateManagementService" class="org.tmjee.miniwiki.core.service.TemplateManagementService">
     </bean>
 
 </beans>

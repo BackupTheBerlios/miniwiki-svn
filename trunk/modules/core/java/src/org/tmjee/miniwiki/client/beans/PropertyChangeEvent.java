@@ -1,5 +1,7 @@
 package org.tmjee.miniwiki.client.beans;
 
+import java.io.Serializable;
+
 /**
  * Created by IntelliJ IDEA.
  * User: tmjee
@@ -10,12 +12,14 @@ package org.tmjee.miniwiki.client.beans;
 public class PropertyChangeEvent extends EventObject {
 
     private String propertyName;
-    private Object oldValue;
-    private Object newValue;
-    private Object propagationId;
+    private Serializable oldValue;
+    private Serializable newValue;
+    private Serializable propagationId;
 
-    public PropertyChangeEvent(Object source, String propertyName,
-                               Object oldValue, Object newValue) {
+
+    public PropertyChangeEvent() {}
+    public PropertyChangeEvent(Serializable source, String propertyName,
+                               Serializable oldValue, Serializable newValue) {
         super(source, propertyName);
         this.oldValue = oldValue;
         this.newValue = newValue;
@@ -37,7 +41,7 @@ public class PropertyChangeEvent extends EventObject {
         return propagationId;
     }
 
-    public void setPropagationId(Object propagationId) {
+    public void setPropagationId(Serializable propagationId) {
         this.propagationId = propagationId;
     }
 }

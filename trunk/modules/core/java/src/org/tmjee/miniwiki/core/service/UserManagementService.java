@@ -31,6 +31,7 @@ public class UserManagementService extends AbstractService {
 
     private MiniWikiConfig config;
 
+    UserManagementService() {}
     public UserManagementService(JpaTemplate template, MiniWikiConfig config, DozerBeanMapper mapper) {
         super(template, mapper);
         this.config = config;
@@ -110,7 +111,8 @@ public class UserManagementService extends AbstractService {
     public void updateUser(final UiUser uiUser) {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                entityManager.merge(map(uiUser, new User()));
+                User user = map(uiUser, new User());
+                entityManager.merge(user);
                 return null;
             }
         });

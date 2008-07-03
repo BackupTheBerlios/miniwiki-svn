@@ -1,5 +1,7 @@
 package org.tmjee.miniwiki.client.beans;
 
+import java.io.Serializable;
+
 /**
  * Created by IntelliJ IDEA.
  * User: 1269870
@@ -9,10 +11,11 @@ package org.tmjee.miniwiki.client.beans;
  */
 public class PropertyDeletionEvent extends EventObject {
 
-    private Object oldValue;
+    private Serializable oldValue;
 
-    public PropertyDeletionEvent(Object source, String propertyName,
-                                 Object oldValue) {
+    public PropertyDeletionEvent() {}
+    public PropertyDeletionEvent(Serializable source, String propertyName,
+                                 Serializable oldValue) {
         super(source, propertyName);
         this.oldValue = oldValue;
     }

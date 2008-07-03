@@ -4,6 +4,7 @@ import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
 import org.tmjee.miniwiki.core.domain.Wiki;
 import org.tmjee.miniwiki.core.domain.WikiProperty;
+import org.tmjee.miniwiki.core.domain.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
@@ -31,49 +32,10 @@ public class TstService {
     public void tryOut() {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                //entityManager.persist(new Wiki());
 
-                //Wiki wiki = new Wiki();
-                //wiki.addProperty(new WikiProperty("p1", "v1"));
-                //wiki.addProperty(new WikiProperty("p2", "v2"));
-                //wiki.addProperty(new WikiProperty("p3", "v3"));
-                //entityManager.persist(wiki);
+                User user = new User("u1", "u1", "u1", "u1");
 
-
-                //Query q = entityManager.createQuery("select w from Wiki as w left join fetch w.properties");
-                //Wiki wiki = (Wiki) q.getSingleResult();
-                //wiki.addProperty(new WikiProperty("1", "1"));
-                //wiki.addProperty(new WikiProperty("2", "2"));
-                //wiki.addProperty(new WikiProperty("3", "3"));
-                //WikiProperty wp1 = wiki.getProperties().get(0);
-                //WikiProperty wp2 = wiki.getProperties().get(1);
-                //wiki.removeProperty(wp1);
-                //wiki.removeProperty(wp2);
-
-                //wiki.getProperties().remove(0);
-                //wiki.getProperties().remove(1);
-                //entityManager.
-                //wiki.setProperties(null);
-
-                //System.out.println(wiki.getProperties().getClass());
-                //System.out.println("size(before)="+wiki.getProperties().size());
-
-
-
-                 Query q = entityManager.createQuery("SELECT grp FROM Group as grp LEFT JOIN FETCH grp.users LEFT JOIN FETCH grp.properties");
-                 System.out.println(q.getResultList().size());
-
-                //wiki.getProperties().remove(0);
-
-                //entityManager.merge(wiki);
-                //entityManager.flush();
-
-
-                //wiki.removeProperty(wp1);
-                //wiki.removeProperty(wp2);
-                //wiki.removeProperty(wp3);
-                //System.out.println("size=(after)"+wiki.getProperties().size());
-                //entityManager.persist(wiki);
+                entityManager.merge(user);
 
                 return null;
             }

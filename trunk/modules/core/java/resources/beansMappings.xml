@@ -23,6 +23,22 @@
             <a>lastName</a>
             <b is-accessible="true">lastName</b>
         </field>
+        <field>
+            <a>description</a>
+            <b is-accessible="true">description</b>
+        </field>
+        <field>
+            <a>password</a>
+            <b is-accessible="true">password</b>
+        </field>
+        <field>
+            <a>properties</a>
+            <b is-accessible="true">properties</b>
+        </field>
+        <field>
+            <a>groups</a>
+            <b is-accessible="true">groups</b>
+        </field>
     </mapping>
     <mapping>
         <class-a>org.tmjee.miniwiki.client.domain.UiGroup</class-a>
@@ -38,6 +54,14 @@
         <field>
             <a>description</a>
             <b is-accessible="true">description</b>
+        </field>
+        <field>
+            <a>properties</a>
+            <b is-accessible="true">properties</b>
+        </field>
+        <field>
+            <a>users</a>
+            <b is-accessible="true">users</b>
         </field>
     </mapping>
     <mapping>

@@ -1,5 +1,7 @@
 package org.tmjee.miniwiki.client.beans;
 
+import java.io.Serializable;
+
 /**
  * Created by IntelliJ IDEA.
  * User: 1269870
@@ -9,10 +11,11 @@ package org.tmjee.miniwiki.client.beans;
  */
 public class PropertyAdditionEvent extends EventObject {
 
-    private Object newValue;
+    private Serializable newValue;
 
-    public PropertyAdditionEvent(Object source, String propertyName,
-                                 Object newValue) {
+    public PropertyAdditionEvent() {}
+    public PropertyAdditionEvent(Serializable source, String propertyName,
+                                 Serializable newValue) {
         super(source, propertyName);
         this.newValue = newValue;
     }

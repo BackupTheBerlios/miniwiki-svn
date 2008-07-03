@@ -17,7 +17,6 @@ public abstract class AbstractHandler implements Handler {
 
     protected void loadTemplate(String template, AsyncCallback asyncCallback) {
         UiTemplateManagementServiceAsync service = Service.getTemplateManagementService();
-        GWT.log("******** "+service, null);
         service.loadTemplate(template, asyncCallback);
     }
     

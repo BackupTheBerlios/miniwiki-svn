@@ -25,6 +25,7 @@ public class AbstractService {
     protected JpaTemplate template;
     protected DozerBeanMapper mapper;
 
+    AbstractService() {}
     public AbstractService(JpaTemplate template, DozerBeanMapper mapper) {
         this.template = template;
         this.mapper = mapper;

@@ -1,5 +1,9 @@
 package org.tmjee.miniwiki.client.beans;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
+
+import java.io.Serializable;
+
 /**
  * Created by IntelliJ IDEA.
  * User: tmjee
@@ -7,18 +11,20 @@ package org.tmjee.miniwiki.client.beans;
  * Time: 11:20:03 AM
  * To change this template use File | Settings | File Templates.
  */
-public class EventObject {
+public class EventObject implements IsSerializable {
 
-    private Object source;
+    private Serializable source;
     private String propertyName;
 
 
-    public EventObject(Object source, String propertyName) {
+    public EventObject() {}
+    
+    public EventObject(Serializable source, String propertyName) {
         this.source = source;
         this.propertyName = propertyName;
     }
 
-    public Object getSource() {
+    public Serializable getSource() {
         return source;
     }
 

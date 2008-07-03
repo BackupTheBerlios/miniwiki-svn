@@ -27,15 +27,15 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
     private String description;
     private String password;
 
-    private transient List<UiUserProperty> uiUserProperties;
-    private transient List<UiGroup> uiGroups;
+    private List<UiUserProperty> uiUserProperties;
+    private List<UiGroup> uiGroups;
 
-    private PropertySupport propertySupport;
+    //private PropertySupport propertySupport;
 
     public UiUser() {
         uiUserProperties = new ArrayList<UiUserProperty>();
         uiGroups = new ArrayList<UiGroup>();
-        propertySupport = new PropertySupport();
+        //propertySupport = new PropertySupport();
     }
 
     public UiUser(String username, String firstName, String lastName) {
@@ -60,23 +60,23 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
 
     public void removeGroup(UiGroup uiGroup) {
         uiGroups.remove(uiGroup);
-        propertySupport.firePropertyDeletion("group", uiGroup);
+        //propertySupport.firePropertyDeletion("group", uiGroup);
     }
 
     public void addGroup(UiGroup uiGroup) {
         uiGroups.add(uiGroup);
-        propertySupport.firePropertyAddition("group", uiGroup);
+        //propertySupport.firePropertyAddition("group", uiGroup);
     }
 
 
     public void removeProperty(UiUserProperty propertyUi) {
         uiUserProperties.remove(propertyUi);
-        propertySupport.firePropertyDeletion("property", propertyUi);
+       //propertySupport.firePropertyDeletion("property", propertyUi);
     }
 
     public void addProperty(UiUserProperty propertyUi) {
         uiUserProperties.add(propertyUi);
-        propertySupport.firePropertyAddition("property", propertyUi);
+        //propertySupport.firePropertyAddition("property", propertyUi);
     }
 
     public List<UiUserProperty> getProperties() {
@@ -91,7 +91,7 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
     public void setId(long id) {
         long oldId = this.id;
         this.id = id;
-        propertySupport.firePropertyChange("id", oldId, this.id);
+        //propertySupport.firePropertyChange("id", oldId, this.id);
 
     }
 
@@ -102,7 +102,7 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
     public void setUsername(String username) {
         String oldUsername = this.username;
         this.username = username;
-        propertySupport.firePropertyChange("username", oldUsername, this.username);
+        //propertySupport.firePropertyChange("username", oldUsername, this.username);
     }
 
     public String getFirstName() {
@@ -112,7 +112,7 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
     public void setFirstName(String firstName) {
         String oldFirstName = this.firstName;
         this.firstName = firstName;
-        propertySupport.firePropertyChange("firstName", oldFirstName, this.firstName);
+        //propertySupport.firePropertyChange("firstName", oldFirstName, this.firstName);
     }
 
     public String getLastName() {
@@ -122,13 +122,13 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
     public void setLastName(String lastName) {
         String oldLastName = this.lastName;
         this.lastName = lastName;
-        propertySupport.firePropertyChange("lastName", oldLastName, this.lastName);
+        //propertySupport.firePropertyChange("lastName", oldLastName, this.lastName);
     }
 
     public void setDescription(String description) {
         String oldDescription = this.description;
         this.description = description;
-        propertySupport.firePropertyChange("description", oldDescription, this.description);
+        //propertySupport.firePropertyChange("description", oldDescription, this.description);
     }
 
     public String getDescription() {
@@ -138,14 +138,18 @@ public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
     public void setPassword(String password) {
         String oldPassword = this.password;
         this.password = password;
-        propertySupport.firePropertyChange("password", oldPassword, this.password);
+        //propertySupport.firePropertyChange("password", oldPassword, this.password);
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void addPropertyListener(PropertyListener listener) {
-        propertySupport.addPropertyChangeListener(listener);
+        //propertySupport.addPropertyChangeListener(listener);
     }
 
     public void removePropertyListener(PropertyListener listener) {
-        propertySupport.removePropertyChangeListener(listener);
+        //propertySupport.removePropertyChangeListener(listener);
     }
 }

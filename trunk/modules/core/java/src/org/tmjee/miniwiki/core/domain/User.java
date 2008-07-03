@@ -68,4 +68,24 @@ public class User {
     @Version
     @Column(name = "VERSION")
     private int version;
+
+
+    public User() {}
+    public User(String username, String firstName, String lastName, String description) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.description = description;
+    }
+
+    public String toString() {
+        return "username="+username+"\n"+
+               "firstName="+firstName+"\n"+
+               "lastName="+lastName+"\n"+
+               "password="+password+"\n"+ 
+               "description="+description+"\n" +
+               "properties="+properties+"\n" +
+               "groups="+groups+"\n";
+    }
+
 }

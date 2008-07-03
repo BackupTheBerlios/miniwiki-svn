@@ -130,7 +130,7 @@
                  <arg line="-port ${gwt.shell.port}" />
                  <arg line="-noserver" />
                  <!-- ERROR, WARN, INFO, TRACE, DEBUG, SPAM, or ALL -->
-                 <arg line="-logLevel DEBUG" />
+                 <arg line="-logLevel INFO" />
                  <!-- OBF[USCATED], PRETTY, or DETAILED (defaults to OBF) -->
                  <arg line="-style PRETTY" />
                  <arg line="-out ${www.dir}" />

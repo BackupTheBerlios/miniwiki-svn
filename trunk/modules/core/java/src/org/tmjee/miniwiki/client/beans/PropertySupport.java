@@ -3,6 +3,7 @@ package org.tmjee.miniwiki.client.beans;
 import com.google.gwt.user.client.rpc.IsSerializable;
 
 import java.util.*;
+import java.io.Serializable;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,15 +14,15 @@ import java.util.*;
  */
 public class PropertySupport implements IsSerializable {
 
-    private transient Object source;
-    private transient List<PropertyListener> propertyListener;
-    private transient Map<String, List<PropertyListener>> mappedPropertyChangeListener;
+    private Serializable source;
+    private ArrayList<PropertyListener> propertyListener;
+    private HashMap<String, List<PropertyListener>> mappedPropertyChangeListener;
 
 
     public PropertySupport() {
     }
 
-    public PropertySupport(Object source) {
+    public PropertySupport(Serializable source) {
         if (source == null) {
             throw new NullPointerException("source is null");
         }
@@ -70,7 +71,7 @@ public class PropertySupport implements IsSerializable {
         );
     }
 
-    public void fireIndexedPropertyChange(String propertyName, int index, Object oldValue, Object newValue) {
+    public void fireIndexedPropertyChange(String propertyName, int index, Serializable oldValue, Serializable newValue) {
         fireEvent(
                 new IndexedPropertyChangeEvent(source, propertyName, oldValue, newValue, index)
         );
@@ -105,7 +106,7 @@ public class PropertySupport implements IsSerializable {
         fireEvent(new PropertyChangeEvent(source, propertyName, new Integer(oldValue), new Integer(newValue)));
     }
 
-    public void firePropertyChange(String propertyName, Object oldValue, Object newValue) {
+    public void firePropertyChange(String propertyName, Serializable oldValue, Serializable newValue) {
         fireEvent(new PropertyChangeEvent(source, propertyName, oldValue, newValue));;
     }
 
@@ -117,7 +118,7 @@ public class PropertySupport implements IsSerializable {
         fireEvent(new PropertyDeletionEvent(source, propertyName, oldValue));
     }
 
-    public void firePropertyDeletion(String propertyName, Object oldValue) {
+    public void firePropertyDeletion(String propertyName, Serializable oldValue) {
         fireEvent(new PropertyDeletionEvent(source, propertyName, oldValue));
     }
 
@@ -129,7 +130,7 @@ public class PropertySupport implements IsSerializable {
         fireEvent(new PropertyAdditionEvent(source, propertyName, newValue));
     }
 
-    public void firePropertyAddition(String propertyName, Object newValue) {
+    public void firePropertyAddition(String propertyName, Serializable newValue) {
         fireEvent(new PropertyAdditionEvent(source, propertyName, newValue));
     }
 
