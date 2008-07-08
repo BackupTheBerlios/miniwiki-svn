@@ -16,7 +16,7 @@ import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
  */
 public class UiGroups implements IsSerializable {
 
-    private transient List<UiGroup> uiGroups;
+    private List<UiGroup> uiGroups;
     private ResponsePagingInfo responsePagingInfo;
 
     public UiGroups() {

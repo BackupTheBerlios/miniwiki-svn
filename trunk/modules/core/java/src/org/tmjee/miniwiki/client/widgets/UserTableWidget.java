@@ -10,6 +10,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
+import com.google.gwt.core.client.GWT;
 
 import java.util.Iterator;
 import java.util.List;
@@ -74,7 +75,7 @@ public class UserTableWidget extends SimpleTableWidget {
                     public void onSuccess(Object o) {
                         final UiUsers uiUsers = (UiUsers) o;
                         update(uiUsers.getResponsePagingInfo(),
-                               uiUsers.getUsers().toArray(new UiUser[0]));
+                               uiUsers.getUsers());
                         LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
@@ -95,7 +96,7 @@ public class UserTableWidget extends SimpleTableWidget {
                     public void onSuccess(Object o) {
                         final UiUsers uiUsers = (UiUsers) o;
                         update(uiUsers.getResponsePagingInfo(),
-                               uiUsers.getUsers().toArray(new UiUser[0]));
+                               uiUsers.getUsers());
                         LoadingMessageDisplayWidget.getInstance().done();
                     }
                 }

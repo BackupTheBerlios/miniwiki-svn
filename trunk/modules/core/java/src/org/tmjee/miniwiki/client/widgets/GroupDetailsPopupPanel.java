@@ -95,7 +95,7 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
                 Utils.PageableObjectListWrapper<UiUser> w = Utils.toPageableObjectListWrapper(
                         pagingInfo,
                         GroupDetailsPopupPanel.this.uiGroup.getUsers());
-                update(w.getResponse(), Utils.toArray(w.getList()));
+                update(w.getResponse(), w.getList());
             }
         };
         usersTable.init(
@@ -197,8 +197,8 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
                                             public void save(String propertyName, String propertyValue) {
                                                 rowObject.setName(propertyName);
                                                 rowObject.setValue(propertyValue);
-                                                propertiesTable.refresh(Utils.toArray(
-                                                        GroupDetailsPopupPanel.this.uiGroup.getProperties()));
+                                                propertiesTable.refresh(
+                                                        GroupDetailsPopupPanel.this.uiGroup.getProperties());
                                             }
                                         });
                             }
@@ -212,7 +212,7 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
                         new PropertyDetailsPopupPanel.Handler() {
                             public void save(String propertyName, String propertyValue) {
                                 GroupDetailsPopupPanel.this.uiGroup.addProperty(new UiGroupProperty(propertyName, propertyValue));
-                                propertiesTable.refresh(Utils.toArray(GroupDetailsPopupPanel.this.uiGroup.getProperties()));
+                                propertiesTable.refresh(GroupDetailsPopupPanel.this.uiGroup.getProperties());
                             }
                         });
             }
@@ -226,7 +226,7 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
                                 for (UiGroupProperty prop: selectedProperties) {
                                     GroupDetailsPopupPanel.this.uiGroup.removeProperty(prop);
                                 }
-                                propertiesTable.refresh(Utils.toArray(GroupDetailsPopupPanel.this.uiGroup.getProperties()));
+                                propertiesTable.refresh(GroupDetailsPopupPanel.this.uiGroup.getProperties());
                             }
                         }
                 );

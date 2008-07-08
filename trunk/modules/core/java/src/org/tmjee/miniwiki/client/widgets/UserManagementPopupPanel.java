@@ -1,6 +1,7 @@
 package org.tmjee.miniwiki.client.widgets;
 
 import com.google.gwt.user.client.ui.*;
+import org.tmjee.miniwiki.client.domain.UiUser;
 
 /**
  * @author tmjee

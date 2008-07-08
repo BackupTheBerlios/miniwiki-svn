@@ -5,6 +5,7 @@ import org.springframework.orm.jpa.JpaCallback;
 import org.tmjee.miniwiki.core.domain.Wiki;
 import org.tmjee.miniwiki.core.domain.WikiProperty;
 import org.tmjee.miniwiki.core.domain.User;
+import org.tmjee.miniwiki.core.domain.UserProperty;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
@@ -34,8 +35,11 @@ public class TstService {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
 
                 User user = new User("u1", "u1", "u1", "u1");
+                user.addProperty(new UserProperty("p1", "p1"));
+                user.addProperty(new UserProperty("p2", "p2"));
 
-                entityManager.merge(user);
+                //entityManager.merge(user);
+                entityManager.persist(user);
 
                 return null;
             }

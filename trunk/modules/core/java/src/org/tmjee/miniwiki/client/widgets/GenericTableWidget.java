@@ -100,7 +100,7 @@ public abstract class GenericTableWidget<T> extends Composite implements Sources
         refresh(currentPagingInfo);
     }
 
-    protected void update(ResponsePagingInfo responsePagingInfo, T[] rowObjects) {
+    protected void update(ResponsePagingInfo responsePagingInfo, List<T> rowObjects) {
         nextPagingInfo = responsePagingInfo.getNextPagePagingInfo();
         prevPagingInfo = responsePagingInfo.getPreviousPagePagingInfo();
         nextPageButton.setEnabled(responsePagingInfo.hasNextPage());

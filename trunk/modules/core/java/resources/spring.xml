@@ -80,11 +80,18 @@
         <aop:pointcut id="pcTemplateManagementService"
                       type="aspectj"
                       expression="execution(* org.tmjee.miniwiki.core.service.TemplateManagementService.*(..))" />
+        <aop:pointcut id="pcTestService"
+                      type="aspectj"
+                      expression="execution(* testing.TstService.*(..))" />
+
+
 
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcSetupService" />
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcUserManagementService" />
+        <aop:advisor advice-ref="txAdvice"
+                     pointcut-ref="pcTestService" />
     </aop:config>
 
 

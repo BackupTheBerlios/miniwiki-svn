@@ -10,6 +10,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import java.util.Map;
 import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
 
 import net.sf.dozer.util.mapping.DozerBeanMapper;
 
@@ -32,8 +34,8 @@ public class AbstractService {
     }
 
     protected Query preparePagingInfo(Query query, PagingInfo pagingInfo) {
-        query.setFirstResult(pagingInfo.getPageNumber()*(pagingInfo.getPageSize()-1));
-        query.setMaxResults(pagingInfo.getPageSize());
+        query.setFirstResult((pagingInfo.getPageNumber()-1)*pagingInfo.getPageSize());
+        query.setMaxResults((pagingInfo.getPageNumber()*pagingInfo.getPageSize())-1);
         return query;
     }
 
@@ -55,8 +57,20 @@ public class AbstractService {
         return new ResponsePagingInfo(pagingInfo, totalRecords);
     }
 
+    protected <F,T> List<T> mapList(List<F> fs, List<T> ts, Class<T> clazz) {
+        List<T> result = new ArrayList<T>();
+        for (F f: fs) {
+            result.add(map(f, clazz));
+        }
+        return result;
+    }
+
     protected <F,T> T map(F f, T t) {
         mapper.map(f, t);
         return t;
+    }
+
+    protected <F,T> T map(F f, Class<T> tclass) {
+        return (T) mapper.map(f, tclass);
     }
 }

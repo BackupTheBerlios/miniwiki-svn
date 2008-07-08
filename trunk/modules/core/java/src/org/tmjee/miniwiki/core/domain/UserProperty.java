@@ -35,4 +35,10 @@ public class UserProperty {
     @Version
     @Column(name = "VERSION")
     private int version;
+
+    public UserProperty() {}
+    public UserProperty(String name, String value) {
+        this.name = name;
+        this.value = value;
+    }
 }

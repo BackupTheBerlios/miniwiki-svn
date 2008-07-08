@@ -34,10 +34,14 @@
         <field>
             <a>properties</a>
             <b is-accessible="true">properties</b>
+            <a-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.core.domain.UserProperty</b-hint>
         </field>
         <field>
             <a>groups</a>
             <b is-accessible="true">groups</b>
+            <a-hint>org.tmjee.miniwiki.client.domain.UiGroup</a-hint>
+            <b-hint>org.tmjee.miniwiki.core.domain.Group</b-hint>
         </field>
     </mapping>
     <mapping>
@@ -58,15 +62,35 @@
         <field>
             <a>properties</a>
             <b is-accessible="true">properties</b>
+            <a-hint>org.tmjee.miniwiki.client.domain.UiGroupProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.core.domain.GroupProperty</b-hint>
         </field>
         <field>
             <a>users</a>
             <b is-accessible="true">users</b>
+            <a-hint>org.tmjee.miniwiki.client.domain.UiUser</a-hint>
+            <b-hint>org.tmjee.mminiwiki.core.domain.User</b-hint>
         </field>
     </mapping>
     <mapping>
         <class-a>org.tmjee.miniwiki.client.domain.UiUserProperty</class-a>
         <class-b>org.tmjee.miniwiki.core.domain.UserProperty</class-b>
+        <field>
+            <a>id</a>
+            <b is-accessible="true">id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b is-accessible="true">name</b>
+        </field>
+        <field>
+            <a>value</a>
+            <b is-accessible="true">value</b>
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>org.tmjee.miniwiki.client.domain.UiGroupProperty</class-a>
+        <class-b>org.tmjee.miniwiki.core.domain.GroupProperty</class-b>
         <field>
             <a>id</a>
             <b is-accessible="true">id</b>

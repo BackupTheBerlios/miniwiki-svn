@@ -5,6 +5,7 @@ import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by IntelliJ IDEA.
@@ -40,7 +41,7 @@ public class User {
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "USER_ID", referencedColumnName = "ID")
-    private List<UserProperty> properties;
+    private List<UserProperty> properties = new ArrayList<UserProperty>();
 
 
     @ManyToMany(targetEntity = Group.class,
@@ -49,7 +50,7 @@ public class User {
     @JoinTable(name = "TBL_USER_GROUP",
                 joinColumns = {@JoinColumn(name="USER_ID", referencedColumnName = "ID")},
                 inverseJoinColumns = {@JoinColumn(name="GROUP_ID", referencedColumnName = "ID")})
-    private List<Group> groups;
+    private List<Group> groups = new ArrayList<Group>();
 
 
     @Basic
@@ -76,6 +77,10 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.description = description;
+    }
+
+    public void addProperty(UserProperty userProperty) {
+        properties.add(userProperty);
     }
 
     public String toString() {

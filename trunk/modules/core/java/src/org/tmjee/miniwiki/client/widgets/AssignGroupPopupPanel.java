@@ -59,7 +59,7 @@ public class AssignGroupPopupPanel extends DialogBox {
                             }
                             public void onSuccess(Object o) {
                                 UiGroups uiGroups = (UiGroups) o;
-                                table.refresh(Utils.toArray(uiGroups.getGroups()));
+                                table.refresh(uiGroups.getGroups());
                             }
                         });
             }

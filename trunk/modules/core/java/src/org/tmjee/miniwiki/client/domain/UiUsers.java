@@ -17,7 +17,7 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 public class UiUsers implements IsSerializable {
 
     private ResponsePagingInfo responsePagingInfo;
-    private transient List<UiUser> uiUsers;
+    private List<UiUser> uiUsers;
 
 
     public UiUsers() {

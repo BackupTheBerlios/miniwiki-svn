@@ -136,11 +136,11 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                         new AssignGroupPopupPanel.Handler() {
                             public void join(UiUser uiUser, UiGroup uiGroup) {
                                 uiUser.addGroup(uiGroup);
-                                groupsTable.refresh(Utils.toArray(uiUser.getGroups()));
+                                groupsTable.refresh(uiUser.getGroups());
                             }
                             public void leave(UiUser uiUser, UiGroup uiGroup) {
                                 uiUser.removeGroup(uiGroup);
-                                groupsTable.refresh(Utils.toArray(uiUser.getGroups()));
+                                groupsTable.refresh(uiUser.getGroups());
                             }
                 });
             }
@@ -227,7 +227,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                                         public void save(String propertyName, String propertyValue) {
                                             uiUserProperty.setName(propertyName);
                                             uiUserProperty.setValue(propertyValue);
-                                            propertiesTable.refresh(Utils.toArray(UserDetailsPopupPanel.this.uiUser.getProperties()));
+                                            propertiesTable.refresh(UserDetailsPopupPanel.this.uiUser.getProperties());
                                         }
                                     });
                         }
@@ -249,7 +249,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                 for (UiUserProperty p : selectedProperties) {
                     UserDetailsPopupPanel.this.uiUser.removeProperty(p);
                 }
-                propertiesTable.refresh(Utils.toArray(UserDetailsPopupPanel.this.uiUser.getProperties()));
+                propertiesTable.refresh(UserDetailsPopupPanel.this.uiUser.getProperties());
             }
         });
 
@@ -258,7 +258,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                 new PropertyDetailsPopupPanel(new PropertyDetailsPopupPanel.Handler() {
                     public void save(String propertyName, String propertyValue) {
                         UserDetailsPopupPanel.this.uiUser.addProperty(new UiUserProperty(propertyName, propertyValue));
-                        propertiesTable.refresh(Utils.toArray(UserDetailsPopupPanel.this.uiUser.getProperties()));
+                        propertiesTable.refresh(UserDetailsPopupPanel.this.uiUser.getProperties());
                     }
                 });
             }

@@ -70,14 +70,13 @@ public class FlexTableExt<T> extends FlexTable {
     }
 
 
-    public void refresh(T[] _rowObjects) {
+    public void refresh(List<T> _rowObjects) {
         selectedRowObjects.clear();
         rowObjects.clear();
 
-        for (int a=0; a< _rowObjects.length; a++) {
+        for (int a=0; a< _rowObjects.size(); a++) {
                 int row = a+1;
-                T rowObject = _rowObjects[a];
-                int totalCols = 0;
+                T rowObject = _rowObjects.get(a);
                 _doAdd(rowObject, row);
         }
 
@@ -89,10 +88,12 @@ public class FlexTableExt<T> extends FlexTable {
     }
 
     public void deleteRow(T rowObject) {
-        deleteRows(Utils.toArray(rowObject));
+        ArrayList<T> l = new ArrayList<T>();
+        l.add(rowObject);
+        deleteRows(l);
     }
 
-    public void deleteRows(T[] _rowObjects) {
+    public void deleteRows(List<T> _rowObjects) {
         boolean anyRowsAffected = false;
         for (Object rowObject: _rowObjects) {
             if (rowObjects.contains(rowObject)) {
@@ -111,10 +112,12 @@ public class FlexTableExt<T> extends FlexTable {
     }
 
     public void addRow(T rowObject) {
-        addRows(Utils.toArray(rowObject));
+        ArrayList<T> l = new ArrayList<T>();
+        l.add(rowObject);
+        addRows(l);
     }
 
-    public void addRows(T[] _rowObjects) {
+    public void addRows(List<T> _rowObjects) {
         boolean rowAffected = false;
         for (T rowObject: _rowObjects) {
             if (! rowObjects.contains(rowObject)) {

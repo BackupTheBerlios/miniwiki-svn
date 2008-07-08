@@ -67,7 +67,7 @@ public class GroupTableWidget extends SimpleTableWidget {
                     public void onSuccess(Object o) {
                         UiGroups uiGroups = (UiGroups) o;
                         update(uiGroups.getResponsePagingInfo(),
-                                (UiGroup[])uiGroups.getGroups().toArray(new UiGroup[0]));
+                                uiGroups.getGroups());
                         LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
@@ -88,7 +88,7 @@ public class GroupTableWidget extends SimpleTableWidget {
                     public void onSuccess(Object o) {
                         UiGroups uiGroups = (UiGroups)o;
                         update(uiGroups.getResponsePagingInfo(),
-                                uiGroups.getGroups().toArray(new UiGroup[0]));
+                                uiGroups.getGroups());
                         LoadingMessageDisplayWidget.getInstance().done();
                     }
                 });
