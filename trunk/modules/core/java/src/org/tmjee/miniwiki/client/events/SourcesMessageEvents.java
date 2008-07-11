@@ -4,11 +4,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: Jun 3, 2008
- * Time: 6:33:12 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public interface SourcesMessageEvents {
     public void addMessageEventListener(MessageEventListener listener);

@@ -3,11 +3,8 @@ package org.tmjee.miniwiki.client.server;
 import org.tmjee.miniwiki.client.Constants;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 2, 2008
- * Time: 4:28:18 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class ResponsePagingInfo extends PagingInfo {
 

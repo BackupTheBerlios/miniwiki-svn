@@ -8,11 +8,8 @@ import java.util.ArrayList;
 import com.google.gwt.user.client.rpc.IsSerializable;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 2, 2008
- * Time: 4:46:36 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class UiUsers implements IsSerializable {
 

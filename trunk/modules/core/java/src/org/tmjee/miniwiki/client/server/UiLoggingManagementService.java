@@ -6,11 +6,8 @@ import com.google.gwt.user.client.rpc.SerializableException;
 import java.io.Serializable;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 18, 2008
- * Time: 4:37:49 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public interface UiLoggingManagementService extends RemoteService {
 

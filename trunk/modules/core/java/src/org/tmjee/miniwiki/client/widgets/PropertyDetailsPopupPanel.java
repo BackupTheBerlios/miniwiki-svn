@@ -7,11 +7,8 @@ import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.MessageEvent;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 5, 2008
- * Time: 3:00:01 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class PropertyDetailsPopupPanel extends DialogBox implements SourcesMessageEvents {
 

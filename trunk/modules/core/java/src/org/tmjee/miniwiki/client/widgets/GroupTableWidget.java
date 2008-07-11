@@ -15,11 +15,8 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 23, 2008
- * Time: 6:03:36 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class GroupTableWidget extends SimpleTableWidget {
 

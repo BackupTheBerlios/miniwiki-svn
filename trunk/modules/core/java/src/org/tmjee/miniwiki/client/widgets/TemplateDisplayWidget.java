@@ -15,11 +15,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 29, 2008
- * Time: 5:58:40 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class TemplateDisplayWidget extends VerticalPanel {
 

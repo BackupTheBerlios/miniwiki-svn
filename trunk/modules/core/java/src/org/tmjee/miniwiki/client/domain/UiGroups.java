@@ -8,11 +8,8 @@ import java.util.ArrayList;
 import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 6, 2008
- * Time: 2:06:10 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class UiGroups implements IsSerializable {
 

@@ -6,11 +6,8 @@ import org.tmjee.miniwiki.core.Bootstrap;
 import javax.persistence.EntityManager;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 12, 2008
- * Time: 5:35:00 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class JpaTest {
 

@@ -5,11 +5,8 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 5, 2008
- * Time: 6:43:09 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class UiGroup implements IsSerializable {
 

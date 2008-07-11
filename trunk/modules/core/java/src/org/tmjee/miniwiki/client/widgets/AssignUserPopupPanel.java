@@ -7,11 +7,8 @@ import org.tmjee.miniwiki.client.server.PagingInfo;
 import com.google.gwt.user.client.ui.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jul 1, 2008
- * Time: 6:40:48 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class AssignUserPopupPanel extends DialogBox  {
 

@@ -3,16 +3,17 @@ package org.tmjee.miniwiki.core.domain;
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;
 import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
 import org.apache.openjpa.persistence.jdbc.ForeignKey;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 19, 2008
- * Time: 11:06:17 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name="TBL_SPACE")
@@ -36,7 +37,7 @@ public class Space {
                 fetch = FetchType.LAZY)
     @ElementJoinColumn(name = "SPACE_ID", referencedColumnName = "ID")
     @ElementForeignKey
-    private List<Page> pages;
+    private Set<Page> pages = new LinkedHashSet<Page>();
 
     @ManyToOne(targetEntity = User.class,
                 cascade = {CascadeType.ALL},
@@ -50,10 +51,92 @@ public class Space {
                 fetch = FetchType.LAZY)
     @ElementJoinColumn(name = "SPACE_ID", referencedColumnName = "ID")
     @ElementForeignKey
-    private List<SpacePriviledge> pagePriviledges;
+    private Set<SpacePriviledge> pagePriviledges = new LinkedHashSet<SpacePriviledge>();
 
     @Version
     @Column(name = "VERSION")
     private int version;
-   
+
+    // === constructor ===
+    public Space() {}
+
+
+
+
+    // === getters ===
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<Page> getPages() {
+        return pages;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public Set<SpacePriviledge> getPagePriviledges() {
+        return pagePriviledges;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+
+
+
+    // === setters ===
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPages(Set<Page> pages) {
+        this.pages = pages;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
+    public void setPagePriviledges(Set<SpacePriviledge> pagePriviledges) {
+        this.pagePriviledges = pagePriviledges;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+
+
+
+    
+    // === equals & hashcode
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Space)) {
+            return false;
+        }
+        if (this == obj) { return true; }
+        return new EqualsBuilder()
+                    .append(name, ((Space)obj).getName())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(name)
+                    .toHashCode();
+    }
 }

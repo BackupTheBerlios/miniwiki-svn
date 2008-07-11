@@ -1,11 +1,8 @@
 package org.tmjee.miniwiki.client;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 2, 2008
- * Time: 4:16:55 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class Constants {
 

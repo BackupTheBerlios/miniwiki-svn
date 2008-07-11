@@ -4,11 +4,8 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 import org.tmjee.miniwiki.client.Constants;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 2, 2008
- * Time: 4:14:37 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class PagingInfo implements IsSerializable {
 

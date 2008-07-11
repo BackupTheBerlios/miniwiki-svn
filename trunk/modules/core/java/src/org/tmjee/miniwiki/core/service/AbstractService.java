@@ -16,18 +16,15 @@ import java.util.ArrayList;
 import net.sf.dozer.util.mapping.DozerBeanMapper;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 18, 2008
- * Time: 10:31:19 AM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class AbstractService {
 
     protected JpaTemplate template;
     protected DozerBeanMapper mapper;
 
-    AbstractService() {}
+    protected AbstractService() {}
     public AbstractService(JpaTemplate template, DozerBeanMapper mapper) {
         this.template = template;
         this.mapper = mapper;

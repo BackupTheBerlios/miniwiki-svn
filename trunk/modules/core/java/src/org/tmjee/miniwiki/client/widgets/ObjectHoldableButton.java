@@ -4,11 +4,8 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 6, 2008
- * Time: 6:16:40 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class ObjectHoldableButton extends Button {
 

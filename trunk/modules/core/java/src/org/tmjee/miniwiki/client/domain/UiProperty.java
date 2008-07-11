@@ -6,11 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 5, 2008
- * Time: 4:35:16 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public abstract class UiProperty implements IsSerializable {
 

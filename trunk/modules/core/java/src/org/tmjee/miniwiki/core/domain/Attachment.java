@@ -1,13 +1,13 @@
 package org.tmjee.miniwiki.core.domain;
 
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+
 import javax.persistence.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 20, 2008
- * Time: 9:34:12 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name = "TBL_ATTACHEMENT")
@@ -22,6 +22,10 @@ public class Attachment {
     @Column(name = "ID", unique = true, nullable = false)
     private long id;
 
+    @Basic
+    @Column(name="NAME", nullable=false)
+    private String name;
+
     @Basic(optional = false)
     @Column(name = "CONTENT_TYPE", nullable = false)
     private String contentType;
@@ -34,4 +38,74 @@ public class Attachment {
     @Column(name = "VERSION")
     private int version;
 
+
+    // === constructors ===
+    public Attachment() {}
+
+
+    // === getters ===
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+
+    // === setters ===
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public byte[] getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(byte[] attachment) {
+        this.attachment = attachment;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    
+
+
+
+    // === Equals & HashCode ===
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Attachment)) {
+            return false;
+        }
+        if (obj == this) { return true; }
+        return new EqualsBuilder()
+                    .append(name, ((Attachment)obj).getName())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(name)
+                    .toHashCode();
+    }
 }

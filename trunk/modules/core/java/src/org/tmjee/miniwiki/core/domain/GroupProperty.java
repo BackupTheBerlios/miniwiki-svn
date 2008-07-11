@@ -1,13 +1,13 @@
 package org.tmjee.miniwiki.core.domain;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import javax.persistence.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 20, 2008
- * Time: 11:01:19 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name = "TBL_GROUP_PROPERTY")
@@ -34,4 +34,68 @@ public class GroupProperty {
     @Column(name = "VERSION")
     private int version;
 
+
+    // === Constructor ===
+    public GroupProperty() {}
+
+
+
+    // === getters ===
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+
+    // === setters ===
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    
+
+    
+
+    // === Equals & HashCode
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof GroupProperty)) {
+            return false;
+        }
+        if (obj == this) { return true; }
+        return new EqualsBuilder()
+                    .append(name, ((GroupProperty)obj).getName())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(name)
+                    .toHashCode();
+    }
 }

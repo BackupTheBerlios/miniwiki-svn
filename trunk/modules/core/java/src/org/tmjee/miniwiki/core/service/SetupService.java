@@ -11,11 +11,8 @@ import javax.persistence.Query;
 import javax.persistence.EntityManagerFactory;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 21, 2008
- * Time: 4:52:35 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class SetupService {
 

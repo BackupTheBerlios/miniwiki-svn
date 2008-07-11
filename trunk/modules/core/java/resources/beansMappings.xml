@@ -3,43 +3,44 @@
     "http://dozer.sourceforge.net/dtd/dozerbeanmapping.dtd">
 <mappings>
     <configuration>
+        <relationship-type>non-cumulative</relationship-type>
     </configuration>
     <mapping>
         <class-a>org.tmjee.miniwiki.client.domain.UiUser</class-a>
         <class-b>org.tmjee.miniwiki.core.domain.User</class-b>
         <field>
             <a>id</a>
-            <b is-accessible="true">id</b>
+            <b>id</b>
         </field>
         <field>
             <a>username</a>
-            <b is-accessible="true">username</b>
+            <b>username</b>
         </field>
         <field>
             <a>firstName</a>
-            <b is-accessible="true">firstName</b>
+            <b>firstName</b>
         </field>
         <field>
             <a>lastName</a>
-            <b is-accessible="true">lastName</b>
+            <b>lastName</b>
         </field>
         <field>
             <a>description</a>
-            <b is-accessible="true">description</b>
+            <b>description</b>
         </field>
         <field>
             <a>password</a>
-            <b is-accessible="true">password</b>
+            <b>password</b>
         </field>
         <field>
             <a>properties</a>
-            <b is-accessible="true">properties</b>
+            <b>properties</b>
             <a-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</a-hint>
             <b-hint>org.tmjee.miniwiki.core.domain.UserProperty</b-hint>
         </field>
         <field>
             <a>groups</a>
-            <b is-accessible="true">groups</b>
+            <b>groups</b>
             <a-hint>org.tmjee.miniwiki.client.domain.UiGroup</a-hint>
             <b-hint>org.tmjee.miniwiki.core.domain.Group</b-hint>
         </field>
@@ -49,25 +50,25 @@
         <class-b>org.tmjee.miniwiki.core.domain.Group</class-b>
         <field>
             <a>id</a>
-            <b is-accessible="true">id</b>
+            <b>id</b>
         </field>
         <field>
             <a>name</a>
-            <b is-accessible="true">name</b>
+            <b>name</b>
         </field>
         <field>
             <a>description</a>
-            <b is-accessible="true">description</b>
+            <b>description</b>
         </field>
         <field>
             <a>properties</a>
-            <b is-accessible="true">properties</b>
+            <b>properties</b>
             <a-hint>org.tmjee.miniwiki.client.domain.UiGroupProperty</a-hint>
             <b-hint>org.tmjee.miniwiki.core.domain.GroupProperty</b-hint>
         </field>
         <field>
             <a>users</a>
-            <b is-accessible="true">users</b>
+            <b>users</b>
             <a-hint>org.tmjee.miniwiki.client.domain.UiUser</a-hint>
             <b-hint>org.tmjee.mminiwiki.core.domain.User</b-hint>
         </field>
@@ -77,15 +78,15 @@
         <class-b>org.tmjee.miniwiki.core.domain.UserProperty</class-b>
         <field>
             <a>id</a>
-            <b is-accessible="true">id</b>
+            <b>id</b>
         </field>
         <field>
             <a>name</a>
-            <b is-accessible="true">name</b>
+            <b>name</b>
         </field>
         <field>
             <a>value</a>
-            <b is-accessible="true">value</b>
+            <b>value</b>
         </field>
     </mapping>
     <mapping>
@@ -93,15 +94,15 @@
         <class-b>org.tmjee.miniwiki.core.domain.GroupProperty</class-b>
         <field>
             <a>id</a>
-            <b is-accessible="true">id</b>
+            <b>id</b>
         </field>
         <field>
             <a>name</a>
-            <b is-accessible="true">name</b>
+            <b>name</b>
         </field>
         <field>
             <a>value</a>
-            <b is-accessible="true">value</b>
+            <b>value</b>
         </field>
     </mapping>
 </mappings>

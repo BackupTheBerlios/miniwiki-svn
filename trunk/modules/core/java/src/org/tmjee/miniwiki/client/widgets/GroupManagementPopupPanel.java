@@ -3,11 +3,8 @@ package org.tmjee.miniwiki.client.widgets;
 import com.google.gwt.user.client.ui.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: Jun 8, 2008
- * Time: 5:06:30 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class GroupManagementPopupPanel extends DialogBox {
 

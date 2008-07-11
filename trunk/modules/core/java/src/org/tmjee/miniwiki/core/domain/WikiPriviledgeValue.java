@@ -1,13 +1,13 @@
 package org.tmjee.miniwiki.core.domain;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import javax.persistence.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 19, 2008
- * Time: 3:09:14 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name="TBL_WIKI_PRIVILEDGE_VALUE")
@@ -32,4 +32,59 @@ public class WikiPriviledgeValue {
     @Column(name = "VERSION")
     private int version;
 
+
+    // === constructor ===
+    public WikiPriviledgeValue() {}
+
+
+    // === getters ===
+
+    public long getId() {
+        return id;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+
+
+    // === setters ===
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+
+    
+
+    // === equals & hashcode
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof WikiPriviledgeValue)) {
+            return false;
+        }
+        if (this == obj) { return true; }
+        return new EqualsBuilder()
+                    .append(value, ((WikiPriviledgeValue)obj).getValue())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(value)
+                    .toHashCode();
+    }
 }

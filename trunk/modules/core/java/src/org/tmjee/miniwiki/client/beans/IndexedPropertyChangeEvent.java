@@ -3,11 +3,8 @@ package org.tmjee.miniwiki.client.beans;
 import java.io.Serializable;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: Jun 1, 2008
- * Time: 11:39:06 AM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class IndexedPropertyChangeEvent extends PropertyChangeEvent {
 

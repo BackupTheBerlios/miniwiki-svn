@@ -2,16 +2,17 @@ package org.tmjee.miniwiki.core.domain;
 
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;
 import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 20, 2008
- * Time: 10:43:01 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name = "TBL_GROUP")
@@ -33,14 +34,14 @@ public class Group {
     @ManyToMany(targetEntity = User.class,
                 fetch = FetchType.LAZY,
                 mappedBy = "groups")
-    private List<User> users;
+    private Set<User> users = new LinkedHashSet<User>();
 
     @OneToMany(targetEntity = GroupProperty.class,
                 cascade={CascadeType.ALL},
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "GROUP_ID", referencedColumnName = "ID")
-    private List<GroupProperty> properties;
+    private Set<GroupProperty> properties = new LinkedHashSet<GroupProperty>();
 
     @Version
     @Column(name = "VERSION")
@@ -50,4 +51,84 @@ public class Group {
     @Column(name="DESCRIPTION")
     private String description;
 
+
+
+    // === constructors ===
+    public Group() {
+    }
+
+
+    // === getters ===
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public Set<GroupProperty> getProperties() {
+        return properties;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+
+    // === setters ===
+    
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public void setProperties(Set<GroupProperty> properties) {
+        this.properties = properties;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    
+
+
+    // == equals & hashcode ===
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Group)) {
+            return false;
+        }
+        if (obj == this) { return true; }
+        return new EqualsBuilder()
+                    .append(name, ((Group)obj).getName())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(name)
+                    .toHashCode();
+    }
 }

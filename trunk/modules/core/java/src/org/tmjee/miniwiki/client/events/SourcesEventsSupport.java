@@ -5,11 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: Jun 3, 2008
- * Time: 6:35:03 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class SourcesEventsSupport {
 

@@ -6,11 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 9, 2008
- * Time: 5:43:49 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @NamedQueries({
     @NamedQuery(

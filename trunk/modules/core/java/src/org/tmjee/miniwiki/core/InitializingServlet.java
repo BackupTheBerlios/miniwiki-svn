@@ -5,11 +5,8 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 19, 2008
- * Time: 3:19:31 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class InitializingServlet extends HttpServlet {
 

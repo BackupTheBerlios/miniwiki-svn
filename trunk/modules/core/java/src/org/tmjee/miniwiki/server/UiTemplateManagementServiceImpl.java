@@ -5,11 +5,8 @@ import org.tmjee.miniwiki.client.server.TemplateInfo;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 22, 2008
- * Time: 3:36:09 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class UiTemplateManagementServiceImpl extends RemoteServiceServlet implements UiTemplateManagementService {
 

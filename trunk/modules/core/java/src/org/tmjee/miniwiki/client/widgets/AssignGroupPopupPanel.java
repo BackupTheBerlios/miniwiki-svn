@@ -15,11 +15,8 @@ import org.tmjee.miniwiki.client.utils.Logger;
 import org.tmjee.miniwiki.client.utils.Utils;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 6, 2008
- * Time: 6:24:29 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class AssignGroupPopupPanel extends DialogBox {
 

@@ -10,11 +10,8 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.google.gwt.user.client.rpc.SerializableException;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 18, 2008
- * Time: 4:48:19 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class UiLoggingManagementServiceImpl extends RemoteServiceServlet implements UiLoggingManagementService  {
 

@@ -5,11 +5,8 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 import java.io.Serializable;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: Jun 1, 2008
- * Time: 11:20:03 AM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class EventObject implements IsSerializable {
 

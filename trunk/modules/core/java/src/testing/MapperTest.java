@@ -3,6 +3,7 @@ package testing;
 import org.tmjee.miniwiki.core.Bootstrap;
 import org.tmjee.miniwiki.core.service.SetupService;
 import org.tmjee.miniwiki.core.domain.User;
+import org.tmjee.miniwiki.core.domain.UserProperty;
 import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.domain.UiGroup;
 import org.tmjee.miniwiki.client.domain.UiProperty;
@@ -14,11 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jul 3, 2008
- * Time: 4:38:20 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class MapperTest {
 
@@ -40,8 +38,9 @@ public class MapperTest {
         uiUser.addGroup(new UiGroup());
 
         User user = new User();
+        user.addProperty(new UserProperty("p2", "xxxxxxx"));
         mapper.map(uiUser, user);
-        System.out.println(user);
+        print(user);
 
 
         /*
@@ -54,5 +53,17 @@ public class MapperTest {
 
         System.out.println(l2.size());
         */
+    }
+
+
+    private static void print(User user) {
+        System.out.println("username="+user.getUsername());
+        System.out.println("firstname="+user.getFirstName());
+        System.out.println("lastname="+user.getLastName());
+        System.out.println("password="+user.getPassword());
+        System.out.println("description="+user.getDescription());
+        for (UserProperty up : user.getProperties()) {
+            System.out.println("p->"+up.getName()+"="+up.getValue());
+        }
     }
 }

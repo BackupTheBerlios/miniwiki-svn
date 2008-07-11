@@ -3,11 +3,8 @@ package org.tmjee.miniwiki.client.domain;
 import com.google.gwt.user.client.rpc.IsSerializable;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: Jun 8, 2008
- * Time: 2:33:38 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class UiCredentials implements IsSerializable {
 

@@ -5,11 +5,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import org.tmjee.miniwiki.client.server.TemplateInfo;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 22, 2008
- * Time: 2:23:26 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class WikiHandler extends AbstractHandler {
 

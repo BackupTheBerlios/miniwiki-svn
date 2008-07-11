@@ -14,11 +14,8 @@ import org.tmjee.miniwiki.client.domain.UiCredentials;
 import org.tmjee.miniwiki.client.utils.Logger;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: Jun 8, 2008
- * Time: 9:05:11 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class LoginPopupPanel extends DialogBox implements SourcesMessageEvents {
 

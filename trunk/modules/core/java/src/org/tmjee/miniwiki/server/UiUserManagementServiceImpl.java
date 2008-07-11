@@ -8,11 +8,8 @@ import org.tmjee.miniwiki.core.Bootstrap;
 import org.tmjee.miniwiki.core.service.UserManagementService;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 26, 2008
- * Time: 10:48:33 AM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class UiUserManagementServiceImpl extends RemoteServiceServlet implements UiUserManagementService {
 

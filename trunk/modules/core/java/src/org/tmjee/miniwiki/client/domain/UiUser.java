@@ -12,11 +12,8 @@ import org.tmjee.miniwiki.client.beans.PropertySupport;
 
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 26, 2008
- * Time: 5:41:54 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
 

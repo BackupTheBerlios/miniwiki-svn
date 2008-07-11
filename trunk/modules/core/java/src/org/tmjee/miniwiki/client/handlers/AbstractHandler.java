@@ -6,11 +6,8 @@ import org.tmjee.miniwiki.client.server.UiTemplateManagementServiceAsync;
 import org.tmjee.miniwiki.client.service.Service;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 22, 2008
- * Time: 3:27:22 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public abstract class AbstractHandler implements Handler {
 

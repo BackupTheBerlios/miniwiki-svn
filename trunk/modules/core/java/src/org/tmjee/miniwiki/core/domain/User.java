@@ -2,17 +2,18 @@ package org.tmjee.miniwiki.core.domain;
 
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;
 import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 19, 2008
- * Time: 11:11:39 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name = "TBL_USER")
@@ -41,7 +42,7 @@ public class User {
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "USER_ID", referencedColumnName = "ID")
-    private List<UserProperty> properties = new ArrayList<UserProperty>();
+    private Set<UserProperty> properties = new LinkedHashSet<UserProperty>();
 
 
     @ManyToMany(targetEntity = Group.class,
@@ -50,7 +51,7 @@ public class User {
     @JoinTable(name = "TBL_USER_GROUP",
                 joinColumns = {@JoinColumn(name="USER_ID", referencedColumnName = "ID")},
                 inverseJoinColumns = {@JoinColumn(name="GROUP_ID", referencedColumnName = "ID")})
-    private List<Group> groups = new ArrayList<Group>();
+    private Set<Group> groups = new LinkedHashSet<Group>();
 
 
     @Basic
@@ -71,6 +72,7 @@ public class User {
     private int version;
 
 
+    // === constructor ===
     public User() {}
     public User(String username, String firstName, String lastName, String description) {
         this.username = username;
@@ -83,8 +85,91 @@ public class User {
         properties.add(userProperty);
     }
 
+
+    // ==== getters ===
+
+    public long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Set<UserProperty> getProperties() {
+        return properties;
+    }
+
+    public Set<Group> getGroups() {
+        return groups;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+
+
+    // === setters ===
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setProperties(Set<UserProperty> properties) {
+        this.properties = properties;
+    }
+
+    public void setGroups(Set<Group> groups) {
+        this.groups = groups;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    
+    // === toString ===
+
     public String toString() {
-        return "username="+username+"\n"+
+        return "id="+id+"\n"+
+               "username="+username+"\n"+
                "firstName="+firstName+"\n"+
                "lastName="+lastName+"\n"+
                "password="+password+"\n"+ 
@@ -93,4 +178,23 @@ public class User {
                "groups="+groups+"\n";
     }
 
+
+
+    // === Equals & HashCode ===
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof User)) {
+            return false;
+        }
+        if (this == obj) { return true; }
+        return new EqualsBuilder()
+                    .append(username, ((User)obj).getUsername())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(username)
+                    .toHashCode();
+    }
 }

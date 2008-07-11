@@ -2,17 +2,18 @@ package org.tmjee.miniwiki.core.domain;
 
 import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 19, 2008
- * Time: 12:44:06 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name = "TBL_WIKI")
@@ -28,12 +29,17 @@ public class Wiki {
     private long id;
 
 
+    @Basic
+    @Column(name = "NAME", nullable = false)
+    private String name;
+
+
     @OneToMany(targetEntity = WikiPriviledge.class,
                 cascade = {CascadeType.ALL},
                 fetch = FetchType.LAZY)
     @ElementJoinColumn(name="WIKI_ID", referencedColumnName = "ID")
     @ElementForeignKey
-    private List<WikiPriviledge> priviledges;
+    private Set<WikiPriviledge> priviledges = new LinkedHashSet<WikiPriviledge>();
 
 
     @OneToMany(targetEntity = Space.class,
@@ -41,7 +47,7 @@ public class Wiki {
                 fetch=FetchType.LAZY)
     @ElementJoinColumn(name="WIKI_ID", referencedColumnName = "ID")
     @ElementForeignKey
-    private List<Space> spaces;
+    private Set<Space> spaces = new LinkedHashSet<Space>();
 
 
     @OneToMany(targetEntity = WikiProperty.class,
@@ -49,7 +55,7 @@ public class Wiki {
                fetch = FetchType.EAGER)
     @ElementJoinColumn(name = "WIKI_ID", referencedColumnName = "ID")
     @ElementForeignKey
-    private List<WikiProperty> properties;
+    private Set<WikiProperty> properties = new LinkedHashSet<WikiProperty>();
 
 
 
@@ -59,13 +65,9 @@ public class Wiki {
 
 
 
+    // === constructor ===
+    public Wiki() {}
 
-
-    public Wiki() {
-        priviledges = new ArrayList<WikiPriviledge>();
-        spaces = new ArrayList<Space>();
-        properties = new ArrayList<WikiProperty>();
-    }
 
 
     public void addPriviledge(WikiPriviledge priviledge) {
@@ -85,10 +87,10 @@ public class Wiki {
 
 
 
-    public List<WikiProperty> getProperties() {
+    public Set<WikiProperty> getProperties() {
         return properties;
     }
-    public void setProperties(List<WikiProperty> properties) {
+    public void setProperties(Set<WikiProperty> properties) {
         this.properties = properties;
     }
     public void addProperty(WikiProperty property) {
@@ -98,5 +100,71 @@ public class Wiki {
         properties.remove(property);
     }
 
+
+
+    // === getters ===
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<WikiPriviledge> getPriviledges() {
+        return priviledges;
+    }
+
+    public Set<Space> getSpaces() {
+        return spaces;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+
+    // === setters ===
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPriviledges(Set<WikiPriviledge> priviledges) {
+        this.priviledges = priviledges;
+    }
+
+    public void setSpaces(Set<Space> spaces) {
+        this.spaces = spaces;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+
     
+
+    // == equals & hashcode
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Wiki)) {
+            return false;
+        }
+        if (this == obj) { return true; }
+        return new EqualsBuilder()
+                    .append(name, ((Wiki)obj).getName())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(name)
+                    .toHashCode();
+    }
 }

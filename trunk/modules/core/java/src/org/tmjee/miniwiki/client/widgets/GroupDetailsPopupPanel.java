@@ -13,11 +13,8 @@ import org.tmjee.miniwiki.client.server.PagingInfo;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 6, 2008
- * Time: 2:32:42 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageEvents {
 

@@ -38,9 +38,11 @@
     <!-- # JDO & Tx setup          -->
     <!-- ######################### -->
     <bean name="jpaDialect" class="org.springframework.orm.jpa.vendor.OpenJpaDialect" />
+    <bean name="jpaVendorAdapater" class="org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter" />
     <bean name="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="jpaDialect" ref="jpaDialect" />
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapater" />
         <property name="persistenceXmlLocation" value="classpath:persistence.xml" />
         <property name="persistenceUnitName" value="miniWikiPersistenceUnit" />
         <!--
@@ -115,7 +117,8 @@
     <!-- # Services setup          -->
     <!-- ######################### -->
     <bean name="tstService" class="testing.TstService">
-        <constructor-arg index="0" ref="jpaTemplate" />    
+        <constructor-arg index="0" ref="jpaTemplate" />
+        <constructor-arg index="1" ref="dozerBeanMapper" />
     </bean>
     <bean name="setupService" class="org.tmjee.miniwiki.core.service.SetupService">
         <constructor-arg index="0" ref="jpaTemplate" />

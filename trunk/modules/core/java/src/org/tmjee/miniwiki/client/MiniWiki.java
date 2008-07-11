@@ -16,6 +16,9 @@ import org.tmjee.miniwiki.client.server.TemplateInfo;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
+ *
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class MiniWiki implements EntryPoint {
 

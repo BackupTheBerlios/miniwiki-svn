@@ -3,11 +3,8 @@ package org.tmjee.miniwiki.client.widgets;
 import com.google.gwt.user.client.ui.CheckBox;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: Jun 3, 2008
- * Time: 6:27:02 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class IdHoldableCheckBox extends CheckBox {
 

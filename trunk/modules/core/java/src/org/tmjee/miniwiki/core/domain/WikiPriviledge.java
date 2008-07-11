@@ -2,16 +2,17 @@ package org.tmjee.miniwiki.core.domain;
 
 import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 19, 2008
- * Time: 2:18:46 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name = "TBL_WIKI_PRIVILEDGE")
@@ -38,9 +39,69 @@ public class WikiPriviledge {
                 fetch=FetchType.EAGER)
     @ElementJoinColumn(name="WIKI_PRIVILEDGE_ID", referencedColumnName = "ID")
     @ElementForeignKey
-    private List<WikiPriviledgeValue> values;
+    private Set<WikiPriviledgeValue> values = new LinkedHashSet<WikiPriviledgeValue>();
 
     @Version
     @Column(name = "VERSION")
     private int version;
+
+
+    // === getters ===
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<WikiPriviledgeValue> getValues() {
+        return values;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+
+
+    // === setters ===
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setValues(Set<WikiPriviledgeValue> values) {
+        this.values = values;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+
+    
+
+    // === equals & hashcode
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof WikiPriviledge)) {
+            return false;
+        }
+        if (this == obj) { return true; }
+        return new EqualsBuilder()
+                    .append(name, ((WikiPriviledge)obj).getName())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(name)
+                    .toHashCode();
+    }
 }

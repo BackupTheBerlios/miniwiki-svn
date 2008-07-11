@@ -5,11 +5,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 24, 2008
- * Time: 6:33:39 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class Service {
 

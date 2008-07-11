@@ -1,11 +1,8 @@
 package org.tmjee.miniwiki.core.security;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: Jun 9, 2008
- * Time: 3:12:49 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public enum Priviledges {
 

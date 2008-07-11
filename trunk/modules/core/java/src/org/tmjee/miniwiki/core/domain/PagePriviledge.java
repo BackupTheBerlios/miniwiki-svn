@@ -2,16 +2,17 @@ package org.tmjee.miniwiki.core.domain;
 
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;
 import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 20, 2008
- * Time: 7:30:00 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name = "TBL_PAGE_PRIVILEDGE")
@@ -27,15 +28,84 @@ public class PagePriviledge {
     private long id;
 
 
+    @Basic
+    @Column(name="NAME", nullable = false, unique = true)
+    private String name;
+
     @OneToMany(targetEntity = PagePriviledgeValue.class,
                 cascade={CascadeType.ALL},
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name="PAGE_PRIVILEDGE_ID", referencedColumnName = "ID")
-    private List<PagePriviledgeValue> values;
+    private Set<PagePriviledgeValue> values = new LinkedHashSet<PagePriviledgeValue>();
 
     @Version
     @Column(name = "VERSION")
     private int version;
 
+
+    // === Constructor ===
+    public PagePriviledge() {}
+
+
+    // === getters ===
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<PagePriviledgeValue> getValues() {
+        return values;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+
+
+    // === setters ===
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setValues(Set<PagePriviledgeValue> values) {
+        this.values = values;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+
+    
+
+    // === Equals & HashCode ===
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof PagePriviledge)) {
+            return false;
+        }
+        if (obj == this) { return true; }
+        return new EqualsBuilder()
+                    .append(name, ((PagePriviledge)obj).getName())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(name)
+                    .toHashCode();
+    }
 }
+
+

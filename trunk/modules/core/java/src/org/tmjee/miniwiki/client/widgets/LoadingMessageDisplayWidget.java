@@ -9,11 +9,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Created by IntelliJ IDEA.
- * User: 1269870
- * Date: May 22, 2008
- * Time: 2:34:03 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 public class LoadingMessageDisplayWidget extends SimplePanel {
 

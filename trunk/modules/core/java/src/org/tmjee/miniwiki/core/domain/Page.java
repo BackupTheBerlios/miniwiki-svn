@@ -3,16 +3,17 @@ package org.tmjee.miniwiki.core.domain;
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;
 import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
 import org.apache.openjpa.persistence.jdbc.ForeignKey;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 19, 2008
- * Time: 11:07:07 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name = "TBL_PAGE")
@@ -36,7 +37,7 @@ public class Page {
                 fetch=FetchType.LAZY)
     @ElementForeignKey
     @ElementJoinColumn(name="PAGE_ID", referencedColumnName = "ID")
-    private List<PagePriviledge> priviledges;
+    private Set<PagePriviledge> priviledges = new LinkedHashSet<PagePriviledge>();
 
     @ManyToOne(targetEntity = Space.class, fetch=FetchType.LAZY, optional = false)
     @JoinColumn(name="SPACE_ID", referencedColumnName = "ID")
@@ -47,7 +48,7 @@ public class Page {
                 fetch=FetchType.LAZY)
     @ElementForeignKey
     @ElementJoinColumn(name = "PAGE_ID", referencedColumnName = "ID")
-    private List<Attachment> attachments;
+    private Set<Attachment> attachments = new LinkedHashSet<Attachment>();
 
     @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY, optional = false)
     @ForeignKey
@@ -67,7 +68,7 @@ public class Page {
                 fetch=FetchType.LAZY)
     @ElementForeignKey
     @ElementJoinColumn(name = "PAGE_ID", referencedColumnName = "ID")
-    private List<PreviousVersion> perviousVersions;
+    private Set<PreviousVersion> perviousVersions = new LinkedHashSet<PreviousVersion>();
 
 
     @OneToMany(targetEntity = PageProperty.class,
@@ -75,13 +76,13 @@ public class Page {
                 fetch=FetchType.LAZY)
     @ElementForeignKey
     @ElementJoinColumn(name = "PAGE_ID", referencedColumnName = "ID")
-    private List<PageProperty> properties;
+    private Set<PageProperty> properties = new LinkedHashSet<PageProperty>();
 
     
     @OneToMany(targetEntity = Page.class,
                 fetch = FetchType.LAZY,
                 mappedBy = "parent")
-    private List<Page> children;
+    private Set<Page> children = new LinkedHashSet<Page>();
 
 
     @ManyToOne(targetEntity = Page.class, fetch = FetchType.LAZY)
@@ -93,4 +94,135 @@ public class Page {
     @Version
     @Column(name = "VERSION")
     private int version;
+
+
+    // === constructor ===
+    public Page() {}
+
+
+
+    // === getters ===
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<PagePriviledge> getPriviledges() {
+        return priviledges;
+    }
+
+    public Space getSpace() {
+        return space;
+    }
+
+    public Set<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public User getLastModifiedUser() {
+        return lastModifiedUser;
+    }
+
+    public Set<PreviousVersion> getPerviousVersions() {
+        return perviousVersions;
+    }
+
+    public Set<PageProperty> getProperties() {
+        return properties;
+    }
+
+    public Set<Page> getChildren() {
+        return children;
+    }
+
+    public Page getParent() {
+        return parent;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+
+
+    // === setters ===
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPriviledges(Set<PagePriviledge> priviledges) {
+        this.priviledges = priviledges;
+    }
+
+    public void setSpace(Space space) {
+        this.space = space;
+    }
+
+    public void setAttachments(Set<Attachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
+    public void setLastModifiedUser(User lastModifiedUser) {
+        this.lastModifiedUser = lastModifiedUser;
+    }
+
+    public void setPerviousVersions(Set<PreviousVersion> perviousVersions) {
+        this.perviousVersions = perviousVersions;
+    }
+
+    public void setProperties(Set<PageProperty> properties) {
+        this.properties = properties;
+    }
+
+    public void setChildren(Set<Page> children) {
+        this.children = children;
+    }
+
+    public void setParent(Page parent) {
+        this.parent = parent;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+
+    
+
+    // === Equals & HashCode ===
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Page)) {
+            return false;
+        }
+        if (this == obj) { return true; }
+        return new EqualsBuilder()
+                    .append(name, ((Page)obj).getName())
+                    .isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder()
+                    .append(name)
+                    .toHashCode();
+    }
 }
+
+
