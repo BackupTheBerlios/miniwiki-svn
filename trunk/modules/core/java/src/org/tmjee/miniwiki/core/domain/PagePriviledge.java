@@ -16,7 +16,7 @@ import java.util.LinkedHashSet;
  */
 @Entity
 @Table(name = "TBL_PAGE_PRIVILEDGE")
-public class PagePriviledge {
+public class PagePriviledge implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "pagePriviledgeIdGenerator")

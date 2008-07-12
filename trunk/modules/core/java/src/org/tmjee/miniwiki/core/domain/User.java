@@ -17,7 +17,7 @@ import java.util.LinkedHashSet;
  */
 @Entity
 @Table(name = "TBL_USER")
-public class User {
+public class User implements Identifiable {
 
     @Id
     @Column(name = "ID", unique = true, nullable = false)

@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "TBL_PREVIOUS_VERSION")
-public class PreviousVersion {
+public class PreviousVersion implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "previousVersionIdGenerator")

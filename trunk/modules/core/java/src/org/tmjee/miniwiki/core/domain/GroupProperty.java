@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "TBL_GROUP_PROPERTY")
-public class GroupProperty {
+public class GroupProperty implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "groupPropertyIdGenerator")

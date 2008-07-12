@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="TBL_SPACE_PRIVILEDGE_VALUE")
-public class SpacePriviledgeValue {
+public class SpacePriviledgeValue implements Identifiable {
 
     @Id
     @Column(name = "ID", unique = true, nullable = false)

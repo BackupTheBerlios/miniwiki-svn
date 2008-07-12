@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "TBL_SPACE_PROPERTY")
-public class SpaceProperty {
+public class SpaceProperty implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "spacePropertyIdGenerator")
@@ -20,7 +20,7 @@ public class SpaceProperty {
                     pkColumnValue = "TBL_SPACE_PROPERTY_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
     @Column(name = "ID", unique = true, nullable = false)
-    private String id;
+    private long id;
 
 
     @Basic
@@ -43,7 +43,7 @@ public class SpaceProperty {
 
     // === getters ===
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
@@ -62,7 +62,7 @@ public class SpaceProperty {
 
     // === setters ===
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

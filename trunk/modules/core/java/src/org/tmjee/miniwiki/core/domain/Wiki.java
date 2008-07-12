@@ -17,7 +17,7 @@ import java.util.LinkedHashSet;
  */
 @Entity
 @Table(name = "TBL_WIKI")
-public class Wiki {
+public class Wiki implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "wikiIdGenerator")

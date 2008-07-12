@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "TBL_PAGE_PROPERTY")
-public class PageProperty {
+public class PageProperty implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "pagePropertyIdGenerator")

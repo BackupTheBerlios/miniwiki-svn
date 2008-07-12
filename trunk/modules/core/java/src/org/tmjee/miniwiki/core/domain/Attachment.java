@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "TBL_ATTACHEMENT")
-public class Attachment {
+public class Attachment implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "attachmentIdGenerator")

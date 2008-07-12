@@ -8,7 +8,7 @@ import java.util.List;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class UiGroup implements IsSerializable {
+public class UiGroup implements UiIdentifiable {
 
     private long id;
     private String name;

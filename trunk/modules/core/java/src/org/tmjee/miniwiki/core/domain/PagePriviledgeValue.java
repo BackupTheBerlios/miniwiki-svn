@@ -14,7 +14,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="TBL_PAGE_PRIVILEDGE_VALUE")
-public class PagePriviledgeValue {
+public class PagePriviledgeValue implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "pagePriviledgeValueIdGenerator")

@@ -16,7 +16,7 @@ import java.util.LinkedHashSet;
  */
 @Entity
 @Table(name="TBL_SPACE_PRIVILEDGE")
-public class SpacePriviledge {
+public class SpacePriviledge implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "spacePriviledgeIdGenerator")

@@ -16,7 +16,7 @@ import java.util.LinkedHashSet;
  */
 @Entity
 @Table(name = "TBL_WIKI_PRIVILEDGE")
-public class WikiPriviledge {
+public class WikiPriviledge implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "wikiPriviledgeIdGenerator")

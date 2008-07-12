@@ -17,7 +17,7 @@ import java.util.LinkedHashSet;
  */
 @Entity
 @Table(name = "TBL_PAGE")
-public class Page {
+public class Page implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "pageIdGenerator")

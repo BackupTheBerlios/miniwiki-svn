@@ -78,7 +78,7 @@ public class UserManagementService extends AbstractService {
         });
 
 
-        return new UiUsers( mapList(users, new ArrayList<UiUser>(), UiUser.class),
+        return new UiUsers( mapFromEntityToList(users, UiUser.class),
                             prepareResponsePagingInfo(
                                 exactMatch ? "count_searchForUser_exact" : "count_searchForUser_not_exact",
                                 exactMatch ?
@@ -101,7 +101,7 @@ public class UserManagementService extends AbstractService {
         });
 
         UiUsers uiUsers = new UiUsers(
-                mapList(users, new ArrayList<UiUser>(), UiUser.class),
+                mapFromEntityToList(users, UiUser.class),
                 prepareResponsePagingInfo("count_allUsers", Collections.EMPTY_MAP, pagingInfo));
         return uiUsers;
     }
@@ -109,7 +109,7 @@ public class UserManagementService extends AbstractService {
     public void updateUser(final UiUser uiUser) {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                User user = map(uiUser, new User());
+                User user = mapFromUi(entityManager, uiUser, User.class);
                 entityManager.merge(user);
                 return null;
             }
@@ -120,7 +120,7 @@ public class UserManagementService extends AbstractService {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 for (UiUser uiUser: uiUsers) {
-                    entityManager.remove(map(uiUser, new User()));
+                    entityManager.remove(mapFromUi(entityManager, uiUser, User.class));
                 }
                 return null;
             }
@@ -138,7 +138,7 @@ public class UserManagementService extends AbstractService {
         });
 
         return new UiGroups(
-                mapList(groups, new ArrayList<UiGroup>(), UiGroup.class),
+                mapFromEntityToList(groups, UiGroup.class),
                 prepareResponsePagingInfo(
                         exactMatch?"count_searchForGroup_exact":"count_searchForGroup_not_exact",
                         exactMatch?
@@ -160,14 +160,14 @@ public class UserManagementService extends AbstractService {
         });
 
         return new UiGroups(
-                mapList(groups, new ArrayList<UiGroup>(), UiGroup.class),
+                mapFromEntityToList(groups, UiGroup.class),
                 prepareResponsePagingInfo("count_allGroups", pagingInfo));
     }
 
     public void updateGroup(final UiGroup uiGroup) {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                entityManager.merge(map(uiGroup, new Group()));
+                entityManager.merge(mapFromUi(entityManager, uiGroup, Group.class));
                 return null;
             }
         });
@@ -177,7 +177,7 @@ public class UserManagementService extends AbstractService {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 for (int a=0; a< uiGroups.length; a++) {
-                    entityManager.remove(map(uiGroups[a], new Group()));
+                    entityManager.remove(mapFromUi(entityManager, uiGroups[a], Group.class));
                 }
                 return null;
             }

@@ -15,7 +15,7 @@ import org.tmjee.miniwiki.client.beans.PropertySupport;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class UiUser implements IsSerializable, SourcesPropertyChangeEvents {
+public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     private long id;
     private String username;

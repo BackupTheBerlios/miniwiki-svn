@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "TBL_USER_PROPERTY")
-public class UserProperty {
+public class UserProperty implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "userPropertyIdGenerator")

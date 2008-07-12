@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "TBL_WIKI_PROPERTY")
-public class WikiProperty {
+public class WikiProperty implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "wikiPropertyIdGenerator")

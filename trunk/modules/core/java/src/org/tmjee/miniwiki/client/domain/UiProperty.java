@@ -9,7 +9,7 @@ import java.util.List;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public abstract class UiProperty implements IsSerializable {
+public abstract class UiProperty implements UiIdentifiable {
 
     private long id;
     private String name;

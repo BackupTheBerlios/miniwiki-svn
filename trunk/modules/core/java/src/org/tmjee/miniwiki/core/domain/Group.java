@@ -16,7 +16,7 @@ import java.util.LinkedHashSet;
  */
 @Entity
 @Table(name = "TBL_GROUP")
-public class Group {
+public class Group implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "groupIdGenerator")

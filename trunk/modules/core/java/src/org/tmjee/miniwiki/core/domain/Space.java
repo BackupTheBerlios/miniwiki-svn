@@ -17,7 +17,7 @@ import java.util.LinkedHashSet;
  */
 @Entity
 @Table(name="TBL_SPACE")
-public class Space {
+public class Space implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "spaceIdGenerator")

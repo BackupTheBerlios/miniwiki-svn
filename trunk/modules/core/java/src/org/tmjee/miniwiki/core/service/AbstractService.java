@@ -2,16 +2,15 @@ package org.tmjee.miniwiki.core.service;
 
 import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
+import org.tmjee.miniwiki.client.domain.UiIdentifiable;
+import org.tmjee.miniwiki.core.domain.Identifiable;
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
 
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
-import java.util.Map;
-import java.util.Collections;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 import net.sf.dozer.util.mapping.DozerBeanMapper;
 
@@ -54,7 +53,7 @@ public class AbstractService {
         return new ResponsePagingInfo(pagingInfo, totalRecords);
     }
 
-    protected <F,T> List<T> mapList(List<F> fs, List<T> ts, Class<T> clazz) {
+    /*protected <F,T> List<T> mapList(List<F> fs, List<T> ts, Class<T> clazz) {
         List<T> result = new ArrayList<T>();
         for (F f: fs) {
             result.add(map(f, clazz));
@@ -69,5 +68,61 @@ public class AbstractService {
 
     protected <F,T> T map(F f, Class<T> tclass) {
         return (T) mapper.map(f, tclass);
+    }*/
+
+
+
+
+
+
+
+
+    protected <F extends UiIdentifiable,T extends Identifiable> T mapFromUi(EntityManager entityManager, F f, Class<T> t) {
+        T _t = entityManager.find(t, f.getId());
+        if (_t != null) {
+            mapper.map(f, _t);
+            return _t;
+        }
+        return (T) mapper.map(f, t);
     }
+
+    protected <F extends UiIdentifiable,T extends Identifiable> List<T> mapFromUiAsListToList(EntityManager entityManager, List<F> fs, Class<T> t) {
+        List<T> result = new ArrayList<T>();
+        for (F f : fs) {
+            result.add(mapFromUi(entityManager, f, t));
+        }
+        return result;
+    }
+
+    protected <F extends UiIdentifiable, T extends Identifiable> Set<T> mapFromUiAsListToSet(EntityManager entityManager, List<F> fs, Class<T> t) {
+        Set<T> result = new LinkedHashSet<T>();
+        for (F f: fs) {
+            result.add(mapFromUi(entityManager, f, t));
+        }
+        return result;
+    }
+
+
+    protected <F extends Identifiable,T extends UiIdentifiable> T mapFromEntity(F f, Class<T> t) {
+        return (T) mapper.map(f, t);
+    }
+
+    protected <F extends Identifiable,T extends UiIdentifiable> List<T> mapFromEntityToList(List<F> fs, Class<T> t) {
+        List<T> result = new ArrayList<T>();
+        for (F f : fs) {
+            result.add(mapFromEntity(f, t));
+        }
+        return result;
+    }
+
+    protected <F extends Identifiable,T extends UiIdentifiable> Set<T> mapFromEntityToSet(List<F> fs, Class<T> t) {
+        Set<T> result = new LinkedHashSet<T>();
+        for (F f : fs) {
+            result.add(mapFromEntity(f, t));
+        }
+        return result;
+    }
+
+
+
 }
