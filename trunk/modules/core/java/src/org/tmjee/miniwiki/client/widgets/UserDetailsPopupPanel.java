@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEvents, PropertyListener {
+public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEvents, PropertyListener, Initializable, CleanUpable {
 
     private SourcesEventsSupport sourcesEventSupport;
 
@@ -81,6 +81,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         mainPanel = new VerticalPanel();
 
         username = new TextBox();
+        username.setText(uiUser.getUsername());
         username.addChangeListener(new ChangeListener() {
             public void onChange(Widget sender) {
                 UserDetailsPopupPanel.this.uiUser.setUsername(username.getText());
@@ -93,24 +94,28 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
             }
         });
         firstName = new TextBox();
+        firstName.setText(uiUser.getFirstName());
         firstName.addChangeListener(new ChangeListener() {
             public void onChange(Widget sender) {
                 UserDetailsPopupPanel.this.uiUser.setFirstName(firstName.getText());
             }
         });
         description = new TextArea();
+        description.setText(uiUser.getDescription());
         description.addChangeListener(new ChangeListener() {
             public void onChange(Widget widget) {
                 UserDetailsPopupPanel.this.uiUser.setDescription(description.getText());
             }
         });
         password = new PasswordTextBox();
+        password.setText(uiUser.getPassword());
         password.addChangeListener(new ChangeListener() {
             public void onChange(Widget widget) {
                 UserDetailsPopupPanel.this.uiUser.setPassword(password.getText());
             }
         });
         confirmPassword = new PasswordTextBox();
+        confirmPassword.setText(uiUser.getPassword());
 
 
         grid = new Grid(5, 2);
@@ -120,10 +125,12 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         grid.setWidget(1, 1, firstName);
         grid.setWidget(2, 0, new Label("Last Name"));
         grid.setWidget(2, 1, lastName);
-        grid.setWidget(3, 0, new Label("Password"));
-        grid.setWidget(3, 1, password);
-        grid.setWidget(4, 0, new Label("Confirm Password"));
-        grid.setWidget(4, 1, confirmPassword);
+        grid.setWidget(3, 0, new Label("Description"));
+        grid.setWidget(3, 1, description);
+        grid.setWidget(4, 0, new Label("Password"));
+        grid.setWidget(4, 1, password);
+        grid.setWidget(5, 0, new Label("Confirm Password"));
+        grid.setWidget(5, 1, confirmPassword);
 
 
         groupsButtonPanel = new HorizontalPanel();
@@ -211,7 +218,14 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
             new FlexTableExt.DataHandler() {
                 public Widget getDataWidget(Object rowObject, int col) {
                     UiUserProperty property = (UiUserProperty) rowObject;
-                    return new Label(property.getName());
+                    switch(col) {
+                        case 0:
+                            return new Label(property.getName());
+                        case 1:
+                            return new Label(property.getValue());
+                        default:
+                            return null;
+                    }
                 }
                 public Widget getControlWidget(Object rowObject, int col, int index) {
                     final UiUserProperty uiUserProperty = (UiUserProperty) rowObject;
@@ -300,6 +314,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                         }
                         public void onSuccess(Object result) {
                             UserDetailsPopupPanel.this.cleanUp();
+                            UserDetailsPopupPanel.this.hide();
                             LoadingMessageDisplayWidget.getInstance().done();
                         }
                     });
@@ -326,6 +341,9 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         init();
 
         setWidget(mainPanel);
+        
+        propertiesTable.refresh(uiUser.getProperties());
+
 
         center();
     }
@@ -356,11 +374,21 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     }
 
 
-    protected void init() {
+    public void init() {
         uiUser.addPropertyListener(this);
     }
 
-    protected void cleanUp() {
+    public void cleanUp() {
         uiUser.removePropertyListener(this);
+    }
+
+    public void disable() {
+        saveUserDetails.setEnabled(false);
+        cancelUserDetails.setEnabled(false);
+    }
+
+    public void enable() {
+        saveUserDetails.setEnabled(true);
+        cancelUserDetails.setEnabled(true);
     }
 }

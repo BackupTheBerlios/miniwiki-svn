@@ -13,16 +13,15 @@ import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
  */
 public class UiGroups implements IsSerializable {
 
-    private List<UiGroup> uiGroups;
+    private List<UiGroup> uiGroups = new ArrayList<UiGroup>();
     private ResponsePagingInfo responsePagingInfo;
 
     public UiGroups() {
-        uiGroups = new ArrayList<UiGroup>();
     }
 
     public UiGroups(List<UiGroup> groups, ResponsePagingInfo responsePagingInfo) {
         this.responsePagingInfo = responsePagingInfo;
-        this.uiGroups = uiGroups;
+        this.uiGroups = groups;
     }
 
     public ResponsePagingInfo getResponsePagingInfo() {

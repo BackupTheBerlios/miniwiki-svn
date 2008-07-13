@@ -5,6 +5,7 @@ import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.core.MiniWikiConfig;
 import org.tmjee.miniwiki.core.domain.User;
 import org.tmjee.miniwiki.core.domain.Group;
+import org.tmjee.miniwiki.core.domain.UserProperty;
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
 
@@ -58,8 +59,7 @@ public class UserManagementService extends AbstractService {
                     return query.getSingleResult();
                 }
             });
-            UiUser uiUser = new UiUser();
-            mapper.map(_user, uiUser);
+            UiUser uiUser = mapFromEntity(_user, UiUser.class);
             return new UiCredentials(uiUser);
         }
         return UiCredentials.ANONYMOUS;
@@ -110,7 +110,7 @@ public class UserManagementService extends AbstractService {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 User user = mapFromUi(entityManager, uiUser, User.class);
-                entityManager.merge(user);
+                mergeOrPersist(entityManager, user);
                 return null;
             }
         });
@@ -167,7 +167,8 @@ public class UserManagementService extends AbstractService {
     public void updateGroup(final UiGroup uiGroup) {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                entityManager.merge(mapFromUi(entityManager, uiGroup, Group.class));
+                Group group = mapFromUi(entityManager, uiGroup, Group.class);
+                mergeOrPersist(entityManager, group);
                 return null;
             }
         });

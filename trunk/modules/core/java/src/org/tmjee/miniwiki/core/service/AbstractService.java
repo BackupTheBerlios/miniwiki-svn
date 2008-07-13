@@ -53,28 +53,6 @@ public class AbstractService {
         return new ResponsePagingInfo(pagingInfo, totalRecords);
     }
 
-    /*protected <F,T> List<T> mapList(List<F> fs, List<T> ts, Class<T> clazz) {
-        List<T> result = new ArrayList<T>();
-        for (F f: fs) {
-            result.add(map(f, clazz));
-        }
-        return result;
-    }
-
-    protected <F,T> T map(F f, T t) {
-        mapper.map(f, t);
-        return t;
-    }
-
-    protected <F,T> T map(F f, Class<T> tclass) {
-        return (T) mapper.map(f, tclass);
-    }*/
-
-
-
-
-
-
 
 
     protected <F extends UiIdentifiable,T extends Identifiable> T mapFromUi(EntityManager entityManager, F f, Class<T> t) {
@@ -124,5 +102,17 @@ public class AbstractService {
     }
 
 
+
+
+
+
+    protected void mergeOrPersist(EntityManager entityManager, Identifiable entity) {
+        if (entity.getId() <= 0) {
+            entityManager.persist(entity);
+        }
+        else {
+            entityManager.merge(entity);
+        }
+    }
 
 }

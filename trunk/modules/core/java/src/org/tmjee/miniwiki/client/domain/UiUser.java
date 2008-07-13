@@ -24,18 +24,17 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     private String description;
     private String password;
 
-    private List<UiUserProperty> uiUserProperties;
-    private List<UiGroup> uiGroups;
+    private List<UiUserProperty> uiUserProperties = new ArrayList<UiUserProperty>();
+    private List<UiGroup> uiGroups = new ArrayList<UiGroup>();
 
     //private PropertySupport propertySupport;
 
     public UiUser() {
-        uiUserProperties = new ArrayList<UiUserProperty>();
-        uiGroups = new ArrayList<UiGroup>();
         //propertySupport = new PropertySupport();
     }
 
     public UiUser(String username, String firstName, String lastName) {
+        this();
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;

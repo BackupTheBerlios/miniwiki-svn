@@ -23,7 +23,9 @@ public class Main {
 
         System.out.println(dupOne);*/
 
-        LOG.warn("XXXXXXXXXXXXXXXXXXXXXXX TESTING");
+        //LOG.warn("XXXXXXXXXXXXXXXXXXXXXXX TESTING");
+
+        System.out.println("HHHHH");
 
     }
 }
