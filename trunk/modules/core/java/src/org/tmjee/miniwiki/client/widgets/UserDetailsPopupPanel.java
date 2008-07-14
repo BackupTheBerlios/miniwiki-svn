@@ -2,6 +2,7 @@ package org.tmjee.miniwiki.client.widgets;
 
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.rpc.IsSerializable;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.domain.UiUser;
@@ -14,13 +15,12 @@ import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.events.MessageEvent;
 import org.tmjee.miniwiki.client.utils.Logger;
 import org.tmjee.miniwiki.client.utils.Utils;
-import org.tmjee.miniwiki.client.beans.PropertyListener;
-import org.tmjee.miniwiki.client.beans.EventObject;
-import org.tmjee.miniwiki.client.beans.PropertyAdditionEvent;
-import org.tmjee.miniwiki.client.beans.PropertyDeletionEvent;
+import org.tmjee.miniwiki.client.utils.WidgetUtils;
+import org.tmjee.miniwiki.client.beans.*;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.io.Serializable;
 
 /**
  * @author tmjee
@@ -309,11 +309,11 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                     new AsyncCallback() {
                         public void onFailure(Throwable caught) {
                             Logger.error(caught.toString(), caught);
-                            UserDetailsPopupPanel.this.cleanUp();
+                            WidgetUtils.exception(UserDetailsPopupPanel.this, sourcesEventSupport, caught);
                             LoadingMessageDisplayWidget.getInstance().done();
                         }
                         public void onSuccess(Object result) {
-                            UserDetailsPopupPanel.this.cleanUp();
+                            WidgetUtils.cleanUp(UserDetailsPopupPanel.this);
                             UserDetailsPopupPanel.this.hide();
                             LoadingMessageDisplayWidget.getInstance().done();
                         }
@@ -338,7 +338,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         mainPanel.add(propertiesTable);
         mainPanel.add(saveCancelButtonPanel);
 
-        init();
+        WidgetUtils.init(this);
 
         setWidget(mainPanel);
         
@@ -358,18 +358,13 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
 
     public void propertyChange(EventObject event) {
         String propName = event.getPropertyName();
-        if (event instanceof PropertyAdditionEvent) {
+        if ((event instanceof PropertyAdditionEvent) || (event instanceof PropertyDeletionEvent)) {
             if ("group".equals(propName)) {
-                for (int a=1; a< propertiesTable.getRowCount(); a++) {
-                    //propertiesTable    
-                }
+                groupsTable.refresh(uiUser.getGroups());
             }
             else if ("property".equals(propName)) {
-
+                propertiesTable.refresh(uiUser.getProperties());
             }
-        }
-        else if (event instanceof PropertyDeletionEvent) {
-            
         }
     }
 
@@ -382,13 +377,5 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         uiUser.removePropertyListener(this);
     }
 
-    public void disable() {
-        saveUserDetails.setEnabled(false);
-        cancelUserDetails.setEnabled(false);
-    }
 
-    public void enable() {
-        saveUserDetails.setEnabled(true);
-        cancelUserDetails.setEnabled(true);
-    }
 }

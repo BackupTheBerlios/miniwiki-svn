@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class PropertySupport implements IsSerializable {
+public class PropertySupport implements IsSerializable, Serializable {
 
     private Serializable source;
     private ArrayList<PropertyListener> propertyListener;

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class EventObject implements IsSerializable {
+public class EventObject implements IsSerializable, Serializable {
 
     private Serializable source;
     private String propertyName;

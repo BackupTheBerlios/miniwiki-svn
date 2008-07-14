@@ -1,6 +1,8 @@
 package org.tmjee.miniwiki.client.widgets;
 
 import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.rpc.IsSerializable;
 import org.tmjee.miniwiki.client.domain.UiGroup;
 import org.tmjee.miniwiki.client.domain.UiGroupProperty;
 import org.tmjee.miniwiki.client.domain.UiUser;
@@ -8,15 +10,24 @@ import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
 import org.tmjee.miniwiki.client.utils.Utils;
+import org.tmjee.miniwiki.client.utils.WidgetUtils;
+import org.tmjee.miniwiki.client.utils.Logger;
 import org.tmjee.miniwiki.client.server.PagingInfo;
+import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
+import org.tmjee.miniwiki.client.beans.PropertyListener;
+import org.tmjee.miniwiki.client.beans.EventObject;
+import org.tmjee.miniwiki.client.beans.PropertyAdditionEvent;
+import org.tmjee.miniwiki.client.beans.PropertyDeletionEvent;
+import org.tmjee.miniwiki.client.service.Service;
 
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageEvents {
+public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageEvents, Initializable, CleanUpable, PropertyListener {
 
     private SourcesEventsSupport sourcesEventsSupport;
 
@@ -233,6 +244,34 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
         propertiesButtonPanel.add(removePropertyButton);
 
 
+        save = new Button("Save", new ClickListener() {
+            public void onClick(Widget widget) {
+                LoadingMessageDisplayWidget.getInstance().display("Saving Group Info ...");
+                UiUserManagementServiceAsync async = Service.getUserManagementService();
+                async.updateGroup(GroupDetailsPopupPanel.this.uiGroup, new AsyncCallback() {
+                    public void onFailure(Throwable throwable) {
+                        Logger.error(throwable.toString(), throwable);
+                        WidgetUtils.exception(GroupDetailsPopupPanel.this, sourcesEventsSupport, throwable);
+                        LoadingMessageDisplayWidget.getInstance().done();
+                    }
+                    public void onSuccess(Object o) {
+                        WidgetUtils.cleanUp(GroupDetailsPopupPanel.this);
+                        LoadingMessageDisplayWidget.getInstance().done();
+                    }
+                });
+            }
+        });
+        cancel = new Button("Cancel", new ClickListener() {
+            public void onClick(Widget widget) {
+                WidgetUtils.cleanUp(GroupDetailsPopupPanel.this);
+                GroupDetailsPopupPanel.this.hide();
+            }
+        });
+        buttonsPanel = new HorizontalPanel();
+        buttonsPanel.add(save);
+        buttonsPanel.add(cancel);
+
+
         mainPanel = new VerticalPanel();
         mainPanel.add(grid);
         mainPanel.add(usersTable);
@@ -241,6 +280,7 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
         mainPanel.add(buttonsPanel);
 
 
+        WidgetUtils.init(this);
         setWidget(mainPanel);
 
         center();
@@ -252,5 +292,28 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
 
     public void removeMessageEventListener(MessageEventListener listener) {
         sourcesEventsSupport.removeListener(listener);
+    }
+
+    public void init() {
+        uiGroup.addPropertyListener(this);
+    }
+
+    public void cleanUp() {
+        uiGroup.removePropertyListener(this);
+    }
+
+    public void propertyChange(EventObject event) {
+        if ("property".equals(event.getPropertyName())) {
+            if ((event instanceof PropertyAdditionEvent) ||
+                    (event instanceof PropertyDeletionEvent)) {
+                propertiesTable.refresh(uiGroup.getProperties());
+            }
+        }
+        else if ("user".equals(event.getPropertyName())) {
+            if ((event instanceof PropertyAdditionEvent) ||
+                    (event instanceof PropertyDeletionEvent)) {
+                usersTable.refresh();            
+            }
+        }
     }
 }

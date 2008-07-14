@@ -27,14 +27,12 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     private List<UiUserProperty> uiUserProperties = new ArrayList<UiUserProperty>();
     private List<UiGroup> uiGroups = new ArrayList<UiGroup>();
 
-    //private PropertySupport propertySupport;
+    private transient PropertySupport propertySupport = new PropertySupport();
 
     public UiUser() {
-        //propertySupport = new PropertySupport();
     }
 
     public UiUser(String username, String firstName, String lastName) {
-        this();
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,23 +54,23 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public void removeGroup(UiGroup uiGroup) {
         uiGroups.remove(uiGroup);
-        //propertySupport.firePropertyDeletion("group", uiGroup);
+        propertySupport.firePropertyDeletion("group", uiGroup);
     }
 
     public void addGroup(UiGroup uiGroup) {
         uiGroups.add(uiGroup);
-        //propertySupport.firePropertyAddition("group", uiGroup);
+        propertySupport.firePropertyAddition("group", uiGroup);
     }
 
 
     public void removeProperty(UiUserProperty propertyUi) {
         uiUserProperties.remove(propertyUi);
-       //propertySupport.firePropertyDeletion("property", propertyUi);
+        propertySupport.firePropertyDeletion("property", propertyUi);
     }
 
     public void addProperty(UiUserProperty propertyUi) {
         uiUserProperties.add(propertyUi);
-        //propertySupport.firePropertyAddition("property", propertyUi);
+        propertySupport.firePropertyAddition("property", propertyUi);
     }
 
     public List<UiUserProperty> getProperties() {
@@ -87,7 +85,7 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     public void setId(long id) {
         long oldId = this.id;
         this.id = id;
-        //propertySupport.firePropertyChange("id", oldId, this.id);
+        propertySupport.firePropertyChange("id", oldId, this.id);
 
     }
 
@@ -98,7 +96,7 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     public void setUsername(String username) {
         String oldUsername = this.username;
         this.username = username;
-        //propertySupport.firePropertyChange("username", oldUsername, this.username);
+        propertySupport.firePropertyChange("username", oldUsername, this.username);
     }
 
     public String getFirstName() {
@@ -108,7 +106,7 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     public void setFirstName(String firstName) {
         String oldFirstName = this.firstName;
         this.firstName = firstName;
-        //propertySupport.firePropertyChange("firstName", oldFirstName, this.firstName);
+        propertySupport.firePropertyChange("firstName", oldFirstName, this.firstName);
     }
 
     public String getLastName() {
@@ -118,13 +116,13 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     public void setLastName(String lastName) {
         String oldLastName = this.lastName;
         this.lastName = lastName;
-        //propertySupport.firePropertyChange("lastName", oldLastName, this.lastName);
+        propertySupport.firePropertyChange("lastName", oldLastName, this.lastName);
     }
 
     public void setDescription(String description) {
         String oldDescription = this.description;
         this.description = description;
-        //propertySupport.firePropertyChange("description", oldDescription, this.description);
+        propertySupport.firePropertyChange("description", oldDescription, this.description);
     }
 
     public String getDescription() {
@@ -134,7 +132,7 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     public void setPassword(String password) {
         String oldPassword = this.password;
         this.password = password;
-        //propertySupport.firePropertyChange("password", oldPassword, this.password);
+        propertySupport.firePropertyChange("password", oldPassword, this.password);
     }
 
     public String getPassword() {
@@ -142,10 +140,10 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     }
 
     public void addPropertyListener(PropertyListener listener) {
-        //propertySupport.addPropertyChangeListener(listener);
+        propertySupport.addPropertyChangeListener(listener);
     }
 
     public void removePropertyListener(PropertyListener listener) {
-        //propertySupport.removePropertyChangeListener(listener);
+        propertySupport.removePropertyChangeListener(listener);
     }
 }
