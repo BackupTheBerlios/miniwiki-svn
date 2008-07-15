@@ -32,10 +32,11 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     public UiUser() {
     }
 
-    public UiUser(String username, String firstName, String lastName) {
+    public UiUser(String username, String firstName, String lastName, String description) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.description = description;
     }
 
 
@@ -46,6 +47,10 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
             }
         }
         return false;
+    }
+
+    public void setGroups(List<UiGroup> groups) {
+        this.uiGroups = groups;
     }
 
     public List<UiGroup> getGroups() {
@@ -75,6 +80,10 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public List<UiUserProperty> getProperties() {
         return uiUserProperties;
+    }
+
+    public void setProperties(List<UiUserProperty> properties) {
+        this.uiUserProperties = properties;
     }
 
     
@@ -145,5 +154,11 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public void removePropertyListener(PropertyListener listener) {
         propertySupport.removePropertyChangeListener(listener);
+    }
+
+
+    public String toString() {
+        return "id=["+id+"],username=["+username+"],firstName=["+firstName+"],lastName=["+lastName+"],password=["+password+"],"+
+                "description=["+description+"],properties=["+uiUserProperties+"],groups=["+uiGroups+"]";
     }
 }

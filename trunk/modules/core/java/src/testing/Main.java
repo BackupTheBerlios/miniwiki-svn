@@ -14,18 +14,8 @@ public class Main {
     private static final Log LOG = LogFactory.getLog(Main.class);
 
     public static void main(String[] args) throws Exception {
-        /*One one = new One("oneProp1", "oneProp2");
-        one.addTwo(new Two("twoProp1", "twoProp2", one));
-        one.addTwo(new Two("twoProp1_1", "twoProp2_2", one));
-
-        MapperIF mapper = new DozerBeanMapper();
-        DupOne dupOne = (DupOne) mapper.map(one, DupOne.class);
-
-        System.out.println(dupOne);*/
-
-        //LOG.warn("XXXXXXXXXXXXXXXXXXXXXXX TESTING");
-
-        System.out.println("HHHHH");
+        long d = 19999/10000;
+        System.out.println(d);
 
     }
 }

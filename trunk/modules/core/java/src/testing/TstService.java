@@ -36,7 +36,6 @@ public class TstService extends AbstractService {
         template.execute(new OpenJpaCallback<Void>() {
             public Void doInJpa(OpenJPAEntityManager entityManager) throws PersistenceException {
 
-                
 
 
                 return null;

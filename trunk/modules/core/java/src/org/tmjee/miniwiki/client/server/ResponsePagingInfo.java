@@ -12,14 +12,14 @@ public class ResponsePagingInfo extends PagingInfo {
 
     public ResponsePagingInfo() {}
 
-    public ResponsePagingInfo(PagingInfo pagingInfo, int totalPages) {
+    public ResponsePagingInfo(PagingInfo pagingInfo, int totalEntries) {
         super(pagingInfo.getPageNumber(), pagingInfo.getPageSize());
-        this.totalPages = totalPages;
+        totalPages = _calculateTotalPages(pagingInfo, totalEntries);
     }
 
-    public ResponsePagingInfo(PagingInfo pagingInfo, long totalPages) {
+    public ResponsePagingInfo(PagingInfo pagingInfo, long totalEntries) {
         super(pagingInfo.getPageNumber(), pagingInfo.getPageSize());
-        this.totalPages = totalPages;
+        totalPages = _calculateTotalPages(pagingInfo, totalEntries);
     }
 
     public long getTotalPages() {
@@ -46,6 +46,15 @@ public class ResponsePagingInfo extends PagingInfo {
             return new PagingInfo(getPageNumber() - 1, getPageSize());
         }
         return null;
+    }
+
+
+    private long _calculateTotalPages(PagingInfo pagingInfo, long totalEntries) {
+        long totalPages = totalEntries / pagingInfo.getPageSize();
+        if ((totalEntries % pagingInfo.getPageSize()) != 0) {
+            totalPages = totalPages + 1;
+        }
+        return totalPages;
     }
 
 }

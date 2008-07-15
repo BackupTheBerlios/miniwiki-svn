@@ -34,6 +34,7 @@ public class Group implements Identifiable {
     @ManyToMany(targetEntity = User.class,
                 fetch = FetchType.LAZY,
                 mappedBy = "groups")
+    @OrderBy("username ASC")
     private Set<User> users = new LinkedHashSet<User>();
 
     @OneToMany(targetEntity = GroupProperty.class,
@@ -41,6 +42,7 @@ public class Group implements Identifiable {
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "GROUP_ID", referencedColumnName = "ID")
+    @OrderBy("name ASC")
     private Set<GroupProperty> properties = new LinkedHashSet<GroupProperty>();
 
     @Version

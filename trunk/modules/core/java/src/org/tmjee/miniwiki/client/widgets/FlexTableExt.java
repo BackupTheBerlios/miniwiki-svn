@@ -80,6 +80,10 @@ public class FlexTableExt<T> extends FlexTable {
                 _doAdd(rowObject, row);
         }
 
+        while ((_rowObjects.size()+1) /* take into acc the label row*/ < getRowCount()) {
+            removeRow(_rowObjects.size()+1);
+        }
+
         restyleRows();
     }
 

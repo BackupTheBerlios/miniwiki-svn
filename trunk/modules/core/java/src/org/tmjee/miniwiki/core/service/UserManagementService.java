@@ -8,6 +8,8 @@ import org.tmjee.miniwiki.core.domain.Group;
 import org.tmjee.miniwiki.core.domain.UserProperty;
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
@@ -26,6 +28,9 @@ import java.util.Collections;
  * @version $Date$ $Id$
  */
 public class UserManagementService extends AbstractService {
+
+    private static final Log LOG = LogFactory.getLog(UserManagementService.class);
+
 
     private MiniWikiConfig config;
 
@@ -120,7 +125,9 @@ public class UserManagementService extends AbstractService {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 for (UiUser uiUser: uiUsers) {
-                    entityManager.remove(mapFromUi(entityManager, uiUser, User.class));
+                    User u = mapFromUi(entityManager, uiUser, User.class);
+                    LOG.info("****** [User]="+u.getId());
+                    entityManager.remove(u);
                 }
                 return null;
             }

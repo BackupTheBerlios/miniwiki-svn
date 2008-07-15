@@ -8,6 +8,6 @@ import java.io.Serializable;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public interface PropertyListener extends IsSerializable, Serializable {
+public interface PropertyListener {
     void propertyChange(EventObject event);
 }

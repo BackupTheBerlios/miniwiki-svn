@@ -19,8 +19,8 @@ public class UserManagementServiceTest {
         ApplicationContext ctx = bootstrap.getApplicationContext();
         UserManagementService service = (UserManagementService) ctx.getBean("userManagementService");
 
-        UiUser uiUser = new UiUser("c", "c", ""+System.currentTimeMillis());
-        uiUser.setId(41);
+        UiUser uiUser = new UiUser("c", "c", ""+System.currentTimeMillis(), "cc");
+        uiUser.setId(141);
         uiUser.addProperty(new UiUserProperty("p1"+ System.currentTimeMillis(), "p1v"+System.currentTimeMillis()));
         //uiUser.addProperty(new UiUserProperty("p2", "p2v"));
 

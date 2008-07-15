@@ -9,9 +9,9 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 public class UiCredentials implements IsSerializable {
 
     public static UiCredentials ANONYMOUS = new UiCredentials(
-            new UiUser("anonymous", "Aanonymous", "Anonymous"));
+            new UiUser("anonymous", "Aanonymous", "Anonymous", "Anonymous"));
     public static UiCredentials SUPERADMIN = new UiCredentials(
-            new UiUser("superadmin", "Superadmin", "Superadmin"));
+            new UiUser("superadmin", "Superadmin", "Superadmin", "Superadmin"));
 
     private UiUser uiUser;
 

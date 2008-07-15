@@ -17,6 +17,7 @@ import java.util.LinkedHashSet;
  */
 @Entity
 @Table(name = "TBL_USER")
+
 public class User implements Identifiable {
 
     @Id
@@ -42,6 +43,7 @@ public class User implements Identifiable {
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "USER_ID", referencedColumnName = "ID")
+    @OrderBy("name ASC")
     private Set<UserProperty> properties = new LinkedHashSet<UserProperty>();
 
 
@@ -51,6 +53,7 @@ public class User implements Identifiable {
     @JoinTable(name = "TBL_USER_GROUP",
                 joinColumns = {@JoinColumn(name="USER_ID", referencedColumnName = "ID")},
                 inverseJoinColumns = {@JoinColumn(name="GROUP_ID", referencedColumnName = "ID")})
+    @OrderBy("name ASC")
     private Set<Group> groups = new LinkedHashSet<Group>();
 
 

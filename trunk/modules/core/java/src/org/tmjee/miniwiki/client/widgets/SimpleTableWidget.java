@@ -1,6 +1,7 @@
 package org.tmjee.miniwiki.client.widgets;
 
 import com.google.gwt.user.client.ui.*;
+import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
 import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
@@ -191,7 +192,7 @@ public abstract class SimpleTableWidget<T> extends GenericTableWidget<T> {
                     return capture_pagingInfo;
                 }
             };
-            refresh(restored_state);    
+            refresh(restored_state);
         }
     }
 }

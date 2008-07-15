@@ -4,6 +4,7 @@ import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.domain.UiUsers;
 import org.tmjee.miniwiki.client.utils.Logger;
+import org.tmjee.miniwiki.client.utils.WidgetUtils;
 import org.tmjee.miniwiki.client.service.Service;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Widget;
@@ -30,11 +31,7 @@ public class UserTableWidget extends SimpleTableWidget {
     protected void doAdd(final Status status) {
         new UserDetailsPopupPanel(
                 new UiUser(),
-                new UserDetailsPopupPanel.Handler() {
-                            public void save(UiUser uiUser) {
-                                status.restore();
-                            }
-                        });
+                new SaveOrUpdateUserHandler());
     }
 
     protected void doDelete(final Status status) {
@@ -145,14 +142,30 @@ public class UserTableWidget extends SimpleTableWidget {
                     return new Button("Edit",
                         new ClickListener() {
                             public void onClick(Widget widget) {
-                                new UserDetailsPopupPanel(uiUser,
-                                    new UserDetailsPopupPanel.Handler() {
-                                        public void save(UiUser uiUser) {
-                                            status.restore();
-                                        }
-                                    });
+                                new UserDetailsPopupPanel(
+                                    uiUser,
+                                    new SaveOrUpdateUserHandler());
                             }
                         });
                 }
+    }
+
+
+    private class SaveOrUpdateUserHandler implements UserDetailsPopupPanel.Handler {
+        public void save(UiUser uiUser) {
+            LoadingMessageDisplayWidget.getInstance().display("Saving User Info ...");
+                            UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
+                            userManagement.updateUser(uiUser,
+                                    new AsyncCallback() {
+                                        public void onFailure(Throwable caught) {
+                                            Logger.error(caught.toString(), caught);
+                                            LoadingMessageDisplayWidget.getInstance().done();
+                                        }
+                                        public void onSuccess(Object result) {
+                                            status.restore();
+                                            LoadingMessageDisplayWidget.getInstance().done();
+                                        }
+                                    });
+        }
     }
 }

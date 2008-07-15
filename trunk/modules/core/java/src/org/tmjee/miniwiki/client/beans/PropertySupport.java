@@ -9,11 +9,11 @@ import java.io.Serializable;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class PropertySupport implements IsSerializable, Serializable {
+public class PropertySupport {
 
     private Serializable source;
-    private ArrayList<PropertyListener> propertyListener;
-    private HashMap<String, List<PropertyListener>> mappedPropertyChangeListener;
+    private ArrayList<PropertyListener> propertyListener = new ArrayList<PropertyListener>();
+    private HashMap<String, List<PropertyListener>> mappedPropertyChangeListener = new HashMap<String, List<PropertyListener>>();
 
 
     public PropertySupport() {
@@ -24,8 +24,6 @@ public class PropertySupport implements IsSerializable, Serializable {
             throw new NullPointerException("source is null");
         }
         this.source = source;
-        propertyListener = new ArrayList<PropertyListener>();
-        mappedPropertyChangeListener = new HashMap<String, List<PropertyListener>>();
     }
 
 

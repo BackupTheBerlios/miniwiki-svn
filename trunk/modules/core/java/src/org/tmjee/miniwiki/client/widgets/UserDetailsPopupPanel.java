@@ -3,6 +3,7 @@ package org.tmjee.miniwiki.client.widgets;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.IsSerializable;
+import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.domain.UiUser;
@@ -50,7 +51,6 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     private Button assignGroup;
 
 
-    //private FlexTable propertiesTable;    // uiUser's properties
     private FlexTableExt<UiUserProperty> propertiesTable;
     private HorizontalPanel propertyManipulationButtonsPanel;
     private Button addProperty;
@@ -59,6 +59,8 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     private HorizontalPanel saveCancelButtonPanel;
     private Button saveUserDetails;
     private Button cancelUserDetails;
+
+    private Handler handler;
 
 
     public static interface Handler {
@@ -70,6 +72,8 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
 
         setText("User Details");
         setAnimationEnabled(true);
+
+        this.handler = handler;
 
         sourcesEventSupport = new SourcesEventsSupport();
         
@@ -88,6 +92,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
             }
         });
         lastName = new TextBox();
+        lastName.setText(uiUser.getLastName());
         lastName.addChangeListener(new ChangeListener() {
             public void onChange(Widget sender) {
                 UserDetailsPopupPanel.this.uiUser.setLastName(lastName.getText());
@@ -118,7 +123,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         confirmPassword.setText(uiUser.getPassword());
 
 
-        grid = new Grid(5, 2);
+        grid = new Grid(6, 2);
         grid.setWidget(0, 0, new Label("Username"));
         grid.setWidget(0, 1, username);
         grid.setWidget(1, 0, new Label("First Name"));
@@ -257,7 +262,8 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                     });
                     return;
                 }
-                for (UiUserProperty p : selectedProperties) {
+                ArrayList<UiUserProperty> copyOfSelectedProperties = new ArrayList<UiUserProperty>(selectedProperties);
+                for (UiUserProperty p : copyOfSelectedProperties) {
                     UserDetailsPopupPanel.this.uiUser.removeProperty(p);
                 }
                 propertiesTable.refresh(UserDetailsPopupPanel.this.uiUser.getProperties());
@@ -279,8 +285,10 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         propertyManipulationButtonsPanel.add(deleteProperty);
 
         saveUserDetails = new Button("Save", new ClickListener() {
+            boolean hasError = false;
             public void onClick(Widget sender) {
                 if (username.getText().trim().length() <= 0) {
+                    hasError = true;
                     sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
                         public void handle(Object listener) {
                             ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Username is required"));
@@ -288,6 +296,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                     });
                 }
                 if (firstName.getText().trim().length() <= 0) {
+                    hasError = true;
                     sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
                         public void handle(Object listener) {
                             ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "First Name is required"));
@@ -295,6 +304,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                     });
                 }
                 if (lastName.getText().trim().length() <= 0) {
+                    hasError = true;
                     sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
                         public void handle(Object listener) {
                             ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Last Name is required"));
@@ -302,22 +312,10 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                     });
                 }
 
-
-                LoadingMessageDisplayWidget.getInstance().display("Saving User Info ...");
-                UiUserManagementServiceAsync userManagement = Service.getUserManagementService();
-                userManagement.updateUser(UserDetailsPopupPanel.this.uiUser,
-                    new AsyncCallback() {
-                        public void onFailure(Throwable caught) {
-                            Logger.error(caught.toString(), caught);
-                            WidgetUtils.exception(UserDetailsPopupPanel.this, sourcesEventSupport, caught);
-                            LoadingMessageDisplayWidget.getInstance().done();
-                        }
-                        public void onSuccess(Object result) {
-                            WidgetUtils.cleanUp(UserDetailsPopupPanel.this);
-                            UserDetailsPopupPanel.this.hide();
-                            LoadingMessageDisplayWidget.getInstance().done();
-                        }
-                    });
+                if (! hasError) {
+                    UserDetailsPopupPanel.this.handler.save(UserDetailsPopupPanel.this.uiUser);
+                    UserDetailsPopupPanel.this.hide();
+                }
             }
         });
         cancelUserDetails = new Button("Cancel", new ClickListener() {
@@ -376,6 +374,5 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     public void cleanUp() {
         uiUser.removePropertyListener(this);
     }
-
 
 }
