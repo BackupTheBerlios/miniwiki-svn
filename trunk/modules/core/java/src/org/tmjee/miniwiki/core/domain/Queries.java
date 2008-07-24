@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name="isSetupBefore",
-            query = "SELECT COUNT(wiki) FROM Wiki as wiki"
+            query = "SELECT setup FROM Setup as setup where setup.name='SETUP_DONE'"
     ),
     @NamedQuery(
             name = "authenticate",

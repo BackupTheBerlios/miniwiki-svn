@@ -9,6 +9,7 @@
         <description>MiniWiki Persistence Unit</description>
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
         <class>org.tmjee.miniwiki.core.domain.Queries</class>
+        <class>org.tmjee.miniwiki.core.domain.Setup</class>
         <class>org.tmjee.miniwiki.core.domain.Attachment</class>
         <class>org.tmjee.miniwiki.core.domain.Group</class>
         <class>org.tmjee.miniwiki.core.domain.GroupProperty</class>

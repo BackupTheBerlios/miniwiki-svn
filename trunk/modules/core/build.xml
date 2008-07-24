@@ -18,6 +18,7 @@
     </path>
 
     <path id="test_compilation_classpath">
+        <path refid="build_classpath" />
         <path refid="compilation_classpath" />
         <pathelement location="${test.src.dir}" />
         <pathelement location="${test.resources.dir}" />

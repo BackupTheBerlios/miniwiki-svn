@@ -19,13 +19,18 @@ public class Bootstrap {
 
     public static Bootstrap getInstance() {
         synchronized (Bootstrap.class) {
-            if (INSTANCE == null) {
-                INSTANCE = new Bootstrap();
-            }
+            try {
+                if (INSTANCE == null) {
+                    INSTANCE = new Bootstrap();
+                }
 
-            // setup
-            SetupService setupService = (SetupService) INSTANCE.getApplicationContext().getBean("setupService");
-            setupService.setup();
+                // setup
+                SetupService setupService = (SetupService) INSTANCE.getApplicationContext().getBean("setupService");
+                setupService.setup();
+            }
+            catch(Exception e) {
+                throw new RuntimeException(e.toString(), e);
+            }
         }
         return INSTANCE;
     }

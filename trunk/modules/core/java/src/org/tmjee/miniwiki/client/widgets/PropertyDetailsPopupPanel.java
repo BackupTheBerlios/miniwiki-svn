@@ -59,8 +59,10 @@ public class PropertyDetailsPopupPanel extends DialogBox implements SourcesMessa
                         }
                     });
                 }
-                PropertyDetailsPopupPanel.this.handler.save(propertyName.getText(), propertyValue.getText());
-                PropertyDetailsPopupPanel.this.hide();
+                else {
+                    PropertyDetailsPopupPanel.this.handler.save(propertyName.getText(), propertyValue.getText());
+                    PropertyDetailsPopupPanel.this.hide();
+                }
             }
         });
         cancel = new Button("Cancel", new ClickListener() {

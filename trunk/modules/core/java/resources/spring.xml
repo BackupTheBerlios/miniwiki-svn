@@ -122,6 +122,10 @@
     </bean>
     <bean name="setupService" class="org.tmjee.miniwiki.core.service.SetupService">
         <constructor-arg index="0" ref="jpaTemplate" />
+        <property name="connectionUsername" value="${db.username}" />
+        <property name="connectionUrl" value="${db.url}"/>
+        <property name="connectionPassword" value="${db.password}" />
+        <property name="connectionDriver" value="${db.driverName}" />
     </bean>
     <bean name="userManagementService" class="org.tmjee.miniwiki.core.service.UserManagementService">
         <constructor-arg index="0" ref="jpaTemplate" />

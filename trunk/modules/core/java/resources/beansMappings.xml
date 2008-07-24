@@ -32,13 +32,13 @@
             <a>password</a>
             <b>password</b>
         </field>
-        <field>
+        <field remove-orphans="true">
             <a>properties</a>
             <b>properties</b>
             <a-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</a-hint>
             <b-hint>org.tmjee.miniwiki.core.domain.UserProperty</b-hint>
         </field>
-        <field>
+        <field remove-orphans="true">
             <a>groups</a>
             <b>groups</b>
             <a-hint>org.tmjee.miniwiki.client.domain.UiGroup</a-hint>
@@ -60,13 +60,13 @@
             <a>description</a>
             <b>description</b>
         </field>
-        <field>
+        <field remove-orphans="true">
             <a>properties</a>
             <b>properties</b>
             <a-hint>org.tmjee.miniwiki.client.domain.UiGroupProperty</a-hint>
             <b-hint>org.tmjee.miniwiki.core.domain.GroupProperty</b-hint>
         </field>
-        <field>
+        <field remove-orphans="true">
             <a>users</a>
             <b>users</b>
             <a-hint>org.tmjee.miniwiki.client.domain.UiUser</a-hint>

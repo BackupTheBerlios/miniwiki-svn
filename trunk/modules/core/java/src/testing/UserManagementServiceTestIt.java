@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationContext;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class UserManagementServiceTest {
+public class UserManagementServiceTestIt {
 
     public static void main(String[] args) throws Exception {
 

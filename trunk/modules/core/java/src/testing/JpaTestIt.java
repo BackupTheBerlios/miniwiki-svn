@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class JpaTest {
+public class JpaTestIt {
 
     public static void main(String args[]) throws Exception {
 

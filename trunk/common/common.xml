@@ -37,6 +37,7 @@
         <mkdir dir="${build.dir}" />
         <mkdir dir="${java.classes.dir}" />
         <mkdir dir="${test.classes.dir}" />
+        <mkdir dir="${test.report.dir}" />
         <mkdir dir="${dist.dir}" />
         <mkdir dir="${tomcat.webapps.miniwiki.dir}" />
         <mkdir dir="${tomcat.webapps.miniwiki.webinf.dir}" />
@@ -53,6 +54,9 @@
         </delete>
         <delete includeemptydirs="true" includesfile="true">
             <fileset dir="${test.classes.dir}" includes="**/*" />
+        </delete>
+        <delete includeemptydirs="true" includesfile="true">
+            <fileset dir="${test.report.dir}" includes="**/*" />
         </delete>
         <delete includeemptydirs="true" includesfile="true">
             <fileset dir="${dist.dir}" includes="**/*" />
@@ -136,6 +140,26 @@
         <antcall target="_clean_deploy" />
     </target>
 
+
+   <target name="test" depends="compile, test_compile" description="">
+      <junit fork="true">
+        <classpath>  
+           <path refid="build_classpath" />
+           <path refid="test_build_classpath" />
+        </classpath>
+
+        <formatter type="plain" />
+
+        <batchtest todir="${test.report.dir}">
+           <fileset dir="${test.src.dir}">
+              <include name="**/*Test.java"/>
+              <!--exclude name="**/AllTests.java"/ -->
+           </fileset>
+        </batchtest>
+      </junit>
+      <antcall target="_test" />
+   </target>
+
     <target name="deploy" depends="compile" description="-> Deploy artifacts">
         <echo message="${ant.project.name} deploys" />
 
@@ -173,6 +197,7 @@
 
     <!-- targets subclass could override -->
     <target name="_compile" />
+    <target name="_test_compile" />
     <target name="_clean" />
     <target name="_init" />
     <target name="_publish" />
@@ -180,6 +205,6 @@
     <target name="_clean_deploy" />
     <target name="_generate" />
     <target name="_package" />
-
+    <target name="_test" />
 </project>
         

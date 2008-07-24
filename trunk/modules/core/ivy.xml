@@ -17,7 +17,7 @@
         <artifact conf="api" name="web" type="war" ext="war" /> 
     </publications>
     <dependencies>
-      <dependency org="org.apache.openjpa" name="openjpa" rev="1.0.2" conf="default->default" />
+      <dependency org="org.apache.openjpa" name="openjpa" rev="1.1.0" conf="default->default" />
       <dependency org="commons-logging" name="commons-logging" rev="1.0.3" conf="default->default" />
       <dependency org="commons-beanutils" name="commons-beanutils" rev="1.7.0" conf="default->default" />
       <dependency org="commons-collections" name="commons-collections" rev="3.1" conf="default->default" />

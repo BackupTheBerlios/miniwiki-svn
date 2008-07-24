@@ -18,7 +18,7 @@ import java.util.List;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class MapperTest {
+public class MapperTestIt {
 
     public static void main(String[] args) throws Exception {
 

@@ -114,6 +114,10 @@
         <subant target="deploy" buildpathref="buildlist" inheritall="false" />
     </target>
 
+    <target name="test" depends="buildList" description="-> Run test">
+        <subant target="test" buildpathref="buildlist" inheritall="false" />
+    </target>
+
     <target name="shell">
         <subant target="shell">
             <fileset dir="${core.module.dir}" includes="build.xml" />
