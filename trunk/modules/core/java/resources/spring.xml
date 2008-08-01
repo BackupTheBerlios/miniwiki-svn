@@ -16,14 +16,6 @@
             ">
 
     <!-- ######################### -->
-    <!-- # Properties setup        -->
-    <!-- ######################### -->
-    <bean name="dbProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:/db.properties" />
-    </bean>
-
-
-    <!-- ######################### -->
     <!-- # DataSource              -->
     <!-- ######################### -->
     <bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -82,18 +74,12 @@
         <aop:pointcut id="pcTemplateManagementService"
                       type="aspectj"
                       expression="execution(* org.tmjee.miniwiki.core.service.TemplateManagementService.*(..))" />
-        <aop:pointcut id="pcTestService"
-                      type="aspectj"
-                      expression="execution(* testing.TstService.*(..))" />
-
 
 
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcSetupService" />
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcUserManagementService" />
-        <aop:advisor advice-ref="txAdvice"
-                     pointcut-ref="pcTestService" />
     </aop:config>
 
 
@@ -116,10 +102,6 @@
     <!-- ######################### -->
     <!-- # Services setup          -->
     <!-- ######################### -->
-    <bean name="tstService" class="testing.TstService">
-        <constructor-arg index="0" ref="jpaTemplate" />
-        <constructor-arg index="1" ref="dozerBeanMapper" />
-    </bean>
     <bean name="setupService" class="org.tmjee.miniwiki.core.service.SetupService">
         <constructor-arg index="0" ref="jpaTemplate" />
         <property name="connectionUsername" value="${db.username}" />

@@ -26,6 +26,7 @@ public class BoldFilterTest extends FilterTestSupport {
   private static final String RESULT_NOSPACE_UNDERLINE = "Test__Text__Test";
   private static final String RESULT_NOSPACE_STAR = "Test**Text**Test";
   private static final String RESULT_PUNCT = "<b class=\"bold\">Text</b>:";
+  private static final String RESULT_SNIP_SNAP_1 = "<b class=\"bold\">SnipSnap</b>";
 
   protected void setUp() throws Exception {
     filter = new BoldFilter();
@@ -34,6 +35,10 @@ public class BoldFilterTest extends FilterTestSupport {
 
   public static Test suite() {
     return new TestSuite(BoldFilterTest.class);
+  }
+
+  public void testSnipSnap() {
+      assertEquals(RESULT_SNIP_SNAP_1, filter.filter("__SnipSnap__", context));
   }
 
   public void testBold() {

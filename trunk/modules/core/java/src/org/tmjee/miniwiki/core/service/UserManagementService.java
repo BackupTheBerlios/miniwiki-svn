@@ -126,7 +126,6 @@ public class UserManagementService extends AbstractService {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 for (UiUser uiUser: uiUsers) {
                     User u = mapFromUi(entityManager, uiUser, User.class);
-                    LOG.info("****** [User]="+u.getId());
                     entityManager.remove(u);
                 }
                 return null;

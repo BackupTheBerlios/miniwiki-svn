@@ -169,6 +169,9 @@ public class LinkTestFilter extends LocaleRegexTokenFilter {
         buffer.append(Encoder.escape(result.group(0)));
       }
     }
+    else {
+        buffer.append(Encoder.escape(result.group(0)));
+    }
   }
 
   /**

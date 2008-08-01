@@ -57,8 +57,8 @@ public class BaseRenderEngineTest extends TestCase {
   }
 
   public void testRenderEngine() {
-    String result = engine.render("__SnipSnap__ {link:Radeox|http://radeox.org}", context);
-    assertEquals("<b class=\"bold\">SnipSnap</b> <span class=\"nobr\"><a href=\"http://radeox.org\">Radeox</a></span>", result);
+    String result = engine.render("__Test__ {link:Radeox|http://radeox.org}", context);
+    assertEquals("<b class=\"bold\">Test</b> <span class=\"nobr\"><a href=\"http://radeox.org\">Radeox</a></span>", result);
   }
 
   public void testEmpty() {

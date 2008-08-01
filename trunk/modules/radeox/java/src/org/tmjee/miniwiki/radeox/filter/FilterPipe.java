@@ -178,6 +178,7 @@ public class FilterPipe {
 
     // Apply every filter in activeFilters to input string
     while (filterIterator.hasNext()) {
+      log.debug(getClass()+"->"+output);
       Filter f = (Filter) filterIterator.next();
       if (! inactiveFilters.contains(f)) {
       try {
@@ -188,6 +189,7 @@ public class FilterPipe {
           renderContext.setCacheable(false);
         }
         String tmp = f.filter(output, context);
+        log.debug(f.getClass()+"->"+tmp);
         if (output.equals(tmp)) {
           renderContext.setCacheable(true);
         }

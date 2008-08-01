@@ -1,0 +1,145 @@
+
+######################################################
+##
+##	GWT configs
+##
+######################################################
+
+#
+#	Inherits
+#
+<inherits name="com.google.gwt.user.User" />
+<!--
+ With this we have property "user.agent" with possible values 
+ "ie6,gecko,gecko1_8,safari,opera"
+-->
+<inherits name="com.google.gwt.user.UserAgent" /> 
+<inherits name="com.google.gwt.junit.JUnit" />
+<inherits name="com.google.gwt.json.JSON" />
+<inherits name="com.google.gwt.xml.XML" />
+<inherits name="com.google.gwt.i18n.I18N" />
+<inherits name="com.google.gwt.http.HTTP" />
+<inherits name='com.google.gwt.user.theme.standard.Standard'/>
+<!-- <inherits name="com.google.gwt.uiUser.theme.chrome.Chrome"/> -->
+<!-- <inherits name="com.google.gwt.uiUser.theme.dark.Dark"/> -->
+
+#
+#	Source
+#
+<source path="client" defaultexcludes="true">
+	<include name="a.java" />
+	<exclude name="b.java" />
+</source>
+
+#
+#	Public
+#
+<public path="public" defaultexcludes="true">
+	<include name="a.html" />
+	<exclude name="b.html" />
+</public>
+
+#
+#	Define Property
+#
+Definie the valid values of a particular property
+<define-property name="prop1" values="propVal1,propVal2" />
+
+#
+#	Extends Property
+#
+Extends property in gwt.xml file
+<extend-property name="prop1" values="propVal3,propVal4" />
+
+#
+#	Set Property
+#
+Set property in gwt.xml file
+<set-property />
+
+
+#
+#	Override property
+#
+Override it in html pages
+<meta name="gwt:property" content="prop1=value" />
+
+
+How is it compiled in JavaScript?
+window["values$prop1"] = {
+   ...
+}
+
+How to access?
+$wnd["values$prop1"]
+
+
+#
+# 	Property Provider
+#
+<property-provider name="prop2">
+<![CDATA[
+	// java script that return string
+]]>
+</property-provider>
+
+How is it compiled in JavaScript?
+window["provider$prop2"] = function(){
+  ...
+}
+
+Hot to access?
+$wnd["provider$prop2"]
+
+
+Generation
+===========
+<replace-with class="com.google.gwt.user.client.impl.DOMImplOpera">
+	<when-type-is class="com.google.gwt.user.client.impl.DOMImpl" />
+	<when-property-is name="user.agent" value="opera" />
+</replace-with>
+
+
+<generate-with class="">
+	<when-type-assignable class="" />
+</generate-with>
+
+<script src="myScript">
+<![CDATA[
+	// make sure js script is loaded ok and return true
+	return true;
+]]>
+</script>
+
+<stylesheet src="...." />
+
+
+<servlet path="/authentication" class="org.tmjee.chat.server.rpc.AuthServiceImpl" />
+
+Host Page
+==========
+<meta name="gwt:property" content="" />
+<meta name="gwt:onPropertyErrorFn" content="" />
+<meta name="gwt:onLoadErrorFn" content="" />
+
+#
+# Localization
+#
+<meta name="gwt:property" content="locale=en_US" />
+
+http://localhost:8080/org.tmjee.miniwiki.MiniWiki/MiniWiki.html?locale=en_US
+
+#
+# JNI
+#
+public native doSomethingInJs(String arg) /*-{
+   alert('testing');
+}-*/
+
+to call java object from js
+- instance based
+this.@foo.bar.MyBar::myMethod(Ljava.lang.String;)("some string");
+- static
+@foo.bar.MyBar::myMethod(Ljava.lang.String;)("some string");
+
+

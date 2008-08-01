@@ -40,7 +40,7 @@ public class Bootstrap {
     private Bootstrap() {
         applicationContext = new ClassPathXmlApplicationContext(
                 new String[] {
-                        "/spring.xml"
+                        "/support.xml"
                 }
         );
     }
