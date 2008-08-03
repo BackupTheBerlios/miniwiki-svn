@@ -136,8 +136,14 @@ public class MacroFilter extends RegexTokenFilter {
             if (null != mParams.getContent()) {
               mParams.setContent(filter(mParams.getContent(), context));
             }
-            Writer writer = new StringBufferWriter(buffer);
+            StringBufferWriter writer = new StringBufferWriter(new StringBuffer());
             macro.execute(writer, mParams);
+            log.debug(macro.getClass()+"->"+writer.toString());
+
+            String r = filter(writer.getBuffer().toString(), context);
+            buffer.append(r);
+
+
           } else if (command.startsWith("!")) {
             // @TODO including of other snips
             RenderEngine engine = context.getRenderContext().getRenderEngine();

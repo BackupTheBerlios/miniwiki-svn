@@ -31,7 +31,7 @@ public class TypographyFilterTest extends FilterTestSupport {
   }
 
   public static Test suite() {
-    return new TestSuite(FilterTestSupport.class);
+    return new TestSuite(TypographyFilterTest.class);
   }
 
   public void testElipsis() {

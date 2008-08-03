@@ -21,10 +21,13 @@ package org.tmjee.miniwiki.radeox.groovy;
 
 import groovy.text.Template;
 import groovy.text.TemplateEngine;
+import groovy.lang.Writable;
 import junit.framework.TestCase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.io.StringWriter;
+import java.io.IOException;
 
 import org.tmjee.miniwiki.radeox.example.RadeoxTemplateEngine;
 
@@ -34,7 +37,7 @@ public class RadeoxTemplateEngineTest extends TestCase {
     super(name);
   }
 
-  public void testRadeoxTemplate() {
+  public void testRadeoxTemplate() throws IOException {
     String text = "__Dear__ ${firstname}";
 
     Map binding = new HashMap();
@@ -47,10 +50,11 @@ public class RadeoxTemplateEngineTest extends TestCase {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    template.make(binding);
-    //template.setBinding(binding);
+    StringWriter writer = new StringWriter();
+    Writable writable = template.make(binding);
+    writable.writeTo(writer);
 
     String result = "<b class=\"bold\">Dear</b> stephan";
-    assertEquals(result, template.toString());
+    assertEquals(result, writer.getBuffer().toString());
   }
 }

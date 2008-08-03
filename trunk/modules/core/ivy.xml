@@ -23,9 +23,9 @@
       <dependency org="commons-collections" name="commons-collections" rev="3.1" conf="default->default" />
       <dependency org="commons-lang" name="commons-lang" rev="2.1" conf="default->default" />
       <dependency org="log4j" name="log4j" rev="1.2.13" conf="default->default" />
-      <dependency org="mysql" name="mysql-connector-java" rev="5.1.6" conf="default->default" />
+      <dependency org="hsqldb" name="hsqldb" rev="1.8.0.7" conf="default->default" />
       <dependency org="org.springframework" name="spring" rev="2.5.4" conf="default->default"  />
-	  <dependency org="org.springframework" name="spring-agent" rev="2.5.4" conf="default->default" />
+      <dependency org="org.springframework" name="spring-agent" rev="2.5.4" conf="default->default" />
       <dependency org="org.freemarker" name="freemarker" rev="2.3.9"  conf="default->default" />
       <dependency org="commons-dbcp" name="commons-dbcp" rev="1.2.2" conf="default->default" />
       <dependency org="net.sf.dozer" name="dozer" rev="4.2" conf="default->default" />

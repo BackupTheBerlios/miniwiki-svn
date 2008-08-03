@@ -37,6 +37,10 @@ public class GroupProperty implements Identifiable {
 
     // === Constructor ===
     public GroupProperty() {}
+    public GroupProperty(String name, String value) {
+        this.name = name;
+        this.value = value;
+    }
 
 
 

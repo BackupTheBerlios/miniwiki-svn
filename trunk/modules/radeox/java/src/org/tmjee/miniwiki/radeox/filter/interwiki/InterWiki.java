@@ -59,9 +59,9 @@ public class InterWiki {
 
   public InterWiki() {
     try {
-      init(new FileInputStream("conf/intermap.txt"));
+      init(InterWiki.class.getResourceAsStream("/intermap.txt"));
     } catch (IOException e) {
-      log.warn("Unable to read conf/intermap.txt", e);
+      log.warn("Unable to read intermap.txt", e);
     }
   }
 

@@ -18,8 +18,8 @@ public class MiniWikiConfig {
 
     public boolean isPredefinedSuperAdmin(String username, String password) {
         if ("true".equalsIgnoreCase(prop.getProperty("superadmin.enabled").trim()) &&
-            username.equals(UiCredentials.SUPERADMIN.getUser().getUsername()) &&
-            password.equals(prop.getProperty("superadmin.password").trim())) {
+            UiCredentials.SUPERADMIN.getUser().getUsername().equals(username) &&
+            prop.getProperty("superadmin.password").trim().equals(password)) {
             return true;
         }                      
         return false;

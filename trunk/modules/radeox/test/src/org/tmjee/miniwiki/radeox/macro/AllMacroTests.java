@@ -44,7 +44,6 @@ public class AllMacroTests extends TestCase {
     s.addTestSuite(MailToMacroTest.class);
     s.addTestSuite(RfcMacroTest.class);
     s.addTestSuite(BaseMacroParameterTest.class);
-//    s.addTestSuite(YipeeTest.class);
 
     s.addTest(AllCodeMacroTests.suite());
     return s;

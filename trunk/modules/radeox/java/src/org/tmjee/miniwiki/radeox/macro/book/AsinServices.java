@@ -42,7 +42,7 @@ public class AsinServices extends TextFileUrlMapper {
   }
 
   public String getFileName() {
-    return "conf/asinservices.txt";
+    return "asinservices.txt";
   }
 
   public String getKeyName() {

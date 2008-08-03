@@ -32,10 +32,13 @@ public class Setup {
     private String value;
 
 
+    // === constructor ===
+    protected Setup() {}
     public Setup(String name, String value) {
         this.name= name;
         this.value = value;
     }
+
 
 
     public void setValue(String value) {

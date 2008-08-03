@@ -42,7 +42,7 @@ public class BookServices extends TextFileUrlMapper {
   }
 
   public String getFileName() {
-    return "conf/bookservices.txt";
+    return "bookservices.txt";
   }
 
   public String getKeyName() {

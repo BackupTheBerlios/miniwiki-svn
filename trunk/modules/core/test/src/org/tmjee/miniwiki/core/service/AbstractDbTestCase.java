@@ -42,10 +42,12 @@ public abstract class AbstractDbTestCase extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
         _setUp();
+        postSetUp();
     }
 
     protected void tearDown() throws Exception {
-         _tearDown();
+        //|_tearDown();
+        postTearDown();
         super.tearDown();
     }
 
@@ -102,6 +104,14 @@ public abstract class AbstractDbTestCase extends TestCase {
         TestingSupportService testingSupportService =
                 (TestingSupportService) getApplicationContext().getBean("testingSupportService");
         return testingSupportService;
+    }
+
+    protected void postSetUp() throws Exception {
+
+    }
+
+    protected void postTearDown() throws Exception {
+
     }
 
 }

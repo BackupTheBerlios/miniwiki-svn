@@ -20,7 +20,7 @@ import javax.persistence.Table;
     ),
     @NamedQuery(
             name = "getUserByUsername_full",
-            query ="SELECT user FROM User as user LEFT JOIN FETCH user.groups LEFT JOIN FETCH user.properties WHERE user.username = :username"
+            query ="SELECT user FROM User as user LEFT JOIN FETCH user.properties LEFT JOIN FETCH user.groups WHERE user.username = :username"
     ),
     @NamedQuery(
             name="count_searchForUser_exact",

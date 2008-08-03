@@ -1,0 +1,1 @@
+-javaagent:/home/tmjee/development/miniwiki/modules/core/lib/java-agent.jar

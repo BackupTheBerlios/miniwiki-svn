@@ -29,7 +29,7 @@ public class ItalicFilterTest extends FilterTestSupport {
   }
 
   public static Test suite() {
-    return new TestSuite(FilterTestSupport.class);
+    return new TestSuite(ItalicFilterTest.class);
   }
 
   public void testItalic() {

@@ -40,7 +40,7 @@ import java.util.StringTokenizer;
 public class XrefMapper {
   private static Log log = LogFactory.getLog(XrefMapper.class);
 
-  private final static String FILENAME = "conf/xref.txt";
+  private final static String FILENAME = "xref.txt";
 
   private static XrefMapper instance;
   private Map xrefMap;

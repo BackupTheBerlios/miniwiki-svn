@@ -2,18 +2,43 @@ package org.tmjee.miniwiki.core.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.orm.jpa.JpaTemplate;
+import org.springframework.orm.jpa.JpaCallback;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 /**
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class Main {
+public class Main extends AbstractDbTestCase {
 
-    private static final Log LOG = LogFactory.getLog(Main.class);
+    public Main() throws Exception {
+    }
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(
-            Main.class.getResourceAsStream("/testing_db.properties")
+
+    public void test() throws Exception {
+        getTestingSupportService().doService(
+                new TestingSupportService.TestingAction() {
+                    public void action(JpaTemplate template) throws Exception {
+                        template.execute(new JpaCallback() {
+                            public Object doInJpa(EntityManager entityManager) throws PersistenceException {
+
+                                Query query = entityManager.createNamedQuery("getUserByUsername_full");
+                                query.setParameter("username", "Toby");
+
+                                for (Object o : query.getResultList()) {
+                                    System.out.println("*** "+o);
+                                }
+
+                                return null;
+                            }
+                        });
+                    }
+                }
         );
     }
+
 }

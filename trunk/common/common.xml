@@ -150,7 +150,7 @@
 
         <formatter type="plain" />
 
-		<jvmarg value="-javaagent:${lib.dir}/spring-agent.jar" />
+	<jvmarg value="-javaagent:${lib.dir}/spring-agent.jar" />
 		
         <batchtest todir="${test.report.dir}">
            <fileset dir="${test.src.dir}">

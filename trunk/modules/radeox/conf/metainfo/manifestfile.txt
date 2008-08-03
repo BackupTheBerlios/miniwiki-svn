@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
 Built-By: tmjee
-
+Main-Class: org.tmjee.miniwiki.radeox.example.InteractiveExample
+Class-Path: jakarta-oro.jar commons-logging.jar picocontainer.jar

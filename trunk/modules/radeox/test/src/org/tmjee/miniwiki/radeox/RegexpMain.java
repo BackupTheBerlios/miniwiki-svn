@@ -25,7 +25,7 @@ import org.tmjee.miniwiki.radeox.engine.context.BaseRenderContext;
 
 import java.io.*;
 
-public class RegexpTest {
+public class RegexpMain {
   public static void main(String[] args) {
 
     String file = args.length > 0 ? args[0] : "conf/wiki.txt";

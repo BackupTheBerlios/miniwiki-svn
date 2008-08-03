@@ -61,7 +61,8 @@ public class UserManagementService extends AbstractService {
             org.tmjee.miniwiki.core.domain.User _user = (org.tmjee.miniwiki.core.domain.User) template.execute(new JpaCallback() {
                 public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                     Query query = entityManager.createNamedQuery("getUserByUsername_full");
-                    return query.getSingleResult();
+                    query.setParameter("username", username);
+                    return query.getResultList().get(0);
                 }
             });
             UiUser uiUser = mapFromEntity(_user, UiUser.class);

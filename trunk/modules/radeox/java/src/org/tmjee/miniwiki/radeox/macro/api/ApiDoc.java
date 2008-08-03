@@ -56,10 +56,10 @@ public class ApiDoc {
     try {
       BufferedReader br = new BufferedReader(
           new InputStreamReader(
-              new FileInputStream("conf/apidocs.txt")));
+              ApiDoc.class.getResourceAsStream("/apidocs.txt")));
       addApiDoc(br);
     } catch (IOException e) {
-      log.warn("Unable to read conf/apidocs.txt");
+      log.warn("Unable to read apidocs.txt");
       fileNotFound = true;
     }
 
@@ -68,12 +68,12 @@ public class ApiDoc {
       try {
         br = new BufferedReader(
             new InputStreamReader(
-                ApiDoc.class.getResourceAsStream("/conf/apidocs.txt")
+                ApiDoc.class.getResourceAsStream("/apidocs.txt")
             )
         );
         addApiDoc(br);
       } catch (Exception e) {
-        log.warn("Unable to read conf/apidocs.txt from jar");
+        log.warn("Unable to read apidocs.txt from jar");
       }
     }
   }
@@ -81,18 +81,20 @@ public class ApiDoc {
   public void addApiDoc(BufferedReader reader) throws IOException {
     String line;
     while ((line = reader.readLine()) != null) {
-      StringTokenizer tokenizer = new StringTokenizer(line, " ");
-      String mode = tokenizer.nextToken();
-      String baseUrl = tokenizer.nextToken();
-      String converterName = tokenizer.nextToken();
-      ApiConverter converter = null;
-      try {
-        converter = (ApiConverter) Class.forName("org.tmjee.miniwiki.radeox.radeox.macro.api." + converterName + "ApiConverter").newInstance();
-      } catch (Exception e) {
-        log.warn("Unable to load converter: " + converterName + "ApiConverter", e);
+      if (!"#".startsWith(line.trim())) {
+        StringTokenizer tokenizer = new StringTokenizer(line, " ");
+        String mode = tokenizer.nextToken();
+        String baseUrl = tokenizer.nextToken();
+        String converterName = tokenizer.nextToken();
+        ApiConverter converter = null;
+        try {
+            converter = (ApiConverter) Class.forName("org.tmjee.miniwiki.radeox.macro.api." + converterName + "ApiConverter").newInstance();
+        } catch (Exception e) {
+            log.warn("Unable to load converter: " + converterName + "ApiConverter", e);
+        }
+        converter.setBaseUrl(baseUrl);
+        apiDocs.put(mode.toLowerCase(), converter);
       }
-      converter.setBaseUrl(baseUrl);
-      apiDocs.put(mode.toLowerCase(), converter);
     }
   }
 

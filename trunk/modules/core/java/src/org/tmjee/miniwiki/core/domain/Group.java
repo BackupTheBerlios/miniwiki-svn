@@ -60,6 +60,13 @@ public class Group implements Identifiable {
     }
 
 
+
+    // === misc ===
+    public void addProperty(GroupProperty property) {
+        properties.add(property);
+    }
+
+
     // === getters ===
 
     public long getId() {
