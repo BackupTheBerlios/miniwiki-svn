@@ -93,7 +93,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
     public void testAuthenticate() throws Exception {
         UserManagementService userManagementService = (UserManagementService) getApplicationContext().getBean("userManagementService");
 
-        /*{
+        {
             UiCredentials credentials = userManagementService.authenticate(null, null);
             assertEquals(UiCredentials.ANONYMOUS, credentials);
         }
@@ -104,7 +104,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
         {
             UiCredentials credentials = userManagementService.authenticate("nosuchuser", "nosuchpassword");
             assertEquals(UiCredentials.ANONYMOUS, credentials);
-        }*/
+        }
         {
             UiCredentials credentials = userManagementService.authenticate("Toby", "Toby_Password");
             assertFalse(credentials.isAnonymous());
@@ -113,6 +113,8 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
             assertEquals("Toby_LastName", credentials.getUser().getLastName());
             assertEquals("Toby_Description", credentials.getUser().getDescription());
             assertEquals("Toby_Password", credentials.getUser().getPassword());
+            assertEquals(credentials.getUser().getGroups().size(), 2);
+            //assertEquals(credentials.getUser().getGroups().contains)            
         }
 
 

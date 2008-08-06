@@ -46,7 +46,7 @@ public abstract class AbstractDbTestCase extends TestCase {
     }
 
     protected void tearDown() throws Exception {
-        //|_tearDown();
+        _tearDown();
         postTearDown();
         super.tearDown();
     }
