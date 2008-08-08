@@ -4,6 +4,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
+import org.tmjee.miniwiki.core.domain.User;
+import org.tmjee.miniwiki.core.domain.Group;
+import org.tmjee.miniwiki.core.domain.UserProperty;
+import org.tmjee.miniwiki.core.domain.GroupProperty;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
@@ -19,10 +23,13 @@ public class Main extends AbstractDbTestCase {
     }
 
 
+    User user = null;
+    Group group = null;
     public void test() throws Exception {
         getTestingSupportService().doService(
                 new TestingSupportService.TestingAction() {
                     public void action(JpaTemplate template) throws Exception {
+
                         template.execute(new JpaCallback() {
                             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
 
@@ -30,15 +37,22 @@ public class Main extends AbstractDbTestCase {
                                 query.setParameter("username", "Toby");
 
                                 for (Object o : query.getResultList()) {
-                                    System.out.println("*** "+o);
+                                    user = (User) o;
                                 }
-
                                 return null;
                             }
                         });
                     }
                 }
         );
+
+        System.out.println("* "+user);
+        group = ((Group)user.getGroups().iterator().next());
+        System.out.println("* "+group);
+        GroupProperty up = (GroupProperty) group.getProperties().iterator().next();
+        System.out.println("* "+up.getName()+"="+up.getValue());
+
+
     }
 
 }

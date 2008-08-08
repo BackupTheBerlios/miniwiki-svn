@@ -70,7 +70,7 @@
             <a>users</a>
             <b>users</b>
             <a-hint>org.tmjee.miniwiki.client.domain.UiUser</a-hint>
-            <b-hint>org.tmjee.mminiwiki.core.domain.User</b-hint>
+            <b-hint>org.tmjee.miniwiki.core.domain.User</b-hint>
         </field>
     </mapping>
     <mapping>

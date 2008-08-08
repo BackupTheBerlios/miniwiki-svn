@@ -26,6 +26,10 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
 
 
     public UiGroup() {}
+    public UiGroup(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public long getId() {
         return id;
