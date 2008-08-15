@@ -8,6 +8,8 @@ import org.tmjee.miniwiki.core.domain.User;
 import org.tmjee.miniwiki.core.domain.Group;
 import org.tmjee.miniwiki.core.domain.UserProperty;
 import org.tmjee.miniwiki.core.domain.GroupProperty;
+import org.tmjee.miniwiki.client.server.PagingInfo;
+import org.tmjee.miniwiki.client.domain.UiUsers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
@@ -26,33 +28,10 @@ public class Main extends AbstractDbTestCase {
     User user = null;
     Group group = null;
     public void test() throws Exception {
-        getTestingSupportService().doService(
-                new TestingSupportService.TestingAction() {
-                    public void action(JpaTemplate template) throws Exception {
-
-                        template.execute(new JpaCallback() {
-                            public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-
-                                Query query = entityManager.createNamedQuery("getUserByUsername_full");
-                                query.setParameter("username", "Toby");
-
-                                for (Object o : query.getResultList()) {
-                                    user = (User) o;
-                                }
-                                return null;
-                            }
-                        });
-                    }
-                }
-        );
-
-        System.out.println("* "+user);
-        group = ((Group)user.getGroups().iterator().next());
-        System.out.println("* "+group);
-        GroupProperty up = (GroupProperty) group.getProperties().iterator().next();
-        System.out.println("* "+up.getName()+"="+up.getValue());
-
-
+        UserManagementService userManagementService = (UserManagementService) getApplicationContext().getBean("userManagementService");
+        //System.out.println(userManagementService.getAllGroups(new PagingInfo(1, 2)).getGroups().size());
+        //System.out.println(userManagementService.getAllUsers(new PagingInfo(1, 5)).getUsers().size());
+        System.out.println(userManagementService.searchForGroup("group", new PagingInfo(1, 2), false).getGroups().size());
     }
 
 }

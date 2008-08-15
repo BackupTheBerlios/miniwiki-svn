@@ -58,24 +58,34 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     }
 
     public void removeGroup(UiGroup uiGroup) {
-        uiGroups.remove(uiGroup);
-        propertySupport.firePropertyDeletion("group", uiGroup);
+        if (uiGroups.contains(uiGroup)) {
+            uiGroups.remove(uiGroup);
+            uiGroup.removeUser(this);
+            propertySupport.firePropertyDeletion("group", uiGroup);
+        }
     }
 
     public void addGroup(UiGroup uiGroup) {
-        uiGroups.add(uiGroup);
-        propertySupport.firePropertyAddition("group", uiGroup);
+        if (!uiGroups.contains(uiGroup)) {
+            uiGroups.add(uiGroup);
+            uiGroup.addUser(this);
+            propertySupport.firePropertyAddition("group", uiGroup);
+        }
     }
 
 
     public void removeProperty(UiUserProperty propertyUi) {
-        uiUserProperties.remove(propertyUi);
-        propertySupport.firePropertyDeletion("property", propertyUi);
+        if (uiUserProperties.contains(propertyUi)) {
+            uiUserProperties.remove(propertyUi);
+            propertySupport.firePropertyDeletion("property", propertyUi);
+        }
     }
 
     public void addProperty(UiUserProperty propertyUi) {
-        uiUserProperties.add(propertyUi);
-        propertySupport.firePropertyAddition("property", propertyUi);
+        if (!uiUserProperties.contains(propertyUi)) {
+            uiUserProperties.add(propertyUi);
+            propertySupport.firePropertyAddition("property", propertyUi);
+        }
     }
 
     public List<UiUserProperty> getProperties() {

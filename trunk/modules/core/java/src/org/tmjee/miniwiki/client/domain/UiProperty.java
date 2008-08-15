@@ -5,6 +5,8 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.tmjee.miniwiki.client.beans.PropertySupport;
+
 /**
  * @author tmjee
  * @version $Date$ $Id$
@@ -14,6 +16,8 @@ public abstract class UiProperty implements UiIdentifiable {
     private long id;
     private String name;
     private String value;
+
+    private transient PropertySupport propertySupport = new PropertySupport();
 
     public UiProperty() {}
 
@@ -28,7 +32,9 @@ public abstract class UiProperty implements UiIdentifiable {
     }
 
     public void setId(long id) {
+        long oldId = this.id;
         this.id = id;
+        propertySupport.firePropertyChange("id", oldId, this.id);
     }
 
     public String getName() {
@@ -36,7 +42,9 @@ public abstract class UiProperty implements UiIdentifiable {
     }
 
     public void setName(String name) {
+        String oldName = this.name;
         this.name = name;
+        propertySupport.firePropertyChange("name", oldName, this.name);
     }
 
     public String getValue() {
@@ -44,6 +52,8 @@ public abstract class UiProperty implements UiIdentifiable {
     }
 
     public void setValue(String value) {
+        String oldValue = this.value;
         this.value = value;
+        propertySupport.firePropertyChange("value", oldValue, this.value);
     }
 }

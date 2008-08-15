@@ -3,12 +3,20 @@
     "http://dozer.sourceforge.net/dtd/dozerbeanmapping.dtd">
 <mappings>
     <configuration>
+        <wildcard>false</wildcard>
+        <trim-strings>true</trim-strings>
         <relationship-type>non-cumulative</relationship-type>
     </configuration>
-    <mapping>
-        <class-a>org.tmjee.miniwiki.client.domain.UiUser</class-a>
-        <class-b>org.tmjee.miniwiki.core.domain.User</class-b>
-        <field>
+
+    <!--
+       =============================
+            UiUser
+       =============================
+    -->
+    <mapping map-id="UiUser" >
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.User</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiUser</class-b>
+        <field type="one-way">
             <a>id</a>
             <b>id</b>
         </field>
@@ -32,23 +40,23 @@
             <a>password</a>
             <b>password</b>
         </field>
-        <field remove-orphans="true">
+        <field remove-orphans="true" map-id="UiUserProperty">
             <a>properties</a>
             <b>properties</b>
-            <a-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</a-hint>
-            <b-hint>org.tmjee.miniwiki.core.domain.UserProperty</b-hint>
+            <a-hint>org.tmjee.miniwiki.core.domain.UserProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</b-hint>
         </field>
-        <field remove-orphans="true">
+        <field remove-orphans="true" map-id="UiUser_UiGroup">
             <a>groups</a>
             <b>groups</b>
-            <a-hint>org.tmjee.miniwiki.client.domain.UiGroup</a-hint>
-            <b-hint>org.tmjee.miniwiki.core.domain.Group</b-hint>
+            <a-hint>org.tmjee.miniwiki.core.domain.Group</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGroup</b-hint>
         </field>
     </mapping>
-    <mapping>
-        <class-a>org.tmjee.miniwiki.client.domain.UiGroup</class-a>
-        <class-b>org.tmjee.miniwiki.core.domain.Group</class-b>
-        <field>
+    <mapping map-id="UiUser_UiGroup">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Group</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiGroup</class-b>
+        <field type="one-way">
             <a>id</a>
             <b>id</b>
         </field>
@@ -60,23 +68,160 @@
             <a>description</a>
             <b>description</b>
         </field>
-        <field remove-orphans="true">
+        <field remove-orphans="true" map-id="UiGroupProperty">
             <a>properties</a>
             <b>properties</b>
-            <a-hint>org.tmjee.miniwiki.client.domain.UiGroupProperty</a-hint>
-            <b-hint>org.tmjee.miniwiki.core.domain.GroupProperty</b-hint>
+            <a-hint>org.tmjee.miniwiki.core.domain.GroupProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGroupProperty</b-hint>
         </field>
-        <field remove-orphans="true">
+        <field remove-orphans="true" map-id="UiUser_UiGroup_UiUserSimplified">
             <a>users</a>
             <b>users</b>
-            <a-hint>org.tmjee.miniwiki.client.domain.UiUser</a-hint>
-            <b-hint>org.tmjee.miniwiki.core.domain.User</b-hint>
+            <a-hint>org.tmjee.miniwiki.core.domain.User</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiUser</b-hint>
         </field>
     </mapping>
-    <mapping>
-        <class-a>org.tmjee.miniwiki.client.domain.UiUserProperty</class-a>
-        <class-b>org.tmjee.miniwiki.core.domain.UserProperty</class-b>
+    <mapping map-id="UiUser_UiGroup_UiUserSimplified">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.User</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiUser</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
         <field>
+            <a>username</a>
+            <b>username</b>
+        </field>
+        <field>
+            <a>firstName</a>
+            <b>firstName</b>
+        </field>
+        <field>
+            <a>lastName</a>
+            <b>lastName</b>
+        </field>
+        <field>
+            <a>description</a>
+            <b>description</b>
+        </field>
+        <field>
+            <a>password</a>
+            <b>password</b>
+        </field>
+        <field remove-orphans="true" map-id="UiUserProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.UserProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</b-hint>
+        </field>
+    </mapping>
+
+
+    <!--
+        =================================
+            UiGroup
+        =================================
+    -->
+    <mapping map-id="UiGroup">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Group</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiGroup</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field>
+            <a>description</a>
+            <b>description</b>
+        </field>
+        <field remove-orphans="true" map-id="UiGroupProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.GroupProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGroupProperty</b-hint>
+        </field>
+        <field remove-orphans="true" map-id="UiGroup_UiUser">
+            <a>users</a>
+            <b>users</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.User</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiUser</b-hint>
+        </field>
+    </mapping>
+    <mapping map-id="UiGroup_UiUser">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.User</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiUser</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>username</a>
+            <b>username</b>
+        </field>
+        <field>
+            <a>firstName</a>
+            <b>firstName</b>
+        </field>
+        <field>
+            <a>lastName</a>
+            <b>lastName</b>
+        </field>
+        <field>
+            <a>description</a>
+            <b>description</b>
+        </field>
+        <field>
+            <a>password</a>
+            <b>password</b>
+        </field>
+        <field remove-orphans="true" map-id="UiUserProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.UserProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</b-hint>
+        </field>
+        <field remove-orphans="true" map-id="UiGroup_UiUser_UiGroupSimplified">
+            <a>groups</a>
+            <b>groups</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.Group</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGroup</b-hint>
+        </field>
+    </mapping>
+    <mapping map-id="UiGroup_UiUser_UiGroupSimplified">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Group</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiGroup</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field>
+            <a>description</a>
+            <b>description</b>
+        </field>
+        <field remove-orphans="true" map-id="UiGroupProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.GroupProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGroupProperty</b-hint>
+        </field>
+    </mapping>
+
+    <!-- 
+        =============================================
+            Commons Mappings
+        =============================================
+    -->
+    <mapping map-id="UiUserProperty">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.UserProperty</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiUserProperty</class-b>
+        <field type="one-way">
             <a>id</a>
             <b>id</b>
         </field>
@@ -89,10 +234,10 @@
             <b>value</b>
         </field>
     </mapping>
-    <mapping>
-        <class-a>org.tmjee.miniwiki.client.domain.UiGroupProperty</class-a>
-        <class-b>org.tmjee.miniwiki.core.domain.GroupProperty</class-b>
-        <field>
+    <mapping map-id="UiGroupProperty">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.GroupProperty</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiGroupProperty</class-b>
+        <field type="one-way">
             <a>id</a>
             <b>id</b>
         </field>

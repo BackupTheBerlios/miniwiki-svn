@@ -32,6 +32,7 @@ public class Group implements Identifiable {
     private String name;
 
     @ManyToMany(targetEntity = User.class,
+                cascade = {CascadeType.ALL},
                 fetch = FetchType.LAZY,
                 mappedBy = "groups")
     @OrderBy("username ASC")
@@ -120,10 +121,15 @@ public class Group implements Identifiable {
         this.description = description;
     }
 
-    
 
+    // === toString ===
 
-    // == equals & hashcode ===
+    public String toString() {
+         return "id="+id+"\n"+
+                "description="+description+"\n"+
+                "properties="+properties+"\n";
+    }
+    // === equals & hashcode ===
 
     public boolean equals(Object obj) {
         if (!(obj instanceof Group)) {

@@ -35,6 +35,12 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
         return id;
     }
 
+    public void setId(long id) {
+        long oldId = this.id;
+        this.id = id;
+        propertySupport.firePropertyChange("id", oldId, this.id);
+    }
+
     public String getName() {
         return name;
     }
@@ -81,6 +87,7 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
     public void addUser(UiUser user) {
         if (!users.contains(user)) {
              users.add(user);
+            user.addGroup(this);
             propertySupport.firePropertyAddition("user", user);
         }
     }
@@ -88,6 +95,7 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
     public void removeUser(UiUser user) {
         if (users.contains(user)) {
             users.remove(user);
+            user.removeGroup(this);
             propertySupport.firePropertyDeletion("user", user);
         }
     }

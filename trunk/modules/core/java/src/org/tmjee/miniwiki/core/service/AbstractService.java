@@ -3,9 +3,12 @@ package org.tmjee.miniwiki.core.service;
 import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.client.server.ResponsePagingInfo;
 import org.tmjee.miniwiki.client.domain.UiIdentifiable;
+import org.tmjee.miniwiki.client.Constants;
 import org.tmjee.miniwiki.core.domain.Identifiable;
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
+import org.apache.commons.logging.LogFactory;
+import org.apache.commons.logging.Log;
 
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
@@ -20,6 +23,8 @@ import net.sf.dozer.util.mapping.DozerBeanMapper;
  */
 public class AbstractService {
 
+    private static final Log LOG = LogFactory.getLog(AbstractService.class);
+
     protected JpaTemplate template;
     protected DozerBeanMapper mapper;
 
@@ -30,8 +35,12 @@ public class AbstractService {
     }
 
     protected Query preparePagingInfo(Query query, PagingInfo pagingInfo) {
-        query.setFirstResult((pagingInfo.getPageNumber()-1)*pagingInfo.getPageSize());
-        query.setMaxResults((pagingInfo.getPageNumber()*pagingInfo.getPageSize())-1);
+        int pageNumber = pagingInfo.getPageNumber()<=0 ? Constants.STARTING_PAGE_NUMBER : pagingInfo.getPageNumber();
+        int pageSize = pagingInfo.getPageSize()<=0 ? Constants.DEFAULT_PAGE_SIZE : pagingInfo.getPageSize();
+        int min = (pageNumber-1)*pagingInfo.getPageSize();
+        int max = (pagingInfo.getPageNumber()*pagingInfo.getPageSize())-1;
+        query.setFirstResult(min);
+        query.setMaxResults(pageSize);
         return query;
     }
 
@@ -55,48 +64,44 @@ public class AbstractService {
 
 
 
-    protected <F extends UiIdentifiable,T extends Identifiable> T mapFromUi(EntityManager entityManager, F f, Class<T> t) {
-        T _t = entityManager.find(t, f.getId());
-        if (_t != null) {
-            mapper.map(f, _t);
-            return _t;
-        }
-        return (T) mapper.map(f, t);
+    /*protected <F extends UiIdentifiable,T extends Identifiable> T mapFromUi(F f, Class<T> t, String context) {
+        T ttt = (T) mapper.map(f, t, context);
+        return ttt;
     }
 
-    protected <F extends UiIdentifiable,T extends Identifiable> List<T> mapFromUiAsListToList(EntityManager entityManager, List<F> fs, Class<T> t) {
+    protected <F extends UiIdentifiable,T extends Identifiable> List<T> mapFromUiAsList(List<F> fs, Class<T> t, String context) {
         List<T> result = new ArrayList<T>();
         for (F f : fs) {
-            result.add(mapFromUi(entityManager, f, t));
+            result.add(mapFromUi(f, t, context));
         }
         return result;
     }
 
-    protected <F extends UiIdentifiable, T extends Identifiable> Set<T> mapFromUiAsListToSet(EntityManager entityManager, List<F> fs, Class<T> t) {
+    protected <F extends UiIdentifiable, T extends Identifiable> Set<T> mapFromUiAsSet(EntityManager entityManager, List<F> fs, Class<T> t, String context) {
         Set<T> result = new LinkedHashSet<T>();
         for (F f: fs) {
-            result.add(mapFromUi(entityManager, f, t));
+            result.add(mapFromUi(f, t, context));
         }
         return result;
+    }*/
+
+
+    protected <F,T> T map(F f, Class<T> t, String context) {
+        return (T) mapper.map(f, t, context);
     }
 
-
-    protected <F extends Identifiable,T extends UiIdentifiable> T mapFromEntity(F f, Class<T> t) {
-        return (T) mapper.map(f, t);
-    }
-
-    protected <F extends Identifiable,T extends UiIdentifiable> List<T> mapFromEntityToList(List<F> fs, Class<T> t) {
+    protected <F,T> List<T> mapToList(List<F> fs, Class<T> t, String context) {
         List<T> result = new ArrayList<T>();
         for (F f : fs) {
-            result.add(mapFromEntity(f, t));
+            result.add(map(f, t, context));
         }
         return result;
     }
 
-    protected <F extends Identifiable,T extends UiIdentifiable> Set<T> mapFromEntityToSet(List<F> fs, Class<T> t) {
+    protected <F,T> Set<T> mapToSet(List<F> fs, Class<T> t, String context) {
         Set<T> result = new LinkedHashSet<T>();
         for (F f : fs) {
-            result.add(mapFromEntity(f, t));
+            result.add(map(f, t, context));
         }
         return result;
     }
@@ -108,9 +113,11 @@ public class AbstractService {
 
     protected void mergeOrPersist(EntityManager entityManager, Identifiable entity) {
         if (entity.getId() <= 0) {
+            LOG.debug("Performing PERSIST on ["+entity+"]");
             entityManager.persist(entity);
         }
         else {
+            LOG.debug("Performing MERGE on ["+entity+"]");
             entityManager.merge(entity);
         }
     }

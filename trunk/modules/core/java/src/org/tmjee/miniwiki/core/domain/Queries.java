@@ -32,11 +32,11 @@ import javax.persistence.Table;
     ),
     @NamedQuery(
             name="count_searchForUser_not_exact",
-            query="SELECT COUNT(user) FROM User as user WHERE user.username LIKE :username"
+            query="SELECT COUNT(user) FROM User as user WHERE LOWER(user.username) LIKE :username"
     ),
     @NamedQuery(
             name="searchForUser_not_exact",
-            query="SELECT user FROM User as user LEFT JOIN FETCH user.groups LEFT JOIN FETCH user.properties WHERE user.username LIKE :username"
+            query="SELECT user FROM User as user LEFT JOIN FETCH user.groups LEFT JOIN FETCH user.properties WHERE LOWER(user.username) LIKE :username"
     ),
     @NamedQuery(
             name="count_allUsers",
@@ -56,19 +56,19 @@ import javax.persistence.Table;
     ),
     @NamedQuery(
             name="count_searchForGroup_not_exact",
-            query="SELECT COUNT(grp) FROM Group as grp WHERE grp.name LIKE :name"
+            query="SELECT COUNT(grp) FROM Group as grp WHERE LOWER(grp.name) LIKE :name"
     ),
     @NamedQuery(
             name="searchForGroup_not_exact",
-            query="SELECT grp FROM Group as grp LEFT JOIN FETCH grp.users LEFT JOIN FETCH grp.properties WHERE grp.name LIKE :name"
+            query="SELECT grp FROM Group as grp LEFT JOIN FETCH grp.users LEFT JOIN FETCH grp.properties WHERE LOWER(grp.name) LIKE :name"
     ),
     @NamedQuery(
             name="count_allGroups",
-            query="SELECT COUNT(grp) FROM Group as grp "
+            query="SELECT COUNT(grp) FROM Group as grp"
     ),
     @NamedQuery(
             name="allGroups", 
-            query="SELECT grp FROM Group as grp LEFT JOIN FETCH grp.users LEFT JOIN FETCH grp.properties"
+            query="SELECT grp FROM Group as grp LEFT JOIN FETCH grp.properties LEFT JOIN FETCH grp.users"
     )
 
 })

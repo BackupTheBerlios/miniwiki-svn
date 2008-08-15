@@ -63,6 +63,13 @@
                        read-only="false"/>
         </tx:attributes>
     </tx:advice>
+    <tx:advice id="txWriteOnlyAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="*"
+                       propagation="REQUIRED"
+                       read-only="false" />
+        </tx:attributes>
+    </tx:advice>
     <aop:config>
 
         <aop:pointcut id="pcSetupService"
@@ -74,12 +81,17 @@
         <aop:pointcut id="pcTemplateManagementService"
                       type="aspectj"
                       expression="execution(* org.tmjee.miniwiki.core.service.TemplateManagementService.*(..))" />
+        <aop:pointcut id="pcUiObjectToJpaObjectDozerBeanFactory"
+                      type="aspectj"
+                      expression="execution(* org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory.*(..))" />
 
 
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcSetupService" />
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcUserManagementService" />
+        <aop:advisor advice-ref="txWriteOnlyAdvice"
+                     pointcut-ref="pcUiObjectToJpaObjectDozerBeanFactory" />
     </aop:config>
 
 
@@ -96,6 +108,13 @@
                 <value>beansMappings.xml</value>
             </list>
         </property>
+        <property name="factories">
+            <map>
+                <entry key="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">
+                    <ref bean="uiObjectToJpaObjectDozerBeanFactory" />
+                </entry>
+            </map>
+        </property>
     </bean>
 
 
@@ -108,6 +127,9 @@
         <property name="connectionUrl" value="${db.url}"/>
         <property name="connectionPassword" value="${db.password}" />
         <property name="connectionDriver" value="${db.driverName}" />
+    </bean>
+    <bean name="uiObjectToJpaObjectDozerBeanFactory" class="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">
+        <constructor-arg index="0" ref="jpaTemplate" />
     </bean>
     <bean name="userManagementService" class="org.tmjee.miniwiki.core.service.UserManagementService">
         <constructor-arg index="0" ref="jpaTemplate" />

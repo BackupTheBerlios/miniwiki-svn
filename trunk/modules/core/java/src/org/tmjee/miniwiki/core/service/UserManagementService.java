@@ -65,7 +65,7 @@ public class UserManagementService extends AbstractService {
                     return query.getResultList().get(0);
                 }
             });
-            UiUser uiUser = mapFromEntity(_user, UiUser.class);
+            UiUser uiUser = map(_user, UiUser.class, "UiUser");
             return new UiCredentials(uiUser);
         }
         return UiCredentials.ANONYMOUS;
@@ -77,14 +77,14 @@ public class UserManagementService extends AbstractService {
                 Query query = exactMatch ?
                         entityManager.createNamedQuery("searchForUser_exact") :
                         entityManager.createNamedQuery("searchForUser_not_exact");
-                query.setParameter("username", exactMatch ? username : "%"+username+"%");
+                query.setParameter("username", exactMatch ? username : ("%"+username+"%").toLowerCase());
                 preparePagingInfo(query, pagingInfo);
                 return query.getResultList();
             }
         });
 
 
-        return new UiUsers( mapFromEntityToList(users, UiUser.class),
+        return new UiUsers( mapToList(users, UiUser.class, "UiUser"),
                             prepareResponsePagingInfo(
                                 exactMatch ? "count_searchForUser_exact" : "count_searchForUser_not_exact",
                                 exactMatch ?
@@ -92,7 +92,7 @@ public class UserManagementService extends AbstractService {
                                             {put("username", username);}
                                         }:
                                         new HashMap<String, Object>() {
-                                            {put("username", "%"+username+"%");}
+                                            {put("username", ("%"+username+"%").toLowerCase());}
                                         },
                                 pagingInfo));
     }
@@ -107,7 +107,7 @@ public class UserManagementService extends AbstractService {
         });
 
         UiUsers uiUsers = new UiUsers(
-                mapFromEntityToList(users, UiUser.class),
+                mapToList(users, UiUser.class, "UiUser"),
                 prepareResponsePagingInfo("count_allUsers", Collections.EMPTY_MAP, pagingInfo));
         return uiUsers;
     }
@@ -115,7 +115,7 @@ public class UserManagementService extends AbstractService {
     public void updateUser(final UiUser uiUser) {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                User user = mapFromUi(entityManager, uiUser, User.class);
+                User user = map(uiUser, User.class, "UiUser");
                 mergeOrPersist(entityManager, user);
                 return null;
             }
@@ -126,7 +126,7 @@ public class UserManagementService extends AbstractService {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 for (UiUser uiUser: uiUsers) {
-                    User u = mapFromUi(entityManager, uiUser, User.class);
+                    User u = map(uiUser, User.class, "UiUser");
                     entityManager.remove(u);
                 }
                 return null;
@@ -139,13 +139,14 @@ public class UserManagementService extends AbstractService {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Query query = entityManager.createNamedQuery(
                         exactMatch ? "searchForGroup_exact" : "searchForGroup_not_exact");
+                query.setParameter("name", exactMatch ? groupName : ("%"+groupName.toLowerCase()+"%"));
                 preparePagingInfo(query, pagingInfo);
                 return query.getResultList();
             }
         });
 
         return new UiGroups(
-                mapFromEntityToList(groups, UiGroup.class),
+                mapToList(groups, UiGroup.class, "UiGroup"),
                 prepareResponsePagingInfo(
                         exactMatch?"count_searchForGroup_exact":"count_searchForGroup_not_exact",
                         exactMatch?
@@ -153,28 +154,36 @@ public class UserManagementService extends AbstractService {
                                     {put("name", groupName);}
                                 }:
                                 new HashMap<String, Object>() {
-                                    {put("name", "%"+groupName+"%");}
+                                    {put("name", "%"+groupName.toLowerCase()+"%");}
                                 },
                         pagingInfo));
     }
 
-    public UiGroups getAllGroups(PagingInfo pagingInfo) {
+    public UiGroups getAllGroups(final PagingInfo pagingInfo) {
         List<Group> groups = (List<Group>) template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Query query = entityManager.createNamedQuery("allGroups");
+                preparePagingInfo(query, pagingInfo);
                 return query.getResultList();
             }
         });
 
         return new UiGroups(
-                mapFromEntityToList(groups, UiGroup.class),
+                mapToList(groups, UiGroup.class, "UiGroup"),
                 prepareResponsePagingInfo("count_allGroups", pagingInfo));
     }
 
     public void updateGroup(final UiGroup uiGroup) {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                Group group = mapFromUi(entityManager, uiGroup, Group.class);
+                Group group = map(uiGroup, Group.class, "UiGroup");
+                for (User u : group.getUsers()) {
+                    String groups = "";
+                    for (Group g: u.getGroups()) {
+                        groups = groups + g.getName() + ",";
+                    }
+                    System.out.println("^^^^ "+u.getUsername()+"->"+groups);
+                }
                 mergeOrPersist(entityManager, group);
                 return null;
             }
@@ -185,7 +194,7 @@ public class UserManagementService extends AbstractService {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 for (int a=0; a< uiGroups.length; a++) {
-                    entityManager.remove(mapFromUi(entityManager, uiGroups[a], Group.class));
+                    entityManager.remove(map(uiGroups[a], Group.class, "UiGroup"));
                 }
                 return null;
             }

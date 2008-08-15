@@ -8,9 +8,11 @@ import org.tmjee.miniwiki.core.domain.User;
 import org.tmjee.miniwiki.core.domain.Group;
 import org.tmjee.miniwiki.core.domain.GroupProperty;
 import org.tmjee.miniwiki.core.domain.UserProperty;
+import org.tmjee.miniwiki.core.Bootstrap;
 import org.tmjee.miniwiki.utils.UiGroupNameComparator;
-import org.tmjee.miniwiki.utils.UiGroupPropertiesComparator;
+import org.tmjee.miniwiki.utils.UiGroupPropertyNameComparator;
 import org.tmjee.miniwiki.utils.UiUserUsernameComparator;
+import org.tmjee.miniwiki.utils.UiUserPropertyNameComparator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
@@ -18,6 +20,8 @@ import javax.persistence.Query;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+
+import net.sf.dozer.util.mapping.BeanFactoryIF;
 
 
 /**
@@ -47,6 +51,20 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
                                 group2.setDescription("Group2_Description");
                                 group2.addProperty(new GroupProperty("Property1", "Value1"));
                                 group2.addProperty(new GroupProperty("Property2", "Value2"));
+
+
+                                Group group3 = new Group();
+                                group3.setName("Group3");
+                                group3.setDescription("Group3_Description");
+                                group3.addProperty(new GroupProperty("Property1", "Value1"));
+                                group3.addProperty(new GroupProperty("Property2", "Value2"));
+
+
+                                Group group4 = new Group();
+                                group4.setName("Group4");
+                                group4.setDescription("Group4_Description");
+                                group4.addProperty(new GroupProperty("Property1", "Value1"));
+                                group4.addProperty(new GroupProperty("Property2", "Value2"));
 
 
                                 User toby = new User();
@@ -172,6 +190,8 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
 
                                 entityManager.persist(group1);
                                 entityManager.persist(group2);
+                                entityManager.persist(group3);
+                                entityManager.persist(group4);
                                 entityManager.persist(toby);
                                 entityManager.persist(jim);
                                 entityManager.persist(user1);
@@ -247,6 +267,14 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
             assertEquals("Toby_Description", credentials.getUser().getDescription());
             assertEquals("Toby_Password", credentials.getUser().getPassword());
             assertEquals(credentials.getUser().getGroups().size(), 2);
+            assertEquals(credentials.getUser().getProperties().size(), 2);
+
+            List<UiUserProperty> tobyUserProperties = credentials.getUser().getProperties();
+            Collections.sort(tobyUserProperties, new UiUserPropertyNameComparator());
+            assertEquals("Property1", tobyUserProperties.get(0).getName());
+            assertEquals("Value1", tobyUserProperties.get(0).getValue());
+            assertEquals("Property2", tobyUserProperties.get(1).getName());
+            assertEquals("Value2", tobyUserProperties.get(1).getValue());
 
             List<UiGroup> groups = credentials.getUser().getGroups();
             Collections.sort(groups, new UiGroupNameComparator());
@@ -260,7 +288,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
             assertEquals(groups.get(1).getUsers().size(), 1);
 
             List<UiGroupProperty> group1Properties = groups.get(0).getProperties();
-            Collections.sort(group1Properties, new UiGroupPropertiesComparator());
+            Collections.sort(group1Properties, new UiGroupPropertyNameComparator());
             assertEquals(group1Properties.get(0).getName(), "Property1");
             assertEquals(group1Properties.get(0).getValue(), "Value1");
             assertEquals(group1Properties.get(1).getName(), "Property2");
@@ -269,7 +297,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
             assertEquals(group1Properties.get(2).getValue(), "Value3");
 
             List<UiGroupProperty> group2Properties = groups.get(1).getProperties();
-            Collections.sort(group2Properties, new UiGroupPropertiesComparator());
+            Collections.sort(group2Properties, new UiGroupPropertyNameComparator());
             assertEquals(group2Properties.get(0).getName(), "Property1");
             assertEquals(group2Properties.get(0).getValue(), "Value1");
             assertEquals(group2Properties.get(1).getName(), "Property2");
@@ -288,7 +316,6 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
             assertEquals(group1Users.get(1).getPassword(), "Toby_Password");
             assertEquals(group1Users.get(1).getDescription(), "Toby_Description");
 
-
             List<UiUser> group2Users = groups.get(1).getUsers();
             Collections.sort(group2Users, new UiUserUsernameComparator());
             assertEquals(group2Users.get(0).getUsername(), "Toby");
@@ -301,18 +328,286 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
 
 
     public void testSearchForUserNotExact() throws Exception {
-        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(1, 5), false).getUsers(), 5);
-        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(2, 5), false).getUsers(), 5);
-        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(3, 5), false).getUsers(), 4);
-
+        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(1, 5), false).getUsers().size(), 5);
+        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(2, 5), false).getUsers().size(), 5);
+        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(3, 5), false).getUsers().size(), 4);
+        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(4, 5), false).getUsers().size(), 0);
     }
 
     public void testSearchForUserExact() throws Exception {
-        
+        assertEquals(getUserManagementService().searchForUser("User5", new PagingInfo(1, 10), true).getUsers().size(), 1);
+        assertEquals(getUserManagementService().searchForUser("Toby", new PagingInfo(1, 10), true).getUsers().size(), 1);
+        assertEquals(getUserManagementService().searchForUser("Toby", new PagingInfo(2, 10), true).getUsers().size(), 0);
+        assertEquals(getUserManagementService().searchForUser("NoSuchUser", new PagingInfo(1, 10), true).getUsers().size(), 0);
     }
 
 
-    
+    public void testGetAllUser() throws Exception {
+        assertEquals(getUserManagementService().getAllUsers(new PagingInfo(1, 5)).getUsers().size(), 5);
+        assertEquals(getUserManagementService().getAllUsers(new PagingInfo(2, 5)).getUsers().size(), 5);
+        assertEquals(getUserManagementService().getAllUsers(new PagingInfo(3, 5)).getUsers().size(), 5);
+        assertEquals(getUserManagementService().getAllUsers(new PagingInfo(4, 5)).getUsers().size(), 1);
+        assertEquals(getUserManagementService().getAllUsers(new PagingInfo(5, 5)).getUsers().size(), 0);
+        assertEquals(getUserManagementService().getAllUsers(new PagingInfo(1, 20)).getUsers().size(), 16);
+        assertEquals(getUserManagementService().getAllUsers(new PagingInfo(2, 20)).getUsers().size(), 0);
+    }
 
 
+    public void testSearchForGroupNotExact() throws Exception {
+        UiGroups _groups = getUserManagementService().searchForGroup("group", new PagingInfo(1, 10), false);
+        List<UiGroup> groups = _groups.getGroups();
+        Collections.sort(groups, new UiGroupNameComparator());
+
+        assertEquals(groups.size(), 4);
+        assertEquals(groups.get(0).getName(), "Group1");
+        assertEquals(groups.get(0).getDescription(), "Group1_Description");
+        assertEquals(groups.get(0).getProperties().size(), 3);
+        assertEquals(groups.get(0).getUsers().size(), 2);
+        assertEquals(groups.get(1).getName(), "Group2");
+        assertEquals(groups.get(1).getDescription(), "Group2_Description");
+        assertEquals(groups.get(1).getProperties().size(), 2);
+        assertEquals(groups.get(1).getUsers().size(), 1);
+        assertEquals(groups.get(2).getName(), "Group3");
+        assertEquals(groups.get(2).getDescription(), "Group3_Description");
+        assertEquals(groups.get(2).getProperties().size(), 2);
+        assertEquals(groups.get(2).getUsers().size(), 0);
+        assertEquals(groups.get(3).getName(), "Group4");
+        assertEquals(groups.get(3).getDescription(), "Group4_Description");
+        assertEquals(groups.get(3).getProperties().size(), 2);
+        assertEquals(groups.get(3).getUsers().size(), 0);
+
+        // group 1 properties
+        List<UiGroupProperty> group1Properties = groups.get(0).getProperties();
+        Collections.sort(group1Properties, new UiGroupPropertyNameComparator());
+        assertEquals(group1Properties.get(0).getName(), "Property1");
+        assertEquals(group1Properties.get(0).getValue(), "Value1");
+        assertEquals(group1Properties.get(1).getName(), "Property2");
+        assertEquals(group1Properties.get(1).getValue(), "Value2");
+        assertEquals(group1Properties.get(2).getName(), "Property3");
+        assertEquals(group1Properties.get(2).getValue(), "Value3");
+
+        // group 2 properties
+        List<UiGroupProperty> group2Properties = groups.get(1).getProperties();
+        Collections.sort(group2Properties, new UiGroupPropertyNameComparator());
+        assertEquals(group2Properties.get(0).getName(), "Property1");
+        assertEquals(group2Properties.get(0).getValue(), "Value1");
+        assertEquals(group2Properties.get(1).getName(), "Property2");
+        assertEquals(group2Properties.get(1).getValue(), "Value2");
+
+        // group 3 properties
+        List<UiGroupProperty> group3Properties = groups.get(2).getProperties();
+        Collections.sort(group3Properties, new UiGroupPropertyNameComparator());
+        assertEquals(group3Properties.get(0).getName(), "Property1");
+        assertEquals(group3Properties.get(0).getValue(), "Value1");
+        assertEquals(group3Properties.get(1).getName(), "Property2");
+        assertEquals(group3Properties.get(1).getValue(), "Value2");
+
+        // group 4 properties
+        List<UiGroupProperty> group4Properties = groups.get(3).getProperties();
+        Collections.sort(group3Properties, new UiGroupPropertyNameComparator());
+        assertEquals(group3Properties.get(0).getName(), "Property1");
+        assertEquals(group3Properties.get(0).getValue(), "Value1");
+        assertEquals(group3Properties.get(1).getName(), "Property2");
+        assertEquals(group3Properties.get(1).getValue(), "Value2");
+
+
+        // group 1 users
+        List<UiUser> group1Users = groups.get(0).getUsers();
+        Collections.sort(group1Users, new UiUserUsernameComparator());
+        assertEquals(group1Users.get(0).getUsername(), "Jim");
+        assertEquals(group1Users.get(1).getUsername(), "Toby");
+
+        // group 2 users
+        List<UiUser> group2Users = groups.get(1).getUsers();
+        Collections.sort(group2Users, new UiUserUsernameComparator());
+        assertEquals(group2Users.get(0).getUsername(), "Toby");
+
+        // group 3 users (no users)
+
+        // group 4 users (no users)
+    }
+
+    public void testSearchForGroupExact() throws Exception {
+        UiGroups _groups = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 10), true);
+        List<UiGroup> groups = _groups.getGroups();
+        Collections.sort(groups, new UiGroupNameComparator());
+
+        assertEquals(groups.size(), 1);
+        assertEquals(groups.get(0).getName(), "Group1");
+        assertEquals(groups.get(0).getDescription(), "Group1_Description");
+        assertEquals(groups.get(0).getProperties().size(), 3);
+        assertEquals(groups.get(0).getUsers().size(), 2);
+
+        // group 1 properties
+        List<UiGroupProperty> group1Properties = groups.get(0).getProperties();
+        Collections.sort(group1Properties, new UiGroupPropertyNameComparator());
+        assertEquals(group1Properties.get(0).getName(), "Property1");
+        assertEquals(group1Properties.get(0).getValue(), "Value1");
+        assertEquals(group1Properties.get(1).getName(), "Property2");
+        assertEquals(group1Properties.get(1).getValue(), "Value2");
+        assertEquals(group1Properties.get(2).getName(), "Property3");
+        assertEquals(group1Properties.get(2).getValue(), "Value3");
+
+        // group 1 users
+        List<UiUser> group1Users = groups.get(0).getUsers();
+        Collections.sort(group1Users, new UiUserUsernameComparator());
+        assertEquals(group1Users.get(0).getUsername(), "Jim");
+        assertEquals(group1Users.get(1).getUsername(), "Toby");
+    }
+
+
+    public void testGetAllGroups() throws Exception {
+        List<UiGroup> group_page1 = getUserManagementService().getAllGroups(new PagingInfo(1, 10)).getGroups();
+
+        Collections.sort(group_page1, new UiGroupNameComparator());
+
+        assertEquals(group_page1.size(), 4);
+        assertEquals(group_page1.get(0).getName(), "Group1");
+        assertEquals(group_page1.get(1).getName(), "Group2");
+        assertEquals(group_page1.get(2).getName(), "Group3");
+        assertEquals(group_page1.get(3).getName(), "Group4");
+    }
+
+
+    public void testUpdateUser() throws Exception {
+
+        UiGroup group3 = getUserManagementService().searchForGroup("Group3", new PagingInfo(1, 10), true).getGroups().iterator().next();
+        UiGroup group4 = getUserManagementService().searchForGroup("Group4", new PagingInfo(1, 10), true).getGroups().iterator().next();
+        assertNotNull(group3);
+        assertNotNull(group4);
+
+        UiUser user = getUserManagementService().searchForUser("Toby", new PagingInfo(1, 5), true).getUsers().get(0);
+        user.setFirstName("Toby_FirstName_New");
+        user.setLastName("Toby_LastName_New");
+        user.setDescription("Toby_Description_New");
+        user.setPassword("Toby_Password_New");
+
+        // user properties
+        List<UiUserProperty> tobyProperties = user.getProperties();
+        Collections.sort(tobyProperties, new UiUserPropertyNameComparator());
+        user.removeProperty(tobyProperties.get(1)); // remove Property2
+        user.addProperty(new UiUserProperty("xxx", "yyy"));
+
+        // user group
+        List<UiGroup> tobyGroups = user.getGroups();
+        Collections.sort(tobyGroups, new UiGroupNameComparator());
+        user.removeGroup(tobyGroups.get(1)); // remove group2
+        user.addGroup(group3);
+        group3.addUser(user);
+        user.addGroup(group4);
+        group4.addUser(user);
+
+        getUserManagementService().updateUser(user);
+
+
+        user = getUserManagementService().searchForUser("Toby", new PagingInfo(1, 10), true).getUsers().get(0);
+        assertEquals("Toby_FirstName_New", user.getFirstName());
+        assertEquals("Toby_LastName_New", user.getLastName());
+        assertEquals("Toby_Description_New", user.getDescription());
+        assertEquals("Toby_Password_New", user.getPassword());
+
+        // user properties
+        tobyProperties = user.getProperties();
+        Collections.sort(tobyProperties, new UiUserPropertyNameComparator());
+        assertEquals(2, tobyProperties.size());
+        assertEquals("property1", tobyProperties.get(0).getName());
+        assertEquals("value1", tobyProperties.get(0).getValue());
+        assertEquals("xxx", tobyProperties.get(1).getName());
+        assertEquals("yyy", tobyProperties.get(1).getValue());
+
+        // user group
+        tobyGroups = user.getGroups();
+        Collections.sort(tobyGroups, new UiGroupNameComparator());
+        assertEquals(3, tobyGroups.size());
+        assertEquals("Group1", tobyGroups.get(0).getName());
+        assertEquals("Group3", tobyGroups.get(1).getName());
+        assertEquals("Group4", tobyGroups.get(2).getName());
+    }
+
+
+    public void testUpdateGroup() throws Exception {
+
+        UiUser user1 = getUserManagementService().searchForUser("User1", new PagingInfo(1, 10), true).getUsers().iterator().next();
+        UiUser user2 = getUserManagementService().searchForUser("User2", new PagingInfo(1, 10), true).getUsers().iterator().next();
+        assertNotNull(user1);
+        assertNotNull(user2);
+
+        UiGroup group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        //group1.setDescription("Group1_Description_New");
+
+        // group1 properties
+        //List<UiGroupProperty> group1Properties = group1.getProperties();
+        //Collections.sort(group1Properties, new UiGroupPropertyNameComparator());
+        //group1Properties.get(0).setValue("888888888"); // change the value of Property1
+        //group1.removeProperty(group1Properties.get(1)); // remove Property2
+        //group1.addProperty(new UiGroupProperty("xxx", "yyy"));
+        //group1.addProperty(new UiGroupProperty("zzz", "uuu"));
+
+
+        // group1 users
+        List<UiUser> group1Users = group1.getUsers();
+        Collections.sort(group1Users, new UiUserUsernameComparator());
+
+
+
+        //group1Users.get(0).setFirstName("Jim_FirstName_New"); // change Jim's Name
+        //group1Users.get(0).setLastName("Jim_LastName_New");
+        //group1.removeUser(group1Users.get(1)); // remove Toby
+        group1.addUser(user1);
+        user1.addGroup(group1);
+        group1.addUser(user2);
+        user2.addGroup(group1);
+
+        //user1.addGroup(group1);
+        //group1.addUser(user1);
+        //group1.addUser(user1);
+        //user1.addGroup(group1);
+        //group1.addUser(user1);
+
+        //getUserManagementService().updateUser(user1);
+        //getUserManagementService().updateUser(user2);
+
+        for (UiUser u : group1Users) {
+            System.out.println("***\t"+u.getUsername());
+        }
+
+        getUserManagementService().updateGroup(group1);
+
+
+        group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 10), true).getGroups().iterator().next();
+        group1Users = group1.getUsers();
+        Collections.sort(group1Users, new UiUserUsernameComparator());
+        for (UiUser u : group1Users) {
+            System.out.println("****\t"+u.getUsername());
+        }
+
+
+
+        /*group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 10), true).getGroups().iterator().next();
+        assertEquals("Group1_Description_New", group1.getDescription());
+
+
+        // group 1 properties
+        group1Properties = group1.getProperties();
+        Collections.sort(group1Properties, new UiGroupPropertyNameComparator());
+        assertEquals(4, group1Properties.size());
+        assertEquals("Property1", group1Properties.get(0).getName());
+        assertEquals("888888888", group1Properties.get(0).getValue());
+        assertEquals("Property3", group1Properties.get(1).getName());
+        assertEquals("Value3", group1Properties.get(1).getValue());
+        assertEquals("xxx", group1Properties.get(2).getName());
+        assertEquals("yyy", group1Properties.get(2).getValue());
+        assertEquals("zzz", group1Properties.get(3).getName());
+        assertEquals("uuu", group1Properties.get(3).getValue());
+
+        // group1 users
+        group1Users = group1.getUsers();
+        Collections.sort(group1Users, new UiUserUsernameComparator());
+        assertEquals(3, group1Users.size());
+        assertEquals("Jim", group1Users.get(0).getUsername());
+        assertEquals("Jim_FirstName_New", group1Users.get(0).getFirstName());
+        assertEquals("Jim_LastName_New", group1Users.get(0).getLastName());
+        assertEquals("User1", group1Users.get(1).getUsername());
+        assertEquals("User2", group1Users.get(2).getUsername());*/
+    }
 }

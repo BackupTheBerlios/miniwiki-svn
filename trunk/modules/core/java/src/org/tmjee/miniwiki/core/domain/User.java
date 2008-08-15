@@ -30,7 +30,7 @@ public class User implements Identifiable {
     private long id;
 
     @Basic(optional = false)
-    @Column(name="USERNAME", unique = true, nullable = false)
+    @Column(name="USERNAME", nullable = false)
     private String username;
 
     @Basic
@@ -48,6 +48,7 @@ public class User implements Identifiable {
 
 
     @ManyToMany(targetEntity = Group.class,
+                cascade = {CascadeType.ALL},
                 fetch = FetchType.LAZY)
     @ElementForeignKey
     @JoinTable(name = "TBL_USER_GROUP",

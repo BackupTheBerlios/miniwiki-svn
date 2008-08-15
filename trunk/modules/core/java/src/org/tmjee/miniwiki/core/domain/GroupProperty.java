@@ -64,7 +64,6 @@ public class GroupProperty implements Identifiable {
 
 
     // === setters ===
-
     public void setId(long id) {
         this.id = id;
     }
