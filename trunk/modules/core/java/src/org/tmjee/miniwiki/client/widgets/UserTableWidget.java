@@ -30,6 +30,7 @@ public class UserTableWidget extends SimpleTableWidget {
 
     protected void doAdd(final Status status) {
         new UserDetailsPopupPanel(
+                false,
                 new UiUser(),
                 new SaveOrUpdateUserHandler());
     }
@@ -143,6 +144,7 @@ public class UserTableWidget extends SimpleTableWidget {
                         new ClickListener() {
                             public void onClick(Widget widget) {
                                 new UserDetailsPopupPanel(
+                                    true, 
                                     uiUser,
                                     new SaveOrUpdateUserHandler());
                             }
@@ -162,7 +164,7 @@ public class UserTableWidget extends SimpleTableWidget {
                                             LoadingMessageDisplayWidget.getInstance().done();
                                         }
                                         public void onSuccess(Object result) {
-                                            status.restore();
+                                            getStatus().restore();
                                             LoadingMessageDisplayWidget.getInstance().done();
                                         }
                                     });

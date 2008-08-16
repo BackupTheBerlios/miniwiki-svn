@@ -28,12 +28,14 @@ public class PropertyDetailsPopupPanel extends DialogBox implements SourcesMessa
     private Button cancel;
     private HorizontalPanel buttonPanel;
 
-    public PropertyDetailsPopupPanel(Handler handler) {
-        this("", "", handler);
+    private boolean editMode;
+
+    public PropertyDetailsPopupPanel(boolean editMode, Handler handler) {
+        this(editMode, "", "", handler);
     }
 
 
-    public PropertyDetailsPopupPanel(String propName, String propValue, Handler handler) {
+    public PropertyDetailsPopupPanel(boolean editMode, String propName, String propValue, Handler handler) {
 
         setText("Property Details");
         setAnimationEnabled(true);
@@ -46,6 +48,8 @@ public class PropertyDetailsPopupPanel extends DialogBox implements SourcesMessa
 
         propertyName = new TextBox();
         propertyName.setText(propName);
+        if (editMode)
+            propertyName.setEnabled(false);
         propertyValue = new TextBox();
         propertyValue.setText(propValue);
 

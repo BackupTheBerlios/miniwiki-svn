@@ -61,6 +61,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     private Button cancelUserDetails;
 
     private Handler handler;
+    private boolean editMode;
 
 
     public static interface Handler {
@@ -68,12 +69,13 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
     }
 
 
-    public UserDetailsPopupPanel(UiUser uiUser, Handler handler) {
+    public UserDetailsPopupPanel(boolean editMode, UiUser uiUser, Handler handler) {
 
         setText("User Details");
         setAnimationEnabled(true);
 
         this.handler = handler;
+        this.editMode = editMode;
 
         sourcesEventSupport = new SourcesEventsSupport();
         
@@ -91,6 +93,10 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                 UserDetailsPopupPanel.this.uiUser.setUsername(username.getText());
             }
         });
+        if (editMode) {
+            username.setEnabled(false);
+        }
+
         lastName = new TextBox();
         lastName.setText(uiUser.getLastName());
         lastName.addChangeListener(new ChangeListener() {
@@ -237,6 +243,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                     return new Button("Edit", new ClickListener() {
                         public void onClick(Widget widget) {
                             new PropertyDetailsPopupPanel(
+                                    true,
                                     uiUserProperty.getName(),
                                     uiUserProperty.getValue(),
                                     new PropertyDetailsPopupPanel.Handler() {
@@ -272,12 +279,14 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
 
         addProperty = new Button("Add Property", new ClickListener() {
             public void onClick(Widget sender) {
-                new PropertyDetailsPopupPanel(new PropertyDetailsPopupPanel.Handler() {
-                    public void save(String propertyName, String propertyValue) {
-                        UserDetailsPopupPanel.this.uiUser.addProperty(new UiUserProperty(propertyName, propertyValue));
-                        propertiesTable.refresh(UserDetailsPopupPanel.this.uiUser.getProperties());
-                    }
-                });
+                new PropertyDetailsPopupPanel(
+                        false,
+                        new PropertyDetailsPopupPanel.Handler() {
+                            public void save(String propertyName, String propertyValue) {
+                                UserDetailsPopupPanel.this.uiUser.addProperty(new UiUserProperty(propertyName, propertyValue));
+                                propertiesTable.refresh(UserDetailsPopupPanel.this.uiUser.getProperties());
+                            }
+                        });
             }
         });
         propertyManipulationButtonsPanel = new HorizontalPanel();

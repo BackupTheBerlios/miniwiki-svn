@@ -25,7 +25,7 @@ public class GroupTableWidget extends SimpleTableWidget {
     }
 
     protected void doAdd(Status status) {
-        new GroupDetailsPopupPanel(new UiGroup());
+        new GroupDetailsPopupPanel(false, new UiGroup(), new SaveOrUpdateGroupHandler());
     }
 
     protected void doDelete(final Status status) {
@@ -132,9 +132,29 @@ public class GroupTableWidget extends SimpleTableWidget {
                     return new Button("Edit",
                         new ClickListener() {
                             public void onClick(Widget widget) {
-                                new GroupDetailsPopupPanel(uiGroup);
+                                new GroupDetailsPopupPanel(true, uiGroup, new SaveOrUpdateGroupHandler());
                             }
                         });
                 }
     }
+
+
+    private class SaveOrUpdateGroupHandler implements GroupDetailsPopupPanel.Handler {
+        public void save(UiGroup uiGroup) {
+            LoadingMessageDisplayWidget.getInstance().display("Saving Group Info ...");
+                    UiUserManagementServiceAsync async = Service.getUserManagementService();
+                    async.updateGroup(uiGroup, new AsyncCallback() {
+                        public void onFailure(Throwable throwable) {
+                            Logger.error(throwable.toString(), throwable);
+                            LoadingMessageDisplayWidget.getInstance().done();
+                        }
+                        public void onSuccess(Object o) {
+                            getStatus().restore();
+                            LoadingMessageDisplayWidget.getInstance().done();
+                        }
+                    });
+        }
+    }
+
+
 }

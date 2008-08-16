@@ -81,6 +81,13 @@ public class UserProperty implements Identifiable {
     }
 
 
+    // === toString ===
+    public String toString() {
+        return "id="+id+"\n"+
+               "name="+name+"\n"+
+               "value="+value;
+    }
+
     
 
     // == equals & hashcode ===

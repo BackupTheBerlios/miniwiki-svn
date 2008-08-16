@@ -41,6 +41,9 @@ public abstract class SimpleTableWidget<T> extends GenericTableWidget<T> {
         super.init(flexTableExtTitleHandler, flexTableExtDataHandler);
     }
 
+    protected Status getStatus() {
+        return status;
+    }
 
     protected void addWidgetsToSearchPanel(HorizontalPanel searchPanel) {
 

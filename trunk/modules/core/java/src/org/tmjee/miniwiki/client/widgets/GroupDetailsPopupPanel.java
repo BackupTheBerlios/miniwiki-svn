@@ -9,6 +9,7 @@ import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
 import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.client.events.SourcesEventsSupport;
+import org.tmjee.miniwiki.client.events.MessageEvent;
 import org.tmjee.miniwiki.client.utils.Utils;
 import org.tmjee.miniwiki.client.utils.WidgetUtils;
 import org.tmjee.miniwiki.client.utils.Logger;
@@ -53,20 +54,43 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
     private Button cancel;
 
     private UiGroup uiGroup;
+    private Handler handler;
+    private boolean editMode;
+
+    public static interface Handler {
+        void save(UiGroup uiGroup);
+    }
 
 
-    public GroupDetailsPopupPanel(UiGroup uiGroup) {
+    public GroupDetailsPopupPanel(boolean editMode, UiGroup uiGroup, Handler handler) {
 
+        this.handler = handler;
         this.uiGroup = uiGroup;
         this.sourcesEventsSupport = new SourcesEventsSupport();
 
         setText("Group Details");
         setAnimationEnabled(true);
+        this.editMode = editMode;
 
         groupName = new TextBox();
         groupName.setText(uiGroup.getName());
+        groupName.addChangeListener(new ChangeListener() {
+            public void onChange(Widget sender) {
+                GroupDetailsPopupPanel.this.uiGroup.setName(((TextBox)sender).getText());
+            }
+        });
+        if (editMode) {
+            groupName.setEnabled(false);
+        }
+
         groupDescription = new TextBox();
         groupDescription.setText(uiGroup.getDescription());
+        groupDescription.addChangeListener(new ChangeListener() {
+            public void onChange(Widget sender) {
+                GroupDetailsPopupPanel.this.uiGroup.setName(((TextBox)sender).getText());
+            }
+        });
+
 
         grid = new Grid(2, 2);
         grid.setWidget(0, 0, new Label("Group Name"));
@@ -199,6 +223,7 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
                         return new Button("Edit", new ClickListener() {
                             public void onClick(Widget sender) {
                                 new PropertyDetailsPopupPanel(
+                                        true,
                                         rowObject.getName(),
                                         rowObject.getValue(),
                                         new PropertyDetailsPopupPanel.Handler() {
@@ -217,6 +242,7 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
         addPropertyButton = new Button("Add Property", new ClickListener() {
             public void onClick(Widget sender) {
                 new PropertyDetailsPopupPanel(
+                        false, 
                         new PropertyDetailsPopupPanel.Handler() {
                             public void save(String propertyName, String propertyValue) {
                                 GroupDetailsPopupPanel.this.uiGroup.addProperty(new UiGroupProperty(propertyName, propertyValue));
@@ -227,43 +253,45 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
         });
         removePropertyButton = new Button("Delete Property", new ClickListener() {
             public void onClick(Widget sender) {
-                new PropertyDetailsPopupPanel(
-                        new PropertyDetailsPopupPanel.Handler() {
-                            public void save(String propertyName, String propertyValue) {
-                                List<UiGroupProperty> selectedProperties = propertiesTable.getSelectedRowObjects();
+                List<UiGroupProperty> selectedProperties = propertiesTable.getSelectedRowObjects();
                                 for (UiGroupProperty prop: selectedProperties) {
                                     GroupDetailsPopupPanel.this.uiGroup.removeProperty(prop);
                                 }
                                 propertiesTable.refresh(GroupDetailsPopupPanel.this.uiGroup.getProperties());
-                            }
-                        }
-                );
-            }
-        });
+            }});
         propertiesButtonPanel.add(addPropertyButton);
         propertiesButtonPanel.add(removePropertyButton);
 
 
         save = new Button("Save", new ClickListener() {
             public void onClick(Widget widget) {
-                LoadingMessageDisplayWidget.getInstance().display("Saving Group Info ...");
-                UiUserManagementServiceAsync async = Service.getUserManagementService();
-                async.updateGroup(GroupDetailsPopupPanel.this.uiGroup, new AsyncCallback() {
-                    public void onFailure(Throwable throwable) {
-                        Logger.error(throwable.toString(), throwable);
-                        WidgetUtils.exception(GroupDetailsPopupPanel.this, sourcesEventsSupport, throwable);
-                        LoadingMessageDisplayWidget.getInstance().done();
-                    }
-                    public void onSuccess(Object o) {
-                        WidgetUtils.cleanUp(GroupDetailsPopupPanel.this);
-                        LoadingMessageDisplayWidget.getInstance().done();
-                    }
-                });
+                // validation
+                boolean hasError = false;
+                if (groupName.getText().trim().length() <= 0) {
+                    hasError = true;
+                    sourcesEventsSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                        public void handle(Object listener) {
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Group Name is required"));
+                        }
+                    });
+                }
+                if (groupDescription.getText().trim().length() <= 0) {
+                    hasError = true;
+                    sourcesEventsSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                        public void handle(Object listener) {
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Group Description is required"));
+                        }
+                    });
+                }
+                if(!hasError) {
+                    GroupDetailsPopupPanel.this.handler.save(GroupDetailsPopupPanel.this.uiGroup);
+                    GroupDetailsPopupPanel.this.hide();
+                }
             }
         });
         cancel = new Button("Cancel", new ClickListener() {
             public void onClick(Widget widget) {
-                WidgetUtils.cleanUp(GroupDetailsPopupPanel.this);
+                cleanUp();
                 GroupDetailsPopupPanel.this.hide();
             }
         });
