@@ -171,4 +171,22 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
         return "id=["+id+"],username=["+username+"],firstName=["+firstName+"],lastName=["+lastName+"],password=["+password+"],"+
                 "description=["+description+"],properties=["+uiUserProperties+"],groups=["+uiGroups+"]";
     }
+
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UiUser uiUser = (UiUser) o;
+
+        if (username != null ? !username.equals(uiUser.username) : uiUser.username != null) return false;
+
+        return true;
+    }
+
+    public int hashCode() {
+        int result;
+        result = 31 * (username != null ? username.hashCode() : 0);
+        return result;
+    }
 }

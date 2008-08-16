@@ -493,9 +493,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
         Collections.sort(tobyGroups, new UiGroupNameComparator());
         user.removeGroup(tobyGroups.get(1)); // remove group2
         user.addGroup(group3);
-        group3.addUser(user);
         user.addGroup(group4);
-        group4.addUser(user);
 
         getUserManagementService().updateUser(user);
 
@@ -533,57 +531,35 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
         assertNotNull(user2);
 
         UiGroup group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
-        //group1.setDescription("Group1_Description_New");
+        group1.setDescription("Group1_Description_New");
 
         // group1 properties
-        //List<UiGroupProperty> group1Properties = group1.getProperties();
-        //Collections.sort(group1Properties, new UiGroupPropertyNameComparator());
-        //group1Properties.get(0).setValue("888888888"); // change the value of Property1
-        //group1.removeProperty(group1Properties.get(1)); // remove Property2
-        //group1.addProperty(new UiGroupProperty("xxx", "yyy"));
-        //group1.addProperty(new UiGroupProperty("zzz", "uuu"));
+        List<UiGroupProperty> group1Properties = group1.getProperties();
+        Collections.sort(group1Properties, new UiGroupPropertyNameComparator());
+        group1Properties.get(0).setValue("888888888"); // change the value of Property1
+        group1.removeProperty(group1Properties.get(1)); // remove Property2
+        group1.addProperty(new UiGroupProperty("xxx", "yyy"));
+        group1.addProperty(new UiGroupProperty("zzz", "uuu"));
 
 
         // group1 users
         List<UiUser> group1Users = group1.getUsers();
         Collections.sort(group1Users, new UiUserUsernameComparator());
-
-
-
-        //group1Users.get(0).setFirstName("Jim_FirstName_New"); // change Jim's Name
-        //group1Users.get(0).setLastName("Jim_LastName_New");
-        //group1.removeUser(group1Users.get(1)); // remove Toby
+        group1Users.get(0).setFirstName("Jim_FirstName_New"); // change Jim's Name
+        group1Users.get(0).setLastName("Jim_LastName_New");
+        group1.removeUser(group1Users.get(1)); // remove Toby
         group1.addUser(user1);
         user1.addGroup(group1);
         group1.addUser(user2);
         user2.addGroup(group1);
 
-        //user1.addGroup(group1);
-        //group1.addUser(user1);
-        //group1.addUser(user1);
-        //user1.addGroup(group1);
-        //group1.addUser(user1);
-
-        //getUserManagementService().updateUser(user1);
-        //getUserManagementService().updateUser(user2);
-
-        for (UiUser u : group1Users) {
-            System.out.println("***\t"+u.getUsername());
-        }
-
+        // perform update
         getUserManagementService().updateGroup(group1);
-
 
         group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 10), true).getGroups().iterator().next();
         group1Users = group1.getUsers();
         Collections.sort(group1Users, new UiUserUsernameComparator());
-        for (UiUser u : group1Users) {
-            System.out.println("****\t"+u.getUsername());
-        }
-
-
-
-        /*group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 10), true).getGroups().iterator().next();
+        group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 10), true).getGroups().iterator().next();
         assertEquals("Group1_Description_New", group1.getDescription());
 
 
@@ -608,6 +584,6 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
         assertEquals("Jim_FirstName_New", group1Users.get(0).getFirstName());
         assertEquals("Jim_LastName_New", group1Users.get(0).getLastName());
         assertEquals("User1", group1Users.get(1).getUsername());
-        assertEquals("User2", group1Users.get(2).getUsername());*/
+        assertEquals("User2", group1Users.get(2).getUsername());
     }
 }

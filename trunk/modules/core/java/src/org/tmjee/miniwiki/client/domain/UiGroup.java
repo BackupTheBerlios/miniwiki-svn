@@ -108,4 +108,21 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
     public void removePropertyListener(PropertyListener listener) {
         propertySupport.removePropertyChangeListener(listener);
     }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UiGroup uiGroup = (UiGroup) o;
+
+        if (name != null ? !name.equals(uiGroup.name) : uiGroup.name != null) return false;
+
+        return true;
+    }
+
+    public int hashCode() {
+        int result;
+        result = 31 * (name != null ? name.hashCode() : 0);
+        return result;
+    }
 }
