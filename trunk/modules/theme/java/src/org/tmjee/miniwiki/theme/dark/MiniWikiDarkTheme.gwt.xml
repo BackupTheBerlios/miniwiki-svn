@@ -1,0 +1,23 @@
+<module>
+	<inherits name="com.google.gwt.user.User"/>
+    <!--
+        With this we have propertyUi "uiUser.agent" with possible values
+        "ie6,gecko,gecko1_8,safari,opera"
+    -->
+    <inherits name="com.google.gwt.user.UserAgent" />
+    <inherits name="com.google.gwt.junit.JUnit" />
+    <inherits name="com.google.gwt.benchmarks.Benchmarks" />
+    <inherits name="com.google.gwt.json.JSON" />
+    <inherits name="com.google.gwt.xml.XML" />
+    <inherits name="com.google.gwt.i18n.I18N" />
+    <inherits name="com.google.gwt.http.HTTP" />
+
+
+    <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+	
+	<stylesheet src="styles.css" />
+
+    <entry-point class='org.tmjee.miniwiki.theme.dark.client.MiniWikiDarkTheme'/>
+    
+	
+</module>
