@@ -29,7 +29,9 @@ public abstract class AbstractDbTestCase extends TestCase {
     private ApplicationContext appContext;
 
 
-    public AbstractDbTestCase() throws IOException {
+    public AbstractDbTestCase(String name) throws IOException {
+        super(name);
+
         dbProperties = new Properties();
         dbProperties.load(AbstractDbTestCase.class.getResourceAsStream("/testing_db.properties"));
 

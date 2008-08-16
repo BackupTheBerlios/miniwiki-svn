@@ -32,7 +32,7 @@ public class Group implements Identifiable {
     private String name;
 
     @ManyToMany(targetEntity = User.class,
-                cascade = {CascadeType.ALL},
+                cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
                 fetch = FetchType.LAZY,
                 mappedBy = "groups")
     @OrderBy("username ASC")

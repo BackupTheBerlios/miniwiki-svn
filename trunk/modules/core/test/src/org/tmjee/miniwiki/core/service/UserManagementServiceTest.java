@@ -30,7 +30,9 @@ import net.sf.dozer.util.mapping.BeanFactoryIF;
  */
 public class UserManagementServiceTest extends AbstractDbTestCase {
 
-    public UserManagementServiceTest() throws IOException {}
+    public UserManagementServiceTest(String name) throws IOException {
+        super(name);
+    }
 
 
     protected void postSetUp() throws Exception{
@@ -586,4 +588,17 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
         assertEquals("User1", group1Users.get(1).getUsername());
         assertEquals("User2", group1Users.get(2).getUsername());
     }
+
+
+
+    public void testDeleteGroup() throws Exception {
+        UiGroup group2 = getUserManagementService().searchForGroup("Group2", new PagingInfo(1, 10), true).getGroups().iterator().next();
+        getUserManagementService().deleteGroups(
+                new UiGroup[] {
+                    group2                
+                });
+        
+    }
+
+
 }

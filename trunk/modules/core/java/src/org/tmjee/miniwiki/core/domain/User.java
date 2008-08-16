@@ -48,7 +48,7 @@ public class User implements Identifiable {
 
 
     @ManyToMany(targetEntity = Group.class,
-                cascade = {CascadeType.ALL},
+                cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
                 fetch = FetchType.LAZY)
     @ElementForeignKey
     @JoinTable(name = "TBL_USER_GROUP",
