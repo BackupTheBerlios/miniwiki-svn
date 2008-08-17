@@ -21,7 +21,8 @@ import javax.persistence.Query;
  */
 public class Main extends AbstractDbTestCase {
 
-    public Main() throws Exception {
+    public Main(String name) throws Exception {
+        super(name);
     }
 
 

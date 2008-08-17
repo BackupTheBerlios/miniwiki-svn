@@ -111,14 +111,24 @@ public class AbstractService {
 
 
 
-    protected void mergeOrPersist(EntityManager entityManager, Identifiable entity) {
+    protected Identifiable mergeOrPersist(EntityManager entityManager, Identifiable entity) {
         if (entity.getId() <= 0) {
             LOG.debug("Performing PERSIST on ["+entity+"]");
             entityManager.persist(entity);
+            return entity;
         }
         else {
+            // @NOTE: 
+            // We need this cause :-
+            // When we copied the ui domain objects using dozer
+            // (@see UiObjectToJpaObjectDozerBeanFactory), we will have find the jpa domain object using
+            // entityManager.find(...), which makes this seems unnecessary, but if it's a new domain object
+            // not available in the persistenceContext yet, then we need this merge, to help persist it
+            // during transactional flush.
+            
             LOG.debug("Performing MERGE on ["+entity+"]");
-            entityManager.merge(entity);
+            Identifiable _entity = entityManager.merge(entity);
+            return _entity;
         }
     }
 

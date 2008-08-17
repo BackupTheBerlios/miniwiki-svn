@@ -593,11 +593,35 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
 
     public void testDeleteGroup() throws Exception {
         UiGroup group2 = getUserManagementService().searchForGroup("Group2", new PagingInfo(1, 10), true).getGroups().iterator().next();
+        UiGroup group4 = getUserManagementService().searchForGroup("Group4", new PagingInfo(1, 10), true).getGroups().iterator().next();
         getUserManagementService().deleteGroups(
                 new UiGroup[] {
-                    group2                
+                    group2, group4                
                 });
-        
+
+
+        assertEquals(getUserManagementService().searchForGroup("Group2", new PagingInfo(1, 10), true).getGroups().size(), 0);
+        assertEquals(getUserManagementService().searchForGroup("Group4", new PagingInfo(1, 10), true).getGroups().size(), 0);
+
+        UiUser toby = getUserManagementService().searchForUser("Toby", new PagingInfo(1, 10), true).getUsers().iterator().next();
+
+        assertNotNull(toby);
+        assertEquals(toby.getGroups().size(), 1);
+        assertEquals(toby.getGroups().get(0).getName(), "Group1");
+    }
+
+
+    public void testDeleteUser() throws Exception {
+        UiUser toby = getUserManagementService().searchForUser("Toby", new PagingInfo(1, 10), true).getUsers().iterator().next();
+
+        getUserManagementService().deleteUsers(
+                new UiUser[] {
+                        toby
+                }
+        );
+
+
+        assertEquals(getUserManagementService().searchForUser("Toby", new PagingInfo(1, 10), true).getUsers().size(), 0);
     }
 
 

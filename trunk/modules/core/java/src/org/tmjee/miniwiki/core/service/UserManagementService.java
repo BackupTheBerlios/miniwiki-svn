@@ -126,8 +126,12 @@ public class UserManagementService extends AbstractService {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 for (UiUser uiUser: uiUsers) {
-                    User u = map(uiUser, User.class, "UiUser");
-                    entityManager.remove(u);
+                    if (uiUser.getId() > 0) {
+                        User u = entityManager.find(User.class, uiUser.getId());
+                        if (u != null) {
+                            entityManager.remove(u);
+                        }
+                    }
                 }
                 return null;
             }
@@ -177,13 +181,6 @@ public class UserManagementService extends AbstractService {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Group group = map(uiGroup, Group.class, "UiGroup");
-                for (User u : group.getUsers()) {
-                    String groups = "";
-                    for (Group g: u.getGroups()) {
-                        groups = groups + g.getName() + ",";
-                    }
-                    System.out.println("^^^^ "+u.getUsername()+"->"+groups);
-                }
                 mergeOrPersist(entityManager, group);
                 return null;
             }
@@ -193,11 +190,17 @@ public class UserManagementService extends AbstractService {
     public void deleteGroups(final UiGroup[] uiGroups) {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                for (int a=0; a< uiGroups.length; a++) {
-                    entityManager.remove(map(uiGroups[a], Group.class, "UiGroup"));
+                for (UiGroup uiGroup : uiGroups) {
+                    if (uiGroup.getId() > 0) {
+                        Group g = entityManager.find(Group.class, uiGroup.getId());
+                        if (g != null) {
+                            entityManager.remove(g);
+                        }
+                    }
                 }
                 return null;
             }
         });
     }
+
 }
