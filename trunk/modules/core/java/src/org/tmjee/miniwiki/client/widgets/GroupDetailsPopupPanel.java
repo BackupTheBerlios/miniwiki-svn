@@ -35,6 +35,7 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
     private VerticalPanel mainPanel;
 
     private Grid grid;
+    private CheckBox enabled;
     private TextBox groupName;
     private TextBox groupDescription;
 
@@ -71,6 +72,14 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
         setText("Group Details");
         setAnimationEnabled(true);
         this.editMode = editMode;
+
+        enabled = new CheckBox();
+        enabled.setChecked(uiGroup.isEnabled());
+        enabled.addClickListener(new ClickListener() {
+            public void onClick(Widget widget) {
+                GroupDetailsPopupPanel.this.uiGroup.setEnabled(((CheckBox)widget).isEnabled());
+            }
+        });
 
         groupName = new TextBox();
         groupName.setText(uiGroup.getName());

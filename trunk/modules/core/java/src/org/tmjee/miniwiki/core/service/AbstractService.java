@@ -128,6 +128,7 @@ public class AbstractService {
             
             LOG.debug("Performing MERGE on ["+entity+"]");
             Identifiable _entity = entityManager.merge(entity);
+            //entityManager.refresh(entity);
             return _entity;
         }
     }

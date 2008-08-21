@@ -117,6 +117,7 @@ public class UserManagementService extends AbstractService {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 User user = map(uiUser, User.class, "UiUser");
                 mergeOrPersist(entityManager, user);
+                entityManager.flush();
                 return null;
             }
         });
@@ -133,6 +134,7 @@ public class UserManagementService extends AbstractService {
                         }
                     }
                 }
+                entityManager.flush();
                 return null;
             }
         });
@@ -182,6 +184,32 @@ public class UserManagementService extends AbstractService {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Group group = map(uiGroup, Group.class, "UiGroup");
                 mergeOrPersist(entityManager, group);
+                for (User user : group.getUsers()) {
+                    User _u = entityManager.find(User.class, user.getId());
+                    System.out.println("&&& "+user.getUsername());
+                    for (Group g : _u.getGroups()) {
+                        System.out.println("\t"+g.getName());
+                    }
+                }
+                {
+                    Group g = entityManager.find(Group.class, uiGroup.getId());
+                    for (User u : g.getUsers()) {
+                        System.out.println("%%% "+u.getUsername());
+                        for (Group gg : u.getGroups()) {
+                            System.out.println("\t"+gg.getName());
+                        }
+                    }
+                }
+                entityManager.flush();
+                {
+                    Group g = entityManager.find(Group.class, uiGroup.getId());
+                    for (User u : g.getUsers()) {
+                        System.out.println("%%%% "+u.getUsername());
+                        for (Group gg : u.getGroups()) {
+                            System.out.println("\t"+gg.getName());
+                        }
+                    }
+                }
                 return null;
             }
         });
@@ -198,6 +226,7 @@ public class UserManagementService extends AbstractService {
                         }
                     }
                 }
+                entityManager.flush();
                 return null;
             }
         });

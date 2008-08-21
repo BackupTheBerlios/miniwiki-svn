@@ -37,24 +37,27 @@ public class User implements Identifiable {
     @Column(name="PASSWORD")
     private String password;
 
+    @Basic
+    @Column(name="ENABLED")
+    private boolean enabled;
+
 
     @OneToMany(targetEntity = UserProperty.class,
                 cascade = {CascadeType.ALL},
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "USER_ID", referencedColumnName = "ID")
-    @OrderBy("name ASC")
     private Set<UserProperty> properties = new LinkedHashSet<UserProperty>();
 
 
     @ManyToMany(targetEntity = Group.class,
                 cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
-                fetch = FetchType.LAZY)
-    @ElementForeignKey
+                fetch = FetchType.EAGER,
+                mappedBy = "users")
+    /*@ElementForeignKey
     @JoinTable(name = "TBL_USER_GROUP",
                 joinColumns = {@JoinColumn(name="USER_ID", referencedColumnName = "ID")},
-                inverseJoinColumns = {@JoinColumn(name="GROUP_ID", referencedColumnName = "ID")})
-    @OrderBy("name ASC")
+                inverseJoinColumns = {@JoinColumn(name="GROUP_ID", referencedColumnName = "ID")})*/
     private Set<Group> groups = new LinkedHashSet<Group>();
 
 
@@ -82,10 +85,15 @@ public class User implements Identifiable {
 
     // === misc ===
     public void addProperty(UserProperty userProperty) {
-        properties.add(userProperty);
+        if (!properties.contains(userProperty)) {
+            properties.add(userProperty);
+        }
     }
     public void addGroup(Group group) {
-        groups.add(group);
+        if (!groups.contains(group)) {
+            groups.add(group);
+            group.addUser(this);
+        }
     }
 
 
@@ -93,6 +101,10 @@ public class User implements Identifiable {
 
     public long getId() {
         return id;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 
     public String getUsername() {
@@ -133,6 +145,10 @@ public class User implements Identifiable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public void setUsername(String username) {

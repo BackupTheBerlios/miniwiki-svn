@@ -21,6 +21,10 @@
             <b>id</b>
         </field>
         <field>
+            <a>enabled</a>
+            <b>enabled</b>
+        </field>
+        <field>
             <a>username</a>
             <b>username</b>
         </field>
@@ -61,6 +65,10 @@
             <b>id</b>
         </field>
         <field>
+            <a>enabled</a>
+            <b>enabled</b>
+        </field>
+        <field>
             <a>name</a>
             <b>name</b>
         </field>
@@ -87,6 +95,10 @@
         <field type="one-way">
             <a>id</a>
             <b>id</b>
+        </field>
+        <field>
+            <a>enabled</a>
+            <b>enabled</b>
         </field>
         <field>
             <a>username</a>
@@ -130,6 +142,10 @@
             <b>id</b>
         </field>
         <field>
+            <a>enabled</a>
+            <b>enabled</b>
+        </field>
+        <field>
             <a>name</a>
             <b>name</b>
         </field>
@@ -156,6 +172,10 @@
         <field type="one-way">
             <a>id</a>
             <b>id</b>
+        </field>
+        <field>
+            <a>enabled</a>
+            <b>enabled</b>
         </field>
         <field>
             <a>username</a>
@@ -196,6 +216,10 @@
         <field type="one-way">
             <a>id</a>
             <b>id</b>
+        </field>
+        <field>
+            <a>enabled</a>
+            <b>enabled</b>
         </field>
         <field>
             <a>name</a>

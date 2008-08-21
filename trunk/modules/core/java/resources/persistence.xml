@@ -57,7 +57,7 @@
                     warn when there's inconsistency in bi-directional relationship
                 <property name="openjpa.InverseManager" value="true(Action=warn)"/>
             -->
-            <property name="openjpa.InverseManager" value="true"/>
+            <!--property name="openjpa.InverseManager" value="true"/ -->
 
             <!--
                DESCRIPTION:

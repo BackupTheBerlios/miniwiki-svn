@@ -14,12 +14,9 @@ public class UiUserProperty extends UiProperty {
 
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
         UiUserProperty uiUserProperty = (UiUserProperty) o;
-
+        if (!(o instanceof UiUserProperty)) return false;
         if (getName() != null ? !getName().equals(uiUserProperty.getName()) : uiUserProperty.getName() != null) return false;
-
         return true;
     }
 

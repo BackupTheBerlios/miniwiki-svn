@@ -15,12 +15,9 @@ public class UiGroupProperty extends UiProperty {
 
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
         UiGroupProperty uiGroupProperty = (UiGroupProperty) o;
-
+        if (!(o instanceof UiGroupProperty)) return false;
         if (getName() != null ? !getName().equals(uiGroupProperty.getName()) : uiGroupProperty.getName() != null) return false;
-
         return true;
     }
 

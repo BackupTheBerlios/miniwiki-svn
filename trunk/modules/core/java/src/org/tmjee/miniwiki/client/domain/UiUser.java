@@ -18,6 +18,7 @@ import org.tmjee.miniwiki.client.beans.PropertySupport;
 public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     private long id;
+    private boolean enabled;
     private String username;
     private String firstName;
     private String lastName;
@@ -108,6 +109,16 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     }
 
+    public void setEnabled(boolean enabled) {
+        boolean oldEnabled = this.enabled;
+        this.enabled = enabled;
+        propertySupport.firePropertyChange("enabled", oldEnabled, this.enabled);
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -175,12 +186,9 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (!(o instanceof UiUser)) return false;
         UiUser uiUser = (UiUser) o;
-
         if (username != null ? !username.equals(uiUser.username) : uiUser.username != null) return false;
-
         return true;
     }
 

@@ -81,17 +81,20 @@
         <aop:pointcut id="pcTemplateManagementService"
                       type="aspectj"
                       expression="execution(* org.tmjee.miniwiki.core.service.TemplateManagementService.*(..))" />
+        <!--
         <aop:pointcut id="pcUiObjectToJpaObjectDozerBeanFactory"
                       type="aspectj"
                       expression="execution(* org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory.*(..))" />
-
+        -->
 
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcSetupService" />
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcUserManagementService" />
-        <aop:advisor advice-ref="txWriteOnlyAdvice"
+        <!--
+        <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="pcUiObjectToJpaObjectDozerBeanFactory" />
+        -->
     </aop:config>
 
 

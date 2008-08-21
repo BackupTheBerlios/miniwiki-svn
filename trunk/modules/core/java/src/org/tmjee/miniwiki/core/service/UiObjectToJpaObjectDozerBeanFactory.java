@@ -40,7 +40,7 @@ public class UiObjectToJpaObjectDozerBeanFactory implements BeanFactoryIF {
                             return entityManager.find(clazz, id);
                         }
                     });
-                    LOG.info("Query for id="+id+", type="+clazz+", object queried="+result);
+                    LOG.info("Query for id="+id+", type="+clazz+", object queried="+result.getClass());
                 }
                 if (result == null) {
                     result = clazz.newInstance();

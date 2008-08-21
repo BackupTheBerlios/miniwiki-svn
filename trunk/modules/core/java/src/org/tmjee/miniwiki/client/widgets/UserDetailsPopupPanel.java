@@ -37,6 +37,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
 
     private MessageDisplayWidget messageDisplayWidget;
 
+    private CheckBox enabled;
     private TextBox username;
     private TextBox firstName;
     private TextBox lastName;
@@ -97,6 +98,14 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
             username.setEnabled(false);
         }
 
+        enabled = new CheckBox();
+        enabled.setChecked(uiUser.isEnabled());
+        enabled.addClickListener(new ClickListener() {
+            public void onClick(Widget widget) {
+                UserDetailsPopupPanel.this.uiUser.setEnabled(((CheckBox)widget).isChecked());
+            }
+        });
+
         lastName = new TextBox();
         lastName.setText(uiUser.getLastName());
         lastName.addChangeListener(new ChangeListener() {
@@ -132,16 +141,18 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         grid = new Grid(6, 2);
         grid.setWidget(0, 0, new Label("Username"));
         grid.setWidget(0, 1, username);
-        grid.setWidget(1, 0, new Label("First Name"));
-        grid.setWidget(1, 1, firstName);
-        grid.setWidget(2, 0, new Label("Last Name"));
-        grid.setWidget(2, 1, lastName);
-        grid.setWidget(3, 0, new Label("Description"));
-        grid.setWidget(3, 1, description);
-        grid.setWidget(4, 0, new Label("Password"));
-        grid.setWidget(4, 1, password);
-        grid.setWidget(5, 0, new Label("Confirm Password"));
-        grid.setWidget(5, 1, confirmPassword);
+        grid.setWidget(1, 0, new Label("Enabled"));
+        grid.setWidget(1, 1, enabled);
+        grid.setWidget(2, 0, new Label("First Name"));
+        grid.setWidget(2, 1, firstName);
+        grid.setWidget(3, 0, new Label("Last Name"));
+        grid.setWidget(3, 1, lastName);
+        grid.setWidget(4, 0, new Label("Description"));
+        grid.setWidget(4, 1, description);
+        grid.setWidget(5, 0, new Label("Password"));
+        grid.setWidget(5, 1, password);
+        grid.setWidget(6, 0, new Label("Confirm Password"));
+        grid.setWidget(6, 1, confirmPassword);
 
 
         groupsButtonPanel = new HorizontalPanel();

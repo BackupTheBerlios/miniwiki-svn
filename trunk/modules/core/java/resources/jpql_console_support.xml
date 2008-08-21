@@ -18,27 +18,33 @@
     <import resource="spring.xml" />
 
     <aop:config>
-        <aop:pointcut id="pcTestingSupportService"
-                      expression="execution(* org.tmjee.miniwiki.core.service.TestingSupportService.*(*))" />
+        <aop:pointcut id="pcJpqlQueryConsole"
+                      expression="execution(* org.tmjee.miniwiki.core.tools.JpqlQueryConsole.process(String))" />
+        <aop:pointcut id="pcJpqlQueryConsoleSupportService"
+                      expression="execution(* org.tmjee.miniwiki.core.tools.JpqlQueryConsoleSupportService.*(*))" />
         <aop:advisor advice-ref="txAdvice"
-                     pointcut-ref="pcTestingSupportService" />
+                     pointcut-ref="pcJpqlQueryConsoleSupportService" />
+        <aop:advisor advice-ref="txAdvice"
+                     pointcut-ref="pcJpqlQueryConsole" />
     </aop:config>
 
 
     <!-- ######################### -->
     <!-- # Properties setup        -->
     <!-- ######################### -->
-    <bean name="dbProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:/testing_db.properties" />
-    </bean>
 
+    <bean name="dbProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:/jpql_console_db.properties" />
+    </bean>
 
 
     <!-- ###################### -->
     <!-- # Services           # -->
     <!-- ###################### -->
-    <bean name="testingSupportService" class="org.tmjee.miniwiki.core.service.TestingSupportService">
+
+    <bean name="jpqlQueryConsoleSupportService" class="org.tmjee.miniwiki.core.tools.JpqlQueryConsoleSupportService">
         <constructor-arg index="0" ref="jpaTemplate" />
     </bean>
+
 
 </beans>

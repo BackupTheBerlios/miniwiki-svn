@@ -28,14 +28,20 @@ public class Group implements Identifiable {
     private long id;
 
     @Basic
+    @Column(name="ENABLED")
+    private boolean enabled;
+    
+    @Basic
     @Column(name="NAME", nullable = false)
     private String name;
 
     @ManyToMany(targetEntity = User.class,
                 cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
-                fetch = FetchType.LAZY,
-                mappedBy = "groups")
-    @OrderBy("username ASC")
+                fetch = FetchType.EAGER)
+    @ElementForeignKey
+    @JoinTable(name = "TBL_USER_GROUP",
+                joinColumns = {@JoinColumn(name="GROUP_ID", referencedColumnName = "ID")},
+                inverseJoinColumns = {@JoinColumn(name="USER_ID", referencedColumnName = "ID")})
     private Set<User> users = new LinkedHashSet<User>();
 
     @OneToMany(targetEntity = GroupProperty.class,
@@ -43,7 +49,6 @@ public class Group implements Identifiable {
                 fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "GROUP_ID", referencedColumnName = "ID")
-    @OrderBy("name ASC")
     private Set<GroupProperty> properties = new LinkedHashSet<GroupProperty>();
 
     @Version
@@ -64,7 +69,15 @@ public class Group implements Identifiable {
 
     // === misc ===
     public void addProperty(GroupProperty property) {
-        properties.add(property);
+        if (!properties.contains(property)) {
+            properties.add(property);
+        }
+    }
+    public void addUser(User user) {
+        if (!users.contains(user)) {
+            users.add(user);
+            user.addGroup(this);
+        }
     }
 
 
@@ -72,6 +85,10 @@ public class Group implements Identifiable {
 
     public long getId() {
         return id;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 
     public String getName() {
@@ -99,6 +116,10 @@ public class Group implements Identifiable {
     
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public void setName(String name) {

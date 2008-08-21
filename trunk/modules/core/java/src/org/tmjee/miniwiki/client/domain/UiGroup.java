@@ -16,6 +16,7 @@ import org.tmjee.miniwiki.client.beans.PropertySupport;
 public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     private long id;
+    private boolean enabled;
     private String name;
     private String description;
 
@@ -39,6 +40,16 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
         long oldId = this.id;
         this.id = id;
         propertySupport.firePropertyChange("id", oldId, this.id);
+    }
+
+    public void setEnabled(boolean enabled) {
+        boolean oldEnabled = this.enabled;
+        this.enabled = enabled;
+        propertySupport.firePropertyChange("enabled", oldEnabled, this.enabled);
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 
     public String getName() {
@@ -98,6 +109,9 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
             user.removeGroup(this);
             propertySupport.firePropertyDeletion("user", user);
         }
+        else {
+            user.removeGroup(this);    
+        }
     }
 
 
@@ -111,12 +125,9 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (!(o instanceof UiGroup)) return false;
         UiGroup uiGroup = (UiGroup) o;
-
         if (name != null ? !name.equals(uiGroup.name) : uiGroup.name != null) return false;
-
         return true;
     }
 
