@@ -24,11 +24,11 @@ public class WikiPriviledge implements Identifiable {
                     pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_WIKI_PRIVILEDGE_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", nullable = false)
     private long id;
 
 
-    @Column(name="NAME", unique = true, nullable = false)
+    @Column(name="NAME", nullable = false)
     @Basic(fetch= FetchType.EAGER,
            optional=false)
     private String name;

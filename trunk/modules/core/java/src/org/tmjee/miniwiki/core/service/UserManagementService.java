@@ -118,6 +118,16 @@ public class UserManagementService extends AbstractService {
                 User user = map(uiUser, User.class, "UiUser");
                 mergeOrPersist(entityManager, user);
                 entityManager.flush();
+
+                {
+                    User g = entityManager.find(User.class, uiUser.getId());
+                    for (Group u : g.getGroups()) {
+                        System.out.println("%%%% "+u.getName());
+                        for (User gg : u.getUsers()) {
+                            System.out.println("\t"+gg.getUsername());
+                        }
+                    }
+                }
                 return null;
             }
         });
@@ -184,7 +194,7 @@ public class UserManagementService extends AbstractService {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Group group = map(uiGroup, Group.class, "UiGroup");
                 mergeOrPersist(entityManager, group);
-                for (User user : group.getUsers()) {
+                /*for (User user : group.getUsers()) {
                     User _u = entityManager.find(User.class, user.getId());
                     System.out.println("&&& "+user.getUsername());
                     for (Group g : _u.getGroups()) {
@@ -199,7 +209,7 @@ public class UserManagementService extends AbstractService {
                             System.out.println("\t"+gg.getName());
                         }
                     }
-                }
+                }*/
                 entityManager.flush();
                 {
                     Group g = entityManager.find(Group.class, uiGroup.getId());

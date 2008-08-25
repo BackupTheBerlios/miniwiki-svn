@@ -19,7 +19,7 @@ public class WikiPriviledgeValue implements Identifiable {
                     pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_WIKI_PRIVILEDGE_VALUE_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
-    @Column(name="ID", nullable = false, unique = true)
+    @Column(name="ID", nullable = false)
     private long id;
     
 

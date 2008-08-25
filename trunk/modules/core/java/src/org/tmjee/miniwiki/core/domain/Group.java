@@ -24,7 +24,7 @@ public class Group implements Identifiable {
                     pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_GROUP_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", nullable = false)
     private long id;
 
     @Basic
@@ -37,7 +37,7 @@ public class Group implements Identifiable {
 
     @ManyToMany(targetEntity = User.class,
                 cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
-                fetch = FetchType.EAGER)
+                fetch = FetchType.LAZY)
     @ElementForeignKey
     @JoinTable(name = "TBL_USER_GROUP",
                 joinColumns = {@JoinColumn(name="GROUP_ID", referencedColumnName = "ID")},

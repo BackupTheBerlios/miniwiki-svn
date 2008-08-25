@@ -24,12 +24,12 @@ public class PagePriviledge implements Identifiable {
                     pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_PAGE_PRIVILEDGE_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", nullable = false)
     private long id;
 
 
     @Basic
-    @Column(name="NAME", nullable = false, unique = true)
+    @Column(name="NAME", nullable = false)
     private String name;
 
     @OneToMany(targetEntity = PagePriviledgeValue.class,

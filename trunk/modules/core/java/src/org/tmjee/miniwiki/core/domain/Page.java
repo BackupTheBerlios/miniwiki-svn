@@ -25,7 +25,7 @@ public class Page implements Identifiable {
                     pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_PAGE_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", nullable = false)
     private long id;
 
     @Basic(optional = false)

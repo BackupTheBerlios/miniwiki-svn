@@ -20,11 +20,11 @@ public class Setup {
                     pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_SETUP_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
-    @Column(name="ID", unique=true, nullable = false)
+    @Column(name="ID", nullable = false)
     private long id;
 
     @Basic
-    @Column(name="NAME", unique=true, nullable=false)
+    @Column(name="NAME", nullable=false)
     private String name;
 
     @Basic

@@ -19,7 +19,7 @@ public class GroupProperty implements Identifiable {
                     pkColumnName = "ID", valueColumnName = "ID_VALUE",
                     pkColumnValue = "TBL_GROUP_PROPERTY_CURRENT_ID", initialValue = 1,
                     allocationSize = 10)
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", nullable = false)
     private long id;
 
     @Basic

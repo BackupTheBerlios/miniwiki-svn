@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class SpacePriviledgeValue implements Identifiable {
 
     @Id
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "spacePriviledgeValueIdGenerator")
     @TableGenerator(name="spacePriviledgeValueIdGenerator", table = "TBL_ID_GENERATOR",
                     pkColumnName = "ID", valueColumnName = "ID_VALUE",

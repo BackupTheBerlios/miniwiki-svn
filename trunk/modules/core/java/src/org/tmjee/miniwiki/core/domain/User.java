@@ -21,7 +21,7 @@ import java.util.LinkedHashSet;
 public class User implements Identifiable {
 
     @Id
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "userIdGenerator")
     @TableGenerator(name="userIdGenerator", table = "TBL_ID_GENERATOR",
                     pkColumnName = "ID", valueColumnName = "ID_VALUE",
@@ -52,7 +52,7 @@ public class User implements Identifiable {
 
     @ManyToMany(targetEntity = Group.class,
                 cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
-                fetch = FetchType.EAGER,
+                fetch = FetchType.LAZY,
                 mappedBy = "users")
     /*@ElementForeignKey
     @JoinTable(name = "TBL_USER_GROUP",
