@@ -118,14 +118,15 @@ public class UserManagementService extends AbstractService {
                 User user = map(uiUser, User.class, "UiUser");
                 mergeOrPersist(entityManager, user);
                 entityManager.flush();
-
-                {
-                    User g = entityManager.find(User.class, uiUser.getId());
-                    for (Group u : g.getGroups()) {
-                        System.out.println("%%%% "+u.getName());
-                        for (User gg : u.getUsers()) {
-                            System.out.println("\t"+gg.getUsername());
-                        }
+                // NOTE:
+                // hack to make sure relationship are maintained ok (removed properly)
+                // (necessariy for the non-owning end of the bi-directional relationship
+                // but having it here anyway).
+                for (UiGroup removedUiGroup : uiUser.getRemovedUiGroup()) {
+                    Group g = entityManager.find(Group.class, removedUiGroup.getId());
+                    if (g != null) {
+                        g.getUsers().remove(user);
+                        user.getGroups().remove(g);
                     }
                 }
                 return null;
@@ -194,31 +195,15 @@ public class UserManagementService extends AbstractService {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Group group = map(uiGroup, Group.class, "UiGroup");
                 mergeOrPersist(entityManager, group);
-                /*for (User user : group.getUsers()) {
-                    User _u = entityManager.find(User.class, user.getId());
-                    System.out.println("&&& "+user.getUsername());
-                    for (Group g : _u.getGroups()) {
-                        System.out.println("\t"+g.getName());
-                    }
-                }
-                {
-                    Group g = entityManager.find(Group.class, uiGroup.getId());
-                    for (User u : g.getUsers()) {
-                        System.out.println("%%% "+u.getUsername());
-                        for (Group gg : u.getGroups()) {
-                            System.out.println("\t"+gg.getName());
-                        }
-                    }
-                }*/
                 entityManager.flush();
-                {
-                    Group g = entityManager.find(Group.class, uiGroup.getId());
-                    for (User u : g.getUsers()) {
-                        System.out.println("%%%% "+u.getUsername());
-                        for (Group gg : u.getGroups()) {
-                            System.out.println("\t"+gg.getName());
-                        }
-                    }
+                // NOTE:
+                // hack to make sure relationship are maintained ok (removed properly)
+                // (not necessariy for the owning end of the bi-directional relationship
+                // but having it here anyway).
+                for (UiUser uiUser : uiGroup.getRemovedUsers()) {
+                    User u = entityManager.find(User.class, uiUser.getId());
+                    u.getGroups().remove(group);
+                    group.getUsers().remove(u);
                 }
                 return null;
             }

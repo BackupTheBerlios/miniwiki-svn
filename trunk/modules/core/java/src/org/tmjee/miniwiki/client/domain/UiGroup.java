@@ -22,6 +22,7 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     private List<UiGroupProperty> properties = new ArrayList<UiGroupProperty>();
     private List<UiUser> users = new ArrayList<UiUser>();
+    private List<UiUser> removedUsers = new ArrayList<UiUser>();
 
     private transient PropertySupport propertySupport = new PropertySupport();
 
@@ -105,13 +106,17 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public void removeUser(UiUser user) {
         if (users.contains(user)) {
+            if (! removedUsers.contains(user)) {
+                removedUsers.add(user);
+            }
             users.remove(user);
             user.removeGroup(this);
             propertySupport.firePropertyDeletion("user", user);
         }
-        else {
-            user.removeGroup(this);    
-        }
+    }
+
+    public List<UiUser> getRemovedUsers() {
+        return removedUsers;
     }
 
 
