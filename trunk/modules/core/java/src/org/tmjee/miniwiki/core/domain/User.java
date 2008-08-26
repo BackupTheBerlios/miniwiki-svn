@@ -38,7 +38,7 @@ public class User implements Identifiable {
     private String password;
 
     @Basic
-    @Column(name="ENABLED")
+    @Column(name="ENABLED", nullable = false)
     private boolean enabled;
 
 

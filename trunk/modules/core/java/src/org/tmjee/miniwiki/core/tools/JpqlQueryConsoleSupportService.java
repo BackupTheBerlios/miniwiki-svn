@@ -20,11 +20,11 @@ public class JpqlQueryConsoleSupportService {
         this.template = template;
     }
 
-    public Object executeJpaQuery(final String jpaQuery) {
-        return template.execute(new JpaCallback() {
+    public Result executeJpaQuery(final String jpaQuery) {
+        return (Result) template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Query query = entityManager.createQuery(jpaQuery);
-                return query.getResultList();
+                return new JpqlResult(query.getResultList());
             }
         });
     }

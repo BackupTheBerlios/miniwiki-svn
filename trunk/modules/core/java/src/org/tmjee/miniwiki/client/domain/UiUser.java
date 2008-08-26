@@ -1,7 +1,5 @@
 package org.tmjee.miniwiki.client.domain;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
-
 
 import java.util.List;
 import java.util.ArrayList;
@@ -27,7 +25,9 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     private List<UiUserProperty> uiUserProperties = new ArrayList<UiUserProperty>();
     private List<UiGroup> uiGroups = new ArrayList<UiGroup>();
+
     private List<UiGroup> removedUiGroups = new ArrayList<UiGroup>();
+    private List<UiUserProperty> removedUiUserProperties = new ArrayList<UiUserProperty>();
 
     private transient PropertySupport propertySupport = new PropertySupport();
 
@@ -76,6 +76,9 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public void addGroup(UiGroup uiGroup) {
         if (!uiGroups.contains(uiGroup)) {
+            if (removedUiGroups.contains(uiGroup)) {
+                removedUiGroups.remove(uiGroup);
+            }
             uiGroups.add(uiGroup);
             uiGroup.addUser(this);
             propertySupport.firePropertyAddition("group", uiGroup);
@@ -83,8 +86,15 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
     }
 
 
+    public List<UiUserProperty> getRemovedProperties() {
+        return removedUiUserProperties;
+    }
+
     public void removeProperty(UiUserProperty propertyUi) {
         if (uiUserProperties.contains(propertyUi)) {
+            if (!removedUiUserProperties.contains(propertyUi)) {
+                removedUiUserProperties.add(propertyUi);
+            }
             uiUserProperties.remove(propertyUi);
             propertySupport.firePropertyDeletion("property", propertyUi);
         }
@@ -92,6 +102,9 @@ public class UiUser implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public void addProperty(UiUserProperty propertyUi) {
         if (!uiUserProperties.contains(propertyUi)) {
+            if (removedUiUserProperties.contains(propertyUi)) {
+                removedUiUserProperties.remove(propertyUi);
+            }
             uiUserProperties.add(propertyUi);
             propertySupport.firePropertyAddition("property", propertyUi);
         }

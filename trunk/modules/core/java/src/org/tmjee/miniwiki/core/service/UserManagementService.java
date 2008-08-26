@@ -6,6 +6,7 @@ import org.tmjee.miniwiki.core.MiniWikiConfig;
 import org.tmjee.miniwiki.core.domain.User;
 import org.tmjee.miniwiki.core.domain.Group;
 import org.tmjee.miniwiki.core.domain.UserProperty;
+import org.tmjee.miniwiki.core.domain.GroupProperty;
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
 import org.apache.commons.logging.Log;
@@ -129,6 +130,14 @@ public class UserManagementService extends AbstractService {
                         user.getGroups().remove(g);
                     }
                 }
+                for (UiUserProperty removedUiUserProperty : uiUser.getRemovedProperties()) {
+                    if (removedUiUserProperty.getId() > 0) {
+                        UserProperty userProperty = entityManager.find(UserProperty.class, removedUiUserProperty.getId());
+                        if (userProperty != null) {
+                            entityManager.remove(userProperty);        
+                        }
+                    }
+                }
                 return null;
             }
         });
@@ -204,6 +213,14 @@ public class UserManagementService extends AbstractService {
                     User u = entityManager.find(User.class, uiUser.getId());
                     u.getGroups().remove(group);
                     group.getUsers().remove(u);
+                }
+                for (UiGroupProperty uiGroupProperty : uiGroup.getRemovedProperties()) {
+                    if (uiGroupProperty.getId() > 0) {
+                        GroupProperty groupProperty = entityManager.find(GroupProperty.class, uiGroupProperty.getId());
+                        if (groupProperty != null) {
+                            entityManager.remove(groupProperty);
+                        }
+                    }
                 }
                 return null;
             }

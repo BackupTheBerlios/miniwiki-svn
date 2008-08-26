@@ -138,7 +138,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         confirmPassword.setText(uiUser.getPassword());
 
 
-        grid = new Grid(6, 2);
+        grid = new Grid(7, 2);
         grid.setWidget(0, 0, new Label("Username"));
         grid.setWidget(0, 1, username);
         grid.setWidget(1, 0, new Label("Enabled"));
@@ -331,6 +331,14 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
                         }
                     });
                 }
+                if (!password.getText().equals(confirmPassword.getText())) {
+                    hasError = true;
+                    sourcesEventSupport.iterateThroughListener(new SourcesEventsSupport.Handler() {
+                        public void handle(Object listener) {
+                            ((MessageEventListener)listener).onMessageEvent(new MessageEvent(MessageEvent.LEVEL_ERROR, "Passwords are not the same"));
+                        }
+                    });
+                }
 
                 if (! hasError) {
                     UserDetailsPopupPanel.this.handler.save(UserDetailsPopupPanel.this.uiUser);
@@ -361,7 +369,7 @@ public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEv
         setWidget(mainPanel);
         
         propertiesTable.refresh(uiUser.getProperties());
-
+        groupsTable.refresh(uiUser.getGroups());
 
         center();
     }

@@ -16,7 +16,7 @@ import javax.persistence.Table;
     ),
     @NamedQuery(
             name = "authenticate",
-            query= "SELECT user FROM User as user WHERE user.username = :username AND user.password = :password "
+            query= "SELECT user FROM User as user WHERE user.username = :username AND user.password = :password AND user.enabled=true"
     ),
     @NamedQuery(
             name = "getUserByUsername_full",

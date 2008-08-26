@@ -28,7 +28,7 @@ public class Group implements Identifiable {
     private long id;
 
     @Basic
-    @Column(name="ENABLED")
+    @Column(name="ENABLED", nullable = false)
     private boolean enabled;
     
     @Basic

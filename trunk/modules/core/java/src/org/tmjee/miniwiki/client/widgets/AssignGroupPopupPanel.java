@@ -106,6 +106,7 @@ public class AssignGroupPopupPanel extends DialogBox {
                                     }
                                 });
                         if (g != null) { // the rowObject is in uiUser.getGroups() list
+                                         // Group is already part of this user's group
                             return new Button(
                                     "Unassign",
                                     new ClickListener() {
@@ -114,17 +115,20 @@ public class AssignGroupPopupPanel extends DialogBox {
                                                     AssignGroupPopupPanel.this.uiUser,
                                                     rowObject
                                             );
+                                            table.refresh();
                                         }
                                     });
                         }
-                        return new Button(
+                        return new Button(  // Group is not part of this user's group
                                 "Assign",
                                 new ClickListener() {
                                     public void onClick(Widget widget) {
                                         AssignGroupPopupPanel.this.handler.join(
                                                 AssignGroupPopupPanel.this.uiUser,
                                                 rowObject
+
                                         );
+                                        table.refresh();
                                     }
                                 });
                     }

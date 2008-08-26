@@ -22,6 +22,7 @@ import org.tmjee.miniwiki.client.beans.PropertyDeletionEvent;
 import org.tmjee.miniwiki.client.service.Service;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.io.Serializable;
 
 /**
@@ -96,16 +97,18 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
         groupDescription.setText(uiGroup.getDescription());
         groupDescription.addChangeListener(new ChangeListener() {
             public void onChange(Widget sender) {
-                GroupDetailsPopupPanel.this.uiGroup.setName(((TextBox)sender).getText());
+                GroupDetailsPopupPanel.this.uiGroup.setDescription(((TextBox)sender).getText());
             }
         });
 
 
-        grid = new Grid(2, 2);
+        grid = new Grid(3, 2);
         grid.setWidget(0, 0, new Label("Group Name"));
         grid.setWidget(0, 1, groupName);
-        grid.setWidget(1, 0, new Label("Group Description"));
-        grid.setWidget(1, 1, groupDescription);
+        grid.setWidget(1, 0, new Label("Enabled"));
+        grid.setWidget(1, 1, enabled);
+        grid.setWidget(2, 0, new Label("Group Description"));
+        grid.setWidget(2, 1, groupDescription);
 
 
 
@@ -262,7 +265,7 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
         });
         removePropertyButton = new Button("Delete Property", new ClickListener() {
             public void onClick(Widget sender) {
-                List<UiGroupProperty> selectedProperties = propertiesTable.getSelectedRowObjects();
+                List<UiGroupProperty> selectedProperties = new ArrayList<UiGroupProperty>(propertiesTable.getSelectedRowObjects());
                                 for (UiGroupProperty prop: selectedProperties) {
                                     GroupDetailsPopupPanel.this.uiGroup.removeProperty(prop);
                                 }
@@ -319,6 +322,10 @@ public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageE
 
         WidgetUtils.init(this);
         setWidget(mainPanel);
+
+
+        propertiesTable.refresh(uiGroup.getProperties());
+        usersTable.refresh();
 
         center();
     }

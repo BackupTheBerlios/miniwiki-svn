@@ -1,7 +1,5 @@
 package org.tmjee.miniwiki.client.domain;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -22,7 +20,10 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     private List<UiGroupProperty> properties = new ArrayList<UiGroupProperty>();
     private List<UiUser> users = new ArrayList<UiUser>();
-    private List<UiUser> removedUsers = new ArrayList<UiUser>();
+
+    private List<UiUser> removedUiUsers = new ArrayList<UiUser>();
+    private List<UiGroupProperty> removedUiGroupProperties = new ArrayList<UiGroupProperty>();
+
 
     private transient PropertySupport propertySupport = new PropertySupport();
 
@@ -73,8 +74,15 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
         propertySupport.firePropertyChange("description", oldValue, description);
     }
 
+    public List<UiGroupProperty> getRemovedProperties() {
+        return removedUiGroupProperties;
+    }
+
     public void addProperty(UiGroupProperty property) {
         if (!properties.contains(property)) {
+            if (removedUiGroupProperties.contains(property)) {
+                removedUiGroupProperties.remove(property);
+            }
             properties.add(property);
             propertySupport.firePropertyAddition("property", property);
         }
@@ -82,6 +90,9 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public void removeProperty(UiGroupProperty property) {
         if (properties.contains(property)) {
+            if (!removedUiGroupProperties.contains(property)) {
+                removedUiGroupProperties.add(property);
+            }
             properties.remove(property);
             propertySupport.firePropertyDeletion("property", property);
         }
@@ -98,7 +109,10 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public void addUser(UiUser user) {
         if (!users.contains(user)) {
-             users.add(user);
+            if (removedUiUsers.contains(user)) {
+                removedUiUsers.remove(user);
+            }
+            users.add(user);
             user.addGroup(this);
             propertySupport.firePropertyAddition("user", user);
         }
@@ -106,8 +120,8 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
 
     public void removeUser(UiUser user) {
         if (users.contains(user)) {
-            if (! removedUsers.contains(user)) {
-                removedUsers.add(user);
+            if (! removedUiUsers.contains(user)) {
+                removedUiUsers.add(user);
             }
             users.remove(user);
             user.removeGroup(this);
@@ -116,7 +130,7 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
     }
 
     public List<UiUser> getRemovedUsers() {
-        return removedUsers;
+        return removedUiUsers;
     }
 
 

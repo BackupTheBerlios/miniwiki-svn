@@ -1,6 +1,21 @@
 -javaagent:/home/tmjee/development/miniwiki/modules/core/lib/java-agent.jar
 
 
+priviledges
+===========
+* Anonymous
+* Registered users
+* Group of users
+
+
+* view page
+* edit page
+* delete page
+* create page
+
+
+
+
 
 
 

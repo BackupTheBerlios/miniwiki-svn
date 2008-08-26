@@ -4,13 +4,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
 
 /**
  * @author tmjee
@@ -20,6 +17,8 @@ public class JpqlQueryConsole {
 
     private ApplicationContext applicationContext;
     private BufferedReader reader;
+
+    private Configuration configuration = new Configuration();
 
 
     public static void main(String[] args) throws Exception {
@@ -38,11 +37,11 @@ public class JpqlQueryConsole {
 
     protected void start() throws IOException {
         try {
-            String jpql = readJpql();
-            while(!"END".equalsIgnoreCase(jpql)) {
+            String commandLine = readCommandLine();
+            while(!"END".equalsIgnoreCase(commandLine)) {
                 try {
-                    process(jpql);
-                    jpql = readJpql();
+                    process(commandLine);
+                    commandLine = readCommandLine();
                 }
                 catch(DataAccessException e) {
                     e.printStackTrace();
@@ -59,12 +58,12 @@ public class JpqlQueryConsole {
         }
     }
 
-    public void process(String jpql) {
-        Object result = processJpql(jpql);
-        printJpqlResult(result);
+    public void process(String command) {
+        Result result = processCommand(command);
+        printCommand(result);
     }
 
-    protected String readJpql() throws IOException {
+    protected String readCommandLine() throws IOException {
         System.out.print("\nJPQL>");
         StringBuffer jpql = new StringBuffer();
         String _jpql = null;
@@ -83,38 +82,53 @@ public class JpqlQueryConsole {
         return jpql.toString();
     }
 
-    protected Object processJpql(String jpql) {
+    protected Result processCommand(String command) {
+        if (command.startsWith("c_")) {
+            return processConfigurationCommand(command);
+        }
+        else {
+            return processJpqlCommand(command);
+        }
+    }
+
+    protected Result processConfigurationCommand(String command) {
+        if (command.startsWith("c_configuration")) {
+            return new CommandResult(configuration.print());
+        }
+        if (command.startsWith("c_firstPage=")) {
+            int firstPage = -1;
+            try {
+                firstPage = Integer.parseInt(command.substring("c_firstPage=".length()));
+                configuration.setFirstPage(firstPage);
+                return new CommandResult("c_firstPage set to "+firstPage+" successfully");
+            }
+            catch(Exception e) {
+                return new CommandResult("Should be in the form c_firstPage=<integer>");
+            }
+        }
+        if (command.startsWith("c_maxPage=")) {
+            int maxPage = -1;
+            try {
+                maxPage = Integer.parseInt(command.substring("c_maxPage=".length()));
+                configuration.setMaxPage(maxPage);
+                return new CommandResult("c_maxPage set to "+maxPage+" successfully");
+            }
+            catch(Exception e) {
+                return new CommandResult("Should be in the form c_maxPage=<integer>");
+            }
+        }
+        return new CommandResult("Unrecongnized command ["+command+"]");
+    }
+
+    protected Result processJpqlCommand(String jpql) {
         JpqlQueryConsoleSupportService service = (JpqlQueryConsoleSupportService) applicationContext.getBean("jpqlQueryConsoleSupportService");
         return service.executeJpaQuery(jpql);
     }
 
-    protected void printJpqlResult(Object jpqlResult) {
-        StringBuffer s = new StringBuffer();
-        printJpqlResult(jpqlResult, s);
-        System.out.println(s.toString());
+    protected void printCommand(Result commandObject) {
+        System.out.println(commandObject.print());
     }
 
-    protected void printJpqlResult(Object jpqlResult, StringBuffer result) {
-        if (jpqlResult instanceof Collection) {
-            int count = 1;
-            for (Object o : ((Collection)jpqlResult)) {
-                result.append(count+"]");
-                printJpqlResult(o, result);
-                count++;
-            }
-        }
-        else if (jpqlResult.getClass().isArray()) {
-            int count = 1;
-            for (Object o : (Object[])jpqlResult) {
-                result.append(count+"]");
-                printJpqlResult(o, result);
-                count++;
-            }
-        }
-        else {
-            result.append(ReflectionToStringBuilder.toString(jpqlResult));
-            result.append("\n");
-        }
-    }
+    
 
 }
