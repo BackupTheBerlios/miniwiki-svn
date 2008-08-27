@@ -8,10 +8,48 @@ priviledges
 * Group of users
 
 
-* view page
-* edit page
-* delete page
-* create page
+Wiki
+----
+1] Anonymous
+	* administration
+	* registration
+2] Registered users
+    * administration
+	* registration
+3] Group of users
+    * administration
+	* registration
+
+	
+Space 
+-----
+1] Anonymous
+	* View space
+	* Edit space
+	* Delete space
+	* create space
+	* view page
+2] Registered users
+
+3] Group of users
+
+
+Page
+----
+* view
+* edit 
+* delete 
+* create 
+* comment 
+
+
+
+
+
+
+
+
+
 
 
 
