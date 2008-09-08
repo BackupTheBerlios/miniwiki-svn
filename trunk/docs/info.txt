@@ -13,12 +13,27 @@ Wiki
 1] Anonymous
 	* administration
 	* registration
+	* Create space
+	* Delete space
+	* View space
+	* Edit space
+	* Delete space
 2] Registered users
     * administration
 	* registration
+	* Create space
+	* Delete space
+	* View space
+	* Edit space
+	* Delete space
 3] Group of users
     * administration
 	* registration
+	* Create space
+	* Delete space
+	* View space
+	* Edit space
+	* Delete space
 
 	
 Space 
@@ -27,20 +42,39 @@ Space
 	* View space
 	* Edit space
 	* Delete space
-	* create space
-	* view page
+	* View page
+	* Create page
+	* Edit page
+	* Delete page
+	* Comment page
 2] Registered users
-
+	* View space
+	* Edit space
+	* Delete space
+	* Create page
+	* Edit page
+	* Delete page
+	* Comment page
 3] Group of users
-
-
+	* View space
+	* Edit space
+	* Delete space
+	* Create page
+	* Edit page
+	* Delete page
+	* Comment page	
+	
 Page
 ----
-* view
-* edit 
-* delete 
-* create 
-* comment 
+1] Anonymous
+
+2] Registered User
+
+3] Group of users
+	* View page
+	* Edit page
+	* Delete page
+	* Comment page
 
 
 

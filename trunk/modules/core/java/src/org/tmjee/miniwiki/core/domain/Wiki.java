@@ -4,6 +4,7 @@ import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
 import org.apache.openjpa.persistence.jdbc.ElementForeignKey;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.tmjee.miniwiki.client.Constants;
 
 import javax.persistence.*;
 import java.util.List;
@@ -63,6 +64,10 @@ public class Wiki implements Identifiable {
     @Column(name = "VERSION")
     private int version;
 
+
+    @Basic
+    @Column(name="TEMPLATE")
+    private String template = Constants.DEFAULT_WIKI_TEMPLATE;
 
 
     // === constructor ===

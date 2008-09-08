@@ -18,7 +18,7 @@ import org.tmjee.miniwiki.client.utils.Utils;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class AssignGroupPopupPanel extends DialogBox {
+public class AssignGroupPopupPanel extends AutoRegisteredDialogBox {
 
     private VerticalPanel mainPanel;
 

@@ -5,9 +5,9 @@ import org.apache.openjpa.persistence.jdbc.ElementJoinColumn;
 import org.apache.openjpa.persistence.jdbc.ForeignKey;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.tmjee.miniwiki.client.Constants;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 import java.util.LinkedHashSet;
 
@@ -43,12 +43,12 @@ public class Page implements Identifiable {
     @JoinColumn(name="SPACE_ID", referencedColumnName = "ID")
     private Space space;
 
-    @OneToMany(targetEntity = Attachment.class,
+    @OneToMany(targetEntity = PageAttachment.class,
                 cascade = {CascadeType.ALL},
-                fetch=FetchType.LAZY)
+                fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "PAGE_ID", referencedColumnName = "ID")
-    private Set<Attachment> attachments = new LinkedHashSet<Attachment>();
+    private Set<PageAttachment> attachments = new LinkedHashSet<PageAttachment>();
 
     @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY, optional = false)
     @ForeignKey
@@ -63,12 +63,12 @@ public class Page implements Identifiable {
     private User lastModifiedUser;
 
 
-    @OneToMany(targetEntity = PreviousVersion.class,
+    @OneToMany(targetEntity = PagePreviousVersion.class,
                 cascade={CascadeType.ALL},
                 fetch=FetchType.LAZY)
     @ElementForeignKey
     @ElementJoinColumn(name = "PAGE_ID", referencedColumnName = "ID")
-    private Set<PreviousVersion> perviousVersions = new LinkedHashSet<PreviousVersion>();
+    private Set<PagePreviousVersion> perviousVersions = new LinkedHashSet<PagePreviousVersion>();
 
 
     @OneToMany(targetEntity = PageProperty.class,
@@ -96,6 +96,19 @@ public class Page implements Identifiable {
     private int version;
 
 
+
+    @Basic
+    @Column(name="CONTENT")
+    private String content;
+
+
+
+    @Basic
+    @Column(name="TEMPLATE")
+    private String template = Constants.DEFAULT_PAGE_TEMPLATE;
+
+
+
     // === constructor ===
     public Page() {}
 
@@ -119,7 +132,7 @@ public class Page implements Identifiable {
         return space;
     }
 
-    public Set<Attachment> getAttachments() {
+    public Set<PageAttachment> getAttachments() {
         return attachments;
     }
 
@@ -131,7 +144,7 @@ public class Page implements Identifiable {
         return lastModifiedUser;
     }
 
-    public Set<PreviousVersion> getPerviousVersions() {
+    public Set<PagePreviousVersion> getPerviousVersions() {
         return perviousVersions;
     }
 
@@ -171,7 +184,7 @@ public class Page implements Identifiable {
         this.space = space;
     }
 
-    public void setAttachments(Set<Attachment> attachments) {
+    public void setAttachments(Set<PageAttachment> attachments) {
         this.attachments = attachments;
     }
 
@@ -183,7 +196,7 @@ public class Page implements Identifiable {
         this.lastModifiedUser = lastModifiedUser;
     }
 
-    public void setPerviousVersions(Set<PreviousVersion> perviousVersions) {
+    public void setPerviousVersions(Set<PagePreviousVersion> perviousVersions) {
         this.perviousVersions = perviousVersions;
     }
 

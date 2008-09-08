@@ -4,8 +4,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.tmjee.miniwiki.core.service.SetupService;
 import org.tmjee.miniwiki.core.service.UserManagementService;
+import org.tmjee.miniwiki.core.service.TemplateManagementService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import freemarker.template.Configuration;
 
 /**
  * @author tmjee
@@ -53,5 +55,10 @@ public class Bootstrap {
         return (UserManagementService) applicationContext.getBean(
                 "userManagementService", UserManagementService.class);    
     }
-    
+
+    public TemplateManagementService getTemplateManagementService() {
+        return (TemplateManagementService) applicationContext.getBean(
+                "templateManagementService", TemplateManagementService.class);
+    }
+
 }

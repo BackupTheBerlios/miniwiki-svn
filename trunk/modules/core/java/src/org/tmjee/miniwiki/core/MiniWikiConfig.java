@@ -1,5 +1,7 @@
 package org.tmjee.miniwiki.core;
 
+import static org.tmjee.miniwiki.core.MiniWikiPropertiesConstants.*;
+
 import org.tmjee.miniwiki.client.domain.UiCredentials;
 
 import java.util.Properties;
@@ -17,11 +19,16 @@ public class MiniWikiConfig {
     }
 
     public boolean isPredefinedSuperAdmin(String username, String password) {
-        if ("true".equalsIgnoreCase(prop.getProperty("superadmin.enabled").trim()) &&
+        if ("true".equalsIgnoreCase(prop.getProperty(SUPERADMIN_ENABLED).trim()) &&
             UiCredentials.SUPERADMIN.getUser().getUsername().equals(username) &&
-            prop.getProperty("superadmin.password").trim().equals(password)) {
+            prop.getProperty(SUPERADMIN_PASSWORD).trim().equals(password)) {
             return true;
         }                      
         return false;
+    }
+
+    public String getProperty(String propertyName) {
+        String propValue =  prop.getProperty(propertyName);
+        return propValue != null ? propValue.trim() : propValue;
     }
 }

@@ -8,5 +8,5 @@ import com.google.gwt.user.client.rpc.RemoteService;
  * @version $Date$ $Id$
  */
 public interface UiTemplateManagementServiceAsync {
-    void loadTemplate(String template, AsyncCallback callback);
+    void loadTemplate(String wiki, String space, String page, String command, AsyncCallback callback);
 }

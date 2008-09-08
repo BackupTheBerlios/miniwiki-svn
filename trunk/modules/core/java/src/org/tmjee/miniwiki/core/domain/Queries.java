@@ -10,6 +10,9 @@ import javax.persistence.Table;
  * @version $Date$ $Id$
  */
 @NamedQueries({
+    /* =========================
+       === User / Groups / Auth
+       ========================= */
     @NamedQuery(
             name="isSetupBefore",
             query = "SELECT setup FROM Setup as setup where setup.name='SETUP_DONE'"
@@ -70,6 +73,13 @@ import javax.persistence.Table;
             name="allGroups", 
             query="SELECT grp FROM Group as grp LEFT JOIN FETCH grp.properties LEFT JOIN FETCH grp.users"
     )
+
+
+    // ===================================
+    // === Paging
+    // ===================================
+
+        
 
 })
 @Entity

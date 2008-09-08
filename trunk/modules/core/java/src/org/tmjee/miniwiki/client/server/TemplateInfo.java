@@ -9,9 +9,17 @@ import java.util.Map;
  * @version $Date$ $Id$
  */
 public class TemplateInfo implements IsSerializable {
+
+    private String html;
+
+    public TemplateInfo() { this(""); }
+    public TemplateInfo(String html) {
+        this.html = html;        
+    }
+
+
     public String getHtml() {
-        // TODO:
-        return "xxxxxxxxx";
+        return html;
     }
     public Map getParams() {
         // TODO

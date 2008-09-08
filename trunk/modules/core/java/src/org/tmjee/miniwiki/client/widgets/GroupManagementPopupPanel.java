@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.*;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class GroupManagementPopupPanel extends DialogBox {
+public class GroupManagementPopupPanel extends AutoRegisteredDialogBox {
 
     private VerticalPanel mainPanel;
     private GroupTableWidget groupTableWidget;

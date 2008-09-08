@@ -4,6 +4,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.core.client.GWT;
 import org.tmjee.miniwiki.client.server.UiTemplateManagementServiceAsync;
 import org.tmjee.miniwiki.client.service.Service;
+import org.tmjee.miniwiki.client.utils.DataStore;
 
 /**
  * @author tmjee
@@ -12,10 +13,19 @@ import org.tmjee.miniwiki.client.service.Service;
 public abstract class AbstractHandler implements Handler {
 
 
-    protected void loadTemplate(String template, AsyncCallback asyncCallback) {
+    protected void loadTemplate(String wiki, String space, String page, String command, AsyncCallback asyncCallback) {
         UiTemplateManagementServiceAsync service = Service.getTemplateManagementService();
-        service.loadTemplate(template, asyncCallback);
+        service.loadTemplate(wiki, space, page, command, asyncCallback);
     }
-    
 
+    public void handle(String wiki, String space, String page, String command, AsyncCallback asyncCallback) {
+        DataStore.getInstance().setCurrentAccessedWikiId(wiki);
+        DataStore.getInstance().setCurrentAccessedSpaceId(space);
+        DataStore.getInstance().setCurrentAccessedPageId(page);
+
+        doHandle(wiki, space, page, command, asyncCallback);
+    }
+
+    protected abstract void doHandle(String wiki, String space, String page, String command, AsyncCallback asyncCallback);
 }
+

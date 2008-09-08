@@ -17,7 +17,7 @@ import org.tmjee.miniwiki.client.utils.Logger;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class LoginPopupPanel extends DialogBox implements SourcesMessageEvents {
+public class LoginPopupPanel extends AutoRegisteredDialogBox implements SourcesMessageEvents {
 
     private SourcesEventsSupport sourcesEventsSupport;
 

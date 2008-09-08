@@ -7,5 +7,5 @@ import com.google.gwt.user.client.rpc.RemoteService;
  * @version $Date$ $Id$
  */
 public interface UiTemplateManagementService extends RemoteService {
-    TemplateInfo loadTemplate(String template);
+    TemplateInfo loadTemplate(String wiki, String space, String page, String command);
 }

@@ -29,7 +29,7 @@ import java.io.Serializable;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class GroupDetailsPopupPanel extends DialogBox implements SourcesMessageEvents, Initializable, CleanUpable, PropertyListener {
+public class GroupDetailsPopupPanel extends AutoRegisteredDialogBox implements SourcesMessageEvents, Initializable, CleanUpable, PropertyListener {
 
     private SourcesEventsSupport sourcesEventsSupport;
 

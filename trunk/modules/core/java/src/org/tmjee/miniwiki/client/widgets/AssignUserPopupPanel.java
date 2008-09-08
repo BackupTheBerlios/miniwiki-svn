@@ -19,7 +19,7 @@ import java.util.List;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class AssignUserPopupPanel extends DialogBox  {
+public class AssignUserPopupPanel extends AutoRegisteredDialogBox  {
 
     public static interface Handler {
         void assign(UiUser user, UiGroup group);

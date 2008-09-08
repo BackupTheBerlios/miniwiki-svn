@@ -8,5 +8,5 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  * @version $Date$ $Id$
  */
 public interface Handler {
-    void handle(String space, String page, String command, AsyncCallback asyncCallback);
+    void handle(String wiki, String space, String page, String command, AsyncCallback asyncCallback);
 }

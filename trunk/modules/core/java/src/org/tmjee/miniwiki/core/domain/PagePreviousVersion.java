@@ -10,8 +10,8 @@ import javax.persistence.*;
  * @version $Date$ $Id$
  */
 @Entity
-@Table(name = "TBL_PREVIOUS_VERSION")
-public class PreviousVersion implements Identifiable {
+@Table(name = "TBL_PAGE_PREVIOUS_VERSION")
+public class PagePreviousVersion implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "previousVersionIdGenerator")
@@ -34,10 +34,14 @@ public class PreviousVersion implements Identifiable {
     @Column(name = "VERSION")
     private int version;
 
+    @Basic
+    @Column(name="CONTENT")
+    private String content;
+
 
 
     // === constructor ===
-    public PreviousVersion() {
+    public PagePreviousVersion() {
     }
 
 
@@ -85,12 +89,12 @@ public class PreviousVersion implements Identifiable {
     // === equals & hashcode
 
     public boolean equals(Object obj) {
-        if (!(obj instanceof PreviousVersion)) {
+        if (!(obj instanceof PagePreviousVersion)) {
             return false;
         }
         if (this == obj) { return true; }
         return new EqualsBuilder()
-                    .append(name, ((PreviousVersion)obj).getName())
+                    .append(name, ((PagePreviousVersion)obj).getName())
                     .isEquals();
     }
 

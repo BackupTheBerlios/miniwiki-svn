@@ -27,7 +27,7 @@ import java.io.Serializable;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class UserDetailsPopupPanel extends DialogBox implements SourcesMessageEvents, PropertyListener, Initializable, CleanUpable {
+public class UserDetailsPopupPanel extends AutoRegisteredDialogBox implements SourcesMessageEvents, PropertyListener, Initializable, CleanUpable {
 
     private SourcesEventsSupport sourcesEventSupport;
 

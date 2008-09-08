@@ -6,11 +6,8 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import javax.persistence.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: tmjee
- * Date: May 20, 2008
- * Time: 9:51:21 PM
- * To change this template use File | Settings | File Templates.
+ * @author tmjee
+ * @version $Date$ $Id$
  */
 @Entity
 @Table(name="TBL_PAGE_PRIVILEDGE_VALUE")

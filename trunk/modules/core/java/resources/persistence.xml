@@ -10,14 +10,14 @@
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
         <class>org.tmjee.miniwiki.core.domain.Queries</class>
         <class>org.tmjee.miniwiki.core.domain.Setup</class>
-        <class>org.tmjee.miniwiki.core.domain.Attachment</class>
+        <class>org.tmjee.miniwiki.core.domain.PageAttachment</class>
         <class>org.tmjee.miniwiki.core.domain.Group</class>
         <class>org.tmjee.miniwiki.core.domain.GroupProperty</class>
         <class>org.tmjee.miniwiki.core.domain.Page</class>
         <class>org.tmjee.miniwiki.core.domain.PagePriviledge</class>
         <class>org.tmjee.miniwiki.core.domain.PagePriviledgeValue</class>
         <class>org.tmjee.miniwiki.core.domain.PageProperty</class>
-        <class>org.tmjee.miniwiki.core.domain.PreviousVersion</class>
+        <class>org.tmjee.miniwiki.core.domain.PagePreviousVersion</class>
         <class>org.tmjee.miniwiki.core.domain.Space</class>
         <class>org.tmjee.miniwiki.core.domain.SpacePriviledge</class>
         <class>org.tmjee.miniwiki.core.domain.SpacePriviledgeValue</class>

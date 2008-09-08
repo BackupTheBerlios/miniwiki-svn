@@ -7,7 +7,7 @@ import org.tmjee.miniwiki.client.domain.UiUser;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class UserManagementPopupPanel extends DialogBox {
+public class UserManagementPopupPanel extends AutoRegisteredDialogBox {
 
     private VerticalPanel mainPanel;
 

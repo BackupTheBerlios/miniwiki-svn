@@ -239,7 +239,7 @@
 
     <!-- 
         =============================================
-            Commons Mappings
+            UiUserProperty
         =============================================
     -->
     <mapping map-id="UiUserProperty">
@@ -258,6 +258,14 @@
             <b>value</b>
         </field>
     </mapping>
+
+
+    <!--
+        ===================================
+        === UiGroupProperty
+        ===================================
+    -->
+
     <mapping map-id="UiGroupProperty">
         <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.GroupProperty</class-a>
         <class-b>org.tmjee.miniwiki.client.domain.UiGroupProperty</class-b>
@@ -274,6 +282,347 @@
             <b>value</b>
         </field>
     </mapping>
+
+
+
+    <!--
+       ====================================
+       === UiSpace
+       ====================================
+    -->
+    
+
+
+
+    <!--
+        ==================================
+        === UiPage
+        ===================================
+    -->
+    <mapping map-id="UiPage">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Page</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiPage</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field remove-orphans="true" map-id="UiPagePriviledge">
+            <a>priviledges</a>
+            <b>priviledges</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PagePriviledge</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPagePriviledge</b-hint>
+        </field>
+        <field map-id="UiPage_UiSpace_Simplified">
+            <a>space</a>
+            <b>space</b>
+        </field>
+        <field map-id="UiPageAttachment">
+            <a>attachments</a>
+            <b>attachments</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PageAttachment</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPageAttachment</b-hint>
+        </field>
+        <field map-id="UiPage_UiUser_Simplified">
+            <a>creator</a>
+            <b>creator</b>
+        </field>
+        <field map-id="UiPage_UiUser_Simplified">
+            <a>lastModifiedUser</a>
+            <b>lastModifiedUser</b>
+        </field>
+        <field remove-orphans="true" map-id="UiPagePreviousVersion">
+            <a>perviousVersions</a>
+            <b>perviousVersions</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PagePreviousVersion</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPagePreviousVersion</b-hint>
+        </field>
+        <field remove-orphans="true" map-id="UiPageProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PageProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPageProperty</b-hint>
+        </field>
+        <field remove-orphans="true" map-id="UiPage_UiPage_Simplified">
+            <a>children</a>
+            <b>children</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.Page</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPage</b-hint>
+        </field>
+        <field map-id="UiPage_UiPage_Simplified">
+            <a>parent</a>
+            <b>parent</b>
+        </field>
+        <field>
+            <a>content</a>
+            <b>content</b>
+        </field>
+        <field>
+            <a>template</a>
+            <b>template</b>
+        </field>
+    </mapping>
+    <mapping map-id="UiPage_UiSpace_Simplified">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Space</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiSpace</class-b>
+       <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field remove-orphans="true" map-id="UiPagePriviledge">
+            <a>priviledges</a>
+            <b>priviledges</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PagePriviledge</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPagePriviledge</b-hint>
+        </field>
+        <field map-id="UiPage_UiSpace_Simplified">
+            <a>space</a>
+            <b>space</b>
+        </field>
+        <field map-id="UiPageAttachment">
+            <a>attachments</a>
+            <b>attachments</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PageAttachment</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPageAttachment</b-hint>
+        </field>
+        <field map-id="UiPage_UiUser_Simplified">
+            <a>creator</a>
+            <b>creator</b>
+        </field>
+        <field map-id="UiPage_UiUser_Simplified">
+            <a>lastModifiedUser</a>
+            <b>lastModifiedUser</b>
+        </field>
+        <field remove-orphans="true" map-id="UiPagePreviousVersion">
+            <a>perviousVersions</a>
+            <b>perviousVersions</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PagePreviousVersion</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPagePreviousVersion</b-hint>
+        </field>
+        <field remove-orphans="true" map-id="UiPageProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PageProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPageProperty</b-hint>
+        </field>
+        <field>
+            <a>content</a>
+            <b>content</b>
+        </field>
+        <field>
+            <a>template</a>
+            <b>template</b>
+        </field>
+    </mapping>
+    <mapping map-id="UiPage_UiUser_Simplified">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.User</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiUser</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>enabled</a>
+            <b>enabled</b>
+        </field>
+        <field>
+            <a>username</a>
+            <b>username</b>
+        </field>
+        <field>
+            <a>firstName</a>
+            <b>firstName</b>
+        </field>
+        <field>
+            <a>lastName</a>
+            <b>lastName</b>
+        </field>
+        <field>
+            <a>description</a>
+            <b>description</b>
+        </field>
+        <field>
+            <a>password</a>
+            <b>password</b>
+        </field>
+        <field remove-orphans="true" map-id="UiUserProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.UserProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</b-hint>
+        </field>
+    </mapping>
+    <mapping map-id="UiPage_UiPage_Simplified">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Page</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiPage</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <!-- TODO: -->
+    </mapping>
+
+
+
+    <!--
+        =============================
+        === UiPage Property
+        =============================
+    -->
+    <mapping map-id="UiPageProperty">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.PageProperty</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiPageProperty</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field>
+            <a>value</a>
+            <b>value</b>
+        </field>
+    </mapping>
+
+    
+    <!--
+        =============================
+        === UiPagePreviousVersion
+        =============================
+    -->
+    <mapping map-id="UiPagePreviousVersion">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.PagePreviousVersion</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiPagePreviousVersion</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field map-id="UiPagePreviousVersion_UiUser_Simplified">
+            <a>modifiedBy</a>
+            <b>modifiedBy</b>
+        </field>
+        <field>
+            <a>content</a>
+            <b>content</b>
+        </field>
+    </mapping>
+    <mapping map-id="UiPagePreviousVersion_UiUser_Simplified">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.User</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiUser</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>enabled</a>
+            <b>enabled</b>
+        </field>
+        <field>
+            <a>username</a>
+            <b>username</b>
+        </field>
+        <field>
+            <a>firstName</a>
+            <b>firstName</b>
+        </field>
+        <field>
+            <a>lastName</a>
+            <b>lastName</b>
+        </field>
+        <field>
+            <a>description</a>
+            <b>description</b>
+        </field>
+        <field>
+            <a>password</a>
+            <b>password</b>
+        </field>
+        <field remove-orphans="true" map-id="UiUserProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.UserProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</b-hint>
+        </field>
+    </mapping>
+
+
+
+    <!--
+       ===============================
+       === UiPageAttachment
+       ===============================
+    -->
+    <mapping map-id="UiPageAttachment">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.PageAttachment</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.PageAttachement</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>contentType</b>
+        </field>
+    </mapping>
+
+
+    <!--
+       ==============================
+       === UiPagePriviledge
+       ==============================
+    -->
+    <mapping map-id="UiPagePriviledge">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.PagePriviledge</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiPagePriviledge</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field remove-orphans="true" map-id="UiPagePriviledgeValue">
+            <a>values</a>
+            <b>values</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PagePriviledgeValue</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPagePriviledgeValue</b-hint>
+        </field>
+    </mapping>
+
+
+    <!--
+       ================================
+       === UiPagePriviledgeValue
+       ================================
+    -->
+    <mapping map-id="UiPagePriviledgeValue">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.PagePriviledgeValue</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiPagePriviledgeValue</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>value</a>
+            <b>value</b>
+        </field>
+    </mapping>
+
+
 </mappings>
 
 

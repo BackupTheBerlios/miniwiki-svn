@@ -10,9 +10,9 @@ import org.tmjee.miniwiki.client.server.TemplateInfo;
  */
 public class WikiHandler extends AbstractHandler {
 
-    public void handle(String space, String page, String command, AsyncCallback callback) {
+    public void doHandle(String wiki, String space, String page, String command, AsyncCallback callback) {
 
-        loadTemplate("wiki", callback);
+        loadTemplate(wiki, space, page, command, callback);
 
     }
 }

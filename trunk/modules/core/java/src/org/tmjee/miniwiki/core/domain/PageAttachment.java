@@ -10,8 +10,8 @@ import javax.persistence.*;
  * @version $Date$ $Id$
  */
 @Entity
-@Table(name = "TBL_ATTACHEMENT")
-public class Attachment implements Identifiable {
+@Table(name = "TBL_PAGE_ATTACHEMENT")
+public class PageAttachment implements Identifiable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "attachmentIdGenerator")
@@ -40,7 +40,7 @@ public class Attachment implements Identifiable {
 
 
     // === constructors ===
-    public Attachment() {}
+    public PageAttachment() {}
 
 
     // === getters ===
@@ -94,12 +94,12 @@ public class Attachment implements Identifiable {
     // === Equals & HashCode ===
 
     public boolean equals(Object obj) {
-        if (!(obj instanceof Attachment)) {
+        if (!(obj instanceof PageAttachment)) {
             return false;
         }
         if (obj == this) { return true; }
         return new EqualsBuilder()
-                    .append(name, ((Attachment)obj).getName())
+                    .append(name, ((PageAttachment)obj).getName())
                     .isEquals();
     }
 

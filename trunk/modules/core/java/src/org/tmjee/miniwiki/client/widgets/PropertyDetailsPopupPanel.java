@@ -10,7 +10,7 @@ import org.tmjee.miniwiki.client.events.MessageEvent;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class PropertyDetailsPopupPanel extends DialogBox implements SourcesMessageEvents {
+public class PropertyDetailsPopupPanel extends AutoRegisteredDialogBox implements SourcesMessageEvents {
 
 
     public static interface Handler {
