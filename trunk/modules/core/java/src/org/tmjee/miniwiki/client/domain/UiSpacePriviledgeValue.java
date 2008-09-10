@@ -4,12 +4,12 @@ package org.tmjee.miniwiki.client.domain;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class UiPagePriviledgeValue extends UiPriviledgeValue {
+public class UiSpacePriviledgeValue extends UiPriviledgeValue {
 
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UiPagePriviledgeValue that = (UiPagePriviledgeValue) o;
+        UiSpacePriviledgeValue that = (UiSpacePriviledgeValue) o;
         if (getValue() != null ? ! getValue().equals(that.getValue()) : that.getValue() != null) return false;
         return true;
     }

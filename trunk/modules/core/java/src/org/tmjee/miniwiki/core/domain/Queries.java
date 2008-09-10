@@ -72,7 +72,25 @@ import javax.persistence.Table;
     @NamedQuery(
             name="allGroups", 
             query="SELECT grp FROM Group as grp LEFT JOIN FETCH grp.properties LEFT JOIN FETCH grp.users"
+    ),
+
+    // ======================================
+    // === Wiki
+    // ======================================
+    @NamedQuery(
+            name="allWikis",
+            query="SELECT wiki FROM Wiki"
+    ),
+    @NamedQuery(
+            name="count_allWikis",
+            query="SELECT COUNT(wiki) FROM Wiki as wiki"
+    ),
+    @NamedQuery(
+            name="getWikiById",
+            query="SELECT wiki FROM Wiki as wiki LEFT JOIN FETCH wiki.priviledges LEFT JOIN FETCH wiki.spaces LEFT JOIN FETCH wiki.properties where wiki.id=:wikiId"
     )
+
+        
 
 
     // ===================================

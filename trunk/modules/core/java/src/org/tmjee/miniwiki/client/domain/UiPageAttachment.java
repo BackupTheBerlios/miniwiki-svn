@@ -4,13 +4,11 @@ package org.tmjee.miniwiki.client.domain;
  * @author tmjee
  * @version $Date$ $Id$
  */
-public class UiPagePreviousVersion implements UiIdentifiable {
+public class UiPageAttachment implements UiIdentifiable {
 
     private long id;
     private String name;
-    private UiUser modifiedBy;
-    private String content;
-
+    private String contentType;
 
     public long getId() {
         return id;
@@ -28,27 +26,19 @@ public class UiPagePreviousVersion implements UiIdentifiable {
         this.name = name;
     }
 
-    public UiUser getModifiedBy() {
-        return modifiedBy;
+    public String getContentType() {
+        return contentType;
     }
 
-    public void setModifiedBy(UiUser modifiedBy) {
-        this.modifiedBy = modifiedBy;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
 
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UiPagePreviousVersion that = (UiPagePreviousVersion) o;
+        UiPageAttachment that = (UiPageAttachment) o;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         return true;
     }
@@ -56,6 +46,7 @@ public class UiPagePreviousVersion implements UiIdentifiable {
     public int hashCode() {
         int result;
         result = 31 * (name != null ? name.hashCode() : 0);
+        result = 31 * result + (contentType != null ? contentType.hashCode() : 0);
         return result;
     }
 }

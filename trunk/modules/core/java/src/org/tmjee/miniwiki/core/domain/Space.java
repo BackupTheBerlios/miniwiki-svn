@@ -8,7 +8,6 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.tmjee.miniwiki.client.Constants;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 import java.util.LinkedHashSet;
 
@@ -52,7 +51,7 @@ public class Space implements Identifiable {
                 fetch = FetchType.LAZY)
     @ElementJoinColumn(name = "SPACE_ID", referencedColumnName = "ID")
     @ElementForeignKey
-    private Set<SpacePriviledge> pagePriviledges = new LinkedHashSet<SpacePriviledge>();
+    private Set<SpacePriviledge> priviledges = new LinkedHashSet<SpacePriviledge>();
 
     @Version
     @Column(name = "VERSION")
@@ -88,8 +87,8 @@ public class Space implements Identifiable {
         return creator;
     }
 
-    public Set<SpacePriviledge> getPagePriviledges() {
-        return pagePriviledges;
+    public Set<SpacePriviledge> getPriviledges() {
+        return priviledges;
     }
 
     public int getVersion() {
@@ -117,8 +116,8 @@ public class Space implements Identifiable {
         this.creator = creator;
     }
 
-    public void setPagePriviledges(Set<SpacePriviledge> pagePriviledges) {
-        this.pagePriviledges = pagePriviledges;
+    public void setPriviledges(Set<SpacePriviledge> priviledges) {
+        this.priviledges = priviledges;
     }
 
     public void setVersion(int version) {

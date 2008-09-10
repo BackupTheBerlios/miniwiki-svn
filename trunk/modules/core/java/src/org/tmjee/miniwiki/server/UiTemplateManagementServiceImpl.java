@@ -18,7 +18,7 @@ import java.util.Map;
 public class UiTemplateManagementServiceImpl extends RemoteServiceServlet implements UiTemplateManagementService {
 
     public TemplateInfo loadTemplate(String wiki, String space, String page, String command) {
-        return (TemplateManagementService) Bootstrap.getInstance().getTemplateManagementService().loadTemplate(wiki, space, page, command);
+        return getTemplateManagementService().loadTemplate(wiki, space, page, command);
 
        /* try {
             Configuration configuration = Bootstrap.getInstance().getTemplateConfiguration();
@@ -35,4 +35,9 @@ public class UiTemplateManagementServiceImpl extends RemoteServiceServlet implem
     /*protected Map<String, String> prepareTemplateModel() {
         return null;
     }*/
+
+
+    protected TemplateManagementService getTemplateManagementService() {
+        return (TemplateManagementService) Bootstrap.getInstance().getTemplateManagementService();
+    }
 }

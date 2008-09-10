@@ -44,15 +44,15 @@ public class AbstractService {
         return query;
     }
 
-    protected ResponsePagingInfo prepareResponsePagingInfo(String namedQuery, PagingInfo pagingInfo) {
-        return prepareResponsePagingInfo(namedQuery, Collections.EMPTY_MAP, pagingInfo);
+    protected ResponsePagingInfo prepareResponsePagingInfo(String countingNamedQuery, PagingInfo pagingInfo) {
+        return prepareResponsePagingInfo(countingNamedQuery, Collections.EMPTY_MAP, pagingInfo);
     }
 
-    protected ResponsePagingInfo prepareResponsePagingInfo(final String namedQuery, final Map<String, Object> params,
+    protected ResponsePagingInfo prepareResponsePagingInfo(final String countingNamedQuery, final Map<String, Object> params,
                                                            PagingInfo pagingInfo) {
         long totalRecords = (Long) template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                Query query = entityManager.createNamedQuery(namedQuery);
+                Query query = entityManager.createNamedQuery(countingNamedQuery);
                 for (Map.Entry<String, Object> e : params.entrySet()) {
                     query.setParameter(e.getKey(), e.getValue());
                 }
