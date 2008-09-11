@@ -63,6 +63,10 @@ public class PagePreviousVersion implements Identifiable {
         return version;
     }
 
+    public String getContent() {
+        return content;
+    }
+
 
     // === setters ===
 
@@ -80,6 +84,10 @@ public class PagePreviousVersion implements Identifiable {
 
     public void setVersion(int version) {
         this.version = version;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
 

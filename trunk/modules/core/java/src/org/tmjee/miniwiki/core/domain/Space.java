@@ -53,6 +53,13 @@ public class Space implements Identifiable {
     @ElementForeignKey
     private Set<SpacePriviledge> priviledges = new LinkedHashSet<SpacePriviledge>();
 
+    @OneToMany(targetEntity = SpaceProperty.class,
+                cascade = {CascadeType.ALL},
+                fetch = FetchType.EAGER)
+    @ElementJoinColumn(name="PROPERTY_ID", referencedColumnName = "ID")
+    @ElementForeignKey
+    private Set<SpaceProperty> properties = new LinkedHashSet<SpaceProperty>();
+
     @Version
     @Column(name = "VERSION")
     private int version;
@@ -91,6 +98,10 @@ public class Space implements Identifiable {
         return priviledges;
     }
 
+    public Set<SpaceProperty> getProperties() {
+        return properties;
+    }
+
     public int getVersion() {
         return version;
     }
@@ -118,6 +129,10 @@ public class Space implements Identifiable {
 
     public void setPriviledges(Set<SpacePriviledge> priviledges) {
         this.priviledges = priviledges;
+    }
+
+    public void setProperties(Set<SpaceProperty> properties) {
+        this.properties = properties;
     }
 
     public void setVersion(int version) {

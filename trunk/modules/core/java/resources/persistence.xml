@@ -21,12 +21,13 @@
         <class>org.tmjee.miniwiki.core.domain.Space</class>
         <class>org.tmjee.miniwiki.core.domain.SpacePriviledge</class>
         <class>org.tmjee.miniwiki.core.domain.SpacePriviledgeValue</class>
+        <class>org.tmjee.miniwiki.core.domain.SpaceProperty</class>
         <class>org.tmjee.miniwiki.core.domain.User</class>
         <class>org.tmjee.miniwiki.core.domain.UserProperty</class>
         <class>org.tmjee.miniwiki.core.domain.Wiki</class>
-        <class>org.tmjee.miniwiki.core.domain.WikiProperty</class>
         <class>org.tmjee.miniwiki.core.domain.WikiPriviledge</class>
         <class>org.tmjee.miniwiki.core.domain.WikiPriviledgeValue</class>
+        <class>org.tmjee.miniwiki.core.domain.WikiProperty</class>
         <exclude-unlisted-classes/>
         <properties>
 

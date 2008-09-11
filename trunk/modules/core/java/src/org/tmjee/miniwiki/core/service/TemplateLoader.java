@@ -32,6 +32,6 @@ public class TemplateLoader extends MultiTemplateLoader {
                 add(new ClassTemplateLoader(
                         org.tmjee.miniwiki.core.service.TemplateLoader.class, "/org/tmjee/miniwiki/core/templates"));
             }
-        }.toArray(new TemplateLoader[0]));
+        }.toArray(new freemarker.cache.TemplateLoader[0]));
     }
 }

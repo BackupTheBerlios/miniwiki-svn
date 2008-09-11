@@ -3,6 +3,7 @@ package org.tmjee.miniwiki.client.utils;
 import org.tmjee.miniwiki.client.widgets.AutoRegisteredDialogBox;
 
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @author tmjee
@@ -12,7 +13,7 @@ public class PopupRegistry {
 
     private static PopupRegistry popupRegistry;
 
-    private List<AutoRegisteredDialogBox> popups = new ArrayList<AutoRegisteredDialoagBox>();
+    private List<AutoRegisteredDialogBox> popups = new ArrayList<AutoRegisteredDialogBox>();
 
     private PopupRegistry() {}
 

@@ -14,7 +14,10 @@ public class UiSpace implements UiIdentifiable {
     private List<UiPage> pages = new ArrayList<UiPage>();
     private UiUser creator;
     private List<UiSpacePriviledge> priviledges = new ArrayList<UiSpacePriviledge>();
+    private List<UiSpaceProperty> properties = new ArrayList<UiSpaceProperty>();
     private String template;
+
+
 
 
     public long getId() {
@@ -23,6 +26,15 @@ public class UiSpace implements UiIdentifiable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+
+    public List<UiSpaceProperty> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<UiSpaceProperty> properties) {
+        this.properties = properties;
     }
 
     public String getName() {

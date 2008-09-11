@@ -349,6 +349,12 @@
             <a-hint>org.tmjee.miniwiki.core.domain.SpacePriviledge</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiSpacePriviledge</b-hint>
         </field>
+        <field remove-orphans="true" map-id="UiSpaceProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.SpaceProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiSpaceProperty</b-hint>
+        </field>
         <field>
             <a>template</a>
             <b>template</b>
@@ -549,6 +555,12 @@
             <a-hint>org.tmjee.miniwiki.core.domain.SpacePriviledge</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiSpacePriviledge</b-hint>
         </field>
+        <field remove-orphans="true" map-id="UiSpaceProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.SpaceProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiSpaceProperty</b-hint>
+        </field>
         <field>
             <a>template</a>
             <b>template</b>
@@ -646,6 +658,25 @@
             <b>properties</b>
             <a-hint>org.tmjee.miniwiki.core.domain.UserProperty</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</b-hint>
+        </field>
+    </mapping>
+
+
+    <!--
+        ====================================
+        === UiSpaceProperty
+        ====================================
+    -->
+    <mapping map-id="UiSpaceProperty">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.SpaceProperty</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiSpaceProperty</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>value</a>
+            <b>value</b>
         </field>
     </mapping>
 
@@ -789,6 +820,12 @@
             <b>priviledges</b>
             <a-hint>org.tmjee.miniwiki.core.domain.SpacePriviledge</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiSpacePriviledge</b-hint>
+        </field>
+        <field remove-orphans="true" map-id="UiSpaceProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.SpaceProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiSpaceProperty</b-hint>
         </field>
         <field>
             <a>template</a>

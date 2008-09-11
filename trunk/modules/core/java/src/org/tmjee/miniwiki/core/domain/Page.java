@@ -80,12 +80,14 @@ public class Page implements Identifiable {
 
     
     @OneToMany(targetEntity = Page.class,
+                cascade = CascadeType.ALL,
                 fetch = FetchType.LAZY,
                 mappedBy = "parent")
     private Set<Page> children = new LinkedHashSet<Page>();
 
 
-    @ManyToOne(targetEntity = Page.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Page.class,
+                fetch = FetchType.LAZY)
     @JoinColumn(name = "PARENT_PAGE_ID", referencedColumnName = "ID")
     @ForeignKey
     private Page parent;
@@ -196,7 +198,7 @@ public class Page implements Identifiable {
         this.lastModifiedUser = lastModifiedUser;
     }
 
-    public void setPerviousVersions(Set<PagePreviousVersion> perviousVersions) {
+    public void setPreviousVersions(Set<PagePreviousVersion> perviousVersions) {
         this.perviousVersions = perviousVersions;
     }
 

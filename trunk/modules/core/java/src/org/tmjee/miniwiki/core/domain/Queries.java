@@ -87,7 +87,11 @@ import javax.persistence.Table;
     ),
     @NamedQuery(
             name="getWikiById",
-            query="SELECT wiki FROM Wiki as wiki LEFT JOIN FETCH wiki.priviledges LEFT JOIN FETCH wiki.spaces LEFT JOIN FETCH wiki.properties where wiki.id=:wikiId"
+            query="SELECT wiki FROM Wiki as wiki LEFT JOIN FETCH wiki.priviledges LEFT JOIN FETCH wiki.spaces LEFT JOIN FETCH wiki.properties WHERE wiki.id=:wikiId"
+    ),
+    @NamedQuery(
+            name="getWikiByName",
+            query="SELECT wiki FROM Wiki as wiki LEFT JOIN FETCH wiki.priviledges LEFT JOIN FETCH wiki.spaces LEFT JOIN FETCH wiki.properties WHERE wiki.name=:wikiName"
     )
 
         

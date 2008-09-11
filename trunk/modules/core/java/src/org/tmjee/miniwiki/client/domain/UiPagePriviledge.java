@@ -23,7 +23,7 @@ public class UiPagePriviledge extends UiPriviledge {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UiPagePriviledge that = (UiPagePriviledge) o;
-        if (getName() != null ? !getName().equals(that.getName()) : that.name != null) return false;
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
         return true;
     }
 

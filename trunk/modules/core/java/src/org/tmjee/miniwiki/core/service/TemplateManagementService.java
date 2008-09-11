@@ -58,15 +58,30 @@ public class TemplateManagementService extends AbstractService {
         });
     }
 
-    public UiWiki findWiki(final String wikiId, final PagingInfo pagingInfo) {
+
+    public UiWiki findWikiById(final long wikiId) {
         return (UiWiki) jpaTemplate.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Query query = entityManager.createNamedQuery("getWikiById");
-                query = preparePagingInfo(query, pagingInfo);
                 query.setParameter("wikiId", wikiId);
                 List<Wiki> _t = query.getResultList();
                 if (_t.size() > 0) {
-                    return map(_t, UiWiki.class, "UiWiki");
+                    return map(_t.iterator().next(), UiWiki.class, "UiWiki");
+                }
+                return null;
+            }
+        });
+    }
+
+
+    public UiWiki findWikiByName(final String wikiName) {
+        return (UiWiki) jpaTemplate.execute(new JpaCallback() {
+            public Object doInJpa(EntityManager entityManager) throws PersistenceException {
+                Query query = entityManager.createNamedQuery("getWikiByName");
+                query.setParameter("wikiName", wikiName);
+                List<Wiki> _t = query.getResultList();
+                if (_t.size() > 0) {
+                    return map(_t.iterator().next(), UiWiki.class, "UiWiki");
                 }
                 return null;
             }
