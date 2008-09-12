@@ -1,6 +1,6 @@
 Readme Linux
 
-$Id: readme_linux.txt,v 1.1 2004/06/19 14:01:56 fredt Exp $
+$Id$
 Query CVS for revision history.
 
 It is recommended to run the shell scripts(from /bin and /demo) from the 
