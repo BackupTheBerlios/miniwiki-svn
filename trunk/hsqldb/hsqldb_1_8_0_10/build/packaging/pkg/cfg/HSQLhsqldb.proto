@@ -1,4 +1,4 @@
-# $Id: HSQLhsqldb.proto,v 1.5 2005/07/25 02:42:10 unsaved Exp $
+# $Id$
 
 # Additions for this package are isolated up at the top here.
 # Everything beneath is stuff straight our of the hsqldb tree.

@@ -1,6 +1,6 @@
 README FOR THE SOLARIS HSQLDB PACKAGE
 
-$Id: readme.txt,v 1.14 2005/07/28 15:47:19 unsaved Exp $
+$Id$
 
 
 JAVA SUPPORT

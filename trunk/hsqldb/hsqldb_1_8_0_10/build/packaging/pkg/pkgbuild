@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# $Id: pkgbuild,v 1.9 2005/07/25 02:42:10 unsaved Exp $
+# $Id$
 
 # TODO:  Perhaps use RCS keywords to generate versions and write them
 #        into the install scripts, the info file, and to use in the

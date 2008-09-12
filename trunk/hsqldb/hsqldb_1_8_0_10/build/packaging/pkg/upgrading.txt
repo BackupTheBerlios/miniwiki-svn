@@ -1,6 +1,6 @@
 UPGRADING FROM HSQLDBhsqldb v. 1.7.1
 
-$Id: upgrading.txt,v 1.2 2005/07/25 00:19:47 unsaved Exp $
+$Id$
 
 Remove the old package
 

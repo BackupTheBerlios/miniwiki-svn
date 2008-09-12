@@ -1,7 +1,7 @@
 How to build Hsqldb documentation from DocBook source
 -----------------------------------------------------
 
-$Id: readmedocbook.txt,v 1.7 2005/07/25 21:05:46 unsaved Exp $
+$Id$
 
 1.  OBTAIN REQUIRED LIBRARIES AND STYLE SHEETS
 

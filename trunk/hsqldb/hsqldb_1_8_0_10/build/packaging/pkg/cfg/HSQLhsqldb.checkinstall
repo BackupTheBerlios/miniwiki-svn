@@ -1,7 +1,7 @@
 
 # Bourne shell Solaris packaging script (no interpreter line on purpose)
 
-# $Id: HSQLhsqldb.checkinstall,v 1.1 2002/10/12 01:15:46 unsaved Exp $
+# $Id$
 
 # Do not set path.  Pkgadd sets a safe path, it does not use any inherited path
 
