@@ -4,10 +4,11 @@ import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
 import org.tmjee.miniwiki.core.domain.*;
 import org.tmjee.miniwiki.client.server.PagingInfo;
-import org.tmjee.miniwiki.client.domain.UiWikis;
-import org.tmjee.miniwiki.client.domain.UiWiki;
+import org.tmjee.miniwiki.client.domain.*;
+import org.tmjee.miniwiki.client.Constants;
 import org.tmjee.miniwiki.utils.UiWikiNameComparator;
-import org.hsqldb.lib.Collection;
+import org.tmjee.miniwiki.utils.UiWikiPriviledgeNameComparator;
+import org.tmjee.miniwiki.utils.UiWikiPropertyNameComparator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
@@ -1093,6 +1094,23 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
         assertEquals(wikis.get(1).getName(), "Wiki2");
 
         UiWiki wiki1 = wikis.get(0);
+        List<UiWikiPriviledge> wiki1Priviledges = new ArrayList<UiWikiPriviledge>(wiki1.getPriviledges());
+        List<UiWikiProperty> wiki1Properties = new ArrayList<UiWikiProperty>(wiki1.getProperties());
+        List<UiSpace> wiki1Spaces = new ArrayList<UiSpace>(wiki1.getSpaces());
+        Collections.sort(wiki1Priviledges, new UiWikiPriviledgeNameComparator());
+        Collections.sort(wiki1Properties, new UiWikiPropertyNameComparator());
+
+        assertEquals(wiki1.getName(), "Wiki1");
+        assertEquals(wiki1.getTemplate(), Constants.DEFAULT_WIKI_TEMPLATE);
+        assertEquals(wiki1Priviledges.get(0).getName(), "Priviledge1");
+        assertEquals(wiki1Priviledges.get(0).getValues().size(), 2);
+        assertTrue(wiki1Priviledges.get(0).getValues().contains("Priviledge1V1"));
+        assertTrue(wiki1Priviledges.get(1).getValues().contains("Priviledge1V2"));
+        assertEquals(wiki1Properties.get(0).getName(), "Prop1");
+        assertEquals(wiki1Properties.get(0).getValue(), "Val1");
+        assertEquals(wiki1Properties.get(1).getName(), "Prop2");
+        assertEquals(wiki1Properties.get(1).getValue(), "Val2");
+
 
         UiWiki wiki2 = wikis.get(1);
     }
