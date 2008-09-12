@@ -1,4 +1,4 @@
-<!-- $Id: tls.xml,v 1.17 2006/07/27 21:08:21 fredt Exp $ -->
+<!-- $Id$ -->
 
 <chapter id='tls-chapter'>
     <title id='tls-title'>TLS</title>
@@ -13,8 +13,8 @@
                 </affiliation>
             </author>
         </authorgroup>
-        <edition>$Revision: 1.17 $</edition>
-        <pubdate>$Date: 2006/07/27 21:08:21 $</pubdate>
+        <edition>$Revision$</edition>
+        <pubdate>$Date$</pubdate>
         <keywordset>
             <keyword>Hsqldb</keyword>
             <keyword>TLS</keyword>

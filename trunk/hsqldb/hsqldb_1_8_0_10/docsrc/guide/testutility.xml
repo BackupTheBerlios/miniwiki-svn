@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: testutility.xml,v 1.12 2005/05/27 12:41:50 fredt Exp $ -->
+<!-- $Id$ -->
 <appendix>
   <title>Hsqldb Test Utility</title>
 
   <appendixinfo>
-    <edition>$Revision: 1.12 $</edition>
+    <edition>$Revision$</edition>
 
-    <pubdate>$Date: 2005/05/27 12:41:50 $</pubdate>
+    <pubdate>$Date$</pubdate>
 
     <keywordset>
       <keyword>Hsqldb</keyword>

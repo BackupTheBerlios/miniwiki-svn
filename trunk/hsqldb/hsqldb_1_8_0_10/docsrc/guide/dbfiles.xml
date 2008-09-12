@@ -1,11 +1,11 @@
-<!-- $Id: dbfiles.xml,v 1.4 2005/07/01 17:06:32 fredt Exp $ -->
+<!-- $Id$ -->
 
 <appendix>
 
 <title>Hsqldb Database Files and Recovery</title>
 <appendixinfo>
-    <edition>$Revision: 1.4 $</edition>
-    <pubdate>$Date: 2005/07/01 17:06:32 $</pubdate>
+    <edition>$Revision$</edition>
+    <pubdate>$Date$</pubdate>
     <keywordset>
         <keyword>HSQLDB</keyword>
         <keyword>Data</keyword>

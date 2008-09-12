@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: building.xml,v 1.15 2005/05/26 23:22:06 fredt Exp $ -->
+<!-- $Id$ -->
 <appendix id="building-appendix">
   <title id="building-title">Building HSQLDB</title>
 
@@ -18,9 +18,9 @@
       </author>
     </authorgroup>
 
-    <edition>$Revision: 1.15 $</edition>
+    <edition>$Revision$</edition>
 
-    <pubdate>$Date: 2005/05/26 23:22:06 $</pubdate>
+    <pubdate>$Date$</pubdate>
 
     <keywordset>
       <keyword>Hsqldb</keyword>

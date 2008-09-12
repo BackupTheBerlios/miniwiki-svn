@@ -1,4 +1,4 @@
-<!-- $Id: openoffice.xml,v 1.6 2005/06/08 16:02:34 fredt Exp $ -->
+<!-- $Id$ -->
 
 <!--  TODO.
       This should really be rewritten with DocBook procedure elements.
@@ -17,8 +17,8 @@
                 <orgname>EDV - Systeme Kienlein</orgname>
             </affiliation>
         </author>
-        <edition>$Revision: 1.6 $</edition>
-        <pubdate>$Date: 2005/06/08 16:02:34 $</pubdate>
+        <edition>$Revision$</edition>
+        <pubdate>$Date$</pubdate>
         <keywordset>
             <keyword>HSQLDB</keyword>
             <keyword>OpenOffice</keyword>

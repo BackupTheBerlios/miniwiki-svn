@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: running.xml,v 1.22 2007/05/30 18:34:46 fredt Exp $ -->
+<!-- $Id$ -->
 <chapter>
   <title>Running and Using Hsqldb</title>
 
@@ -18,9 +18,9 @@
       </author>
     </authorgroup>
 
-    <edition>$Revision: 1.22 $</edition>
+    <edition>$Revision$</edition>
 
-    <pubdate>$Date: 2007/05/30 18:34:46 $</pubdate>
+    <pubdate>$Date$</pubdate>
 
     <keywordset>
       <keyword>Hsqldb</keyword>

@@ -1,4 +1,4 @@
-<!-- $Id: unix.xml,v 1.30 2005/07/25 23:20:53 unsaved Exp $ -->
+<!-- $Id$ -->
 
 <chapter id='unix-chapter'>
     <title id='unix-title'>UNIX Quick Start</title>
@@ -13,8 +13,8 @@
                 <orgname>HSQLDB Development Group</orgname>
             </affiliation>
         </author>
-        <edition>$Revision: 1.30 $</edition>
-        <pubdate>$Date: 2005/07/25 23:20:53 $</pubdate>
+        <edition>$Revision$</edition>
+        <pubdate>$Date$</pubdate>
         <keywordset>
             <keyword>HSQLDB</keyword>
             <keyword>UNIX</keyword>
