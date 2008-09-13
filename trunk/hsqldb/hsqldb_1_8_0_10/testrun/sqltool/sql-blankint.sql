@@ -1,5 +1,5 @@
 /*
-    $Id: sql-blankint.sql,v 1.1 2004/06/17 03:30:53 unsaved Exp $
+    $Id$
 
     See readme.txt in this directory for how to unit test SqlTool.
 

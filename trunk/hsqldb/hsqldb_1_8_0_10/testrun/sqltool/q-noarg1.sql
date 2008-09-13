@@ -1,5 +1,5 @@
 /*
- * $Id: q-noarg1.sql,v 1.1 2007/08/09 03:28:37 unsaved Exp $
+ * $Id$
  *
  * Simplest test of \q with no args
  */

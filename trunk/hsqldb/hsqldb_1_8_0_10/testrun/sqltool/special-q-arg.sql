@@ -1,5 +1,5 @@
 /*
-    $Id: special-q-arg.sql,v 1.4 2004/07/05 00:49:23 unsaved Exp $
+    $Id$
 
     See readme.txt in this directory for how to unit test SqlTool.
 

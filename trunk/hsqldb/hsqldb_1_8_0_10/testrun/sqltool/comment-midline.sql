@@ -1,5 +1,5 @@
 /*
-    $Id: comment-midline.sql,v 1.1 2004/06/17 03:03:30 unsaved Exp $
+    $Id$
 
     See readme.txt in this directory for how to unit test SqlTool.
 

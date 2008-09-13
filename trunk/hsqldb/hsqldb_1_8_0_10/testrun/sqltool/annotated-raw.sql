@@ -1,5 +1,5 @@
 /*
-    $Id: annotated-raw.sql,v 1.7 2004/06/16 23:48:02 unsaved Exp $
+    $Id$
 
     See readme.txt in this directory for how to unit test SqlTool.
 

@@ -1,5 +1,5 @@
 /*
-    $Id: special-d.sql,v 1.2 2004/07/06 14:52:47 unsaved Exp $
+    $Id$
 
     See readme.txt in this directory for how to unit test SqlTool.
 

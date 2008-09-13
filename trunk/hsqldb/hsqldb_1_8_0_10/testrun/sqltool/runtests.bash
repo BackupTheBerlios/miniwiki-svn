@@ -1,7 +1,7 @@
 #!/bin/bash -p
 PROGNAME="${0##*/}"
 
-# $Id: runtests.bash,v 1.2 2007/08/09 03:28:37 unsaved Exp $
+# $Id$
 # author: Blaine Simpson, unsaved@users.sourceforge.net
 # since: HSQLDB 1.8.0.8 / 1.9.x
 # see:  README.txt in this same directory.

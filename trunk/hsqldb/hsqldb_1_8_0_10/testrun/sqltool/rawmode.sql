@@ -1,5 +1,5 @@
 /*
- * $Id: rawmode.sql,v 1.1 2007/08/09 03:28:37 unsaved Exp $
+ * $Id$
  *
  * Tests raw mode
  */

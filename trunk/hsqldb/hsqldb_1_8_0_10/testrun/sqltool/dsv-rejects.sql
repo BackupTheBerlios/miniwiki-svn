@@ -1,5 +1,5 @@
 /*
- * $Id: dsv-rejects.sql,v 1.1 2007/08/09 03:28:36 unsaved Exp $
+ * $Id$
  *
  * Tests proper rejection of bad DSV input records
  */

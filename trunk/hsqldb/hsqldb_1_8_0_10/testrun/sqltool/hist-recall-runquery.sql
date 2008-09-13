@@ -1,5 +1,5 @@
 /*
-    $Id: hist-recall-runquery.sql,v 1.2 2004/06/17 02:50:25 unsaved Exp $
+    $Id$
 
     See readme.txt in this directory for how to unit test SqlTool.
 

@@ -1,4 +1,4 @@
-# $Id: testEditing.list,v 1.1 2004/07/05 00:47:03 unsaved Exp $
+# $Id$
 
 # List of SQL Test Files for JUnit test method with name corresponding
 # to this file name.

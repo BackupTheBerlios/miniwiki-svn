@@ -1,5 +1,5 @@
 /*
- * $Id: dsv-roundtrip.sql,v 1.1 2007/08/09 03:28:36 unsaved Exp $
+ * $Id$
  *
  * Tests a DSV "round trip".
  * Create a table, export the data, import it back, cf. imported  and original.

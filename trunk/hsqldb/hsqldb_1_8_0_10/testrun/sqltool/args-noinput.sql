@@ -1,5 +1,5 @@
 /*
-    $Id: args-noinput.sql,v 1.1 2004/06/17 03:10:43 unsaved Exp $
+    $Id$
 
     See readme.txt in this directory for how to unit test SqlTool.
 

@@ -1,4 +1,4 @@
-$Id: README.txt,v 1.1 2007/08/09 03:28:35 unsaved Exp $
+$Id$
 
 SqlTool Unit Tests
 since:  HSQLDB 1.8.0.8, 1.9.x
