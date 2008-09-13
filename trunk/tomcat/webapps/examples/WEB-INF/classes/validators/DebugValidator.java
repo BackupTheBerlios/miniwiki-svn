@@ -34,7 +34,7 @@ import javax.servlet.jsp.tagext.ValidationMessage;
  * of your JSP page.
  *
  * @author Craig McClanahan
- * @version $Revision: 467217 $ $Date: 2006-10-24 05:14:34 +0200 (mar., 24 oct. 2006) $
+ * @version $Revision$ $Date$
  */
 
 public class DebugValidator extends TagLibraryValidator {

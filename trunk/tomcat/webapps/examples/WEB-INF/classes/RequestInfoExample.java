@@ -14,7 +14,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-/* $Id: RequestInfoExample.java 500674 2007-01-27 23:15:00Z markt $
+/* $Id$
  *
  */
 

@@ -34,7 +34,7 @@ import javax.servlet.http.HttpSessionListener;
  * associated with our servlet context.
  *
  * @author Craig R. McClanahan
- * @version $Revision: 500674 $ $Date: 2007-01-28 00:15:00 +0100 (dim., 28 janv. 2007) $
+ * @version $Revision$ $Date$
  */
 
 public final class SessionListener

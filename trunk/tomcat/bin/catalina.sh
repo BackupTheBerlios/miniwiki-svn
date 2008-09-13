@@ -67,7 +67,7 @@
 #   CATALINA_PID    (Optional) Path of the file which should contains the pid
 #                   of catalina startup java process, when start (fork) is used
 #
-# $Id: catalina.sh 600664 2007-12-03 20:24:19Z jim $
+# $Id$
 # -----------------------------------------------------------------------------
 
 

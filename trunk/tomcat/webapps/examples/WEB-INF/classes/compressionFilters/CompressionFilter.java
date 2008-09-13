@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Amy Roh
  * @author Dmitri Valdin
- * @version $Revision: 467217 $, $Date: 2006-10-24 05:14:34 +0200 (mar., 24 oct. 2006) $
+ * @version $Revision$, $Date$
  */
 
 public class CompressionFilter implements Filter{

@@ -42,7 +42,7 @@ import javax.servlet.http.HttpServletRequest;
  * to assist in debugging problems.
  *
  * @author Craig McClanahan
- * @version $Revision: 500674 $ $Date: 2007-01-28 00:15:00 +0100 (dim., 28 janv. 2007) $
+ * @version $Revision$ $Date$
  */
 
 public final class RequestDumperFilter implements Filter {

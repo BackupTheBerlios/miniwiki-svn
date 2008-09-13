@@ -15,7 +15,7 @@
   limitations under the License.
 ================================================================================
 
-$Id: BUILDING.txt 562769 2007-08-04 22:08:32Z markt $
+$Id$
 
             ====================================================
             Building The Apache Tomcat 6.0 Servlet/JSP Container

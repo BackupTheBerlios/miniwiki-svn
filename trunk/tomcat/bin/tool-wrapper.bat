@@ -30,7 +30,7 @@ rem
 rem   JAVA_OPTS     (Optional) Java runtime options used when the "start",
 rem                 "stop", or "run" command is executed.
 rem
-rem $Id: tool-wrapper.bat 562770 2007-08-04 22:13:58Z markt $
+rem $Id$
 rem ---------------------------------------------------------------------------
 
 rem Guess CATALINA_HOME if not defined
