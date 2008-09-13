@@ -47,7 +47,7 @@ import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
  * @author stephan
  * @author tmjee
  * @team sonicteam
- * @version $Id: LineFilter.java,v 1.4 2003/08/13 12:37:05 stephan Exp $
+ * @version $Id$
  */
 
 public class LineFilter extends LocaleRegexReplaceFilter implements CacheFilter {

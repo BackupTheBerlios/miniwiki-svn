@@ -29,7 +29,7 @@ import java.io.Writer;
  * Class that implements base functionality to write macros
  *
  * @author stephan
- * @version $Id: Macro.java,v 1.8 2003/12/16 17:08:24 stephan Exp $
+ * @version $Id$
  */
 
 public interface Macro extends Comparable {

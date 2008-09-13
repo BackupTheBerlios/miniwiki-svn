@@ -34,7 +34,7 @@ import java.util.Locale;
  * Example how to use BaseRenderEngine with Pico
  *
  * @author Stephan J. Schmidt
- * @version $Id: PicoExample.java,v 1.3 2003/12/16 10:26:51 leo Exp $
+ * @version $Id$
  */
 
 public class PicoExample {

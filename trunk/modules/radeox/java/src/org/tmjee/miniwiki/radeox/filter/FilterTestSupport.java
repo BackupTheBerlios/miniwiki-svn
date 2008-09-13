@@ -31,7 +31,7 @@ import java.lang.reflect.Method;
  * Support class for defning JUnit FilterTests.
  *
  * @author Stephan J. Schmidt
- * @version $Id: FilterTestSupport.java,v 1.7 2003/08/14 07:46:04 stephan Exp $
+ * @version $Id$
  */
 
 public class FilterTestSupport extends MockObjectTestCase {

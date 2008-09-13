@@ -33,7 +33,7 @@ import java.util.*;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: FilterPipe.java,v 1.21 2004/06/21 13:08:43 leo Exp $
+ * @version $Id$
  */
 
 public class FilterPipe {

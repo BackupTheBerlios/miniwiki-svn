@@ -33,7 +33,7 @@ import java.util.List;
  * with their name, parameters and a description.
  *
  * @author Matthias L. Jugel
- * @version $Id: MacroListMacro.java,v 1.11 2004/05/11 12:17:21 leo Exp $
+ * @version $Id$
  */
 
 public class MacroListMacro extends BaseLocaleMacro {

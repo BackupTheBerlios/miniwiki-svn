@@ -34,7 +34,7 @@ import java.util.StringTokenizer;
  * http://nanning.sourceforge.net/xref/com/tirsen/nanning/MixinInstance.html#83
  *
  * @author Stephan J. Schmidt
- * @version $Id: XrefMapper.java,v 1.3 2003/06/11 10:04:27 stephan Exp $
+ * @version $Id$
  */
 
 public class XrefMapper {

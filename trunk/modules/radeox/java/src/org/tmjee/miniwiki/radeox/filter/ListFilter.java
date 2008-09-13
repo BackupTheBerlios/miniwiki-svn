@@ -37,7 +37,7 @@ import java.util.Map;
  * @credits nested list support by Davor Cubranic
  * @author stephan
  * @team sonicteam
- * @version $Id: ListFilter.java,v 1.17 2004/04/15 13:56:14 stephan Exp $
+ * @version $Id$
  */
 
 public class ListFilter extends LocaleRegexTokenFilter implements CacheFilter {

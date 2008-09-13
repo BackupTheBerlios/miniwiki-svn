@@ -33,7 +33,7 @@ import java.util.ResourceBundle;
  * for use withing a threaded java environment.
  *
  * @author Matthias L. Jugel
- * @version $Id: ResourceManager.java,v 1.5 2004/06/08 07:54:37 leo Exp $
+ * @version $Id$
  */
 public class ResourceManager {
   private static Log log = LogFactory.getLog(ResourceManager.class);

@@ -30,7 +30,7 @@ import java.util.Map;
  * Base impementation for RenderContext
  *
  * @author Stephan J. Schmidt
- * @version $Id: BaseRenderContext.java,v 1.8 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public class BaseRenderContext implements RenderContext {

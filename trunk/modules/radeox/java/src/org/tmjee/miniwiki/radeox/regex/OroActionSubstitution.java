@@ -28,7 +28,7 @@ import org.apache.oro.text.regex.MatchResult;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: OroActionSubstitution.java,v 1.1 2004/04/20 13:45:36 stephan Exp $
+ * @version $Id$
  */
 
 public class OroActionSubstitution extends StringSubstitution {

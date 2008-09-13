@@ -30,7 +30,7 @@ import org.tmjee.miniwiki.radeox.api.engine.context.InitialRenderContext;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: FilterSupport.java,v 1.9 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public abstract class FilterSupport implements Filter {

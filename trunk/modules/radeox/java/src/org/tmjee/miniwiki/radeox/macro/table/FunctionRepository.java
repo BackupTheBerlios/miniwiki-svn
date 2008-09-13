@@ -30,7 +30,7 @@ import java.util.List;
  * Repository for functions
  *
  * @author Stephan J. Schmidt
- * @version $Id: FunctionRepository.java,v 1.2 2003/05/23 10:47:25 stephan Exp $
+ * @version $Id$
  */
 
 public class FunctionRepository extends PluginRepository {

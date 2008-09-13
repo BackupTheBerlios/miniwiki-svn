@@ -30,7 +30,7 @@ import java.io.Writer;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: RfcMacro.java,v 1.6 2003/08/21 08:50:07 stephan Exp $
+ * @version $Id$
  */
 
 public class RfcMacro extends BaseLocaleMacro {

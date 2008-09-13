@@ -25,7 +25,7 @@ import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
  * Displays source code with syntax highlighting etc.
  *
  * @author Stephan J. Schmidt
- * @version $Id: SourceCodeFormatter.java,v 1.4 2003/02/18 12:57:24 stephan Exp $
+ * @version $Id$
  */
 
 public interface SourceCodeFormatter {

@@ -26,7 +26,7 @@ import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: NullCodeFilter.java,v 1.4 2003/08/29 12:32:12 stephan Exp $
+ * @version $Id$
  */
 
 public class NullCodeFilter implements SourceCodeFormatter {

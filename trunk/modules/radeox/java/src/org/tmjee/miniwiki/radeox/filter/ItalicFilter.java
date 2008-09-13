@@ -27,7 +27,7 @@ import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
  *
  * @author Stephan J. Schmidt
  * @team sonicteam
- * @version $Id: ItalicFilter.java,v 1.4 2003/08/13 09:38:35 stephan Exp $
+ * @version $Id$
  */
 
 public class ItalicFilter extends LocaleRegexReplaceFilter implements CacheFilter {

@@ -28,7 +28,7 @@ import org.tmjee.miniwiki.radeox.filter.FilterPipe;
  * matching.
  *
  * @author Stephan J. Schmidt
- * @version $Id: InitialRenderContext.java,v 1.1 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public interface InitialRenderContext extends RenderContext {

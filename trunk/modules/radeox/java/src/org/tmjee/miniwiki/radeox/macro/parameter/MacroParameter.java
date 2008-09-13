@@ -27,7 +27,7 @@ import java.util.Map;
  * Encapsulates parameters for an executed Macro call
  *
  * @author Stephan J. Schmidt
- * @version $Id: MacroParameter.java,v 1.10 2004/01/20 12:07:53 stephan Exp $
+ * @version $Id$
  */
 
 public interface MacroParameter {

@@ -25,7 +25,7 @@ package org.tmjee.miniwiki.radeox.regex;
 
  * @author stephan
  * @team sonicteam
- * @version $Id: OroMatchResult.java,v 1.2 2004/04/20 13:16:41 stephan Exp $
+ * @version $Id$
  */
 
 public class OroMatchResult extends MatchResult {

@@ -30,7 +30,7 @@ import org.tmjee.miniwiki.radeox.macro.parameter.MacroParameter;
  * implement FilterContext
  *
  * @author Stephan J. Schmidt
- * @version $Id: FilterContext.java,v 1.7 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public interface FilterContext {

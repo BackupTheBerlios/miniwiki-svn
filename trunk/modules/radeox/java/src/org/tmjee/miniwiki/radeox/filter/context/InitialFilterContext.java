@@ -6,7 +6,7 @@ package org.tmjee.miniwiki.radeox.filter.context;
  * (e.g. locales)
  *
  * @author Stephan J. Schmidt
- * @version $Id: InitialFilterContext.java,v 1.1 2003/08/11 13:19:57 stephan Exp $
+ * @version $Id$
  */
 
 public interface InitialFilterContext {

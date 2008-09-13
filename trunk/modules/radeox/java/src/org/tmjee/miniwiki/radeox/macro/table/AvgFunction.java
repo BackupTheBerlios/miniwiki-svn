@@ -26,7 +26,7 @@ import org.apache.commons.logging.LogFactory;
  * A function that calculates the average  table cells
  *
  * @author stephan
- * @version $Id: AvgFunction.java,v 1.2 2003/06/11 10:04:27 stephan Exp $
+ * @version $Id$
  */
 
 public class AvgFunction implements Function {

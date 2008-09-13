@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.macro.code;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: DefaultRegexCodeFormatter.java,v 1.1 2003/08/29 12:32:55 stephan Exp $
+ * @version $Id$
  */
 
 import org.tmjee.miniwiki.radeox.filter.regex.RegexReplaceFilter;

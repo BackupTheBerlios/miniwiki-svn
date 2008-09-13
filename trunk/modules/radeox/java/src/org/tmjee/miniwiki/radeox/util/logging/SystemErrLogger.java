@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.util.logging;
  * Concrete Logger that logs to System Err
  *
  * @author stephan
- * @version $Id: SystemErrLogger.java,v 1.3 2003/03/25 10:37:54 leo Exp $
+ * @version $Id$
  */
 
 public class SystemErrLogger implements LogHandler {

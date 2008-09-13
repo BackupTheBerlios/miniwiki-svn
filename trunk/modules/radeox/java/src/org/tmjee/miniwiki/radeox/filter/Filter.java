@@ -29,7 +29,7 @@ import org.tmjee.miniwiki.radeox.filter.context.FilterContext;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: Filter.java,v 1.10 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public interface Filter {

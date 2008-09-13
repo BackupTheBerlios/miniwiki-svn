@@ -33,7 +33,7 @@ import org.tmjee.miniwiki.radeox.regex.Substitution;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: RegexTokenFilter.java,v 1.11 2004/04/16 07:47:41 stephan Exp $
+ * @version $Id$
  */
 
 public abstract class RegexTokenFilter extends RegexFilter {

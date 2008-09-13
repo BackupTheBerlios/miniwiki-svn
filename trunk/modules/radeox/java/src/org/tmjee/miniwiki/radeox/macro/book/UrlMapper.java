@@ -26,7 +26,7 @@ import java.io.Writer;
  * Manages links to keys
  *
  * @author Stephan J. Schmidt
- * @version $Id: UrlMapper.java,v 1.2 2003/02/06 13:41:42 leo Exp $
+ * @version $Id$
  */
 
 public interface UrlMapper {

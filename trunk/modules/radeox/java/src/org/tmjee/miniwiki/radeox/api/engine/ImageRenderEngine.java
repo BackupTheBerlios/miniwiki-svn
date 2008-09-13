@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.api.engine;
  * e.g. small arrows for external links in the {link...} macro.
  *
  * @author Stephan J. Schmidt
- * @version $Id: ImageRenderEngine.java,v 1.1 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public interface ImageRenderEngine {

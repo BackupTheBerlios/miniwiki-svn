@@ -30,7 +30,7 @@ import java.util.*;
  *
  * @author Stephan J. Schmidt
  * @author tmjee
- * @version $Id: MacroRepository.java,v 1.9 2003/12/17 13:35:36 stephan Exp $
+ * @version $Id$
  */
 
 public class MacroRepository extends PluginRepository {

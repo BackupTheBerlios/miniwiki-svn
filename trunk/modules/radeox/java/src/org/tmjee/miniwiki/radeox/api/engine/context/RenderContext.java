@@ -32,7 +32,7 @@ import java.util.Map;
  * construct FilterContext.
  *
  * @author Stephan J. Schmidt
- * @version $Id: RenderContext.java,v 1.2 2004/01/30 08:42:56 stephan Exp $
+ * @version $Id$
  */
 
 public interface RenderContext {

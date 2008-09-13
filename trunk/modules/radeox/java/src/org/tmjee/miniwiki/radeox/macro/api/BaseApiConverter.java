@@ -26,7 +26,7 @@ import java.io.Writer;
  * Base class for API converters, stores a base URL
  *
  * @author Stephan J. Schmidt
- * @version $Id: BaseApiConverter.java,v 1.4 2003/05/23 10:47:25 stephan Exp $
+ * @version $Id$
  */
 
 public abstract class BaseApiConverter implements ApiConverter {

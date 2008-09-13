@@ -58,7 +58,7 @@ import java.text.MessageFormat;
  *
  * @author leo
  * @team other
- * @version $Id: HeadingFilter.java,v 1.8 2004/04/15 13:56:14 stephan Exp $
+ * @version $Id$
  */
 
 public class HeadingFilter extends LocaleRegexTokenFilter implements CacheFilter {

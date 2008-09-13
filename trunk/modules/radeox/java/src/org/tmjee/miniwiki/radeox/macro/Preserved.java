@@ -30,7 +30,7 @@ import java.util.StringTokenizer;
  * to call replace() before or after executing the actual macro substitution.
  *
  * @author Matthias L. Jugel
- * @version $Id: Preserved.java,v 1.7 2004/06/08 08:46:18 leo Exp $
+ * @version $Id$
  */
 
 public abstract class Preserved extends BaseMacro {

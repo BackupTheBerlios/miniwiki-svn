@@ -26,7 +26,7 @@ package org.tmjee.miniwiki.radeox.filter;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: WikiLinkFilter.java,v 1.3 2003/08/13 12:37:06 stephan Exp $
+ * @version $Id$
  */
 
 public class WikiLinkFilter extends LinkTestFilter {

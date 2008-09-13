@@ -26,7 +26,7 @@ import java.io.Writer;
  * Converts a Ruby class name to an Ruby api doku url
  *
  * @author Stephan J. Schmidt
- * @version $Id: RubyApiConverter.java,v 1.4 2003/05/23 10:47:25 stephan Exp $
+ * @version $Id$
  */
 
 public class RubyApiConverter extends BaseApiConverter {

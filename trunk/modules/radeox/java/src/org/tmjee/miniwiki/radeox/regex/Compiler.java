@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.regex;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: Compiler.java,v 1.3 2004/04/20 09:47:03 stephan Exp $
+ * @version $Id$
  */
 
 public abstract class Compiler {

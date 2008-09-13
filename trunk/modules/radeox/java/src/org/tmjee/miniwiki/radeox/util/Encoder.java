@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
  * Escapes and encodes Strings for web usage
  *
  * @author stephan
- * @version $Id: Encoder.java,v 1.8 2004/09/06 19:25:33 leo Exp $
+ * @version $Id$
  */
 
 public class Encoder {

@@ -28,7 +28,7 @@ import java.util.Map;
  * Repository for plugins
  *
  * @author Stephan J. Schmidt
- * @version $Id: PluginRepository.java,v 1.5 2003/12/17 13:41:54 stephan Exp $
+ * @version $Id$
  */
 
 public class PluginRepository implements Repository {

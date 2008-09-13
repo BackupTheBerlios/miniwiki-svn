@@ -28,7 +28,7 @@ import org.apache.oro.text.regex.MalformedPatternException;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: OroCompiler.java,v 1.1 2004/04/20 12:38:26 stephan Exp $
+ * @version $Id$
  */
 
 public class OroCompiler extends Compiler {

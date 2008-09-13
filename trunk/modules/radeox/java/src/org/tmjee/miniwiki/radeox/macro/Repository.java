@@ -25,7 +25,7 @@ import java.util.List;
  * Repository for Macros
  *
  * @author 
- * @version $Id: Repository.java,v 1.2 2003/06/11 10:04:27 stephan Exp $
+ * @version $Id$
  */
 
 public interface Repository {

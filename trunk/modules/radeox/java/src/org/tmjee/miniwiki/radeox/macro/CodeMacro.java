@@ -40,7 +40,7 @@ import java.util.*;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: CodeMacro.java,v 1.16 2004/04/27 19:30:38 leo Exp $
+ * @version $Id$
  */
 
 public class CodeMacro extends LocalePreserved {

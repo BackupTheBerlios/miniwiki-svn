@@ -23,7 +23,7 @@ package org.tmjee.miniwiki.radeox.api.engine;
  * Interface for RenderEngines that know about Wiki pages.
  *
  * @author Stephan J. Schmidt
- * @version $Id: WikiRenderEngine.java,v 1.1 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public interface WikiRenderEngine {

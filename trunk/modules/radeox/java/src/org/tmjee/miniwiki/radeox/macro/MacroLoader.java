@@ -26,7 +26,7 @@ import org.apache.commons.logging.LogFactory;
  * Plugin loader for macros
  *
  * @author Stephan J. Schmidt
- * @version $Id: MacroLoader.java,v 1.5 2004/05/03 11:12:37 stephan Exp $
+ * @version $Id$
  */
 
 public class MacroLoader extends PluginLoader {

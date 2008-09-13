@@ -28,7 +28,7 @@ import org.tmjee.miniwiki.radeox.macro.Repository;
  * Plugin loader for table functions
  *
  * @author Stephan J. Schmidt
- * @version $Id: FunctionLoader.java,v 1.4 2003/08/14 07:46:04 stephan Exp $
+ * @version $Id$
  */
 
 public class FunctionLoader extends PluginLoader {

@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.filter;
  * Marker interface for Filters that are cacheable
  *
  * @author Stephan J. Schmidt
- * @version $Id: CacheFilter.java,v 1.1 2003/02/24 09:01:09 stephan Exp $
+ * @version $Id$
  */
 
 public interface CacheFilter {

@@ -23,7 +23,7 @@ package org.tmjee.miniwiki.radeox.macro.code;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: XmlCodeFilter.java,v 1.6 2003/12/11 13:24:56 leo Exp $
+ * @version $Id$
  */
 
 public class XmlCodeFilter extends DefaultRegexCodeFormatter implements SourceCodeFormatter {

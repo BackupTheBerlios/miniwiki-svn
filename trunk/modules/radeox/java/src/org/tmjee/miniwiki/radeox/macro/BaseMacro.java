@@ -29,7 +29,7 @@ import java.io.Writer;
  * Class that implements base functionality to write macros
  *
  * @author stephan
- * @version $Id: BaseMacro.java,v 1.3 2004/04/27 19:30:38 leo Exp $
+ * @version $Id$
  */
 
 public abstract class BaseMacro implements Macro {

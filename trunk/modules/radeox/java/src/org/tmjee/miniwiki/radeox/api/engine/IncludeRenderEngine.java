@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.api.engine;
  * or snips, e.g. with {!includeWiki} in MacroFilter
  *
  * @author Stephan J. Schmidt
- * @version $Id: IncludeRenderEngine.java,v 1.1 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public interface IncludeRenderEngine {

@@ -28,7 +28,7 @@ import org.tmjee.miniwiki.radeox.macro.parameter.MacroParameter;
  * Base impementation for FilterContext
  *
  * @author Stephan J. Schmidt
- * @version $Id: BaseFilterContext.java,v 1.6 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public class BaseFilterContext implements FilterContext {

@@ -30,7 +30,7 @@ import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
  *
  * @author Stephan J. Schmidt
  * @team sonicteam
- * @version $Id: StrikeThroughFilter.java,v 1.9 2003/08/13 12:37:06 stephan Exp $
+ * @version $Id$
  */
 
 public class StrikeThroughFilter extends LocaleRegexReplaceFilter implements CacheFilter {

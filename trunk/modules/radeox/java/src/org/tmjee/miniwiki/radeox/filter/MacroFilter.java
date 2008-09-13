@@ -79,7 +79,7 @@ import java.io.Writer;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: MacroFilter.java,v 1.18 2004/04/15 13:56:14 stephan Exp $
+ * @version $Id$
  */
 
 public class MacroFilter extends RegexTokenFilter {

@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.macro.code;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: JavaCodeFilter.java,v 1.5 2003/08/29 12:32:12 stephan Exp $
+ * @version $Id$
  */
 
 public class JavaCodeFilter extends DefaultRegexCodeFormatter implements SourceCodeFormatter {

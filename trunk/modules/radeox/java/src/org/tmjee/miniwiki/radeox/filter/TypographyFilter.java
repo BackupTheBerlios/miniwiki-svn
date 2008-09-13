@@ -26,7 +26,7 @@ package org.tmjee.miniwiki.radeox.filter;
  * see http://daringfireball.net/projects/smartypants/
  *
  * @author Stephan J. Schmidt
- * @version $Id: TypographyFilter.java,v 1.5 2003/08/13 12:37:06 stephan Exp $
+ * @version $Id$
  */
 
 import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;

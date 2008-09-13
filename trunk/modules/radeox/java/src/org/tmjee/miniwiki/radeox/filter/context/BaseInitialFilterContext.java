@@ -25,7 +25,7 @@ package org.tmjee.miniwiki.radeox.filter.context;
  * Base impementation for InitialFilterContext
  *
  * @author Stephan J. Schmidt
- * @version $Id: BaseInitialFilterContext.java,v 1.3 2003/08/14 07:46:04 stephan Exp $
+ * @version $Id$
  */
 
 public class BaseInitialFilterContext implements InitialFilterContext {

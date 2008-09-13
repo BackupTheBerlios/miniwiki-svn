@@ -33,7 +33,7 @@ import java.util.List;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: RegexFilter.java,v 1.11 2004/04/15 13:56:14 stephan Exp $
+ * @version $Id$
  */
 
 public abstract class RegexFilter extends FilterSupport {

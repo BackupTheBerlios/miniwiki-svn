@@ -23,7 +23,7 @@ package org.tmjee.miniwiki.radeox.regex;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: Pattern.java,v 1.2 2004/04/20 09:47:03 stephan Exp $
+ * @version $Id$
  */
 
 public interface Pattern {

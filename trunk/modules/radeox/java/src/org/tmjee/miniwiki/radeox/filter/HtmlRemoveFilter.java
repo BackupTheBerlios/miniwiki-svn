@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.filter;
  * become "foo foo"
  *
  * @author Stephan J. Schmidt
- * @version $Id: HtmlRemoveFilter.java,v 1.3 2003/02/24 09:00:23 stephan Exp $
+ * @version $Id$
  */
 
 import org.tmjee.miniwiki.radeox.filter.regex.RegexReplaceFilter;

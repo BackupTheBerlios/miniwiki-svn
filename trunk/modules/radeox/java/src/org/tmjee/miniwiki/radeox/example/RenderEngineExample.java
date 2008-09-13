@@ -32,7 +32,7 @@ import java.util.Locale;
  * Example how to use BaseRenderEngine
  *
  * @author Stephan J. Schmidt
- * @version $Id: RenderEngineExample.java,v 1.8 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public class RenderEngineExample {

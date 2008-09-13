@@ -32,7 +32,7 @@ import java.util.List;
  * table macro
  *
  * @author stephan
- * @version $Id: Table.java,v 1.6 2003/05/23 10:47:25 stephan Exp $
+ * @version $Id$
  */
 
 public class Table {

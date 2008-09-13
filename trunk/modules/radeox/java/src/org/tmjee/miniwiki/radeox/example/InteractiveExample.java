@@ -37,7 +37,7 @@ import java.text.SimpleDateFormat;
  * Interactive example how to use EngineManager
  *
  * @author Stephan J. Schmidt
- * @version $Id: InteractiveExample.java,v 1.8 2004/05/26 08:56:20 stephan Exp $
+ * @version $Id$
  */
 
 public class InteractiveExample {

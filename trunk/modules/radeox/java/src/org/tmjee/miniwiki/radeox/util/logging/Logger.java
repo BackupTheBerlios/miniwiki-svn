@@ -30,7 +30,7 @@ import java.util.Date;
  *  SHOULD BE REMOVED
  *
  * @author stephan
- * @version $Id: Logger.java,v 1.8 2004/05/26 08:56:20 stephan Exp $
+ * @version $Id$
  */
 
 public class Logger {

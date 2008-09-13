@@ -23,7 +23,7 @@ package org.tmjee.miniwiki.radeox.filter;
  * SmileyFilter replaces frownies :-( with smileys :-)
  *
  * @author Stephan J. Schmidt
- * @version $Id: SmileyFilter.java,v 1.1 2003/03/05 15:25:08 stephan Exp $
+ * @version $Id$
  */
 
 import org.tmjee.miniwiki.radeox.filter.regex.RegexReplaceFilter;

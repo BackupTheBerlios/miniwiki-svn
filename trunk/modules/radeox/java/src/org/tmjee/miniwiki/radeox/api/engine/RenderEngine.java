@@ -32,7 +32,7 @@ import java.io.Reader;
  * of filters.
  *
  * @author Stephan J. Schmidt
- * @version $Id: RenderEngine.java,v 1.2 2004/04/14 13:03:25 stephan Exp $
+ * @version $Id$
  */
 
 public interface RenderEngine {

@@ -33,7 +33,7 @@ import java.util.Map;
  * InterWiki
  *
  * @author Stephan J. Schmidt
- * @version $Id: InterWiki.java,v 1.6 2004/01/19 11:45:24 stephan Exp $
+ * @version $Id$
  */
 
 public class InterWiki {

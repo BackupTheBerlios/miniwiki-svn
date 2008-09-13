@@ -27,7 +27,7 @@ import java.io.Writer;
  * constructor.
  *
  * @author Stephan J. Schmidt
- * @version $Id: StringBufferWriter.java,v 1.2 2003/02/06 13:41:42 leo Exp $
+ * @version $Id$
  */
 
 public class StringBufferWriter extends Writer {

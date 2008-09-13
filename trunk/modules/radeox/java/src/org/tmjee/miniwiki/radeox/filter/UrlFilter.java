@@ -35,7 +35,7 @@ import java.text.MessageFormat;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: UrlFilter.java,v 1.18 2004/04/15 13:56:14 stephan Exp $
+ * @version $Id$
  */
 
 public class UrlFilter extends LocaleRegexTokenFilter implements CacheFilter {

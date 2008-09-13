@@ -25,7 +25,7 @@ package org.tmjee.miniwiki.radeox.macro.table;
  * =SUM(A1:A3)
  *
  * @author stephan
- * @version $Id: Function.java,v 1.1 2003/02/17 07:21:21 stephan Exp $
+ * @version $Id$
  */
 
 public interface Function {

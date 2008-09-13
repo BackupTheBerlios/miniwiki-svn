@@ -35,7 +35,7 @@ import java.io.Writer;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: QuoteMacro.java,v 1.11 2004/06/08 07:54:36 leo Exp $
+ * @version $Id$
  */
 
 public class QuoteMacro extends LocalePreserved {

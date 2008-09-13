@@ -39,7 +39,7 @@ import java.util.Map;
  *
  *
  * @author Stephan J. Schmidt
- * @version $Id: EngineManager.java,v 1.15 2004/05/26 08:56:20 stephan Exp $
+ * @version $Id$
  */
 
 public class EngineManager  {

@@ -25,7 +25,7 @@ package org.tmjee.miniwiki.radeox.regex;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: JdkMatchResult.java,v 1.1 2004/04/16 07:37:52 stephan Exp $
+ * @version $Id$
  */
 
 public class JdkMatchResult extends MatchResult {

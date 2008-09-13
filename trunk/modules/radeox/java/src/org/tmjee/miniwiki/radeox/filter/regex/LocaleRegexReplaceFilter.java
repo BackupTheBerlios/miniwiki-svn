@@ -31,7 +31,7 @@ import java.util.ResourceBundle;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: LocaleRegexReplaceFilter.java,v 1.6 2003/10/07 08:20:24 stephan Exp $
+ * @version $Id$
  */
 
 public abstract class LocaleRegexReplaceFilter extends RegexReplaceFilter {

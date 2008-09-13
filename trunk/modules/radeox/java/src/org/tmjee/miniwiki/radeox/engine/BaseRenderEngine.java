@@ -38,7 +38,7 @@ import java.util.Iterator;
  * Base implementation of RenderEngine
  *
  * @author Stephan J. Schmidt
- * @version $Id: BaseRenderEngine.java,v 1.18 2004/05/26 08:56:20 stephan Exp $
+ * @version $Id$
  */
 
 public class BaseRenderEngine implements RenderEngine {

@@ -29,7 +29,7 @@ import org.tmjee.miniwiki.radeox.util.Encoder;
  *
  * @author leo
  * @team other
- * @version $Id: EscapeFilter.java,v 1.13 2004/04/15 13:56:14 stephan Exp $
+ * @version $Id$
  */
 
 public class EscapeFilter extends LocaleRegexTokenFilter implements CacheFilter {

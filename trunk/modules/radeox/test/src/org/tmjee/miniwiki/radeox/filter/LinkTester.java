@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.filter;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: LinkTester.java,v 1.2 2003/02/06 13:41:41 leo Exp $
+ * @version $Id$
  */
 
 public interface LinkTester {

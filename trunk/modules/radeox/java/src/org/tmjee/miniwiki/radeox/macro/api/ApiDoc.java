@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
  * Stores information and links to api documentation, e.g. for Java, Ruby, JBoss
  *
  * @author Stephan J. Schmidt
- * @version $Id: ApiDoc.java,v 1.6 2003/06/11 10:04:27 stephan Exp $
+ * @version $Id$
  */
 
 public class ApiDoc {

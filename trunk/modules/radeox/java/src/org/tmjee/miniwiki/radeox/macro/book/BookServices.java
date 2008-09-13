@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.macro.book;
  * Manages links to book dealears or comparison services
  *
  * @author Stephan J. Schmidt
- * @version $Id: BookServices.java,v 1.4 2003/02/06 13:41:41 leo Exp $
+ * @version $Id$
  */
 
 public class BookServices extends TextFileUrlMapper {

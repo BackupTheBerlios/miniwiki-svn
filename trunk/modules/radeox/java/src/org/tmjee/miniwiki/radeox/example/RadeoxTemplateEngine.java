@@ -36,7 +36,7 @@ import java.io.StringReader;
  * Groovy Template Engine which uses Radeox to render text markup
  *
  * @author Stephan J. Schmidt
- * @version $Id: RadeoxTemplateEngine.java,v 1.1 2004/04/14 13:03:49 stephan Exp $
+ * @version $Id$
  */
 
 public class RadeoxTemplateEngine extends TemplateEngine {

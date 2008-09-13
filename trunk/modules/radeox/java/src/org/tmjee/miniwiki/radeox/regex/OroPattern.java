@@ -25,7 +25,7 @@ package org.tmjee.miniwiki.radeox.regex;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: OroPattern.java,v 1.1 2004/04/20 12:38:26 stephan Exp $
+ * @version $Id$
  */
 
 public class OroPattern implements Pattern {

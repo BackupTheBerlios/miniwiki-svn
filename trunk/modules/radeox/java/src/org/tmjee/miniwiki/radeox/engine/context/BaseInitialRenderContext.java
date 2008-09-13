@@ -30,7 +30,7 @@ import java.util.Locale;
  * Base impementation for InitialRenderContext
  *
  * @author Stephan J. Schmidt
- * @version $Id: BaseInitialRenderContext.java,v 1.6 2004/04/27 19:30:38 leo Exp $
+ * @version $Id$
  */
 
 public class BaseInitialRenderContext extends BaseRenderContext implements InitialRenderContext {

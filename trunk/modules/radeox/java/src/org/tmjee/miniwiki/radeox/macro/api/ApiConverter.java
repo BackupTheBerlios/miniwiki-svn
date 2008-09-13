@@ -26,7 +26,7 @@ import java.io.Writer;
  * Converts a class name to an API url
  *
  * @author Stephan J. Schmidt
- * @version $Id: ApiConverter.java,v 1.4 2003/05/23 10:47:25 stephan Exp $
+ * @version $Id$
  */
 
 public interface ApiConverter {

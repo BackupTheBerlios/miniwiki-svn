@@ -23,7 +23,7 @@ package org.tmjee.miniwiki.radeox.filter;
  * Boldfilter replaces __text__ with bold "text".
  *
  * @author Stephan J. Schmidt
- * @version $Id: BoldFilter.java,v 1.9 2003/08/14 07:46:03 stephan Exp $
+ * @version $Id$
  */
 
 import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;

@@ -31,7 +31,7 @@ import org.tmjee.miniwiki.radeox.filter.regex.LocaleRegexReplaceFilter;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: ParagraphFilter.java,v 1.4 2003/08/13 12:37:06 stephan Exp $
+ * @version $Id$
  */
 
 public class ParagraphFilter extends LocaleRegexReplaceFilter implements CacheFilter {

@@ -28,7 +28,7 @@ import org.tmjee.miniwiki.radeox.api.engine.RenderEngine;
 /**
  * 
  * @author 
- * @version $Id: MacroTestSupport.java,v 1.3 2004/05/26 08:56:20 stephan Exp $
+ * @version $Id$
  */
 
 public class MacroTestSupport extends TestCase {

@@ -36,7 +36,7 @@ import org.tmjee.miniwiki.radeox.engine.BaseRenderEngine;
  * É
  * </xsl:stylesheet>
  * @author Micah Dubinko
- * @version $Id: XSLTExtension.java,v 1.3 2004/05/26 08:56:20 stephan Exp $
+ * @version $Id$
  */
 public class XSLTExtension {
   public XSLTExtension() {

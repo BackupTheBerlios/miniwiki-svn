@@ -30,7 +30,7 @@ import java.util.Iterator;
  *
  * @author Stephan J. Schmidt
  * @author tmjee
- * @version $Id: PluginLoader.java,v 1.6 2004/01/09 12:27:14 stephan Exp $
+ * @version $Id$
  */
 
 public abstract class PluginLoader {

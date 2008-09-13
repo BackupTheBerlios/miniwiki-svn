@@ -33,7 +33,7 @@ import java.io.Writer;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: LinkMacro.java,v 1.17 2004/05/03 11:12:37 stephan Exp $
+ * @version $Id$
  */
 
 public class LinkMacro extends BaseLocaleMacro {

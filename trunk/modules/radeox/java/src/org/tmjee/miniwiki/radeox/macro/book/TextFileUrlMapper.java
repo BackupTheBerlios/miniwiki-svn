@@ -32,7 +32,7 @@ import java.util.Map;
  * Manages links to keys, mapping is read from a text file
  *
  * @author Stephan J. Schmidt
- * @version $Id: TextFileUrlMapper.java,v 1.6 2003/06/11 10:04:27 stephan Exp $
+ * @version $Id$
  */
 
 public abstract class TextFileUrlMapper implements UrlMapper {

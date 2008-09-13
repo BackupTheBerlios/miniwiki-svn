@@ -24,7 +24,7 @@ package org.tmjee.miniwiki.radeox.macro.book;
  * Manages links to asin (DVD, CD) dealears or comparison services
  *
  * @author Stephan J. Schmidt
- * @version $Id: AsinServices.java,v 1.3 2003/02/06 13:41:41 leo Exp $
+ * @version $Id$
  */
 
 public class AsinServices extends TextFileUrlMapper {

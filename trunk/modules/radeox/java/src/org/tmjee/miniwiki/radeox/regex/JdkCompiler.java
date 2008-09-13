@@ -25,7 +25,7 @@ package org.tmjee.miniwiki.radeox.regex;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: JdkCompiler.java,v 1.1 2004/04/16 09:10:50 stephan Exp $
+ * @version $Id$
  */
 
 public class JdkCompiler extends Compiler {

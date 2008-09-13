@@ -25,7 +25,7 @@ package org.tmjee.miniwiki.radeox.macro.code;
  *
  * @author stephan
  * @team sonicteam
- * @version $Id: SqlCodeFilter.java,v 1.6 2004/02/19 12:47:56 stephan Exp $
+ * @version $Id$
  */
 
 public class SqlCodeFilter extends DefaultRegexCodeFormatter implements SourceCodeFormatter {

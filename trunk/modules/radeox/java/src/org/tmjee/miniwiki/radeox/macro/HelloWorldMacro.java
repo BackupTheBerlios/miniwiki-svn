@@ -28,7 +28,7 @@ import java.io.Writer;
  * Hello world example macro. This Macro displays a hello world string.
  *
  * @author stephan
- * @version $Id: HelloWorldMacro.java,v 1.4 2003/10/07 08:05:33 stephan Exp $
+ * @version $Id$
  */
 
 public class HelloWorldMacro extends BaseMacro {

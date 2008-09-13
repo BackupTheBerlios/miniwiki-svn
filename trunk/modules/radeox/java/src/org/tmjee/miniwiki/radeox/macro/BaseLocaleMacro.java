@@ -33,7 +33,7 @@ import java.util.ResourceBundle;
  * and reads it's name from a locale file
  *
  * @author stephan
- * @version $Id: BaseLocaleMacro.java,v 1.6 2004/04/27 19:30:38 leo Exp $
+ * @version $Id$
  */
 
 public abstract class BaseLocaleMacro extends BaseMacro implements LocaleMacro {

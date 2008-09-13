@@ -28,7 +28,7 @@ import java.util.StringTokenizer;
 /**
  *
  * @author
- * @version $Id: BaseMacroParameter.java,v 1.12 2004/05/03 11:12:37 stephan Exp $
+ * @version $Id$
  */
 
 public class BaseMacroParameter implements MacroParameter {
