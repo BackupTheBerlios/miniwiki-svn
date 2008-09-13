@@ -38,7 +38,7 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Collection;
 
-/* $Id: ValidatingResourceBundle.java,v 1.6 2008/03/15 13:53:47 fredt Exp $ */
+/* $Id$ */
 
 /**
  * Purpose of this class is to wrap a RefCapablePropertyResourceBundle to

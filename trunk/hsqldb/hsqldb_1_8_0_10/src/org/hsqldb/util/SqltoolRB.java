@@ -34,7 +34,7 @@ package org.hsqldb.util;
 import java.util.Map;
 import java.util.HashMap;
 
-/* $Id: SqltoolRB.java,v 1.10 2008/03/15 13:53:47 fredt Exp $ */
+/* $Id$ */
 
 /**
  * Resource Bundle for SqlTool and associated classes.

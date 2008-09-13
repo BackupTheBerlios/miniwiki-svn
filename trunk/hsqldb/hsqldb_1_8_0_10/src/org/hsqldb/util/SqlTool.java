@@ -41,7 +41,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-/* $Id: SqlTool.java,v 1.73 2008/03/15 13:53:47 fredt Exp $ */
+/* $Id$ */
 
 /**
  * Sql Tool.  A command-line and/or interactive SQL tool.
@@ -58,7 +58,7 @@ import java.util.Map;
  * Java way.
  *
  * @see #main()
- * @version $Revision: 1.73 $
+ * @version $Revision$
  * @author Blaine Simpson unsaved@users
  */
 public class SqlTool {

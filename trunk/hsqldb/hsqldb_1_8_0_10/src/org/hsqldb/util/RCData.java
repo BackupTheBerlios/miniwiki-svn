@@ -42,7 +42,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
-/* $Id: RCData.java,v 1.18 2008/03/15 13:53:46 fredt Exp $ */
+/* $Id$ */
 
 /**
  * All the info we need to connect up to a database.

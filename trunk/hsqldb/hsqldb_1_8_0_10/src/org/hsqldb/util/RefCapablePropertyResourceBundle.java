@@ -45,7 +45,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 
-/* $Id: RefCapablePropertyResourceBundle.java,v 1.7 2008/03/15 13:53:46 fredt Exp $ */
+/* $Id$ */
 
 /**
  * Just like PropertyResourceBundle, except keys mapped to nothing in the

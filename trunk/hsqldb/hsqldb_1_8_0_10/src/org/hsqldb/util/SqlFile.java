@@ -64,7 +64,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-/* $Id: SqlFile.java,v 1.170 2008/03/15 13:53:46 fredt Exp $ */
+/* $Id$ */
 
 /**
  * Encapsulation of a sql text file like 'myscript.sql'.
@@ -113,7 +113,7 @@ import java.util.regex.PatternSyntaxException;
  * on "buffer", and expect it to contain the method specific prefix
  * (if any).
  *
- * @version $Revision: 1.170 $
+ * @version $Revision$
  * @author Blaine Simpson unsaved@users
  */
 
