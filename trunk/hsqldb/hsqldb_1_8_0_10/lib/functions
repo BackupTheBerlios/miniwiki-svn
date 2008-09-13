@@ -1,7 +1,7 @@
 
 # Bourne shell (and compatible) script, to be "source".
 
-# $Id: functions,v 1.3 2002/11/23 18:28:17 unsaved Exp $
+# $Id$
 
 # functions used by the hsqldb Linux scripts
 #
