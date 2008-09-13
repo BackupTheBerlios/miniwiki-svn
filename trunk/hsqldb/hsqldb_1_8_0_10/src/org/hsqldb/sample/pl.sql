@@ -1,5 +1,5 @@
 /*
-    $Id: pl.sql,v 1.4 2005/05/02 15:07:26 unsaved Exp $
+    $Id$
     SQL File to illustrate the use of SqlTool PL features.
     Invoke like
         java -jar .../hsqldb.jar .../pl.sql mem

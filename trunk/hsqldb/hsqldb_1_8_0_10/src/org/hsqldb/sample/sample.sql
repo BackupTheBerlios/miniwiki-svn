@@ -1,5 +1,5 @@
 /*
-    $Id: sample.sql,v 1.5 2005/05/02 15:07:27 unsaved Exp $
+    $Id$
     Examplifies use of SqlTool.
     PCTASK Table creation
 */

@@ -1,5 +1,5 @@
 /*
- *  $Id: sampledata.sql,v 1.3 2007/08/09 03:22:21 unsaved Exp $
+ *  $Id$
  *
  *  Creates and populates database objects with sample data.
  *  This file was created by grabbing the commands made by creating

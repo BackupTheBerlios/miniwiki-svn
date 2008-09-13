@@ -1,4 +1,4 @@
-# $Id: sqltool.rc,v 1.22 2007/08/09 03:22:21 unsaved Exp $
+# $Id$
 
 # This is a sample RC configuration file used by SqlTool, DatabaseManager,
 # and any other program that uses the org.hsqldb.util.RCData class.
