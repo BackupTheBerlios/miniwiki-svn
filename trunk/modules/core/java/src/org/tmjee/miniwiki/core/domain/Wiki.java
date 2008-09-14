@@ -37,7 +37,7 @@ public class Wiki implements Identifiable {
 
     @OneToMany(targetEntity = WikiPriviledge.class,
                 cascade = {CascadeType.ALL},
-                fetch = FetchType.LAZY)
+                fetch = FetchType.EAGER)
     @ElementJoinColumn(name="WIKI_ID", referencedColumnName = "ID")
     @ElementForeignKey
     private Set<WikiPriviledge> priviledges = new LinkedHashSet<WikiPriviledge>();
@@ -129,6 +129,10 @@ public class Wiki implements Identifiable {
         return version;
     }
 
+    public String getTemplate() {
+        return template;
+    }
+
 
     // === setters ===
 
@@ -150,6 +154,10 @@ public class Wiki implements Identifiable {
 
     public void setVersion(int version) {
         this.version = version;
+    }
+
+    public void setTemplate(String template) {
+        this.template = template;
     }
 
 

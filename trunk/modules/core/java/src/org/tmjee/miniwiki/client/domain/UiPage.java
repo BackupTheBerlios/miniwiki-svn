@@ -16,7 +16,7 @@ public class UiPage implements UiIdentifiable {
     private List<UiPageAttachment> attachments = new ArrayList<UiPageAttachment>();
     private UiUser creator;
     private UiUser lastModifiedUser;
-    private List<UiPreviousVersion> previousVersions = new ArrayList<UiPreviousVersion>();
+    private List<UiPagePreviousVersion> previousVersions = new ArrayList<UiPagePreviousVersion>();
     private List<UiPageProperty> properties = new ArrayList<UiPageProperty>();
     private List<UiPage> children = new ArrayList<UiPage>();
     private UiPage parent;
@@ -80,11 +80,11 @@ public class UiPage implements UiIdentifiable {
         this.lastModifiedUser = lastModifiedUser;
     }
 
-    public List<UiPreviousVersion> getPreviousVersions() {
+    public List<UiPagePreviousVersion> getPreviousVersions() {
         return previousVersions;
     }
 
-    public void setPreviousVersions(List<UiPreviousVersion> previousVersions) {
+    public void setPreviousVersions(List<UiPagePreviousVersion> previousVersions) {
         this.previousVersions = previousVersions;
     }
 

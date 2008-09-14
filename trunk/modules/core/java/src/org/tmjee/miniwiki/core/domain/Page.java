@@ -34,12 +34,14 @@ public class Page implements Identifiable {
 
     @OneToMany(targetEntity = PagePriviledge.class,
                 cascade={CascadeType.ALL},
-                fetch=FetchType.LAZY)
+                fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name="PAGE_ID", referencedColumnName = "ID")
     private Set<PagePriviledge> priviledges = new LinkedHashSet<PagePriviledge>();
 
-    @ManyToOne(targetEntity = Space.class, fetch=FetchType.LAZY, optional = false)
+    @ManyToOne(targetEntity = Space.class,
+                fetch=FetchType.LAZY,
+                optional = false)
     @JoinColumn(name="SPACE_ID", referencedColumnName = "ID")
     private Space space;
 
@@ -50,14 +52,16 @@ public class Page implements Identifiable {
     @ElementJoinColumn(name = "PAGE_ID", referencedColumnName = "ID")
     private Set<PageAttachment> attachments = new LinkedHashSet<PageAttachment>();
 
-    @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(targetEntity = User.class,
+                fetch = FetchType.EAGER,
+                optional = false)
     @ForeignKey
     @JoinColumn(name="CREATOR_ID", referencedColumnName = "ID")
     private User creator;
 
 
     @ManyToOne(targetEntity = User.class,
-                fetch = FetchType.LAZY)
+                fetch = FetchType.EAGER)
     @JoinColumn(name = "LAST_MODIFIED_USER_ID", referencedColumnName = "ID")
     @ForeignKey
     private User lastModifiedUser;
@@ -68,12 +72,12 @@ public class Page implements Identifiable {
                 fetch=FetchType.LAZY)
     @ElementForeignKey
     @ElementJoinColumn(name = "PAGE_ID", referencedColumnName = "ID")
-    private Set<PagePreviousVersion> perviousVersions = new LinkedHashSet<PagePreviousVersion>();
+    private Set<PagePreviousVersion> previousVersions = new LinkedHashSet<PagePreviousVersion>();
 
 
     @OneToMany(targetEntity = PageProperty.class,
                 cascade={CascadeType.ALL},
-                fetch=FetchType.LAZY)
+                fetch=FetchType.EAGER)
     @ElementForeignKey
     @ElementJoinColumn(name = "PAGE_ID", referencedColumnName = "ID")
     private Set<PageProperty> properties = new LinkedHashSet<PageProperty>();
@@ -146,8 +150,8 @@ public class Page implements Identifiable {
         return lastModifiedUser;
     }
 
-    public Set<PagePreviousVersion> getPerviousVersions() {
-        return perviousVersions;
+    public Set<PagePreviousVersion> getPreviousVersions() {
+        return previousVersions;
     }
 
     public Set<PageProperty> getProperties() {
@@ -164,6 +168,14 @@ public class Page implements Identifiable {
 
     public int getVersion() {
         return version;
+    }
+
+    public String getTemplate() {
+        return template;
+    }
+
+    public String getContent() {
+        return content;
     }
 
 
@@ -199,7 +211,7 @@ public class Page implements Identifiable {
     }
 
     public void setPreviousVersions(Set<PagePreviousVersion> perviousVersions) {
-        this.perviousVersions = perviousVersions;
+        this.previousVersions = perviousVersions;
     }
 
     public void setProperties(Set<PageProperty> properties) {
@@ -218,6 +230,13 @@ public class Page implements Identifiable {
         this.version = version;
     }
 
+    public void setTemplate(String template) {
+        this.template = template;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     
 

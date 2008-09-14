@@ -41,7 +41,10 @@ public class TemplateManagementService extends AbstractService {
             return new TemplateInfo("Wiki");
         }
         else { // inform them we can't load anything
-            return new TemplateInfo("We can't load anything using this url / bookmark");    
+
+            
+
+            return new TemplateInfo("We can't load anything using this url / bookmark");
         }
     }
 

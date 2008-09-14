@@ -11,11 +11,12 @@ public class UiSpace implements UiIdentifiable {
 
     private long id;
     private String name;
-    private List<UiPage> pages = new ArrayList<UiPage>();
+    //private List<UiPage> pages = new ArrayList<UiPage>();
     private UiUser creator;
     private List<UiSpacePriviledge> priviledges = new ArrayList<UiSpacePriviledge>();
     private List<UiSpaceProperty> properties = new ArrayList<UiSpaceProperty>();
     private String template;
+    private UiPage defaultPage;
 
 
 
@@ -45,12 +46,20 @@ public class UiSpace implements UiIdentifiable {
         this.name = name;
     }
 
-    public List<UiPage> getPages() {
+   /* public List<UiPage> getPages() {
         return pages;
     }
 
     public void setPages(List<UiPage> pages) {
         this.pages = pages;
+    }*/
+
+    public UiPage getDefaultPage() {
+        return defaultPage;
+    }
+
+    public void setDefaultPage(UiPage defaultPage) {
+        this.defaultPage = defaultPage;
     }
 
     public UiUser getCreator() {

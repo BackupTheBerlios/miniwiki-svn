@@ -32,23 +32,29 @@ public class Space implements Identifiable {
     @Column(name="NAME", nullable = false)
     private String name;
 
-    @OneToMany(targetEntity = Page.class,
+    /*@OneToMany(targetEntity = Page.class,
                 cascade = {CascadeType.ALL},
-                fetch = FetchType.LAZY)
-    @ElementJoinColumn(name = "SPACE_ID", referencedColumnName = "ID")
-    @ElementForeignKey
-    private Set<Page> pages = new LinkedHashSet<Page>();
+                fetch = FetchType.LAZY,
+                mappedBy = "space")
+    private Set<Page> pages = new LinkedHashSet<Page>();*/
+
+
+    @OneToOne(targetEntity = Page.class,
+                cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
+                fetch = FetchType.EAGER)
+    @JoinColumn(name="DEFAULT_PAGE_ID", referencedColumnName = "ID")
+    private Page defaultPage;
 
     @ManyToOne(targetEntity = User.class,
                 cascade = {CascadeType.ALL},
-                fetch = FetchType.LAZY)
+                fetch = FetchType.EAGER)
     @JoinColumn(name="CREATOR_ID", referencedColumnName = "ID")
     @ForeignKey
     private User creator;
 
     @OneToMany(targetEntity = SpacePriviledge.class,
                 cascade = {CascadeType.ALL},
-                fetch = FetchType.LAZY)
+                fetch = FetchType.EAGER)
     @ElementJoinColumn(name = "SPACE_ID", referencedColumnName = "ID")
     @ElementForeignKey
     private Set<SpacePriviledge> priviledges = new LinkedHashSet<SpacePriviledge>();
@@ -59,6 +65,13 @@ public class Space implements Identifiable {
     @ElementJoinColumn(name="PROPERTY_ID", referencedColumnName = "ID")
     @ElementForeignKey
     private Set<SpaceProperty> properties = new LinkedHashSet<SpaceProperty>();
+
+
+    @ManyToOne(targetEntity = Wiki.class,
+                fetch=FetchType.EAGER,
+                optional=false)
+    @JoinColumn(name = "WIKI_ID", referencedColumnName = "ID")
+    private Wiki wiki;
 
     @Version
     @Column(name = "VERSION")
@@ -86,9 +99,9 @@ public class Space implements Identifiable {
         return name;
     }
 
-    public Set<Page> getPages() {
+    /*public Set<Page> getPages() {
         return pages;
-    }
+    }*/
 
     public User getCreator() {
         return creator;
@@ -106,6 +119,18 @@ public class Space implements Identifiable {
         return version;
     }
 
+    public String getTemplate() {
+        return template;
+    }
+
+    public Wiki getWiki() {
+        return wiki;
+    }
+
+    public Page getDefaultPage() {
+        return defaultPage;
+    }
+
 
 
 
@@ -119,9 +144,9 @@ public class Space implements Identifiable {
         this.name = name;
     }
 
-    public void setPages(Set<Page> pages) {
+    /*public void setPages(Set<Page> pages) {
         this.pages = pages;
-    }
+    }*/
 
     public void setCreator(User creator) {
         this.creator = creator;
@@ -139,6 +164,17 @@ public class Space implements Identifiable {
         this.version = version;
     }
 
+    public void setTemplate(String template) {
+        this.template = template;
+    }
+
+    public void setWiki(Wiki wiki) {
+        this.wiki = wiki;
+    }
+
+    public void setDefaultPage(Page defaultPage) {
+        this.defaultPage = defaultPage;
+    }
 
 
 

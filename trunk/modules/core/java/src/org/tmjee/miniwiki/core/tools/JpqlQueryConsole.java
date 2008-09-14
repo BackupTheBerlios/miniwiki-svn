@@ -41,11 +41,11 @@ public class JpqlQueryConsole {
             while(!"END".equalsIgnoreCase(commandLine)) {
                 try {
                     process(commandLine);
-                    commandLine = readCommandLine();
                 }
                 catch(DataAccessException e) {
                     e.printStackTrace();
                 }
+                commandLine = readCommandLine();
             }
         }
         finally {
