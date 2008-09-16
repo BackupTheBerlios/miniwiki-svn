@@ -10,6 +10,7 @@ import org.tmjee.miniwiki.client.Constants;
 import javax.persistence.*;
 import java.util.Set;
 import java.util.LinkedHashSet;
+import java.util.Date;
 
 /**
  * @author tmjee
@@ -65,6 +66,10 @@ public class Page implements Identifiable {
     @JoinColumn(name = "LAST_MODIFIED_USER_ID", referencedColumnName = "ID")
     @ForeignKey
     private User lastModifiedUser;
+
+    @Basic
+    @Column(name="LAST_MODIFIED_DATE")
+    private Date lastModifiedDate;
 
 
     @OneToMany(targetEntity = PagePreviousVersion.class,
@@ -178,6 +183,10 @@ public class Page implements Identifiable {
         return content;
     }
 
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
 
 
     // === setters ===
@@ -236,6 +245,10 @@ public class Page implements Identifiable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 
     

@@ -25,7 +25,7 @@ public class UiWikiPriviledge extends UiPriviledge {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UiSpaceProperty that = (UiSpaceProperty) o;
+        UiWikiPriviledge that = (UiWikiPriviledge) o;
         if (getName() != null ? ! getName().equals(that.getName()) : that.getName() != null) return false;
         return true;
     }

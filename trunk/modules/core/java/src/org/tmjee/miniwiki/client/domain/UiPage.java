@@ -2,6 +2,8 @@ package org.tmjee.miniwiki.client.domain;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * @author tmjee
@@ -22,6 +24,7 @@ public class UiPage implements UiIdentifiable {
     private UiPage parent;
     private String content;
     private String template;
+    private Date lastModifiedDate;
 
 
     public long getId() {
@@ -126,6 +129,14 @@ public class UiPage implements UiIdentifiable {
 
     public void setTemplate(String template) {
         this.template = template;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 
 

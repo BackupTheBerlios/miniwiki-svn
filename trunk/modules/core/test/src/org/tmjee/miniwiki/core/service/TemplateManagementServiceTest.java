@@ -11,10 +11,7 @@ import org.tmjee.miniwiki.utils.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Collections;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * @author tmjee
@@ -34,6 +31,7 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
     Page wiki2Space1Page2 = null;
     Page wiki2Space2Page1 = null;
 
+    Date lastModifiedDate = new Date();
 
     protected void postSetUp() throws Exception {
         getTestingSupportService().doService(new TestingSupportService.TestingAction() {
@@ -171,22 +169,31 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
                                         add(prop2);
                                     }
                                 });
+                                /*
+                                 *    + S1_Page1
+                                 *        + S1_Page1_1
+                                 *            + S1_Page1_1_1
+                                 *        + S1_Page1_2
+                                 *            + S1_Page1_2_1
+                                 */
                                 wiki1Space1Page1 = new Page();
                                 wiki1Space1Page1.setName("S1_Page1");
                                 wiki1Space1Page1.setLastModifiedUser(toby);
                                 wiki1Space1Page1.setCreator(toby);
+                                wiki1Space1Page1.setContent("CONTENT");
                                 wiki1Space1Page1.setSpace(space1);
                                 wiki1Space1Page1.setParent(null);
+                                wiki1Space1Page1.setLastModifiedDate(lastModifiedDate);
                                 wiki1Space1Page1.setAttachments(new HashSet<PageAttachment>() {
                                     {
                                         PageAttachment att1 = new PageAttachment();
-                                        att1.setAttachment("SAMPLE".getBytes());
+                                        att1.setAttachment("SAMPLE1".getBytes());
                                         att1.setContentType("text/plain");
                                         att1.setName("Attachment1");
                                         add(att1);
 
                                         PageAttachment att2 = new PageAttachment();
-                                        att2.setAttachment("SAMPLE".getBytes());
+                                        att2.setAttachment("SAMPLE2".getBytes());
                                         att2.setContentType("text/plain");
                                         att2.setName("Attachment2");
                                         add(att2);
@@ -314,6 +321,10 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
                                 });
                                 space1.setDefaultPage(wiki1Space1Page1);
 
+                                /*
+                                 *   + S1_Page2
+                                 *      + S1_Page2_1
+                                 */
                                 wiki1Space1Page2 = new Page();
                                 wiki1Space1Page2.setName("S1_Page2");
                                 wiki1Space1Page2.setLastModifiedUser(toby);
@@ -466,11 +477,17 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
                                     }
                                 });
 
+                                       /*
+                                        *  + S2_Page1
+                                        *     + S2_Page1_1
+                                        */
                                         wiki1Space2Page1 = new Page();
                                         wiki1Space2Page1.setName("S2_Page1");
                                         wiki1Space2Page1.setLastModifiedUser(toby);
+                                        wiki1Space2Page1.setLastModifiedDate(lastModifiedDate);
                                         wiki1Space2Page1.setCreator(toby);
                                         wiki1Space2Page1.setSpace(space2);
+                                        wiki1Space2Page1.setContent("CONTENT2");
                                         wiki1Space2Page1.setParent(null);
                                         wiki1Space2Page1.setAttachments(new HashSet<PageAttachment>() {
                                             {
@@ -671,12 +688,21 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
                                         add(prop2);
                                     }
                                 });
+                                        /*
+                                         *  + S1_Page1
+                                         *     + S1_Page1_1
+                                         *        + S1_Page1_1_1
+                                         *     + S1_Page1_2
+                                         *        + S1_Page1_2_1
+                                         */
                                         wiki2Space1Page1 = new Page();
                                         wiki2Space1Page1.setName("S1_Page1");
                                         wiki2Space1Page1.setLastModifiedUser(toby);
                                         wiki2Space1Page1.setCreator(toby);
                                         wiki2Space1Page1.setSpace(space1);
                                         wiki2Space1Page1.setParent(null);
+                                        wiki2Space1Page1.setLastModifiedDate(lastModifiedDate);
+                                        wiki2Space1Page1.setContent("CONTENT");
                                         wiki2Space1Page1.setAttachments(new HashSet<PageAttachment>() {
                                             {
                                                 PageAttachment att1 = new PageAttachment();
@@ -814,13 +840,19 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
                                             }
                                         });
                                         space1.setDefaultPage(wiki2Space1Page1);
-                                                                              
+
+                                /*
+                                 *  + S1_Page2
+                                 *     + S1_Page2_1
+                                 * 
+                                 */
                                         wiki2Space1Page2 = new Page();
                                         wiki2Space1Page2.setName("S1_Page2");
                                         wiki2Space1Page2.setLastModifiedUser(toby);
                                         wiki2Space1Page2.setCreator(toby);
                                         wiki2Space1Page2.setSpace(space1);
                                         wiki2Space1Page2.setParent(null);
+                                        wiki2Space1Page2.setLastModifiedDate(lastModifiedDate);
                                         wiki2Space1Page2.setAttachments(new HashSet<PageAttachment>() {
                                             {
                                                 PageAttachment att1 = new PageAttachment();
@@ -966,12 +998,20 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
                                         add(prop2);
                                     }
                                 });
+
+                                /*
+                                 *  + S2_Page1
+                                 *     + S2_Page1_1
+                                 */
                                         wiki2Space2Page1 = new Page();
                                         wiki2Space2Page1.setName("S2_Page1");
                                         wiki2Space2Page1.setLastModifiedUser(toby);
                                         wiki2Space2Page1.setCreator(toby);
                                         wiki2Space2Page1.setSpace(space2);
                                         wiki2Space2Page1.setParent(null);
+                                        wiki2Space2Page1.setLastModifiedDate(lastModifiedDate);
+                                        wiki2Space2Page1.setLastModifiedUser(toby);
+                                        wiki2Space2Page1.setContent("CONTENT2");
                                         wiki2Space2Page1.setAttachments(new HashSet<PageAttachment>() {
                                             {
                                                 PageAttachment att1 = new PageAttachment();
@@ -1111,6 +1151,11 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
         assertEquals(wikis.get(0).getName(), "Wiki1");
         assertEquals(wikis.get(1).getName(), "Wiki2");
 
+
+        // ==================
+        // === Wiki1
+        // ==================
+        {
         UiWiki wiki1 = wikis.get(0);
         List<UiWikiPriviledge> wiki1Priviledges = new ArrayList<UiWikiPriviledge>(wiki1.getPriviledges());
         List<UiWikiProperty> wiki1Properties = new ArrayList<UiWikiProperty>(wiki1.getProperties());
@@ -1118,69 +1163,220 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
         Collections.sort(wiki1Priviledges, new UiWikiPriviledgeNameComparator());
         Collections.sort(wiki1Properties, new UiWikiPropertyNameComparator());
         Collections.sort(wiki1Spaces, new UiSpaceNameComparator());
-
         assertEquals(wiki1.getName(), "Wiki1");
         assertEquals(wiki1.getTemplate(), Constants.DEFAULT_WIKI_TEMPLATE);
         assertEquals(wiki1Priviledges.get(0).getName(), "Priviledge1");
         assertEquals(wiki1Priviledges.get(1).getName(), "Priviledge2");
         assertEquals(wiki1Priviledges.get(0).getValues().size(), 2);
-        assertTrue(wiki1Priviledges.get(0).getValues().contains("Priviledge1V1"));
-        assertTrue(wiki1Priviledges.get(0).getValues().contains("Priviledge1V2"));
-        assertTrue(wiki1Priviledges.get(1).getValues().contains("Priviledge2V1"));
-        assertTrue(wiki1Priviledges.get(1).getValues().contains("Priviledge2V2"));
+        List<String> wiki1Priviledge1Values = new ArrayList<String>();
+        wiki1Priviledge1Values.add(wiki1Priviledges.get(0).getValues().get(0).getValue());
+        wiki1Priviledge1Values.add(wiki1Priviledges.get(0).getValues().get(1).getValue());
+        assertTrue(wiki1Priviledge1Values.contains("Priviledge1V1"));
+        assertTrue(wiki1Priviledge1Values.contains("Priviledge1V2"));
+        List<String> wiki1Priviledge2Values = new ArrayList<String>();
+        wiki1Priviledge2Values.add(wiki1Priviledges.get(1).getValues().get(0).getValue());
+        wiki1Priviledge2Values.add(wiki1Priviledges.get(1).getValues().get(1).getValue());
+        assertTrue(wiki1Priviledge2Values.contains("Priviledge2V1"));
+        assertTrue(wiki1Priviledge2Values.contains("Priviledge2V2"));
         assertEquals(wiki1Properties.get(0).getName(), "Prop1");
         assertEquals(wiki1Properties.get(0).getValue(), "Val1");
         assertEquals(wiki1Properties.get(1).getName(), "Prop2");
         assertEquals(wiki1Properties.get(1).getValue(), "Val2");
         assertEquals(wiki1Spaces.size(), 2);
+
+        // space 1
         assertEquals(wiki1Spaces.get(0).getName(), "Space1");
         assertEquals(wiki1Spaces.get(0).getTemplate(), Constants.DEFAULT_SPACE_TEMPLATE);
         assertEquals(wiki1Spaces.get(0).getCreator().getUsername(), "Toby");
-
+        assertEquals(wiki1Spaces.get(0).getDefaultPage().getName(), "S1_Page1");
+        assertEquals(wiki1Spaces.get(0).getDefaultPage().getContent(), "CONTENT");
+        assertEquals(wiki1Spaces.get(0).getDefaultPage().getCreator().getUsername(), "Toby");
+        assertEquals(wiki1Spaces.get(0).getDefaultPage().getLastModifiedUser().getUsername(), "Toby");
+        assertEquals(wiki1Spaces.get(0).getDefaultPage().getLastModifiedDate(), lastModifiedDate);
         List<UiSpacePriviledge> wiki1Space1Priviledges = new ArrayList<UiSpacePriviledge>(wiki1Spaces.get(0).getPriviledges());
         List<UiSpaceProperty> wiki1Space1Properties = new ArrayList<UiSpaceProperty>(wiki1Spaces.get(0).getProperties());
-        List<UiPage> wiki1Space1Pages = new ArrayList<UiPage>(wiki1Spaces.get(0).getPages());
+        List<UiPageAttachment> wiki1Space1DefaultPageAttachments = new ArrayList<UiPageAttachment>(wiki1Spaces.get(0).getDefaultPage().getAttachments());
         Collections.sort(wiki1Space1Priviledges, new UiSpacePriviledgeNameComparator());
         Collections.sort(wiki1Space1Properties, new UiSpacePropertyNameComparator());
-        Collections.sort(wiki1Space1Pages, new UiPageNameComparator());
+        Collections.sort(wiki1Space1DefaultPageAttachments, new UiPageAttachmentNameComparator());
         assertEquals(wiki1Space1Priviledges.size(), 2);
         assertEquals(wiki1Space1Priviledges.get(0).getName(), "Priv1");
         assertEquals(wiki1Space1Priviledges.get(0).getValues().size(), 2);
-        assertTrue(wiki1Space1Priviledges.get(0).getValues().contains("Val1"));
-        assertTrue(wiki1Space1Priviledges.get(0).getValues().contains("Val2"));
+        List<String> wiki1Space1Priviledge1Values = new ArrayList<String>();
+        wiki1Space1Priviledge1Values.add(wiki1Space1Priviledges.get(0).getValues().get(0).getValue());
+        wiki1Space1Priviledge1Values.add(wiki1Space1Priviledges.get(0).getValues().get(1).getValue());
+        assertTrue(wiki1Space1Priviledge1Values.contains("Val1"));
+        assertTrue(wiki1Space1Priviledge1Values.contains("Val2"));
         assertEquals(wiki1Space1Priviledges.get(1).getName(), "Priv2");
         assertEquals(wiki1Space1Priviledges.get(1).getValues().size(), 2);
-        assertTrue(wiki1Space1Priviledges.get(1).getValues().contains("Val1"));
-        assertTrue(wiki1Space1Priviledges.get(1).getValues().contains("Val2"));
+        List<String> wiki1Space1Priviledge2Values = new ArrayList<String>();
+        wiki1Space1Priviledge2Values.add(wiki1Space1Priviledges.get(1).getValues().get(0).getValue());
+        wiki1Space1Priviledge2Values.add(wiki1Space1Priviledges.get(1).getValues().get(1).getValue());
+        assertTrue(wiki1Space1Priviledge2Values.contains("Val1"));
+        assertTrue(wiki1Space1Priviledge2Values.contains("Val2"));
         assertEquals(wiki1Space1Properties.get(0).getName(), "Prop1");
         assertEquals(wiki1Space1Properties.get(0).getValue(), "Prop1Value");
         assertEquals(wiki1Space1Properties.get(1).getName(), "Prop2");
         assertEquals(wiki1Space1Properties.get(1).getValue(), "Prop2Value");
+        assertEquals(wiki1Space1DefaultPageAttachments.size(), 2);
+        assertEquals(wiki1Space1DefaultPageAttachments.get(0).getName(), "Attachment1");
+        assertEquals(wiki1Space1DefaultPageAttachments.get(0).getContentType(), "text/plain");
+        assertEquals(wiki1Space1DefaultPageAttachments.get(1).getName(), "Attachment2");
+        assertEquals(wiki1Space1DefaultPageAttachments.get(1).getContentType(), "text/plain");
 
-
-
-
+        // space 2
+        assertEquals(wiki1Spaces.get(1).getName(), "Space2");
+        assertEquals(wiki1Spaces.get(1).getTemplate(), Constants.DEFAULT_SPACE_TEMPLATE);
+        assertEquals(wiki1Spaces.get(1).getCreator().getUsername(), "Jim");
+        assertEquals(wiki1Spaces.get(1).getDefaultPage().getName(), "S2_Page1");
+        assertEquals(wiki1Spaces.get(1).getDefaultPage().getContent(), "CONTENT2");
+        assertEquals(wiki1Spaces.get(1).getDefaultPage().getCreator().getUsername(), "Toby");
+        assertEquals(wiki1Spaces.get(1).getDefaultPage().getLastModifiedUser().getUsername(), "Toby");
+        assertEquals(wiki1Spaces.get(1).getDefaultPage().getLastModifiedDate(), lastModifiedDate);
         List<UiSpacePriviledge> wiki1Space2Priviledges = new ArrayList<UiSpacePriviledge>(wiki1Spaces.get(1).getPriviledges());
         List<UiSpaceProperty> wiki1Space2Properties = new ArrayList<UiSpaceProperty>(wiki1Spaces.get(1).getProperties());
-        List<UiPage> wiki1Space2Pages = new ArrayList<UiPage>(wiki1Spaces.get(1).getPages());
+        List<UiPageAttachment> wiki1Space2DefaultPageAttachments = new ArrayList<UiPageAttachment>(wiki1Spaces.get(0).getDefaultPage().getAttachments());
         Collections.sort(wiki1Space2Priviledges, new UiSpacePriviledgeNameComparator());
         Collections.sort(wiki1Space2Properties, new UiSpacePropertyNameComparator());
-        Collections.sort(wiki1Space2Pages, new UiPageNameComparator());
+        Collections.sort(wiki1Space2DefaultPageAttachments, new UiPageAttachmentNameComparator());
+        assertEquals(wiki1Space2Priviledges.get(0).getName(), "Priv1");
+        assertEquals(wiki1Space2Priviledges.get(0).getValues().size(), 2);
+        List<String> wiki1Space2Priviledge1Values = new ArrayList<String>();
+        wiki1Space2Priviledge1Values.add(wiki1Space2Priviledges.get(0).getValues().get(0).getValue());
+        wiki1Space2Priviledge1Values.add(wiki1Space2Priviledges.get(0).getValues().get(1).getValue());
+        assertTrue(wiki1Space2Priviledge1Values.contains("Val1"));
+        assertTrue(wiki1Space2Priviledge1Values.contains("Val2"));
+        assertEquals(wiki1Space2Priviledges.get(1).getName(), "Priv2");
+        assertEquals(wiki1Space2Priviledges.get(1).getValues().size(), 2);
+        List<String> wiki1Space2Priviledge2Values = new ArrayList<String>();
+        wiki1Space2Priviledge2Values.add(wiki1Space2Priviledges.get(0).getValues().get(0).getValue());
+        wiki1Space2Priviledge2Values.add(wiki1Space2Priviledges.get(0).getValues().get(1).getValue());
+        assertTrue(wiki1Space2Priviledge2Values.contains("Val1"));
+        assertTrue(wiki1Space2Priviledge2Values.contains("Val2"));    
+        assertEquals(wiki1Space2Properties.get(0).getName(), "Prop1");
+        assertEquals(wiki1Space2Properties.get(0).getValue(), "Prop1Value");
+        assertEquals(wiki1Space2Properties.get(1).getName(), "Prop2");
+        assertEquals(wiki1Space2Properties.get(1).getValue(), "Prop2Value");
+        assertEquals(wiki1Space1DefaultPageAttachments.size(), 2);
+        assertEquals(wiki1Space2DefaultPageAttachments.get(0).getName(), "Attachment1");
+        assertEquals(wiki1Space2DefaultPageAttachments.get(0).getContentType(), "text/plain");
+        assertEquals(wiki1Space2DefaultPageAttachments.get(1).getName(), "Attachment2");
+        assertEquals(wiki1Space2DefaultPageAttachments.get(1).getContentType(), "text/plain");
+        }
 
 
-
-
-        /*assertEquals(wiki2.getName(), "Wiki2");
-        assertEquals(wiki2.getTempalte(), Constants.DEFAULT_WIKI_TEMPLATE);
-        assertEquals(wiki2Priviledges.get(0).getName(), "Priviled")*/
-
-
-
-
-
-
-
+        
+        // ===================
+        // === Wiki2
+        // ===================
+        {
         UiWiki wiki2 = wikis.get(1);
+        List<UiWikiPriviledge> wiki2Priviledges = new ArrayList<UiWikiPriviledge>(wiki2.getPriviledges());
+        List<UiWikiProperty> wiki2Properties = new ArrayList<UiWikiProperty>(wiki2.getProperties());
+        List<UiSpace> wiki2Spaces = new ArrayList<UiSpace>(wiki2.getSpaces());
+        Collections.sort(wiki2Priviledges, new UiWikiPriviledgeNameComparator());
+        Collections.sort(wiki2Properties, new UiWikiPropertyNameComparator());
+        Collections.sort(wiki2Spaces, new UiSpaceNameComparator());
+        assertEquals(wiki2.getName(), "Wiki2");
+        assertEquals(wiki2.getTemplate(), Constants.DEFAULT_WIKI_TEMPLATE);
+        assertEquals(wiki2Priviledges.get(0).getName(), "Priviledge1");
+        assertEquals(wiki2Priviledges.get(1).getName(), "Priviledge2");
+        assertEquals(wiki2Priviledges.get(0).getValues().size(), 2);
+        List<String> wiki1Priviledge1Values = new ArrayList<String>();
+        wiki1Priviledge1Values.add(wiki2Priviledges.get(0).getValues().get(0).getValue());
+        wiki1Priviledge1Values.add(wiki2Priviledges.get(0).getValues().get(1).getValue());
+        assertTrue(wiki1Priviledge1Values.contains("Priviledge1V1"));
+        assertTrue(wiki1Priviledge1Values.contains("Priviledge1V2"));
+        List<String> wiki1Priviledge2Values = new ArrayList<String>();
+        wiki1Priviledge2Values.add(wiki2Priviledges.get(1).getValues().get(0).getValue());
+        wiki1Priviledge2Values.add(wiki2Priviledges.get(1).getValues().get(1).getValue());
+        assertTrue(wiki1Priviledge2Values.contains("Priviledge2V1"));
+        assertTrue(wiki1Priviledge2Values.contains("Priviledge2V2"));
+        assertEquals(wiki2Properties.get(0).getName(), "Prop1");
+        assertEquals(wiki2Properties.get(0).getValue(), "Val1");
+        assertEquals(wiki2Properties.get(1).getName(), "Prop2");
+        assertEquals(wiki2Properties.get(1).getValue(), "Val2");
+        assertEquals(wiki2Spaces.size(), 2);
+
+        // space 1
+        assertEquals(wiki2Spaces.get(0).getName(), "Space1");
+        assertEquals(wiki2Spaces.get(0).getTemplate(), Constants.DEFAULT_SPACE_TEMPLATE);
+        assertEquals(wiki2Spaces.get(0).getCreator().getUsername(), "Toby");
+        assertEquals(wiki2Spaces.get(0).getDefaultPage().getName(), "S1_Page1");
+        assertEquals(wiki2Spaces.get(0).getDefaultPage().getContent(), "CONTENT");
+        assertEquals(wiki2Spaces.get(0).getDefaultPage().getCreator().getUsername(), "Toby");
+        assertEquals(wiki2Spaces.get(0).getDefaultPage().getLastModifiedUser().getUsername(), "Toby");
+        assertEquals(wiki2Spaces.get(0).getDefaultPage().getLastModifiedDate(), lastModifiedDate);
+        List<UiSpacePriviledge> wiki2Space1Priviledges = new ArrayList<UiSpacePriviledge>(wiki2Spaces.get(0).getPriviledges());
+        List<UiSpaceProperty> wiki2Space1Properties = new ArrayList<UiSpaceProperty>(wiki2Spaces.get(0).getProperties());
+        List<UiPageAttachment> wiki2Space1DefaultPageAttachments = new ArrayList<UiPageAttachment>(wiki2Spaces.get(0).getDefaultPage().getAttachments());
+        Collections.sort(wiki2Space1Priviledges, new UiSpacePriviledgeNameComparator());
+        Collections.sort(wiki2Space1Properties, new UiSpacePropertyNameComparator());
+        Collections.sort(wiki2Space1DefaultPageAttachments, new UiPageAttachmentNameComparator());
+        assertEquals(wiki2Space1Priviledges.size(), 2);
+        assertEquals(wiki2Space1Priviledges.get(0).getName(), "Priv1");
+        assertEquals(wiki2Space1Priviledges.get(0).getValues().size(), 2);
+        List<String> wiki1Space1Priviledge1Values = new ArrayList<String>();
+        wiki1Space1Priviledge1Values.add(wiki2Space1Priviledges.get(0).getValues().get(0).getValue());
+        wiki1Space1Priviledge1Values.add(wiki2Space1Priviledges.get(0).getValues().get(1).getValue());
+        assertTrue(wiki1Space1Priviledge1Values.contains("Val1"));
+        assertTrue(wiki1Space1Priviledge1Values.contains("Val2"));
+        assertEquals(wiki2Space1Priviledges.get(1).getName(), "Priv2");
+        assertEquals(wiki2Space1Priviledges.get(1).getValues().size(), 2);
+        List<String> wiki1Space1Priviledge2Values = new ArrayList<String>();
+        wiki1Space1Priviledge2Values.add(wiki2Space1Priviledges.get(1).getValues().get(0).getValue());
+        wiki1Space1Priviledge2Values.add(wiki2Space1Priviledges.get(1).getValues().get(1).getValue());
+        assertTrue(wiki1Space1Priviledge2Values.contains("Val1"));
+        assertTrue(wiki1Space1Priviledge2Values.contains("Val2"));
+        assertEquals(wiki2Space1Properties.get(0).getName(), "Prop1");
+        assertEquals(wiki2Space1Properties.get(0).getValue(), "Prop1Value");
+        assertEquals(wiki2Space1Properties.get(1).getName(), "Prop2");
+        assertEquals(wiki2Space1Properties.get(1).getValue(), "Prop2Value");
+        assertEquals(wiki2Space1DefaultPageAttachments.size(), 2);
+        assertEquals(wiki2Space1DefaultPageAttachments.get(0).getName(), "Attachment1");
+        assertEquals(wiki2Space1DefaultPageAttachments.get(0).getContentType(), "text/plain");
+        assertEquals(wiki2Space1DefaultPageAttachments.get(1).getName(), "Attachment2");
+        assertEquals(wiki2Space1DefaultPageAttachments.get(1).getContentType(), "text/plain");
+
+        // space 2
+        assertEquals(wiki2Spaces.get(1).getName(), "Space2");
+        assertEquals(wiki2Spaces.get(1).getTemplate(), Constants.DEFAULT_SPACE_TEMPLATE);
+        assertEquals(wiki2Spaces.get(1).getCreator().getUsername(), "Jim");
+        assertEquals(wiki2Spaces.get(1).getDefaultPage().getName(), "S2_Page1");
+        assertEquals(wiki2Spaces.get(1).getDefaultPage().getContent(), "CONTENT2");
+        assertEquals(wiki2Spaces.get(1).getDefaultPage().getCreator().getUsername(), "Toby");
+        assertEquals(wiki2Spaces.get(1).getDefaultPage().getLastModifiedUser().getUsername(), "Toby");
+        assertEquals(wiki2Spaces.get(1).getDefaultPage().getLastModifiedDate(), lastModifiedDate);
+        List<UiSpacePriviledge> wiki1Space2Priviledges = new ArrayList<UiSpacePriviledge>(wiki2Spaces.get(1).getPriviledges());
+        List<UiSpaceProperty> wiki1Space2Properties = new ArrayList<UiSpaceProperty>(wiki2Spaces.get(1).getProperties());
+        List<UiPageAttachment> wiki1Space2DefaultPageAttachments = new ArrayList<UiPageAttachment>(wiki2Spaces.get(0).getDefaultPage().getAttachments());
+        Collections.sort(wiki1Space2Priviledges, new UiSpacePriviledgeNameComparator());
+        Collections.sort(wiki1Space2Properties, new UiSpacePropertyNameComparator());
+        Collections.sort(wiki1Space2DefaultPageAttachments, new UiPageAttachmentNameComparator());
+        assertEquals(wiki1Space2Priviledges.get(0).getName(), "Priv1");
+        assertEquals(wiki1Space2Priviledges.get(0).getValues().size(), 2);
+        List<String> wiki1Space2Priviledge1Values = new ArrayList<String>();
+        wiki1Space2Priviledge1Values.add(wiki1Space2Priviledges.get(0).getValues().get(0).getValue());
+        wiki1Space2Priviledge1Values.add(wiki1Space2Priviledges.get(0).getValues().get(1).getValue());
+        assertTrue(wiki1Space2Priviledge1Values.contains("Val1"));
+        assertTrue(wiki1Space2Priviledge1Values.contains("Val2"));
+        assertEquals(wiki1Space2Priviledges.get(1).getName(), "Priv2");
+        assertEquals(wiki1Space2Priviledges.get(1).getValues().size(), 2);
+        List<String> wiki1Space2Priviledge2Values = new ArrayList<String>();
+        wiki1Space2Priviledge2Values.add(wiki1Space2Priviledges.get(1).getValues().get(0).getValue());
+        wiki1Space2Priviledge2Values.add(wiki1Space2Priviledges.get(1).getValues().get(1).getValue());
+        assertTrue(wiki1Space2Priviledge2Values.contains("Val1"));
+        assertTrue(wiki1Space2Priviledge2Values.contains("Val2"));
+        assertEquals(wiki1Space2Properties.get(0).getName(), "Prop1");
+        assertEquals(wiki1Space2Properties.get(0).getValue(), "Prop1Value");
+        assertEquals(wiki1Space2Properties.get(1).getName(), "Prop2");
+        assertEquals(wiki1Space2Properties.get(1).getValue(), "Prop2Value");
+        assertEquals(wiki2Space1DefaultPageAttachments.size(), 2);
+        assertEquals(wiki1Space2DefaultPageAttachments.get(0).getName(), "Attachment1");
+        assertEquals(wiki1Space2DefaultPageAttachments.get(0).getContentType(), "text/plain");
+        assertEquals(wiki1Space2DefaultPageAttachments.get(1).getName(), "Attachment2");
+        assertEquals(wiki1Space2DefaultPageAttachments.get(1).getContentType(), "text/plain");
+        }
     }
 
     public void testFindWikiByNameAndById() throws Exception {
@@ -1195,7 +1391,17 @@ public class TemplateManagementServiceTest extends AbstractDbTestCase {
     }
 
 
-    
+                     //assertEquals(wiki1Spaces.get(0).getDefaultPage().getParent(), null);
+        /*
+                                 *    + S1_Page1
+                                 *        + S1_Page1_1
+                                 *            + S1_Page1_1_1
+                                 *        + S1_Page1_2
+                                 *            + S1_Page1_2_1
+                                 */
+        /*List<UiPage> childrenPages = new ArrayList<UiPage>(wiki1Spaces.get(0).getDefaultPage().getChildren());
+        Collections.sort(childrenPages, new UiPageNameComparator());
+        assertEquals(wiki1Spaces.get(0).getDefaultPage().getChildren(), 2);*/
 
 
     protected TemplateManagementService getTemplateManagementService() {

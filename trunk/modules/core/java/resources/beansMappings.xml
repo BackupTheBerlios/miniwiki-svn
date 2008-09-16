@@ -353,6 +353,10 @@
             <a>template</a>
             <b>template</b>
         </field>
+        <field map-id="UiWiki_UiPage_Simplified">
+            <a>defaultPage</a>
+            <b>defaultPage</b>
+        </field>
     </mapping>
     <mapping map-id="UiWiki_UiUser_Simplified">
         <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.User</class-a>
@@ -390,6 +394,62 @@
             <b>properties</b>
             <a-hint>org.tmjee.miniwiki.core.domain.UserProperty</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiUserProperty</b-hint>
+        </field>
+    </mapping>
+    <mapping map-id="UiWiki_UiPage_Simplified">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Page</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiPage</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field remove-orphans="true" map-id="UiPagePriviledge">
+            <a>priviledges</a>
+            <b>priviledges</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PagePriviledge</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPagePriviledge</b-hint>
+        </field>
+        <field remove-orphans="true" map-id="UiPageAttachment">
+            <a>attachments</a>
+            <b>attachments</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PageAttachment</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPageAttachment</b-hint>
+        </field>
+        <field map-id="UiPage_UiUser_Simplified">
+            <a>creator</a>
+            <b>creator</b>
+        </field>
+        <field map-id="UiPage_UiUser_Simplified">
+            <a>lastModifiedUser</a>
+            <b>lastModifiedUser</b>
+        </field>
+        <field>
+            <a>lastModifiedDate</a>
+            <b>lastModifiedDate</b>
+        </field>
+        <field remove-orphans="true" map-id="UiPagePreviousVersion">
+            <a>previousVersions</a>
+            <b>previousVersions</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PagePreviousVersion</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPagePreviousVersion</b-hint>
+        </field>
+        <field remove-orphans="true" map-id="UiPageProperty">
+            <a>properties</a>
+            <b>properties</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.PageProperty</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiPageProperty</b-hint>
+        </field>
+        <field>
+            <a>content</a>
+            <b>content</b>
+        </field>
+        <field>
+            <a>template</a>
+            <b>template</b>
         </field>
     </mapping>
 
@@ -567,6 +627,10 @@
             <a-hint>org.tmjee.miniwiki.core.domain.Page</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiPage</b-hint>
         </field>
+        <field>
+            <a>lastModifiedDate</a>
+            <b>lastModifiedDate</b>
+        </field>
     </mapping>
     <mapping map-id="UiSpace_UiPage_Parent">
         <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Page</class-a>
@@ -626,6 +690,10 @@
         <field>
             <a>template</a>
             <b>template</b>
+        </field>
+        <field>
+            <a>lastModifiedDate</a>
+            <b>lastModifiedDate</b>
         </field>
     </mapping>
     <mapping map-id="UiSpace_UiPage_Children">
@@ -689,6 +757,10 @@
             <a-hint>org.tmjee.miniwiki.core.domain.Page</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiPage</b-hint>
         </field>
+        <field>
+            <a>lastModifiedDate</a>
+            <b>lastModifiedDate</b>
+        </field>
     </mapping>
     <mapping map-id="UiSpace_UiUser_Simplified">
        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.User</class-a>
@@ -743,6 +815,10 @@
             <b>id</b>
         </field>
         <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field>
             <a>value</a>
             <b>value</b>
         </field>
@@ -761,6 +837,10 @@
         <field type="one-way">
             <a>id</a>
             <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
         </field>
         <field remove-orphans="true" map-id="UiSpacePriviledgeValue">
             <a>values</a>
@@ -861,6 +941,10 @@
             <a>template</a>
             <b>template</b>
         </field>
+        <field>
+            <a>lastModifiedDate</a>
+            <b>lastModifiedDate</b>
+        </field>
     </mapping>
     <mapping map-id="UiPage_UiSpace_Simplified">
         <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Space</class-a>
@@ -872,12 +956,6 @@
         <field>
             <a>name</a>
             <b>name</b>
-        </field>
-        <field remove-orphans="true" map-id="UiPage_UiPage_Simplified">
-            <a>pages</a>
-            <b>pages</b>
-            <a-hint>org.tmjee.miniwiki.core.domain.Page</a-hint>
-            <b-hint>org.tmjee.miniwiki.client.domain.UiPage</b-hint>
         </field>
         <field map-id="UiPage_UiUser_Simplified">
             <a>creator</a>
@@ -997,6 +1075,10 @@
             <a>template</a>
             <b>template</b>
         </field>
+        <field>
+            <a>lastModifiedDate</a>
+            <b>lastModifiedDate</b>
+        </field>
     </mapping>
     <mapping map-id="UiPage_UiPage_Children">
         <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.Page</class-a>
@@ -1058,6 +1140,10 @@
         <field>
             <a>template</a>
             <b>template</b>
+        </field>
+        <field>
+            <a>lastModifiedDate</a>
+            <b>lastModifiedDate</b>
         </field>
     </mapping>
 

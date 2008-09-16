@@ -85,7 +85,7 @@ import javax.persistence.Table;
     // ======================================
     @NamedQuery(
             name="allWikis",
-            query="SELECT wiki FROM Wiki"
+            query="SELECT wiki FROM Wiki as wiki"
     ),
     @NamedQuery(
             name="count_allWikis",

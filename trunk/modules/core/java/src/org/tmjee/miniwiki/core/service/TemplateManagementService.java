@@ -4,7 +4,11 @@ import org.tmjee.miniwiki.client.server.TemplateInfo;
 import org.tmjee.miniwiki.client.server.PagingInfo;
 import org.tmjee.miniwiki.client.domain.UiWiki;
 import org.tmjee.miniwiki.client.domain.UiWikis;
+import org.tmjee.miniwiki.client.domain.UiSpace;
+import org.tmjee.miniwiki.client.domain.UiSpacePriviledge;
 import org.tmjee.miniwiki.core.domain.Wiki;
+import org.tmjee.miniwiki.core.domain.Space;
+import org.tmjee.miniwiki.core.domain.SpacePriviledge;
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
 
@@ -12,6 +16,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Iterator;
+import java.util.Set;
+
+import net.sf.dozer.util.mapping.DozerBeanMapper;
 
 /**
  * @author tmjee
@@ -19,11 +27,10 @@ import java.util.List;
  */
 public class TemplateManagementService extends AbstractService {
 
-    private JpaTemplate jpaTemplate;
 
     TemplateManagementService() {}
-    public TemplateManagementService(JpaTemplate jpaTemplate) {
-        this.jpaTemplate = jpaTemplate;    
+    public TemplateManagementService(JpaTemplate jpaTemplate, DozerBeanMapper mapper) {
+        super(jpaTemplate, mapper);
     }
 
 
@@ -50,7 +57,7 @@ public class TemplateManagementService extends AbstractService {
 
 
     public UiWikis getAllWikis(final PagingInfo pagingInfo) {
-        return (UiWikis) jpaTemplate.execute(new JpaCallback() {
+        return (UiWikis) template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Query query = entityManager.createNamedQuery("allWikis");
                 query = preparePagingInfo(query, pagingInfo);
@@ -63,7 +70,7 @@ public class TemplateManagementService extends AbstractService {
 
 
     public UiWiki findWikiById(final long wikiId) {
-        return (UiWiki) jpaTemplate.execute(new JpaCallback() {
+        return (UiWiki) template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Query query = entityManager.createNamedQuery("getWikiById");
                 query.setParameter("wikiId", wikiId);
@@ -78,7 +85,7 @@ public class TemplateManagementService extends AbstractService {
 
 
     public UiWiki findWikiByName(final String wikiName) {
-        return (UiWiki) jpaTemplate.execute(new JpaCallback() {
+        return (UiWiki) template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Query query = entityManager.createNamedQuery("getWikiByName");
                 query.setParameter("wikiName", wikiName);

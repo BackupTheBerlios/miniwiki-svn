@@ -156,6 +156,7 @@
     </bean>
     <bean name="templateManagementService" class="org.tmjee.miniwiki.core.service.TemplateManagementService">
         <constructor-arg index="0" ref="jpaTemplate" />
+        <constructor-arg index="1" ref="dozerBeanMapper" />
     </bean>
 
 </beans>
