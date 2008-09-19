@@ -98,16 +98,29 @@ import javax.persistence.Table;
     @NamedQuery(
             name="getWikiByName",
             query="SELECT wiki FROM Wiki as wiki LEFT JOIN FETCH wiki.priviledges LEFT JOIN FETCH wiki.spaces LEFT JOIN FETCH wiki.properties WHERE wiki.name=:wikiName"
+    ),
+
+        
+
+
+    // ===================================
+    // === Page
+    // ===================================
+
+
+
+
+    // =================================
+    // === Access Management
+    // =================================
+    @NamedQuery(
+            name="getGlobalPriviledges",
+            query = "SELECT globalPriviledge FROM GlobalPriviledge as globalPriviledge LEFT JOIN FETCH globalPriviledge.values"
+    ),
+    @NamedQuery(
+            name="findGlobalPriviledgeByName",
+            query="SELECT globalPriviledge FROM GlobalPriviledge as globalPriviledge LEFT JOIN FETCH globalPriviledge.values WHERE globalPriviledge.name=:globalPriviledgeName"
     )
-
-        
-
-
-    // ===================================
-    // === Paging
-    // ===================================
-
-        
 
 })
 @Entity

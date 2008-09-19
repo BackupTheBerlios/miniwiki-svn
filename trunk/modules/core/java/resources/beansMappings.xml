@@ -1305,6 +1305,50 @@
     </mapping>
 
 
+
+    <!--
+       ========================================
+       === UiGlobalPriviledge
+       ========================================
+    -->
+    <mapping map-id="UiGlobalPriviledge">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.GlobalPriviledge</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiGlobalPriviledge</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field remove-orphans="true" map-id="UiGlobalPriviledgeValue">
+            <a>value</a>
+            <b>value</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.GlobalPriviledgeValue</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGlobalPriviledgeValue</b-hint>
+        </field>
+    </mapping>
+
+    <!--
+        =======================================
+        === UiGlobalPriviledgeValue
+        =======================================
+    -->
+    <mapping map-id="UiGlobalPriviledgeValue">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.GlobalPriviledgeValue</class-a>
+        <class-b>org.tmjee.miniwiki.domain.UiGlobalPriviledgeValue</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>value</a>
+            <b>value</b>
+        </field>
+    </mapping>
+
+
 </mappings>
 
 

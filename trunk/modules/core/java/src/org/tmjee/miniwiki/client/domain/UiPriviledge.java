@@ -25,4 +25,5 @@ public class UiPriviledge implements UiIdentifiable {
     public void setName(String name) {
         this.name = name;
     }
+
 }

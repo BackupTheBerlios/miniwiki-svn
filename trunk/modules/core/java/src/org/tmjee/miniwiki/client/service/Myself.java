@@ -25,6 +25,10 @@ public class Myself implements SourcesCredentialEvents {
     private UiCredentials credentials;
     private SourcesEventsSupport sourcesEventSupport;
 
+    private String currentAccessedWikiId;
+    private String currentAccessedSpaceId;
+    private String currentAccessedPageId;
+
     Myself() {
         credentials = UiCredentials.ANONYMOUS;
         sourcesEventSupport = new SourcesEventsSupport();
@@ -49,5 +53,29 @@ public class Myself implements SourcesCredentialEvents {
 
     public void removeCredentialListener(CredentialListener credentialListener) {
         sourcesEventSupport.removeListener(credentialListener);
+    }
+
+    public String getCurrentAccessedWikiId() {
+        return currentAccessedWikiId;
+    }
+
+    public void setCurrentAccessedWikiId(String currentAccessedWikiId) {
+        this.currentAccessedWikiId = currentAccessedWikiId;
+    }
+
+    public String getCurrentAccessedSpaceId() {
+        return currentAccessedSpaceId;
+    }
+
+    public void setCurrentAccessedSpaceId(String currentAccessedSpaceId) {
+        this.currentAccessedSpaceId = currentAccessedSpaceId;
+    }
+
+    public String getCurrentAccessedPageId() {
+        return currentAccessedPageId;
+    }
+
+    public void setCurrentAccessedPageId(String currentAccessedPageId) {
+        this.currentAccessedPageId = currentAccessedPageId;
     }
 }

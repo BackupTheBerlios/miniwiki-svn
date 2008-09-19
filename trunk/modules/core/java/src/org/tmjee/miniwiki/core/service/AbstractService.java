@@ -35,13 +35,23 @@ public class AbstractService {
     }
 
     protected Query preparePagingInfo(Query query, PagingInfo pagingInfo) {
-        int pageNumber = pagingInfo.getPageNumber()<=0 ? Constants.STARTING_PAGE_NUMBER : pagingInfo.getPageNumber();
-        int pageSize = pagingInfo.getPageSize()<=0 ? Constants.DEFAULT_PAGE_SIZE : pagingInfo.getPageSize();
-        int min = (pageNumber-1)*pagingInfo.getPageSize();
-        int max = (pagingInfo.getPageNumber()*pagingInfo.getPageSize())-1;
-        query.setFirstResult(min);
-        query.setMaxResults(pageSize);
+        if (pagingInfo != null) {
+            int pageNumber = pagingInfo.getPageNumber()<=0 ? Constants.STARTING_PAGE_NUMBER : pagingInfo.getPageNumber();
+            int pageSize = pagingInfo.getPageSize()<=0 ? Constants.DEFAULT_PAGE_SIZE : pagingInfo.getPageSize();
+            int min = (pageNumber-1)*pagingInfo.getPageSize();
+            int max = (pagingInfo.getPageNumber()*pagingInfo.getPageSize())-1;
+            query.setFirstResult(min);
+            query.setMaxResults(pageSize);
+        }
         return query;
+    }
+
+    protected JpaTemplate getJpaTemplate() {
+        return template;
+    }
+
+    protected DozerBeanMapper getBeanMapper() {
+        return mapper;
     }
 
     protected ResponsePagingInfo prepareResponsePagingInfo(String countingNamedQuery, PagingInfo pagingInfo) {

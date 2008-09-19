@@ -26,6 +26,8 @@
              class="org.tmjee.miniwiki.server.UiTemplateManagementServiceImpl" />
     <servlet path="/userManagement"
              class="org.tmjee.miniwiki.server.UiUserManagementServiceImpl" />
+    <servlet path="/accessManagement"
+             class="org.tmjee.miniwiki.server.UiAccessManagementServiceImpl" />
     <servlet path="/loggingManagement"
              class="org.tmjee.miniwiki.server.UiLoggingManagementServiceImpl" />
     <servlet path="/test"

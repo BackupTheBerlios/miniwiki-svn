@@ -13,6 +13,7 @@ public class Service {
     private static UiTemplateManagementServiceAsync loadTemplateService;
     private static UiUserManagementServiceAsync userManagementService;
     private static UiLoggingManagementServiceAsync loggingManagementService;
+    private static UiAccessManagementServiceAsync accessManagementService;
     private static TestServiceAsync testService;
 
     public static UiTemplateManagementServiceAsync getTemplateManagementService() {
@@ -42,6 +43,15 @@ public class Service {
         return loggingManagementService;
     }
 
+    public static UiAccessManagementServiceAsync getAccessManagementService() {
+        if (accessManagementService == null) {
+            accessManagementService = (UiAccessManagementServiceAsync) GWT.create(UiAccessManagementService.class);
+            ServiceDefTarget target = (ServiceDefTarget) accessManagementService;
+            target.setServiceEntryPoint(GWT.getModuleBaseURL()+"accessManagement");
+        }
+        return accessManagementService;
+    }
+
     public static TestServiceAsync getTestService() {
         if (testService == null) {
             testService = (TestServiceAsync) GWT.create(TestService.class);
@@ -50,5 +60,7 @@ public class Service {
         }
         return testService;
     }
+
+
 
 }

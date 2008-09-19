@@ -10,11 +10,13 @@ import org.apache.openjpa.jdbc.conf.JDBCConfiguration;
 import org.apache.openjpa.jdbc.conf.JDBCConfigurationImpl;
 import org.apache.openjpa.lib.util.Options;
 import org.tmjee.miniwiki.core.domain.Setup;
+import org.tmjee.miniwiki.core.domain.GlobalPriviledge;
 import org.tmjee.miniwiki.core.spring.OpenJpaCallback;
 
 import javax.persistence.*;
 import java.sql.SQLException;
 import java.io.IOException;
+import java.util.EnumSet;
 
 /**
  * @author tmjee
@@ -116,6 +118,27 @@ public class SetupService {
     }
 
     protected void doSetup() throws SQLException, IOException {
+        doDbStructureSetup();
+        doDbDataSetup();
+
+        LOG.info("Mark in db, setup complete");
+        template.execute(new JpaCallback() {
+            public Object doInJpa(EntityManager entityManager) throws PersistenceException {
+                Query q = entityManager.createNamedQuery("isSetupBefore");
+                    try {
+                        Setup setup = (Setup) q.getSingleResult();
+                        setup.setValue("true");
+                    }
+                    catch(NoResultException e) {
+                        Setup setup = new Setup("SETUP_DONE", "true");
+                        entityManager.persist(setup);
+                    }
+                return null;
+            }
+        });
+    }
+
+    protected void doDbStructureSetup() throws SQLException, IOException {
         LOG.info("Refreshing DB tables ...");
         JDBCConfiguration jdbcConfiguration = new JDBCConfigurationImpl();
         jdbcConfiguration.setConnectionURL(connectionUrl);
@@ -130,23 +153,29 @@ public class SetupService {
             "-pk", "true",
             "-fk", "true",
             "-ix", "true",
-            "-i", "false"    
+            "-i", "false"
 
         });
         MappingTool.run(jdbcConfiguration, args, opts);
+    }
 
-        LOG.info("Mark in db, setup complete");
+    protected void doDbDataSetup() {
         template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
-                Query q = entityManager.createNamedQuery("isSetupBefore");
-                    try {
-                        Setup setup = (Setup) q.getSingleResult();
-                        setup.setValue("true");
+
+                // 1] setup GlobalPriviledge
+                for (PriviledgeGlobalLevel priv :
+                        EnumSet.range(PriviledgeGlobalLevel.GLOBAL_LEVEL_ADMINISTRATION_ANONYMOUS,
+                                PriviledgeGlobalLevel.GLOBAL_LEVEL_DELETE_SPACE_REGISTERED)) {
+                    Query q = entityManager.createNamedQuery("globalPriviledgeName");
+                    q.setParameter("globalPriviledgeName", priv.name());
+
+                    if (q.getResultList().size() <= 0) {
+                        // not there yet, create it
+                        entityManager.persist(new GlobalPriviledge(priv.name(), PriviledgeValueState.OFF.name()));
                     }
-                    catch(NoResultException e) {
-                        Setup setup = new Setup("SETUP_DONE", "true");
-                        entityManager.persist(setup);
-                    }
+                }
+
                 return null;
             }
         });

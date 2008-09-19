@@ -58,7 +58,11 @@ public abstract class AbstractDbTestCase extends TestCase {
         appContext = new ClassPathXmlApplicationContext(new String[] {
                 "testing_support.xml"
         });
-        JDBCConfiguration jdbcConfiguration = new JDBCConfigurationImpl();
+
+        SetupService setupService = (SetupService) appContext.getBean("setupService");
+        setupService.setup();
+
+        /*JDBCConfiguration jdbcConfiguration = new JDBCConfigurationImpl();
         jdbcConfiguration.setConnectionURL(connectionUrl);
         jdbcConfiguration.setConnectionUserName(connectionUsername);
         jdbcConfiguration.setConnectionDriverName(connectionDriver);
@@ -74,12 +78,14 @@ public abstract class AbstractDbTestCase extends TestCase {
             "-i", "false"
 
         });
-        MappingTool.run(jdbcConfiguration, args, opts);
+        MappingTool.run(jdbcConfiguration, args, opts);*/
     }
 
     protected void _tearDown() throws SQLException, IOException {
+        SetupService setupService = (SetupService) appContext.getBean("setupService");
+        setupService.cleanup();
         appContext = null;
-        JDBCConfiguration jdbcConfiguration = new JDBCConfigurationImpl();
+        /*JDBCConfiguration jdbcConfiguration = new JDBCConfigurationImpl();
         jdbcConfiguration.setConnectionURL(connectionUrl);
         jdbcConfiguration.setConnectionUserName(connectionUsername);
         jdbcConfiguration.setConnectionDriverName(connectionDriver);
@@ -95,7 +101,7 @@ public abstract class AbstractDbTestCase extends TestCase {
             "-i", "true"
 
         });
-        MappingTool.run(jdbcConfiguration, args, opts);
+        MappingTool.run(jdbcConfiguration, args, opts);*/
     }
 
     protected ApplicationContext getApplicationContext() {

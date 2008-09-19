@@ -24,20 +24,22 @@ public class TemplateDisplayWidget extends VerticalPanel {
 
 
     /**
+     * Access
+     *   + Access Management (Global Level)
      * Wiki
      *   + Login/Logout
      *   + Navigation
-     *   + Access Management
+     *   + Access Management (Current Wiki Level)
      * Space
      *   + Add New Space
      *   + Remove Current Space
      *   + Edit Current Space
-     *   + Access Manage Current Space
+     *   + Access Manage (Current Space Level)
      * Page
      *   + Add New Page
      *   + Remove Current Page
      *   + Edit Current Page
-     *   + Access Manage Current Page
+     *   + Access Manage (Current Page Level)
      * User
      *   + User Management
      * Group
@@ -62,13 +64,30 @@ public class TemplateDisplayWidget extends VerticalPanel {
         HorizontalPanel infoPanel = new HorizontalPanel();
         infoPanel.setWidth("100%");
 
+
+        MenuBar mainMenuBar = new MenuBar(false);
+
+
+        /*
+         * Access
+         *  + Access Management (Global Level)
+         */
+        MenuBar accessMenuBar = new MenuBar(true);
+        MenuItem accessMenuItem = new MenuItem("Access", accessMenuBar);
+        accessMenuBar.addItem(new MenuItem("Access Management (Global Level)", new Command() {
+            public void execute() {
+                new AccessManagementGlobalLevelPopupPanel();    
+            }
+        }));
+        mainMenuBar.addItem(accessMenuItem);
+
+
         /*
          * Wiki
          *   + Login / Logout
          *   + Navigation
          *   + Access Management
          */
-        MenuBar mainMenuBar = new MenuBar(false);
         MenuBar wikiMenuBar = new MenuBar(true);
         MenuItem wikiMenuItem = new MenuItem("Wiki", wikiMenuBar);
         loginLogoutMenuItem = new MenuItem(
@@ -91,8 +110,7 @@ public class TemplateDisplayWidget extends VerticalPanel {
         }));
         wikiMenuBar.addItem(new MenuItem("Access Management", new Command() {
             public void execute() {
-                // TODO:
-                Window.alert("Work In Progress !!!");
+                new AccessManagementWikiLevelPopupPanel();
             }
         }));
         mainMenuBar.addItem(wikiMenuItem);

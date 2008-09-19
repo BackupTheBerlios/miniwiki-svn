@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.tmjee.miniwiki.core.service.SetupService;
 import org.tmjee.miniwiki.core.service.UserManagementService;
 import org.tmjee.miniwiki.core.service.TemplateManagementService;
+import org.tmjee.miniwiki.core.service.AccessManagementService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import freemarker.template.Configuration;
@@ -59,6 +60,11 @@ public class Bootstrap {
     public TemplateManagementService getTemplateManagementService() {
         return (TemplateManagementService) applicationContext.getBean(
                 "templateManagementService", TemplateManagementService.class);
+    }
+
+    public AccessManagementService getAccessManagementService() {
+        return (AccessManagementService) applicationContext.getBean(
+                "accessManagementService", AccessManagementService.class); 
     }
 
 }

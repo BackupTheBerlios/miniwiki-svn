@@ -8,32 +8,75 @@ priviledges
 * Group of users
 
 
-Wiki
-----
+Global
+------
 1] Anonymous
 	* administration
 	* registration
+	* Create Wiki
+	* View Wiki
+	* Edit Wiki
+	* Delete Wiki
 	* Create space
-	* Delete space
 	* View space
 	* Edit space
 	* Delete space
 2] Registered users
     * administration
 	* registration
+	* Create Wiki
+	* View Wiki
+	* Edit Wiki
+	* Delete Wiki
 	* Create space
-	* Delete space
 	* View space
 	* Edit space
 	* Delete space
 3] Group of users
     * administration
 	* registration
+	* Create Wiki
+	* View Wiki
+	* Edit Wiki
+	* Delete Wiki
+	* Create space
+	* View space
+	* Edit space
+	* Delete space
+
+
+Wiki
+----
+1] Anonymous
+	* administration
+	* registration
+	* View Wiki
+	* Edit Wiki
+	* Delete Wiki
 	* Create space
 	* Delete space
 	* View space
 	* Edit space
+2] Registered users
+    * administration
+	* registration
+	* View Wiki
+	* Edit Wiki
+	* Delete Wiki
+	* Create space
 	* Delete space
+	* View space
+	* Edit space
+3] Group of users
+    * administration
+	* registration
+	* View Wiki
+	* Edit Wiki
+	* Delete Wiki
+	* Create space
+	* Delete space
+	* View space
+	* Edit space
 
 	
 Space 
@@ -67,8 +110,16 @@ Space
 Page
 ----
 1] Anonymous
+	* View page
+	* Edit page
+	* Delete page
+	* Comment page
 
 2] Registered User
+	* View page
+	* Edit page
+	* Delete page
+	* Comment page
 
 3] Group of users
 	* View page

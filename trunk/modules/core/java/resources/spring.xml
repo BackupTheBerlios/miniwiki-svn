@@ -158,5 +158,9 @@
         <constructor-arg index="0" ref="jpaTemplate" />
         <constructor-arg index="1" ref="dozerBeanMapper" />
     </bean>
+    <bean name="accessManagementService" class="org.tmjee.miniwiki.core.service.AccessManagementService">
+        <constructor-arg index="0" ref="jpaTemplate" />
+        <constructor-arg index="1" ref="dozerBeanMapper" />
+    </bean>
 
 </beans>
