@@ -15,6 +15,62 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
             ">
 
+    <!-- Handler Mappings -->
+    <bean name="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/home.view">HomeController</prop>
+                <prop key="/aboutUs.view">AboutUsController</prop>
+                <prop key="/services.view">ServicesController</prop>
+                <prop key="/faq.view">FaqController</prop>
+                <prop key="/privacy.view">PrivacyController</prop>
+                <prop key="/applyNow.view">ApplyNowController</prop>
+                <prop key="/contactUs.view">ContactUsController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Controller -->
+    <bean name="HomeController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="home" />
+        
+    </bean>
+     <bean name="AboutUsController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="aboutUs" />
+    </bean>
+     <bean name="ServicesController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="services" />
+    </bean>
+     <bean name="FaqController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="faq" />
+    </bean>
+     <bean name="PrivacyController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="privacy" />
+    </bean>
+     <bean name="ApplyNowController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="applyNow" />
+    </bean>
+     <bean name="ContactUsController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="contactUs" />    
+    </bean>
+
+
+    <!-- Handler Exception Resolver -->
+
+
+    <!-- View Resolver -->
+    <bean name="urlBasedViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+
+    <!-- Multipart Resolver -->
+
+
+    <!-- Locale Resolver -->
+
+    <!-- Theme Resolver -->
     
 
 </beans>
