@@ -72,7 +72,7 @@ public class UserManagementService extends AbstractService {
         return UiCredentials.ANONYMOUS;
     }
 
-    public UiUsers searchForUser(final String username, final PagingInfo pagingInfo, final boolean exactMatch) {
+    public UiUsers getUserByName(final String username, final PagingInfo pagingInfo, final boolean exactMatch) {
         List<User> users = (List<User>) template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Query query = exactMatch ?
@@ -160,7 +160,7 @@ public class UserManagementService extends AbstractService {
         });
     }
 
-    public UiGroups searchForGroup(final String groupName, final PagingInfo pagingInfo, final boolean exactMatch) {
+    public UiGroups getGroupByName(final String groupName, final PagingInfo pagingInfo, final boolean exactMatch) {
         List<Group> groups = (List<Group>) template.execute(new JpaCallback() {
             public Object doInJpa(EntityManager entityManager) throws PersistenceException {
                 Query query = entityManager.createNamedQuery(
@@ -239,6 +239,20 @@ public class UserManagementService extends AbstractService {
                     }
                 }
                 entityManager.flush();
+                return null;
+            }
+        });
+    }
+
+    public UiGroup getGroupById(final long id) {
+        return (UiGroup) template.execute(new JpaCallback() {
+            public Object doInJpa(EntityManager entityManager) throws PersistenceException {
+                Query query = entityManager.createNamedQuery("getGroupById");
+                query.setParameter("id", id);
+                if (query.getResultList().size() > 0 ) {
+                    Group g = (Group) query.getResultList().iterator().next();
+                    return map(g, UiGroup.class, "UiGroup");
+                }
                 return null;
             }
         });

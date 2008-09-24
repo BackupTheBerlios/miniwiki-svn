@@ -17,8 +17,8 @@ public class UiUserManagementServiceImpl extends RemoteServiceServlet implements
         return getUserManagementService().authenticate(username, password);
     }
 
-    public UiUsers searchForUser(String username, PagingInfo pagingInfo, boolean exactMatch) {
-        return getUserManagementService().searchForUser(username, pagingInfo, exactMatch);
+    public UiUsers getUserByName(String username, PagingInfo pagingInfo, boolean exactMatch) {
+        return getUserManagementService().getUserByName(username, pagingInfo, exactMatch);
     }
 
     public UiUsers getAllUsers(PagingInfo pagingInfo) {
@@ -33,8 +33,8 @@ public class UiUserManagementServiceImpl extends RemoteServiceServlet implements
         getUserManagementService().deleteUsers(uiUsers);
     }
 
-    public UiGroups searchForGroup(String groupName, PagingInfo pagingInfo, boolean exactMatch) {
-        return getUserManagementService().searchForGroup(groupName, pagingInfo, exactMatch);
+    public UiGroups getGroupByName(String groupName, PagingInfo pagingInfo, boolean exactMatch) {
+        return getUserManagementService().getGroupByName(groupName, pagingInfo, exactMatch);
     }
 
     public UiGroups getAllGroups(PagingInfo pagingInfo) {
@@ -53,6 +53,10 @@ public class UiUserManagementServiceImpl extends RemoteServiceServlet implements
 
     public void deleteGroups(UiGroup[] uiGroups) {
         getUserManagementService().deleteGroups(uiGroups);
+    }
+
+    public UiGroup getGroupById(long id) {
+        return getUserManagementService().getGroupById(id);        
     }
 
     protected UserManagementService getUserManagementService() {

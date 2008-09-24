@@ -88,6 +88,12 @@
             <a-hint>org.tmjee.miniwiki.core.domain.User</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiUser</b-hint>
         </field>
+        <field remove-orphans="true" map-id="UiGroupPriviledge">
+            <a>priviledges</a>
+            <b>priviledges</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.GroupPriviledge</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGroupPriviledge</b-hint>
+        </field>
     </mapping>
     <mapping map-id="UiUser_UiGroup_UiUserSimplified">
         <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.User</class-a>
@@ -165,6 +171,12 @@
             <a-hint>org.tmjee.miniwiki.core.domain.User</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiUser</b-hint>
         </field>
+        <field remove-orphans="true" map-id="UiGroupPriviledge">
+            <a>priviledges</a>
+            <b>priviledges</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.GroupPriviledge</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGroupPriviledge</b-hint>
+        </field>
     </mapping>
     <mapping map-id="UiGroup_UiUser">
         <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.User</class-a>
@@ -235,6 +247,12 @@
             <a-hint>org.tmjee.miniwiki.core.domain.GroupProperty</a-hint>
             <b-hint>org.tmjee.miniwiki.client.domain.UiGroupProperty</b-hint>
         </field>
+        <field remove-orphans="true" map-id="UiGroupPriviledge">
+            <a>priviledges</a>
+            <b>priviledges</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.GroupPriviledge</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGroupPriviledge</b-hint>
+        </field>
     </mapping>
 
     <!-- 
@@ -281,6 +299,51 @@
             <b>value</b>
         </field>
     </mapping>
+
+
+    <!--
+       =====================================
+       === UiGroupPriviledge
+       =====================================
+    -->
+    <mapping map-id="UiGroupPriviledge">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.GroupPriviledge</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiGroupPriviledge</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field remove-orphans="true" map-id="UiGroupPriviledgeValue">
+            <a>values</a>
+            <b>values</b>
+            <a-hint>org.tmjee.miniwiki.core.domain.GroupPriviledgeValue</a-hint>
+            <b-hint>org.tmjee.miniwiki.client.domain.UiGroupPriviledgeValue</b-hint>
+        </field>
+    </mapping>
+
+
+    <!--
+       =====================================
+       === UiGroupPriviledgeValue
+       =====================================
+    -->
+    <mapping map-id="UiGroupPriviledgeValue">
+        <class-a bean-factory="org.tmjee.miniwiki.core.service.UiObjectToJpaObjectDozerBeanFactory">org.tmjee.miniwiki.core.domain.GroupPriviledgeValue</class-a>
+        <class-b>org.tmjee.miniwiki.client.domain.UiGroupPriviledgeValue</class-b>
+        <field type="one-way">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>value</a>
+            <b>value</b>
+        </field>
+    </mapping>
+
 
 
     <!--

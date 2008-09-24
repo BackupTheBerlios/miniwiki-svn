@@ -51,6 +51,15 @@ public class Group implements Identifiable {
     @ElementJoinColumn(name = "GROUP_ID", referencedColumnName = "ID")
     private Set<GroupProperty> properties = new LinkedHashSet<GroupProperty>();
 
+
+    @OneToMany(targetEntity = GroupPriviledge.class,
+               cascade={CascadeType.ALL},
+               fetch=FetchType.EAGER)
+    @ElementForeignKey
+    @ElementJoinColumn(name="GROUP_ID", referencedColumnName = "ID")
+    private Set<GroupPriviledge> priviledges = new LinkedHashSet<GroupPriviledge>();
+    
+
     @Version
     @Column(name = "VERSION")
     private int version;

@@ -1,21 +1,15 @@
 package org.tmjee.miniwiki.core.service;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.orm.jpa.JpaTemplate;
 import org.springframework.orm.jpa.JpaCallback;
 import org.tmjee.miniwiki.core.domain.User;
 import org.tmjee.miniwiki.core.domain.Group;
-import org.tmjee.miniwiki.core.domain.UserProperty;
-import org.tmjee.miniwiki.core.domain.GroupProperty;
 import org.tmjee.miniwiki.client.server.PagingInfo;
-import org.tmjee.miniwiki.client.domain.UiUsers;
 import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.domain.UiGroup;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
-import javax.persistence.Query;
 
 /**
  * @author tmjee
@@ -52,8 +46,8 @@ public class Main extends AbstractDbTestCase {
         });
 
         UserManagementService ums = (UserManagementService) getApplicationContext().getBean("userManagementService");
-        UiUser user = ums.searchForUser("User1", new PagingInfo(1, 100), true).getUsers().iterator().next();
-        UiGroup group1 = ums.searchForGroup("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        UiUser user = ums.getUserByName("User1", new PagingInfo(1, 100), true).getUsers().iterator().next();
+        UiGroup group1 = ums.getGroupByName("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
 
         group1.removeUser(user);
         ums.updateGroup(group1);

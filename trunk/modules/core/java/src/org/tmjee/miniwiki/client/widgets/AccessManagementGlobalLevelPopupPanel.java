@@ -3,11 +3,11 @@ package org.tmjee.miniwiki.client.widgets;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import org.tmjee.miniwiki.client.service.Service;
-import org.tmjee.miniwiki.client.domain.UiGlobalPriviledges;
-import org.tmjee.miniwiki.client.domain.UiGlobalPriviledge;
-import org.tmjee.miniwiki.client.domain.UiGlobalPriviledgeValue;
+import org.tmjee.miniwiki.client.domain.*;
 import org.tmjee.miniwiki.client.server.UiAccessManagementServiceAsync;
 import org.tmjee.miniwiki.client.utils.Logger;
+import org.tmjee.miniwiki.client.events.SourcesMessageEvents;
+import org.tmjee.miniwiki.client.events.MessageEventListener;
 import org.tmjee.miniwiki.core.service.AccessManagementService;
 import org.tmjee.miniwiki.core.service.PriviledgeGlobalLevel;
 import org.tmjee.miniwiki.core.service.PriviledgeValueState;
@@ -86,6 +86,7 @@ public class AccessManagementGlobalLevelPopupPanel extends AutoRegisteredDialogB
                     s.getGlobalPriviledges(new AsyncCallback() {
                         public void onFailure(Throwable throwable) {
                             Logger.error(throwable.getMessage(), throwable);
+                            LoadingMessageDisplayWidget.getInstance().done();
                         }
                         public void onSuccess(Object o) {
                             UiGlobalPriviledges prib = (UiGlobalPriviledges) o;
@@ -102,6 +103,18 @@ public class AccessManagementGlobalLevelPopupPanel extends AutoRegisteredDialogB
             else if (tabIndex == 2) { // group
                 LoadingMessageDisplayWidget.getInstance().display("Loading Available groups ...");
                 UiAccessManagementServiceAsync s = Service.getAccessManagementService();
+                s.getAllGroupNames(new AsyncCallback() {
+                    public void onFailure(Throwable throwable) {
+                        Logger.error(throwable.getMessage(), throwable);
+                        LoadingMessageDisplayWidget.getInstance().done();
+                    }
+                    public void onSuccess(Object o) {
+                        UiGroupNames groupNames = (UiGroupNames) o;
+                        groupMap = new HashMap<Long, String>(groupNames.getGroupNames());
+                        ((_Tab)((TabPanel)sourcesTabEvents).getWidget(tabIndex)).refresh();
+                        LoadingMessageDisplayWidget.getInstance().done();
+                    }
+                });
             }
         }
     }
@@ -143,27 +156,13 @@ public class AccessManagementGlobalLevelPopupPanel extends AutoRegisteredDialogB
 
     private void updateCheckBox(CheckBox checkBox, UiGlobalPriviledge priv) {
             if (priv != null) {
-                List<UiGlobalPriviledgeValue> values =  priv.getValues();
-                if (values.size() > 0) {
-                    UiGlobalPriviledgeValue value = values.get(0);
-                    if (PriviledgeValueState.state(value.getValue()).equals(PriviledgeValueState.ON)) {
-                        checkBox.setChecked(true);
-                        return;
-                    }
-                }
+                checkBox.setChecked(priv.getValueAsBoolean());
             }
             checkBox.setChecked(false);
     }
 
     private void updateGlobalPrivilage(UiGlobalPriviledge priv, CheckBox checkBox) {
-        if (priv.getValues().size() <= 0) {
-            priv.getValues().add(new UiGlobalPriviledgeValue());
-        }
-        if (checkBox.isChecked()) {
-            ((UiGlobalPriviledgeValue) priv.getValues().iterator().next()).setValue(PriviledgeValueState.ON.name())
-        } else {
-            ((UiGlobalPriviledgeValue) priv.getValues().iterator().next()).setValue(PriviledgeValueState.OFF.name());
-        }
+        priv.setValueAsBoolean(checkBox.isChecked());
     }
 
 
@@ -485,23 +484,84 @@ public class AccessManagementGlobalLevelPopupPanel extends AutoRegisteredDialogB
 
         ListBox groups;
 
+        MessageDisplayWidget messageDisplayWidget;
         Label groupLabel;
         Grid grid;
 
+        private CheckBox administration;
+        private CheckBox registration;
+        private CheckBox createWiki;
+        private CheckBox viewWiki;
+        private CheckBox editWiki;
+        private CheckBox deleteWiki;
+        private CheckBox createSpace;
+        private CheckBox editSpace;
+        private CheckBox viewSpace;
+        private CheckBox deleteSpace;
+
         GroupUserTab() {
             groups = new ListBox(false);
+            groups.addChangeListener(new ChangeListener() {
+                public void onChange(Widget widget) {
+
+                    LoadingMessageDisplayWidget.getInstance().display("Loading Group Info ...");
+                    int selectedIndex = ((ListBox)widget).getSelectedIndex();
+                    Long groupId = Long.valueOf(((ListBox)widget).getValue(selectedIndex));
+
+                    Service.getUserManagementService().getGroupById(groupId,
+                            new AsyncCallback() {
+                                public void onFailure(Throwable throwable) {
+                                    Logger.error(throwable.getMessage(), throwable);
+                                    LoadingMessageDisplayWidget.getInstance().done();
+                                }
+                                public void onSuccess(Object o) {
+                                    UiGroup group = (UiGroup) o;
+                                    updateGroupPriviledgeInfo(group);
+                                    LoadingMessageDisplayWidget.getInstance().done();
+                                }
+                            });
+                }
+            });
+
+
+            messageDisplayWidget = new MessageDisplayWidget();
+
+
+            administration = new CheckBox;
+        private CheckBox registration;
+        private CheckBox createWiki;
+        private CheckBox viewWiki;
+        private CheckBox editWiki;
+        private CheckBox deleteWiki;
+        private CheckBox createSpace;
+        private CheckBox editSpace;
+        private CheckBox viewSpace;
+        private CheckBox deleteSpace;
 
             groupLabel = new Label("No Groups selected");
             grid = new Grid(6,1);
+            grid.setWidget(0, 0, )
 
+            add(messageDisplayWidget);
             add(groups);
             add(groupLabel);
             add(grid);
         }
 
         public void refresh() {
-            
+            groups.clear();
+            for (Map.Entry<Long, String> e: groupMap.entrySet()) {
+                groups.addItem(e.getValue(), String.valueOf(e.getKey()));
+            }
         }
 
+        protected void updateGroupPriviledgeInfo(UiGroup group) {
+            if (group != null) {
+                
+
+                return;
+            }
+            messageDisplayWidget.addInfoMessage("No such group found");
+        }
     }
 }

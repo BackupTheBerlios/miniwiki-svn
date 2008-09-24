@@ -24,6 +24,8 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
     private List<UiUser> removedUiUsers = new ArrayList<UiUser>();
     private List<UiGroupProperty> removedUiGroupProperties = new ArrayList<UiGroupProperty>();
 
+    private List<UiGroupPriviledge> priviledges = new ArrayList<UiGroupPriviledge>();
+
 
     private transient PropertySupport propertySupport = new PropertySupport();
 
@@ -42,6 +44,15 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
         long oldId = this.id;
         this.id = id;
         propertySupport.firePropertyChange("id", oldId, this.id);
+    }
+
+
+    public List<UiGroupPriviledge> getPriviledges() {
+        return priviledges;
+    }
+
+    public void setPriviledges(List<UiGroupPriviledge> priviledges) {
+        this.priviledges = priviledges;
     }
 
     public void setEnabled(boolean enabled) {
@@ -78,6 +89,7 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
         return removedUiGroupProperties;
     }
 
+
     public void addProperty(UiGroupProperty property) {
         if (!properties.contains(property)) {
             if (removedUiGroupProperties.contains(property)) {
@@ -96,6 +108,14 @@ public class UiGroup implements UiIdentifiable, SourcesPropertyChangeEvents {
             properties.remove(property);
             propertySupport.firePropertyDeletion("property", property);
         }
+    }
+
+    public void setProperties(List<UiGroupProperty> properties) {
+        this.properties = properties;
+    }
+
+    public void setUsers(List<UiUser> users) {
+        this.users = users;
     }
 
     public List<UiGroupProperty> getProperties() {

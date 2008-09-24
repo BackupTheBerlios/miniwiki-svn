@@ -79,6 +79,10 @@ import javax.persistence.Table;
             query="SELECT grp FROM Group as grp"
             /*query="SELECT grp FROM Group as grp LEFT JOIN FETCH grp.properties LEFT JOIN FETCH grp.users"*/
     ),
+    @NamedQuery(
+            name="getGroupById",
+            query="SELECT grp FROM Group as grp LEFT JOIN FETCH grp.priviledges WHERE grp.id = :id"
+    ),
 
     // ======================================
     // === Wiki

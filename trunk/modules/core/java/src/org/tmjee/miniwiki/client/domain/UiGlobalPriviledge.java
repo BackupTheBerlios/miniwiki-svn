@@ -1,5 +1,7 @@
 package org.tmjee.miniwiki.client.domain;
 
+import org.tmjee.miniwiki.core.service.PriviledgeValueState;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -14,6 +16,24 @@ public class UiGlobalPriviledge extends UiPriviledge {
     public List<UiGlobalPriviledgeValue> getValues() {
         return values;
     }
+
+    public boolean getValueAsBoolean() {
+        if (values.size() > 0) {
+            UiGlobalPriviledgeValue value = values.get(0);
+            if (PriviledgeValueState.state(value.getValue()).equals(PriviledgeValueState.ON)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void setValueAsBoolean(boolean value) {
+        if (values.size() <= 0) {
+            values.add(new UiGlobalPriviledgeValue());
+        }
+        values.get(0).setValue(PriviledgeValueState.state(value).name());
+    }
+
 
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -11,7 +11,6 @@ import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.service.Service;
 import org.tmjee.miniwiki.client.utils.Logger;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -73,7 +72,7 @@ public class GroupTableWidget extends SimpleTableWidget {
     protected void doSearch(final Status status) {
         LoadingMessageDisplayWidget.getInstance().display("Searching groups ...");
         UiUserManagementServiceAsync userManagementService = Service.getUserManagementService();
-        userManagementService.searchForGroup(
+        userManagementService.getGroupByName(
                 status.getSearchText(),
                 status.getPagingInfo(),
                 false,

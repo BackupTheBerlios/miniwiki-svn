@@ -9,6 +9,11 @@ public enum PriviledgeValueState {
     ON,
     OFF;
 
+    public static PriviledgeValueState state(boolean bool) {
+        return bool ? ON : OFF;
+    }
+
+
     public static PriviledgeValueState state(String string) {
         if (ON.equals(string)) {
             return ON;

@@ -4,16 +4,13 @@ import org.tmjee.miniwiki.client.server.UiUserManagementServiceAsync;
 import org.tmjee.miniwiki.client.domain.UiUser;
 import org.tmjee.miniwiki.client.domain.UiUsers;
 import org.tmjee.miniwiki.client.utils.Logger;
-import org.tmjee.miniwiki.client.utils.WidgetUtils;
 import org.tmjee.miniwiki.client.service.Service;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
-import com.google.gwt.core.client.GWT;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -79,7 +76,7 @@ public class UserTableWidget extends SimpleTableWidget {
     protected void doSearch(final Status status) {
         LoadingMessageDisplayWidget.getInstance().display("Search for users ...");
         UiUserManagementServiceAsync userManagementService = Service.getUserManagementService();
-        userManagementService.searchForUser(
+        userManagementService.getUserByName(
                 status.getSearchText(),
                 status.getPagingInfo(),
                 false, 

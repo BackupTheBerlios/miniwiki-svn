@@ -8,7 +8,6 @@ import org.tmjee.miniwiki.core.domain.User;
 import org.tmjee.miniwiki.core.domain.Group;
 import org.tmjee.miniwiki.core.domain.GroupProperty;
 import org.tmjee.miniwiki.core.domain.UserProperty;
-import org.tmjee.miniwiki.core.Bootstrap;
 import org.tmjee.miniwiki.utils.UiGroupNameComparator;
 import org.tmjee.miniwiki.utils.UiGroupPropertyNameComparator;
 import org.tmjee.miniwiki.utils.UiUserUsernameComparator;
@@ -17,13 +16,10 @@ import org.tmjee.miniwiki.utils.UiUserPropertyNameComparator;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
-import javax.persistence.FlushModeType;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
-
-import net.sf.dozer.util.mapping.BeanFactoryIF;
 
 
 /**
@@ -362,17 +358,17 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
 
 
     public void testSearchForUserNotExact() throws Exception {
-        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(1, 5), false).getUsers().size(), 5);
-        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(2, 5), false).getUsers().size(), 5);
-        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(3, 5), false).getUsers().size(), 4);
-        assertEquals(getUserManagementService().searchForUser("user", new PagingInfo(4, 5), false).getUsers().size(), 0);
+        assertEquals(getUserManagementService().getUserByName("user", new PagingInfo(1, 5), false).getUsers().size(), 5);
+        assertEquals(getUserManagementService().getUserByName("user", new PagingInfo(2, 5), false).getUsers().size(), 5);
+        assertEquals(getUserManagementService().getUserByName("user", new PagingInfo(3, 5), false).getUsers().size(), 4);
+        assertEquals(getUserManagementService().getUserByName("user", new PagingInfo(4, 5), false).getUsers().size(), 0);
     }
 
     public void testSearchForUserExact() throws Exception {
-        assertEquals(getUserManagementService().searchForUser("User5", new PagingInfo(1, 100), true).getUsers().size(), 1);
-        assertEquals(getUserManagementService().searchForUser("Toby", new PagingInfo(1, 100), true).getUsers().size(), 1);
-        assertEquals(getUserManagementService().searchForUser("Toby", new PagingInfo(2, 100), true).getUsers().size(), 0);
-        assertEquals(getUserManagementService().searchForUser("NoSuchUser", new PagingInfo(1, 100), true).getUsers().size(), 0);
+        assertEquals(getUserManagementService().getUserByName("User5", new PagingInfo(1, 100), true).getUsers().size(), 1);
+        assertEquals(getUserManagementService().getUserByName("Toby", new PagingInfo(1, 100), true).getUsers().size(), 1);
+        assertEquals(getUserManagementService().getUserByName("Toby", new PagingInfo(2, 100), true).getUsers().size(), 0);
+        assertEquals(getUserManagementService().getUserByName("NoSuchUser", new PagingInfo(1, 100), true).getUsers().size(), 0);
     }
 
 
@@ -401,7 +397,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
 
 
     public void testSearchForGroupNotExact() throws Exception {
-        UiGroups _groups = getUserManagementService().searchForGroup("group", new PagingInfo(1, 100), false);
+        UiGroups _groups = getUserManagementService().getGroupByName("group", new PagingInfo(1, 100), false);
         List<UiGroup> groups = _groups.getGroups();
         Collections.sort(groups, new UiGroupNameComparator());
 
@@ -479,7 +475,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
     }
 
     public void testSearchForGroupExact() throws Exception {
-        UiGroups _groups = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 100), true);
+        UiGroups _groups = getUserManagementService().getGroupByName("Group1", new PagingInfo(1, 100), true);
         List<UiGroup> groups = _groups.getGroups();
         Collections.sort(groups, new UiGroupNameComparator());
 
@@ -523,12 +519,12 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
 
     public void testUpdateUser() throws Exception {
 
-        UiGroup group3 = getUserManagementService().searchForGroup("Group3", new PagingInfo(1, 100), true).getGroups().iterator().next();
-        UiGroup group4 = getUserManagementService().searchForGroup("Group4", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        UiGroup group3 = getUserManagementService().getGroupByName("Group3", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        UiGroup group4 = getUserManagementService().getGroupByName("Group4", new PagingInfo(1, 100), true).getGroups().iterator().next();
         assertNotNull(group3);
         assertNotNull(group4);
 
-        UiUser user = getUserManagementService().searchForUser("Toby", new PagingInfo(1, 100), true).getUsers().get(0);
+        UiUser user = getUserManagementService().getUserByName("Toby", new PagingInfo(1, 100), true).getUsers().get(0);
         user.setFirstName("Toby_FirstName_New");
         user.setLastName("Toby_LastName_New");
         user.setDescription("Toby_Description_New");
@@ -551,7 +547,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
         getUserManagementService().updateUser(user);
 
 
-        user = getUserManagementService().searchForUser("Toby", new PagingInfo(1, 100), true).getUsers().get(0);
+        user = getUserManagementService().getUserByName("Toby", new PagingInfo(1, 100), true).getUsers().get(0);
         assertEquals(false, user.isEnabled());
         assertEquals("Toby_FirstName_New", user.getFirstName());
         assertEquals("Toby_LastName_New", user.getLastName());
@@ -580,12 +576,12 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
 
     public void testUpdateGroup() throws Exception {
 
-        UiUser user1 = getUserManagementService().searchForUser("User1", new PagingInfo(1, 100), true).getUsers().iterator().next();
-        UiUser user2 = getUserManagementService().searchForUser("User2", new PagingInfo(1, 100), true).getUsers().iterator().next();
+        UiUser user1 = getUserManagementService().getUserByName("User1", new PagingInfo(1, 100), true).getUsers().iterator().next();
+        UiUser user2 = getUserManagementService().getUserByName("User2", new PagingInfo(1, 100), true).getUsers().iterator().next();
         assertNotNull(user1);
         assertNotNull(user2);
 
-        UiGroup group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        UiGroup group1 = getUserManagementService().getGroupByName("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
         group1.setDescription("Group1_Description_New");
         group1.setEnabled(false);
 
@@ -612,7 +608,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
         // perform update
         getUserManagementService().updateGroup(group1);
 
-        group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        group1 = getUserManagementService().getGroupByName("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
         assertEquals("Group1_Description_New", group1.getDescription());
         assertEquals(false, group1.isEnabled());
 
@@ -645,18 +641,18 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
 
 
     public void testDeleteGroup() throws Exception {
-        UiGroup group2 = getUserManagementService().searchForGroup("Group2", new PagingInfo(1, 100), true).getGroups().iterator().next();
-        UiGroup group4 = getUserManagementService().searchForGroup("Group4", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        UiGroup group2 = getUserManagementService().getGroupByName("Group2", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        UiGroup group4 = getUserManagementService().getGroupByName("Group4", new PagingInfo(1, 100), true).getGroups().iterator().next();
         getUserManagementService().deleteGroups(
                 new UiGroup[] {
                     group2, group4                
                 });
 
 
-        assertEquals(getUserManagementService().searchForGroup("Group2", new PagingInfo(1, 100), true).getGroups().size(), 0);
-        assertEquals(getUserManagementService().searchForGroup("Group4", new PagingInfo(1, 100), true).getGroups().size(), 0);
+        assertEquals(getUserManagementService().getGroupByName("Group2", new PagingInfo(1, 100), true).getGroups().size(), 0);
+        assertEquals(getUserManagementService().getGroupByName("Group4", new PagingInfo(1, 100), true).getGroups().size(), 0);
 
-        UiUser toby = getUserManagementService().searchForUser("Toby", new PagingInfo(1, 100), true).getUsers().iterator().next();
+        UiUser toby = getUserManagementService().getUserByName("Toby", new PagingInfo(1, 100), true).getUsers().iterator().next();
 
         assertNotNull(toby);
         assertEquals(toby.getGroups().size(), 1);
@@ -665,7 +661,7 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
 
 
     public void testDeleteUser() throws Exception {
-        UiUser toby = getUserManagementService().searchForUser("Toby", new PagingInfo(1, 100), true).getUsers().iterator().next();
+        UiUser toby = getUserManagementService().getUserByName("Toby", new PagingInfo(1, 100), true).getUsers().iterator().next();
 
         getUserManagementService().deleteUsers(
                 new UiUser[] {
@@ -674,16 +670,16 @@ public class UserManagementServiceTest extends AbstractDbTestCase {
         );
 
 
-        assertEquals(getUserManagementService().searchForUser("Toby", new PagingInfo(1, 100), true).getUsers().size(), 0);
+        assertEquals(getUserManagementService().getUserByName("Toby", new PagingInfo(1, 100), true).getUsers().size(), 0);
 
-        UiGroup group1 = getUserManagementService().searchForGroup("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        UiGroup group1 = getUserManagementService().getGroupByName("Group1", new PagingInfo(1, 100), true).getGroups().iterator().next();
         List<UiUser> group1Users = group1.getUsers();
         Collections.sort(group1Users, new UiUserUsernameComparator());
 
         assertEquals(1, group1Users.size());
         assertEquals("Jim", group1Users.get(0).getUsername());
 
-        UiGroup group2 = getUserManagementService().searchForGroup("Group2", new PagingInfo(1, 100), true).getGroups().iterator().next();
+        UiGroup group2 = getUserManagementService().getGroupByName("Group2", new PagingInfo(1, 100), true).getGroups().iterator().next();
         List<UiUser> group2Users = group2.getUsers();
         Collections.sort(group2Users, new UiUserUsernameComparator());
 

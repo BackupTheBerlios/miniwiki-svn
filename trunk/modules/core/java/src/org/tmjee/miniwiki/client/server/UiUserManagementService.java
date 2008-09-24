@@ -12,14 +12,15 @@ public interface UiUserManagementService extends RemoteService {
 
     UiCredentials authenticate(String username, String password);
 
-    UiUsers searchForUser(String username, PagingInfo pagingInfo, boolean exactMatch);
+    UiUsers getUserByName(String username, PagingInfo pagingInfo, boolean exactMatch);
     UiUsers getAllUsers(PagingInfo pagingInfo);
     void updateUser(UiUser uiUser);
     void deleteUsers(UiUser[] uiUsers);
 
-    UiGroups searchForGroup(String groupName, PagingInfo pagingInfo, boolean exactMatch);
+    UiGroups getGroupByName(String groupName, PagingInfo pagingInfo, boolean exactMatch);
     UiGroups getAllGroups(PagingInfo pagingInfo);
     void updateGroup(UiGroup uiGroup);
     void deleteGroups(UiGroup[] uiGroups);
+    UiGroup getGroupById(long id);
     
 }
