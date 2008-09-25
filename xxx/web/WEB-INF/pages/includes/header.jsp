@@ -35,4 +35,4 @@
   </div>
   <div id="banner">
     <h1>Company's Site</h1>
-  </div>
+  </div> 
