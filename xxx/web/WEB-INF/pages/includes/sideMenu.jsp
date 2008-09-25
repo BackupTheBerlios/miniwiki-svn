@@ -3,7 +3,7 @@
     <div id="navcontainer">
       <h2>Links</h2>
       <ul>
-        <li><a href="http://www.free-css.com/">Snapp Happy</a></li>
+        <li><a href="<c:url value="" />">Snapp Happy</a></li>
         <li><a href="http://www.free-css.com/">TODC</a></li>
         <li><a href="http://www.free-css.com/">Andreas Viklund</a></li>
         <li><a href="http://www.free-css.com/">James Koster</a> </li>

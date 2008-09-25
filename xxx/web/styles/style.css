@@ -175,3 +175,17 @@ text-transform : uppercase;
 background: #fff;
 color: #2e2e2e;
 }
+
+
+        /* Home page blocks' table */
+.imageTable { margin: 10px; }
+.imageTable tr td {padding: 2px; text-align:left; width:25%;}
+.imageTable tr td .newsItem {float:none;}
+
+#login {
+    width: 520px;
+    margin-left: 300px;
+    padding: 0 10px;    
+}
+
+
