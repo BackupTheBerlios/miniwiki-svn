@@ -10,51 +10,44 @@
       <tr><td>
               <div class="downloads">
                   <div class="newsItem">
-
-                      <h2><a href="aboutus_e.htm"><img src="media/bluec_aboutus_e.gif" alt="About Us"></a></h2>
-                      <img style="border-width: 0px; padding: 0pt 10pt 5px 15px; float: left;" alt="" src="media/thumbup.gif"/>
-                    <p style="margin-bottom: 0pt;"><a href="aboutus_e.htm">We provide quick and flexible services to fulfill customers' needs. Our customers are surprised with our good service.</a><br>
-                    <br>
+                      <h2><a href="<c:url value="/aboutUs.view"/>"><fmt:message key="home.label.aboutUs"/></a></h2>
+                      <p style="margin-bottom: 0pt;"><a href="<c:url value="/aboutUs.view"/>">
+                          <fmt:message key="home.description.aboutUs"/>
+                      </a></p><br/><br/>
                   </div>
               </div>
       </td><td>
               <div class="downloads">
                   <div class="newsItem">
-
-                      <h2><a href="contactus_e.htm"><img src="media/greyc_e.gif" alt="Contact Us"></a></h2>
-                      <img style="border-width: 0px; padding: 0pt 10pt 5px 15px; float: left;" alt="" src="images/man.gif"/>
-                    <p style="margin-bottom: 0pt;"><a href="contactus_e.htm">Please feel free to contact us for more information. We assure you with our committed services.</a><br>
-                    <br>
-                  </div>
-              </div>
-
-      </td><td>
-              <div class="downloads">
-
-                  <div class="newsItem">
-                      <h2><a href="applynow_e.php"><img src="media/orangec_e.gif" alt="Apply Now"></a></h2>
-                      <img style="border-width: 0px; padding: 0pt 10pt 5px 15px; float: left;" alt="" src="images/checklist.gif"/>
-                    <p style="margin-bottom: 0pt;"><a href="applynow_e.php">Application is easy as only minimal information is needed and our consultant will attend to you shortly.</a><br>
-                    <br>
+                    <h2><a href="<c:url value="/contactUs.view"/>"><fmt:message key="home.label.contactUs"/></a></h2>
+                    <p style="margin-bottom: 0pt;"><a href="<c:url value='/contactUs.view'/>">
+                        <fmt:message key="home.description.contactUs"/>
+                    </a></p><br/><br/>
                   </div>
               </div>
 
       </td><td>
               <div class="downloads">
                   <div class="newsItem">
-                      <h2><a href="referer_e.htm"><img src="media/greenc_e.gif" alt="Referer Program"></a></h2>
-                      <img style="border-width: 0px; padding: 0pt 10pt 5px 15px; float: left;" alt="" src="images/dollar.gif"/>
-                    <p style="margin-bottom: 0pt;"><a href="referer_e.htm">If anyone referred by you successfully gets the loan from us, you could get up to 2% bonus based on the approved loan amount.</a><br>
-                    <br>
+                    <h2><a href="<c:url value="/applyNow.view"/>"><fmt:message key="home.label.applyNow"/></a></h2>
+                    <p style="margin-bottom: 0pt;"><a href="<c:url value='/applyNow.view' />">
+                        <fmt:message key="home.description.applyNow"/>
+                    </a><p/><br/><br/>
                   </div>
               </div>
 
+      </td><td>
+              <div class="downloads">
+                  <div class="newsItem">
+                    <h2><a href="<c:url value="/referrer.view" "><fmt:message key="home.label.referrer"/></a></h2>
+                    <p style="margin-bottom: 0pt;"><a href="<c:url value='/referrer.view'/>">
+                        <fmt:message key="home.description.referrer"/>
+                    </a><p/><br/><br/>
+                  </div>
+              </div>
       </td></tr></table>
       </center>
-      </div>
-
+  </div>
 
   <jsp:include page="includes/footer.jsp" />
-
-
 

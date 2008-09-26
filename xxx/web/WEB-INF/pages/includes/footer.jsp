@@ -2,12 +2,12 @@
 
 
 <div id="footer">
-    <a href="http://www.free-css.com/">homepage</a> |
-    <a href="mailto:denise@mitchinson.net">contact</a> |
-    <a href="http://validator.w3.org/check?uri=referer">html</a> |
-    <a href="http://jigsaw.w3.org/css-validator">css</a> |
-    &copy; 2007 Anyone | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> |
-    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>
+    <a href="<c:url value="/home.view"/>"><fmt:message key="footer.home"/>></a> |
+    <a href="mailto:<fmt:message key="static.email"/>"><fmt:message key="footer.contact"/></a> |
+    <a href="http://validator.w3.org/check?uri=referer"><fmt:message key="footer.html"/></a> |
+    <a href="http://jigsaw.w3.org/css-validator"><fmt:message key="footer.css"/></a> |
+    &copy; 2008 <fmt:message key="static.companyName"/> | <fmt:message key="footer.designBy"/> <a href="http://www.mitchinson.net"> www.mitchinson.net</a> |
+    <fmt:message key="footer.licenseUnder" />
 </div>
 </div>
 </body>

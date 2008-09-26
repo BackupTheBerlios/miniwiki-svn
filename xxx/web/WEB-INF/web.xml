@@ -65,6 +65,10 @@
         <servlet-name>site</servlet-name>
         <url-pattern>*.form</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>site</servlet-name>
+        <url-pattern>*.ajax</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

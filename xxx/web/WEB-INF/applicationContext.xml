@@ -15,5 +15,14 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
             ">
 
+    <bean name="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>staticMessages</value>
+                <value>dynamicMessages</value>
+            </list>
+        </property>
+    </bean>
+
 </beans>
         

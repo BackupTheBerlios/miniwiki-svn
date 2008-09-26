@@ -16,29 +16,44 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Company's Site</title>
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-<link href="<c:url value="/styles/style.css"/>" rel="stylesheet" type="text/css" />
+    <title><fmt:message key="static.companyName" /></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link href="<c:url value="/styles/style.css"/>" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<c:url value="/scripts/jquery.js" />"></script>
 </head>
 <body>
+<script type="text/javascript">
+    $(document).ready(
+        function() {
+            $("#loginButton").click(function(){
+                $.post(
+                        "login.ajax",
+                        {username:$("#username").text(), password:$("#password").text()},
+                        function(data){
+                            $("#login").html(data);
+                        });
+            });
+        });
+</script>
 <div id="container">
     <div id="login">
-        <input type="text" value="Username" />
-        <input name="password" type="password" />
-        <input type="button" value="Log In" />
+        <input id="username" type="text" value="<fmt:message key="header.textfield.username" /> " />
+        <input id="password" name="password" type="password" />
+        <input id="loginButton" type="button" value="<fmt:message key="header.button.login"/>" />
     </div>
 
     <div id="top">
     <ul id="navPyra">
-      <li><a <c:if test="${'1' eq param.menuId}">class="active"</c:if> href="<c:url value="/home.view" />">Home</a></li>
-      <li><a <c:if test="${'2' eq param.menuId}">class="active"</c:if> href="<c:url value="/aboutUs.view" />">About Us</a></li>
-      <li><a <c:if test="${'3' eq param.menuId}">class="active"</c:if> href="<c:url value="/services.view"/>">Services</a></li>
-      <li><a <c:if test="${'4' eq param.menuId}">class="active"</c:if> href="<c:url value="/faq.view"/> ">FAQ</a></li>
-      <li><a <c:if test="${'5' eq param.menuId}">class="active"</c:if> href="<c:url value="/privacy.view"/>">Privacy</a></li>
-      <li><a <c:if test="${'6' eq param.menuId}">class="active"</c:if> href="<c:url value="/applyNow.view"/>">Apply Now</a></li>
-      <li><a <c:if test="${'7' eq param.menuId}">class="active"</c:if> href="<c:url value="/contactUs.view"/>">Contact Us</a></li>
+      <li><a <c:if test="${'1' eq param.menuId}">class="active"</c:if> href="<c:url value="/home.view" />"><fmt:message key="header.menu.home"/> </a></li>
+      <li><a <c:if test="${'2' eq param.menuId}">class="active"</c:if> href="<c:url value="/aboutUs.view" />"><fmt:message key="header.menu.aboutUs"/></a></li>
+      <li><a <c:if test="${'3' eq param.menuId}">class="active"</c:if> href="<c:url value="/services.view"/>"><fmt:message key="header.menu.services"/></a></li>
+      <li><a <c:if test="${'4' eq param.menuId}">class="active"</c:if> href="<c:url value="/faq.view"/> "><fmt:message key="header.menu.faq"/></a></li>
+      <li><a <c:if test="${'5' eq param.menuId}">class="active"</c:if> href="<c:url value="/privacy.view"/>"><fmt:message key="header.menu.privacy"/> </a></li>
+      <li><a <c:if test="${'6' eq param.menuId}">class="active"</c:if> href="<c:url value="/applyNow.view"/>"><fmt:message key="header.menu.applyNow"/></a></li>
+      <li><a <c:if test="${'7' eq param.menuId}">class="active"</c:if> href="<c:url value="/contactUs.view"/>"><fmt:message key="header.menu.contactUs"/></a></li>
     </ul>
-  </div>
-  <div id="banner">
-    <h1>Company's Site</h1>
-  </div> 
+    </div>
+    <div id="banner">
+        <h1><fmt:message key="static.companyName"/></h1>
+    </div>
+    
