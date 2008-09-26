@@ -24,12 +24,13 @@ public abstract class AbstractInterceptor implements HandlerInterceptor {
         this.path = path;
     }
 
+
     protected void performForwardOrRedirect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (!redirect) {
             request.getRequestDispatcher(path).forward(request, response);
         }
         else {
-            response.sendRedirect(path);
+            response.sendRedirect(request.getContextPath()+path);
         }
     }
 }

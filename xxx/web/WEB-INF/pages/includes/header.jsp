@@ -1,3 +1,4 @@
+<%@ page import="foo.bar.site.interceptor.AccessInterceptor" %>
 <!--
    1 - Home
    2 - About us
@@ -22,24 +23,10 @@
     <script type="text/javascript" src="<c:url value="/scripts/jquery.js" />"></script>
 </head>
 <body>
-<script type="text/javascript">
-    $(document).ready(
-        function() {
-            $("#loginButton").click(function(){
-                $.post(
-                        "login.ajax",
-                        {username:$("#username").text(), password:$("#password").text()},
-                        function(data){
-                            $("#login").html(data);
-                        });
-            });
-        });
-</script>
+
 <div id="container">
     <div id="login">
-        <input id="username" type="text" value="<fmt:message key="header.textfield.username" /> " />
-        <input id="password" name="password" type="password" />
-        <input id="loginButton" type="button" value="<fmt:message key="header.button.login"/>" />
+        <c:import url="/WEB-INF/pages/ajax_login.jsp" />
     </div>
 
     <div id="top">

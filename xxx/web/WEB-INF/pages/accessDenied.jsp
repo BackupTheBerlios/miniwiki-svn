@@ -1,7 +1,7 @@
 <%@ include file="includes/taglibs.jsp"%>
 
   <jsp:include page="includes/header.jsp">
-      <jsp:param name="menuId" value="1" />
+      <jsp:param name="menuId" value="-1" />
   </jsp:include>
 
   <div id="content_noside">

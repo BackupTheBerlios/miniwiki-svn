@@ -18,8 +18,8 @@
     <!-- HandlerInterceptor /  -->
     <bean name="sessionInterceptor" class="foo.bar.site.interceptor.CreateSessionInterceptor" />
     <bean name="accessInterceptor" class="foo.bar.site.interceptor.AccessInterceptor">
-        <property name="path" value="/WEB-INF/pages/accessDenied.jsp" />
-        <property name="redirect" value="false" />
+        <property name="path" value="/accessDenied.view" />
+        <property name="redirect" value="true" />
     </bean>    
 
     <!-- Handler Mappings -->
@@ -39,6 +39,19 @@
             <list>
                 <ref bean="sessionInterceptor" />
                 <ref bean="accessInterceptor" />
+            </list>
+        </property>
+    </bean>
+
+    <bean name="view_noAccessInterceptor_simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/accessDenied.view">AccessDeniedController</prop>
+            </props>
+        </property>
+        <property name="interceptors">
+            <list>
+                <ref bean="sessionInterceptor" />
             </list>
         </property>
     </bean>
@@ -75,11 +88,14 @@
     <bean name="ContactUsController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
         <property name="viewName" value="contactUs" />    
     </bean>
+    <bean name="AccessDeniedController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="accessDenied" />    
+    </bean>
 
 
     <!-- Controller (Ajax) -->
     <bean name="AjaxLoginController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-        <property name="viewName" value="ajax_login.jsp" />
+        <property name="viewName" value="ajax_login" />
     </bean>
     
 
