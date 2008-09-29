@@ -24,5 +24,48 @@
         </property>
     </bean>
 
+    <bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="jdbc:hsqldb:hsql://localhost/site" />
+        <property name="username" value="sa" />
+        <property name="password" value="" />
+        <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+    </bean>
+
+
+    <bean name="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="get*"
+                       propagation="REQUIRED"
+                       read-only="true"/>
+            <tx:method name="*"
+                       propagation="REQUIRED"
+                       read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="pcService"
+                      type="aspectj"
+                      expression="execution(* foo.bar.site.service.Service.*(..))" />
+        <aop:advisor advice-ref="txAdvice"
+                     pointcut-ref="pcService" />
+    </aop:config>
+
+
+    <bean name="service" class="foo.bar.site.service.Service">
+        <constructor-arg index="0">
+            <ref bean="jdbcTemplate"/>
+        </constructor-arg>
+
+    </bean>
+
 </beans>
         

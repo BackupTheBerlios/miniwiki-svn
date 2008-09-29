@@ -1,14 +1,13 @@
 package foo.bar.site.interceptor;
 
-import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import foo.bar.site.domain.AccessSession;
 import foo.bar.site.controller.AccessSessionAware;
+import foo.bar.site.domain.LoginToken;
 
 /**
  * @author tmjee
@@ -20,7 +19,7 @@ public class AccessInterceptor extends AbstractInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         HttpSession session = request.getSession(true);
-        AccessSession accessSession = (AccessSession) session.getAttribute(ACCESS_SESSION_ID);
+        LoginToken accessSession = (LoginToken) session.getAttribute(ACCESS_SESSION_ID);
         setAccessSessionIntoHandler(accessSession, o);
         performForwardOrRedirect(request, response);
         if (accessSession == null) {
@@ -35,7 +34,7 @@ public class AccessInterceptor extends AbstractInterceptor {
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
     }
 
-    protected void setAccessSessionIntoHandler(AccessSession accessSession, Object handler) {
+    protected void setAccessSessionIntoHandler(LoginToken accessSession, Object handler) {
         if (handler instanceof AccessSessionAware) {
             ((AccessSessionAware)handler).setAccessSession(accessSession);
         }

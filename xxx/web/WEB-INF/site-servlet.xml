@@ -26,13 +26,7 @@
     <bean name="view_simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="/home.view">HomeController</prop>
-                <prop key="/aboutUs.view">AboutUsController</prop>
-                <prop key="/services.view">ServicesController</prop>
-                <prop key="/faq.view">FaqController</prop>
-                <prop key="/privacy.view">PrivacyController</prop>
-                <prop key="/applyNow.view">ApplyNowController</prop>
-                <prop key="/contactUs.view">ContactUsController</prop>
+                <prop key="/manageLoanApplication.view">ManageLoanApplicationController</prop>
             </props>
         </property>
         <property name="interceptors">
@@ -46,7 +40,16 @@
     <bean name="view_noAccessInterceptor_simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
+                <prop key="/home.view">HomeController</prop>
+                <prop key="/aboutUs.view">AboutUsController</prop>
+                <prop key="/services.view">ServicesController</prop>
+                <prop key="/faq.view">FaqController</prop>
+                <prop key="/privacy.view">PrivacyController</prop>
+                <prop key="/applyNow.view">ApplyNowController</prop>
+                <prop key="/contactUs.view">ContactUsController</prop>
                 <prop key="/accessDenied.view">AccessDeniedController</prop>
+
+                <prop key="/manageUser.view">ManageUserController</prop>
             </props>
         </property>
         <property name="interceptors">
@@ -91,14 +94,37 @@
     <bean name="AccessDeniedController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
         <property name="viewName" value="accessDenied" />    
     </bean>
-
+    <bean name="ManageUserController" class="foo.bar.site.controller.ManageUserFormController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="initialFormView" value="manageUsers"/>
+        <property name="failureFormView" value="manageUsers" />
+        <property name="successFormView" value="manageUsers" />
+        <property name="commandClass" value="java.util.ArrayList" />
+    </bean>
+    <bean name="ManageLoanApplicationController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="manageLoanApplicationController"/>   
+    </bean>
 
     <!-- Controller (Ajax) -->
-    <bean name="AjaxLoginController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-        <property name="viewName" value="ajax_login" />
+    <bean name="AjaxLoginController" class="foo.bar.site.controller.LoginFormController">
+        <constructor-arg index="0">
+            <ref bean="service" />
+        </constructor-arg>
+        <property name="initialFormView" value="ajax_login" />
+        <property name="failureFormView" value="ajax_login" />
+        <property name="successFormView" value="ajax_login" />
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.LoginTokenValidator" />
+            </list>
+        </property>
+        <property name="commandClass" value="foo.bar.site.domain.LoginToken" />
     </bean>
     
 
+    
     <!-- Handler Exception Resolver -->
 
 
