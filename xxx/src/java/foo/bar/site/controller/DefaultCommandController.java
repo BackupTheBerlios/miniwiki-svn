@@ -6,6 +6,7 @@ import org.springframework.validation.BindException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 /**
  * @author tmjee
@@ -27,11 +28,16 @@ public class DefaultCommandController extends AbstractCommandController {
         this.viewName = viewName;
     }
 
-    protected ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object command, BindException bindException) throws Exception {
+    protected ModelAndView handle(HttpServletRequest request, HttpServletResponse response, final Object command, final BindException bindException) throws Exception {
         onHandle(request, response, command, bindException);
         request.setAttribute(COMMAND_REQUEST_ID, command);
         request.setAttribute(BINDING_RESULT_REQUEST_ID, bindException);
-        return new ModelAndView(viewName);
+        return new ModelAndView(viewName, new HashMap<String, Object>() {
+            {
+                put(getCommandName(), command);
+                put(BINDING_RESULT_REQUEST_ID, bindException);
+            }
+        });
     }
 
     protected void onHandle(HttpServletRequest request, HttpServletResponse response, Object command, BindException bindException) {

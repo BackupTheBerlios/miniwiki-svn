@@ -6,5 +6,6 @@
 <%@ taglib uri="http://java.sun.com/jstl/sql-rt" prefix="sql-rt" %>
 <%@ taglib uri="http://java.sun.com/jstl/x" prefix="x" %>
 <%@ taglib uri="http://java.sun.com/jstl/x-rt" prefix="x-rt" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="spring"  %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="spring-form"  %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 

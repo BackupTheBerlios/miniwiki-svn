@@ -6,6 +6,7 @@ import org.springframework.validation.BindException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 
 /**
@@ -46,22 +47,39 @@ public class DefaultFormController extends AbstractFormController {
         this.failureFormView = failureFormView;
     }
 
-    protected ModelAndView showForm(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, BindException e) throws Exception {
-        return new ModelAndView(initialFormView) ;
+    protected ModelAndView showForm(final HttpServletRequest request, HttpServletResponse httpServletResponse, final BindException bindException) throws Exception {
+        return new ModelAndView(initialFormView, new HashMap<String, Object>() {
+            {
+                put(getCommandName(), getCommand(request));
+                put(BINDING_RESULT_REQUEST_ID, bindException);
+            }
+        });
     }
 
-    protected ModelAndView processFormSubmission(HttpServletRequest request, HttpServletResponse response, Object command, BindException bindException) throws Exception {
+
+    
+
+    protected ModelAndView processFormSubmission(HttpServletRequest request, HttpServletResponse response, final Object command, final BindException bindException) throws Exception {
         if (bindException.hasErrors()) {
-                onFailure(request, response, command, bindException);
-                request.setAttribute(BINDING_RESULT_REQUEST_ID, bindException.getBindingResult());
-                request.setAttribute(COMMAND_REQUEST_ID, command);
-                return new ModelAndView(failureFormView);
-        }
-        else {
-                onSuccess(request, response, command, bindException);
-                request.setAttribute(BINDING_RESULT_REQUEST_ID, bindException.getBindingResult());
-                request.setAttribute(COMMAND_REQUEST_ID, command);
-                return new ModelAndView(successFormView);
+            onFailure(request, response, command, bindException);
+            request.setAttribute(BINDING_RESULT_REQUEST_ID, bindException.getBindingResult());
+            request.setAttribute(COMMAND_REQUEST_ID, command);
+            return new ModelAndView(failureFormView, new HashMap<String, Object>() {
+                {
+                    put(getCommandName(), command);
+                    put(BINDING_RESULT_REQUEST_ID, bindException);
+                }
+            });
+        } else {
+            onSuccess(request, response, command, bindException);
+            request.setAttribute(BINDING_RESULT_REQUEST_ID, bindException.getBindingResult());
+            request.setAttribute(COMMAND_REQUEST_ID, command);
+            return new ModelAndView(successFormView, new HashMap<String, Object>() {
+                {
+                    put(getCommandName(), command);
+                    put(BINDING_RESULT_REQUEST_ID, bindException);
+                }
+            });
         }
     }
 

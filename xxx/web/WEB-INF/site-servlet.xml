@@ -50,6 +50,8 @@
                 <prop key="/accessDenied.view">AccessDeniedController</prop>
 
                 <prop key="/manageUser.view">ManageUserController</prop>
+
+                <prop key="/test.view">TestController</prop>
             </props>
         </property>
         <property name="interceptors">
@@ -124,13 +126,23 @@
     </bean>
     
 
+    <!-- TEsting controller -->
+    <bean name="TestController" class="foo.bar.site.controller.TestController">
+        <!--property name="initialFormView" value="test" />
+        <property name="failureFormView" value="test" />
+        <property name="successFormView" value="test" /-->
+        <property name="viewName" value="test"/>
+        <property name="commandClass" value="foo.bar.site.controller.TestControllerCommand"/>
+        <property name="commandName" value="command" />
+    </bean>
+
     
     <!-- Handler Exception Resolver -->
 
 
     <!-- View Resolver -->
     <bean name="urlBasedViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <!--property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/-->
         <property name="prefix" value="/WEB-INF/pages/" />
         <property name="suffix" value=".jsp" />
     </bean>

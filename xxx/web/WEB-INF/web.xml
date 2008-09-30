@@ -49,6 +49,16 @@
             <taglib-uri>http://java.sun.com/jstl/x-rt</taglib-uri>
             <taglib-location>/WEB-INF/tlds/x-1_0-rt.tld</taglib-location>
         </taglib>
+
+        <taglib>
+            <taglib-uri>http://www.springframework.org/tags</taglib-uri>
+            <taglib-location>/WEB-INF/tlds/spring.tld</taglib-location>
+        </taglib>
+
+        <taglib>
+            <taglib-uri>http://www.springframework.org/tags/form</taglib-uri>
+            <taglib-location>/WEB-INF/tlds/spring-form.tld</taglib-location>
+        </taglib>
     </jsp-config>
 
     <servlet>
