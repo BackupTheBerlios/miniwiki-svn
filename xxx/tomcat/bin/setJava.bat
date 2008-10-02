@@ -1,2 +1,0 @@
-set JAVA_HOME=%JAVA5_HOME%
-set PATH=%JAVA5_HOME%\bin;%PATH%
