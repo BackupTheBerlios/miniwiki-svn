@@ -1,0 +1,8 @@
+Sep 28, 2008 4:24:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Sep 28, 2008 4:24:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+Sep 28, 2008 4:24:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'site'
+Sep 28, 2008 4:24:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: Closing Spring root WebApplicationContext

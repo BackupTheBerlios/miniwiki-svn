@@ -1,0 +1,414 @@
+Sep 30, 2008 11:51:58 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 11:51:59 AM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:51:59 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1151 ms
+Sep 30, 2008 11:51:59 AM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 11:51:59 AM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 11:54:48 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 11:54:48 AM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:54:48 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 658 ms
+Sep 30, 2008 11:54:48 AM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 11:54:48 AM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 11:54:55 AM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:54:55 AM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 11:54:55 AM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 11:54:55 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 6395 ms
+Sep 30, 2008 11:55:12 AM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:55:13 AM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 11:55:13 AM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:55:45 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 11:55:45 AM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:55:45 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 659 ms
+Sep 30, 2008 11:55:45 AM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 11:55:45 AM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 11:55:50 AM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:55:50 AM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 11:55:50 AM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 11:55:50 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4591 ms
+Sep 30, 2008 11:57:08 AM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:57:10 AM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 11:57:10 AM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:57:38 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 11:57:38 AM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:57:38 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 665 ms
+Sep 30, 2008 11:57:38 AM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 11:57:38 AM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 11:57:43 AM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:57:43 AM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 11:57:43 AM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 11:57:43 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4619 ms
+Sep 30, 2008 11:58:03 AM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:58:04 AM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 11:58:05 AM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:58:15 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 11:58:15 AM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:58:15 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 702 ms
+Sep 30, 2008 11:58:15 AM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 11:58:15 AM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 11:58:24 AM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:58:24 AM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 11:58:24 AM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 11:58:24 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 9105 ms
+Sep 30, 2008 11:59:48 AM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 11:59:49 AM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 11:59:50 AM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 1:39:16 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 1:39:16 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 1:39:16 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 670 ms
+Sep 30, 2008 1:39:16 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 1:39:16 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 1:39:20 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 1:39:20 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 1:39:20 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 1:39:20 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4598 ms
+Sep 30, 2008 1:40:46 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 1:40:48 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 1:40:49 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:20:15 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 2:20:15 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:20:15 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 669 ms
+Sep 30, 2008 2:20:15 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 2:20:15 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 2:20:20 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:20:20 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 2:20:20 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 2:20:20 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4663 ms
+Sep 30, 2008 2:21:46 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:21:47 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 2:21:48 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:22:15 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 2:22:15 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:22:15 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 666 ms
+Sep 30, 2008 2:22:15 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 2:22:15 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 2:22:20 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:22:20 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 2:22:20 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/15  config=null
+Sep 30, 2008 2:22:20 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4603 ms
+Sep 30, 2008 2:29:02 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:29:03 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 2:29:04 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:29:22 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 2:29:22 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:29:22 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 665 ms
+Sep 30, 2008 2:29:22 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 2:29:22 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 2:29:27 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:29:27 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 2:29:27 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/47  config=null
+Sep 30, 2008 2:29:27 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4684 ms
+Sep 30, 2008 2:33:07 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:33:08 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 2:33:09 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:33:26 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 2:33:26 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:33:26 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 678 ms
+Sep 30, 2008 2:33:26 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 2:33:26 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 2:33:30 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 2:33:30 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 2:33:30 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 2:33:30 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4621 ms
+Sep 30, 2008 3:01:34 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:01:35 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 3:01:35 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:28:54 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 3:28:54 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:28:54 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 684 ms
+Sep 30, 2008 3:28:54 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 3:28:54 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 3:28:59 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:28:59 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 3:28:59 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 3:28:59 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4714 ms
+Sep 30, 2008 3:33:57 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:33:58 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 3:34:00 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:34:04 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 3:34:04 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:34:04 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 672 ms
+Sep 30, 2008 3:34:04 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 3:34:04 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 3:34:27 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 3:34:27 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:34:27 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 669 ms
+Sep 30, 2008 3:34:27 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 3:34:27 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 3:34:31 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:34:31 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 3:34:31 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 3:34:31 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4750 ms
+Sep 30, 2008 3:36:50 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:36:51 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 3:36:51 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:36:55 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 3:36:55 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:36:55 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 667 ms
+Sep 30, 2008 3:36:55 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 3:36:55 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 3:37:02 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 3:37:02 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:37:02 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 774 ms
+Sep 30, 2008 3:37:02 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 3:37:02 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 3:37:06 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:37:06 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 3:37:06 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 3:37:06 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4720 ms
+Sep 30, 2008 3:38:20 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:38:21 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 3:38:22 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:39:04 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 3:39:04 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:39:04 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 689 ms
+Sep 30, 2008 3:39:05 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 3:39:05 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 3:39:09 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:39:09 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 3:39:09 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 3:39:09 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4697 ms
+Sep 30, 2008 3:43:12 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:43:13 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 3:43:14 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:58:13 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 3:58:14 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:58:14 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 668 ms
+Sep 30, 2008 3:58:14 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 3:58:14 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 3:58:20 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 3:58:20 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 3:58:20 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/47  config=null
+Sep 30, 2008 3:58:20 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 6691 ms
+Sep 30, 2008 4:00:42 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 4:00:43 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 4:00:44 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 5:31:27 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 5:31:27 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 5:31:27 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 692 ms
+Sep 30, 2008 5:31:27 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 5:31:27 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 5:31:31 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 5:31:32 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 5:31:32 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/31  config=null
+Sep 30, 2008 5:31:32 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4769 ms
+Sep 30, 2008 5:32:45 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 5:32:46 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 5:32:47 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 5:33:00 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\j2sdk1.5.12\bin;.;C:\WINNT\system32;C:\WINNT;C:\j2sdk1.5.12/bin;C:\mojo\guice;C:\mojo\gwt-windows-1.4.61;C:\j2sdk1.4.2_08\bin;C:\apache-ant-1.7.0\bin;C:\maven\maven-2.0.7\bin;C:\WINNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\GnuWin32\bin;c:\Program Files\IBM\Trace Facility\;c:\Program Files\IBM\Personal Communications\;C:\Program Files\Windows Imaging\
+Sep 30, 2008 5:33:00 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 5:33:00 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 671 ms
+Sep 30, 2008 5:33:00 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Sep 30, 2008 5:33:00 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+Sep 30, 2008 5:33:05 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 5:33:05 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 30, 2008 5:33:05 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/32  config=null
+Sep 30, 2008 5:33:05 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4655 ms
+Sep 30, 2008 5:34:57 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Sep 30, 2008 5:34:58 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Sep 30, 2008 5:34:59 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
