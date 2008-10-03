@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd
+            http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            ">
+
+    <!-- HandlerInterceptor /  -->
+    <bean name="sessionInterceptor" class="foo.bar.site.interceptor.CreateSessionInterceptor" />
+    <bean name="accessInterceptor" class="foo.bar.site.interceptor.AccessInterceptor">
+        <property name="path" value="/accessDenied.view" />
+        <property name="redirect" value="true" />
+    </bean>    
+
+    <!-- Handler Mappings -->
+    <bean name="view_simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/logout.view">LogOutController</prop>
+
+                <prop key="/manageUser.view">ManageUserController</prop>
+                <prop key="/listUser.ajax">AjaxListUserController</prop>
+                <prop key="/deleteUser.ajax">AjaxDeleteUserController</prop>
+
+                <prop key="/manageAddUser.view">ManageAddUserController</prop>
+                <prop key="/showAddUserForm.ajax">ShowAddUserController</prop>
+                <prop key="/addUser.ajax">AjaxAddUserController</prop>
+
+                <prop key="/manageProfile.view">ManageProfileController</prop>
+                <prop key="/showProfile.ajax">AjaxShowProfileController</prop>
+                <prop key="/updateProfile.ajax">AjaxUpdateProfileController</prop>
+
+                <prop key="/manageLoanApplication.view">ManageLoanApplicationController</prop>
+                <prop key="/listLoanApplication.ajax">AjaxListLoanApplicationController</prop>
+                <prop key="/deleteLoanApplication.ajax">AjaxDeleteLoanApplicationController</prop>
+                <prop key="/viewLoanApplication.ajax">AjaxViewLoanApplicationController</prop>
+            </props>
+        </property>
+        <property name="interceptors">
+            <list>
+                <ref bean="sessionInterceptor" />
+                <ref bean="accessInterceptor" />
+            </list>
+        </property>
+    </bean>
+
+    <bean name="view_noAccessInterceptor_simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/home.view">HomeController</prop>
+                <prop key="/aboutUs.view">AboutUsController</prop>
+                <prop key="/services.view">ServicesController</prop>
+                <prop key="/faq.view">FaqController</prop>
+                <prop key="/privacy.view">PrivacyController</prop>
+                <prop key="/contactUs.view">ContactUsController</prop>
+                <prop key="/referrer.view">ReferrerController</prop>
+                <prop key="/accessDenied.view">AccessDeniedController</prop>
+
+                <prop key="/applyLoan.view">ApplyLoanController</prop>
+                <prop key="/showLoanForm.ajax">AjaxShowLoanFormController</prop>
+                <prop key="/submitLoan.ajax">AjaxSubmitLoanController</prop>
+            </props>
+        </property>
+        <property name="interceptors">
+            <list>
+                <ref bean="sessionInterceptor" />
+            </list>
+        </property>
+    </bean>
+
+    <bean name="ajax_simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/login.ajax">AjaxLoginController</prop>
+            </props>
+        </property>
+    </bean>
+
+
+
+    <!-- Controller (View)-->
+    <bean name="HomeController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="home" />
+    </bean>
+     <bean name="AboutUsController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="aboutUs" />
+    </bean>
+     <bean name="ServicesController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="services" />
+    </bean>
+     <bean name="FaqController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="faq" />
+    </bean>
+     <bean name="PrivacyController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="privacy" />
+    </bean>
+    <bean name="ContactUsController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="contactUs" />    
+    </bean>
+    <bean name="ReferrerController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="referrer"/>
+    </bean>
+    <bean name="AccessDeniedController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="accessDenied" />    
+    </bean>
+    <bean name="ManageUserController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="manageUser" />
+    </bean>
+    <bean name="ManageAddUserController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="manageAddUser" />
+    </bean>
+    <bean name="ShowAddUserController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="ajax_addUser"/>
+    </bean>
+    <bean name="ManageProfileController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="manageProfile" />
+    </bean>
+    <bean name="ManageLoanApplicationController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="manageLoanApplication" />
+    </bean>
+    <bean name="ApplyLoanController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="applyLoan"/>
+    </bean>
+    <bean name="LogOutController" class="foo.bar.site.controller.LogOutCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.LogOutCommandControllerValidator"/>
+            </list>
+        </property>
+        <property name="successCommandView" value="home"/>
+        <property name="failureCommandView" value="home" />
+        <property name="commandClass" value="foo.bar.site.controller.LogOutCommandControllerCommand" />
+    </bean>
+
+
+
+    <!-- Controller (Ajax) -->
+    <bean name="AjaxLoginController" class="foo.bar.site.controller.LoginFormController">
+        <constructor-arg index="0">
+            <ref bean="service" />
+        </constructor-arg>
+        <property name="initialFormView" value="ajax_login" />
+        <property name="failureFormView" value="ajax_login" />
+        <property name="successFormView" value="ajax_login" />
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.LoginFormControllerCommandValidator" />
+            </list>
+        </property>
+        <property name="commandClass" value="foo.bar.site.controller.LoginFormControllerCommand" />
+    </bean>
+    <bean name="AjaxListUserController" class="foo.bar.site.controller.ListUserCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="successCommandView" value="ajax_listUser"/>
+        <property name="failureCommandView" value="ajax_listUser" />
+        <property name="commandClass" value="foo.bar.site.controller.ListUserCommandControllerCommand" />
+    </bean>
+    <bean name="AjaxDeleteUserController" class="foo.bar.site.controller.DeleteUserCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.DeleteUserCommandControllerValidator"/>
+            </list>
+        </property>
+        <property name="successCommandView" value="ajax_listUser"/>
+        <property name="failureCommandView" value="ajax_listUser" />
+        <property name="commandClass" value="foo.bar.site.controller.DeleteUserCommandControllerCommand" />
+    </bean>
+    <bean name="AjaxAddUserController" class="foo.bar.site.controller.AddUserCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.AddUserCommandControllerValidator"/>
+            </list>
+        </property>
+        <property name="successCommandView" value="ajax_addUser"/>
+        <property name="failureCommandView" value="ajax_addUser" />
+        <property name="commandClass" value="foo.bar.site.controller.AddUserCommandControllerCommand" />
+    </bean>
+    <bean name="AjaxShowProfileController" class="foo.bar.site.controller.ShowProfileCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.ShowProfileCommandControllerValidator"/>
+            </list>
+        </property>
+        <property name="successCommandView" value="ajax_showProfile"/>
+        <property name="failureCommandView" value="ajax_showProfile" />
+        <property name="commandClass" value="foo.bar.site.controller.ShowProfileCommandControllerCommand" />
+    </bean>
+    <bean name="AjaxUpdateProfileController" class="foo.bar.site.controller.UpdateProfileCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.UpdateProfileCommandControllerValidator"/>
+            </list>
+        </property>
+        <property name="successCommandView" value="ajax_showProfile"/>
+        <property name="failureCommandView" value="ajax_showProfile" />
+        <property name="commandClass" value="foo.bar.site.controller.UpdateProfileCommandControllerCommand" />
+    </bean>
+    <bean name="AjaxListLoanApplicationController" class="foo.bar.site.controller.ListLoanApplicationCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.ListLoanApplicationCommandControllerValidator"/>
+            </list>
+        </property>
+        <property name="successCommandView" value="ajax_listLoanApplication"/>
+        <property name="failureCommandView" value="ajax_listLoanApplication" />
+        <property name="commandClass" value="foo.bar.site.controller.ListLoanApplicationCommandControllerCommand" />
+    </bean>
+    <bean name="AjaxDeleteLoanApplicationController" class="foo.bar.site.controller.DeleteLoanCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.DeleteLoanCommandControllerValidator"/>
+            </list>
+        </property>
+        <property name="successCommandView" value="ajax_listLoanApplication"/>
+        <property name="failureCommandView" value="ajax_listLoanApplication" />
+        <property name="commandClass" value="foo.bar.site.controller.DeleteLoanCommandControllerCommand" />
+    </bean>
+    <bean name="AjaxViewLoanApplicationController" class="foo.bar.site.controller.ViewLoanCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.ViewLoanCommandControllerValidator"/>
+            </list>
+        </property>
+        <property name="successCommandView" value="ajax_viewLoanApplication"/>
+        <property name="failureCommandView" value="ajax_viewLoanApplication" />
+        <property name="commandClass" value="foo.bar.site.controller.ViewLoanCommandControllerCommand" />
+    </bean>
+    <bean name="AjaxShowLoanFormController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="ajax_applyLoan"/>   
+    </bean>
+    <bean name="AjaxSubmitLoanController" class="foo.bar.site.controller.SubmitLoanCommandController">
+        <constructor-arg index="0">
+            <ref bean="service"/>
+        </constructor-arg>
+        <property name="validators">
+            <list>
+                <bean class="foo.bar.site.validator.SubmitLoanCommandControllerValidator"/>
+            </list>
+        </property>
+        <property name="successCommandView" value="ajax_applyLoan"/>
+        <property name="failureCommandView" value="ajax_applyLoan" />
+        <property name="commandClass" value="foo.bar.site.controller.SubmitLoanCommandControllerCommand" />
+    </bean>
+
+    
+    <!-- Handler Exception Resolver -->
+
+
+    <!-- View Resolver -->
+    <bean name="urlBasedViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+
+    <!-- Multipart Resolver -->
+
+
+    <!-- Locale Resolver -->
+
+    <!-- Theme Resolver -->
+    
+
+</beans>
