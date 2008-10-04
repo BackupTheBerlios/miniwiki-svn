@@ -1,8 +1,0 @@
-Sep 25, 2008 5:19:25 PM org.apache.catalina.core.ApplicationContext log
-INFO: Initializing Spring root WebApplicationContext
-Sep 25, 2008 5:19:26 PM org.apache.catalina.core.ApplicationContext log
-INFO: Initializing Spring FrameworkServlet 'site'
-Sep 25, 2008 5:19:31 PM org.apache.catalina.core.ApplicationContext log
-INFO: ContextListener: contextInitialized()
-Sep 25, 2008 5:19:31 PM org.apache.catalina.core.ApplicationContext log
-INFO: SessionListener: contextInitialized()
