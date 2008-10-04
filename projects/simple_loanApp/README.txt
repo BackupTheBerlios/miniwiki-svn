@@ -143,16 +143,17 @@ There's only 2 kind of users in this application
 
 2] Administrator
 ================
-- Browse at the loan applied
-- Delete the loan applied
+- Browse at the loan(s) applied
+- Delete the loan(s) applied
 - Add another administrator
-- Delete another administrator
+- Delete another administrator(s)
 - Change his own password
 
 To login as administrator, simply key in the username and password at the top of everye web page.
 
 By default, there's a default administartor with username as 'admin' and password as 'admin'
 
-
+Once logged in as administrator, at the top of the page, there'll be an 'Administration' link which will
+allow you to perform some administartion stuff, eg. browse loans applied.
 
 
