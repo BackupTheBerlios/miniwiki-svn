@@ -37,7 +37,7 @@ To run the application we need to :-
 ===============================
 Open up a command Console Window. 
 
-Navigate to <installation_directory> where <installation_directory> is where you unzip this sample, and 
+Navigate to <installation_directory>/site/ where <installation_directory> is where you unzip this sample, and 
 execute the following command
 
 ./startHsqlDb.sh  (in Linux)
@@ -66,7 +66,7 @@ To stop HSQLDB, just press [Ctrl]+[C] on the console.
 ====================================
 Open up another command Console window.
 
-Navigate to <installation_directory>/tomcat/bin where <installation_directory> is where you unzip this sample, 
+Navigate to <installation_directory>/site/tomcat/bin/ where <installation_directory> is where you unzip this sample, 
 and execute the following command 
 
 ./catalina.sh run   (in Linux)
@@ -115,7 +115,7 @@ To stop Tomcat, just press [Ctrl]+[C] on the console.
 #
 ##################################################
 
-Some part of the application could be configured, navigate to <installation_directory>/web/WEB-INF/classes/
+Some part of the application could be configured, navigate to <installation_directory>/site/web/WEB-INF/classes/
 directory. There you will find :-
 
 - staticMessages.properties
